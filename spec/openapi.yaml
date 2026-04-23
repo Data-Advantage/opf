@@ -1,0 +1,779 @@
+openapi: 3.1.0
+info:
+  title: pptx.dev API
+  version: "1.0.0"
+  description: |
+    REST API for parsing, validating, converting, generating, and rendering presentations.
+    OPF (Open Presentation Format) is the JSON contract; schema URL: `https://pptx.dev/schema/opf/v1`.
+
+    **Authentication:** Send `Authorization: Bearer <Clerk API key>` on every request, or use a signed-in browser session (Studio). `POST /v1/preview` is anonymous (IP rate-limited) for the OPF Playground.
+
+    Human-readable docs: [pptx.dev/docs](https://www.pptx.dev/docs)
+  contact:
+    name: pptx.dev
+    url: https://www.pptx.dev
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://api.pptx.dev
+    description: Production API
+  - url: http://localhost:3000/api
+    description: Local Next.js App Router (`/api` prefix)
+
+tags:
+  - name: playground
+    description: Anonymous OPF playground helpers (IP rate limits)
+  - name: validate
+    description: OPF schema validation (no billing for validation)
+  - name: parse
+    description: Upload and inspect .pptx files
+  - name: convert
+    description: PPTX to OPF
+  - name: generate
+    description: OPF to PPTX and exports
+  - name: render
+    description: PPTX to web or raster/vector previews
+
+security:
+  - bearerAuth: []
+
+paths:
+  /v1/validate:
+    post:
+      operationId: validateOpf
+      tags: [validate]
+      summary: Validate OPF JSON
+      description: Validates an OPF document against the schema. Returns structured errors and warnings.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OpfDocument"
+            examples:
+              minimal:
+                summary: Minimal OPF
+                value:
+                  $schema: "https://pptx.dev/schema/opf/v1"
+                  version: "1.0"
+                  meta:
+                    title: Example
+                  design:
+                    theme: corporate-minimal
+                  slides:
+                    - id: s1
+                      layout: title-slide
+                      elements:
+                        - id: h1
+                          type: text
+                          content:
+                            text: Hello
+      responses:
+        "200":
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ValidateResponse"
+        "400":
+          description: Bad request (wrong Content-Type or invalid JSON)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/preview:
+    post:
+      operationId: previewOpf
+      tags: [playground]
+      summary: OPF preview summary (anonymous)
+      description: |
+        Validates OPF JSON (body max 256 KB) for live preview without an API key.
+        Per-IP limits: 30 requests/minute and 500/hour (separate fixed windows).
+        `format=web` returns `textRuns` per slide (similar to `/v1/render?format=web`).
+        `format=svg|png` returns `svg: null` per slide with an `export` stub until the engine ships.
+      security: []
+      parameters:
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [web, svg, png]
+            default: svg
+          description: Preview representation
+        - name: slides
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Comma-separated 1-based slide numbers (subset of slides to return)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OpfDocument"
+      responses:
+        "200":
+          description: Valid OPF — preview payload (`slides` shape depends on `format`)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PreviewResponse"
+        "400":
+          description: Bad request (wrong Content-Type, invalid JSON, bad `format`/`slides`)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "413":
+          description: Request body larger than 256 KB
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "422":
+          description: OPF failed validation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/parse:
+    post:
+      operationId: parsePptx
+      tags: [parse]
+      summary: Parse a .pptx upload
+      description: Upload a `.pptx` file and receive a `parseId` for follow-up GET endpoints.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: PowerPoint file (.pptx)
+      responses:
+        "200":
+          description: Parse job created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ParseAcceptedResponse"
+        "400":
+          description: Missing file or not a .pptx
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/convert:
+    post:
+      operationId: convertPptxToOpf
+      tags: [convert]
+      summary: Convert .pptx to OPF JSON
+      description: Reverse of `/v1/generate` — imports an existing deck as OPF.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: OPF document
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpfDocument"
+        "400":
+          description: Missing file or not a .pptx
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/generate:
+    post:
+      operationId: generateFromOpf
+      tags: [generate]
+      summary: Generate output from OPF
+      description: |
+        Validates OPF, then enqueues or returns generation status. Query `format` selects the target
+        (`pptx`, `pdf`, `png`, `svg`). The PPTX engine may return `202 Accepted` while work is stubbed or async.
+      parameters:
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [pptx, pdf, png, svg]
+            default: pptx
+          description: Output format
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OpfDocument"
+      responses:
+        "202":
+          description: Accepted — generation stub or async pipeline
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenerateAcceptedResponse"
+        "400":
+          description: Invalid format or wrong Content-Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          description: OPF failed validation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/render:
+    post:
+      operationId: renderPptx
+      tags: [render]
+      summary: Render a .pptx for web or export
+      description: |
+        Parses upload, stores result, and returns slide data (`format=web`) or an acceptance payload
+        for raster/vector engines (`svg`, `png`).
+      parameters:
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [web, svg, png]
+            default: web
+        - name: slides
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Comma-separated 1-based slide numbers (e.g. `1,3,5`)
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Web slide payload
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RenderWebResponse"
+        "202":
+          description: Export pipeline not ready — stub response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RenderAcceptedResponse"
+        "400":
+          description: Invalid format, slides, or missing file
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/parse/{parseId}/metadata:
+    get:
+      operationId: getParseMetadata
+      tags: [parse]
+      summary: Get document metadata for a parse
+      parameters:
+        - $ref: "#/components/parameters/ParseId"
+      responses:
+        "200":
+          description: Metadata buckets (core, app, custom)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ParseMetadataResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Parse expired or unknown
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /v1/parse/{parseId}/slides/{index}:
+    get:
+      operationId: getParseSlide
+      tags: [parse]
+      summary: Get one slide by index
+      parameters:
+        - $ref: "#/components/parameters/ParseId"
+        - name: index
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+          description: Zero-based slide index
+      responses:
+        "200":
+          description: Slide payload
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ParseSlideResponse"
+        "400":
+          description: Invalid index
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Parse or slide not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /v1/parse/{parseId}/text:
+    get:
+      operationId: getParseAllText
+      tags: [parse]
+      summary: Get flattened text for all slides
+      parameters:
+        - $ref: "#/components/parameters/ParseId"
+      responses:
+        "200":
+          description: Text per slide
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ParseTextResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Parse expired or unknown
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Clerk user or org API key (`ppx_…`), or session cookie from signed-in Studio user.
+
+  parameters:
+    ParseId:
+      name: parseId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Identifier returned by `POST /v1/parse` or `/v1/render`
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    InternalError:
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+
+  schemas:
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          $ref: "#/components/schemas/ApiError"
+
+    ApiError:
+      type: object
+      required: [code, message, requestId]
+      properties:
+        code:
+          type: string
+          enum:
+            - invalid_request
+            - unauthorized
+            - forbidden
+            - not_found
+            - rate_limited
+            - idempotency_conflict
+            - internal_error
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+          description: Optional structured details for the error code.
+        requestId:
+          type: string
+
+    OpfDocument:
+      type: object
+      description: OPF v1 document. See https://www.pptx.dev/docs/opf for field reference.
+      additionalProperties: true
+      properties:
+        $schema:
+          type: string
+          const: "https://pptx.dev/schema/opf/v1"
+        version:
+          type: string
+        meta:
+          type: object
+          additionalProperties: true
+        design:
+          type: object
+          additionalProperties: true
+        slides:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+
+    ValidationIssue:
+      type: object
+      required: [path, message]
+      properties:
+        path:
+          type: string
+        message:
+          type: string
+
+    ValidateResponse:
+      type: object
+      required: [valid, errors, warnings]
+      properties:
+        valid:
+          type: boolean
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidationIssue"
+        warnings:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidationIssue"
+
+    PreviewWebSlide:
+      type: object
+      required: [index, slideNumber, id, layout, hidden, textRuns, speakerNotes]
+      properties:
+        index:
+          type: integer
+          minimum: 0
+        slideNumber:
+          type: integer
+          minimum: 1
+        id:
+          type: string
+        layout:
+          type: string
+        hidden:
+          type: boolean
+        textRuns:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        speakerNotes:
+          type: string
+
+    PreviewRasterSlide:
+      type: object
+      required: [index, slideNumber, id, layout, svg]
+      properties:
+        index:
+          type: integer
+          minimum: 0
+        slideNumber:
+          type: integer
+          minimum: 1
+        id:
+          type: string
+        layout:
+          type: string
+        svg:
+          type: string
+          nullable: true
+
+    PreviewExportStub:
+      type: object
+      required: [status, message]
+      properties:
+        status:
+          type: string
+          example: accepted
+        message:
+          type: string
+
+    PreviewResponse:
+      type: object
+      required: [status, format, slideCount, dimensions, meta, design, slides, warnings]
+      properties:
+        status:
+          type: string
+          example: ok
+        format:
+          type: string
+          enum: [web, svg, png]
+        slideCount:
+          type: integer
+          minimum: 0
+        dimensions:
+          type: object
+          required: [widthPx, heightPx, preset]
+          properties:
+            widthPx:
+              type: integer
+            heightPx:
+              type: integer
+            preset:
+              type: string
+        meta:
+          type: object
+          required: [title]
+          properties:
+            title:
+              type: string
+            filename:
+              type: string
+              description: Suggested download filename including extension (resolved from meta.filename or title).
+            subtitle:
+              type: string
+        design:
+          type: object
+          properties:
+            theme:
+              type: string
+        export:
+          $ref: "#/components/schemas/PreviewExportStub"
+        slides:
+          type: array
+          items:
+            oneOf:
+              - $ref: "#/components/schemas/PreviewWebSlide"
+              - $ref: "#/components/schemas/PreviewRasterSlide"
+        warnings:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidationIssue"
+
+    ParseAcceptedResponse:
+      type: object
+      required: [parseId, slideCount, width, height]
+      properties:
+        parseId:
+          type: string
+        slideCount:
+          type: integer
+        width:
+          type: integer
+          description: Slide width in EMUs
+        height:
+          type: integer
+          description: Slide height in EMUs
+
+    GenerateAcceptedResponse:
+      type: object
+      required: [status, message, format, slideCount, validationWarnings]
+      properties:
+        status:
+          type: string
+          example: accepted
+        message:
+          type: string
+        format:
+          type: string
+        filename:
+          type: string
+          description: Suggested output filename including extension (from meta.filename or title slug).
+        slideCount:
+          type: integer
+        validationWarnings:
+          type: array
+          items:
+            type: string
+
+    TextRun:
+      type: object
+      additionalProperties: true
+      properties:
+        text:
+          type: string
+        bold:
+          type: boolean
+        italic:
+          type: boolean
+        underline:
+          type: boolean
+        fontSize:
+          type: number
+        fontFamily:
+          type: string
+        color:
+          type: string
+        alignment:
+          type: string
+
+    RenderWebResponse:
+      type: object
+      required: [parseId, format, dimensions, slideCount, slides, metadata, viewerUrl]
+      properties:
+        parseId:
+          type: string
+        format:
+          type: string
+          enum: [web]
+        dimensions:
+          type: object
+          additionalProperties: true
+        slideCount:
+          type: integer
+        slides:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        metadata:
+          type: object
+          additionalProperties: true
+        viewerUrl:
+          type: string
+          description: Relative URL to the web viewer
+
+    RenderAcceptedResponse:
+      type: object
+      required: [status, message, parseId, format, slideCount, viewerUrl]
+      properties:
+        status:
+          type: string
+          example: accepted
+        message:
+          type: string
+        parseId:
+          type: string
+        format:
+          type: string
+        slideCount:
+          type: integer
+        viewerUrl:
+          type: string
+
+    ParseMetadataResponse:
+      type: object
+      required: [parseId, core, app, custom]
+      properties:
+        parseId:
+          type: string
+        core:
+          type: object
+          additionalProperties: true
+        app:
+          type: object
+          additionalProperties: true
+        custom:
+          type: object
+          additionalProperties: true
+
+    ParseSlideResponse:
+      type: object
+      required: [index, slideNumber, hidden, width, height, textRuns]
+      properties:
+        index:
+          type: integer
+        slideNumber:
+          type: integer
+        hidden:
+          type: boolean
+        width:
+          type: integer
+        height:
+          type: integer
+        textRuns:
+          type: array
+          items:
+            $ref: "#/components/schemas/TextRun"
+        speakerNotes:
+          type: string
+
+    ParseTextResponse:
+      type: object
+      required: [parseId, slides]
+      properties:
+        parseId:
+          type: string
+        slides:
+          type: array
+          items:
+            type: object
+            additionalProperties: true

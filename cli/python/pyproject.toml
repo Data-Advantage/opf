@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pptx-cli"
+version = "0.1.0"
+description = "Official CLI for pptx.dev — generate, parse, validate, render, and format presentations via the OPF (Open Presentation Format). Installs with pipx; shells out to the bundled Node CLI."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+authors = [{ name = "pptx.dev" }]
+keywords = [
+  "pptx",
+  "powerpoint",
+  "opf",
+  "cli",
+  "presentation",
+  "slides",
+  "ai",
+  "agents",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Office/Business",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities",
+]
+
+[project.scripts]
+pptx = "pptx_cli.main:run"
+
+[project.urls]
+Homepage = "https://www.pptx.dev"
+Documentation = "https://www.pptx.dev/docs/cli"
+Repository = "https://github.com/Data-Advantage/pptx-dev"
+Issues = "https://github.com/Data-Advantage/pptx-dev/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pptx_cli"]
+artifacts = [
+  "src/pptx_cli/vendor/cli.cjs",
+  "src/pptx_cli/vendor/package.json",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/pptx_cli",
+  "README.md",
+  "LICENSE",
+  "pyproject.toml",
+]
+artifacts = [
+  "src/pptx_cli/vendor/cli.cjs",
+  "src/pptx_cli/vendor/package.json",
+]

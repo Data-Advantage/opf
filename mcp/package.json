@@ -1,0 +1,79 @@
+{
+  "name": "pptx-mcp",
+  "version": "0.1.0",
+  "description": "Official Model Context Protocol (MCP) server for pptx.dev — expose generate_presentation, parse_pptx, validate_opf, and render_format tools to Claude Desktop, Cursor, and any MCP client.",
+  "license": "MIT",
+  "author": "pptx.dev",
+  "homepage": "https://www.pptx.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Data-Advantage/pptx-dev.git",
+    "directory": "sdk/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/Data-Advantage/pptx-dev/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "cursor",
+    "pptx",
+    "powerpoint",
+    "opf",
+    "presentation",
+    "ai",
+    "agents"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "pptx-mcp": "./dist/stdio.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "require": "./dist/server.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "start": "node dist/stdio.js",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@pptx/sdk": "file:../typescript",
+    "@types/node": "^20.19.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}

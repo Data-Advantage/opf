@@ -1,0 +1,73 @@
+{
+  "name": "@pptx/cli",
+  "version": "0.1.0",
+  "description": "Official CLI for pptx.dev — generate, parse, validate, render, and format presentations from the terminal using the OPF (Open Presentation Format).",
+  "license": "MIT",
+  "author": "pptx.dev",
+  "homepage": "https://www.pptx.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Data-Advantage/pptx-dev.git",
+    "directory": "sdk/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/Data-Advantage/pptx-dev/issues"
+  },
+  "keywords": [
+    "pptx",
+    "powerpoint",
+    "opf",
+    "cli",
+    "presentation",
+    "slides",
+    "ai",
+    "agents"
+  ],
+  "type": "module",
+  "bin": {
+    "pptx": "./dist/cli.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:bundle": "tsup --config tsup.bundle.config.ts",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist dist-bundle",
+    "start": "node dist/cli.js",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@pptx/sdk": "file:../typescript",
+    "@types/node": "^20.19.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}

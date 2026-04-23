@@ -1,0 +1,68 @@
+{
+  "name": "@pptx/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for pptx.dev — generate, parse, validate, convert, and render PowerPoint presentations via the OPF (Open Presentation Format).",
+  "license": "MIT",
+  "author": "pptx.dev",
+  "homepage": "https://www.pptx.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Data-Advantage/pptx-dev.git",
+    "directory": "sdk/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/Data-Advantage/pptx-dev/issues"
+  },
+  "keywords": [
+    "pptx",
+    "powerpoint",
+    "opf",
+    "presentation",
+    "slides",
+    "ai",
+    "agents",
+    "mcp"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./opf": {
+      "types": "./dist/opf.d.ts",
+      "import": "./dist/opf.js",
+      "require": "./dist/opf.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}

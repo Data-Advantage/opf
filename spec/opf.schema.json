@@ -1,0 +1,441 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf/v1",
+  "title": "OPF — Open Presentation Format",
+  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, and design — the engine handles OOXML complexity.",
+  "type": "object",
+  "required": ["$schema", "version", "meta", "design", "slides"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf/v1"
+    },
+    "version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "meta": { "$ref": "#/$defs/Meta" },
+    "design": { "$ref": "#/$defs/Design" },
+    "slides": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Slide" },
+      "minItems": 1
+    },
+    "presenterGuide": { "type": "string" },
+    "extensions": { "type": "object" }
+  },
+  "$defs": {
+    "Meta": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": { "type": "string" },
+        "filename": {
+          "type": "string",
+          "description": "Optional base filename for exports (without extension). Engine strips a trailing .pptx, .pdf, .png, or .svg (case-insensitive) and appends the target format's extension. When omitted, the engine slugifies meta.title. See /docs/opf for full validation rules."
+        },
+        "subtitle": { "type": "string" },
+        "author": { "type": "string" },
+        "company": { "type": "string" },
+        "audience": { "type": "string" },
+        "purpose": { "type": "string" },
+        "narrative": { "$ref": "#/$defs/Narrative" },
+        "language": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "Narrative": {
+      "type": "object",
+      "properties": {
+        "template": { "type": "string" },
+        "description": { "type": "string" },
+        "keyMessages": { "type": "array", "items": { "type": "string" } },
+        "tone": { "type": "string", "enum": ["formal", "casual", "inspirational", "technical", "persuasive"] },
+        "durationMinutes": { "type": "number", "minimum": 1 }
+      }
+    },
+    "Design": {
+      "type": "object",
+      "properties": {
+        "theme": { "type": "string" },
+        "colors": { "$ref": "#/$defs/ColorScheme" },
+        "fonts": { "$ref": "#/$defs/FontScheme" },
+        "dimensions": { "$ref": "#/$defs/Dimensions" },
+        "background": { "$ref": "#/$defs/Background" },
+        "brand": { "$ref": "#/$defs/Brand" },
+        "layoutPreferences": { "$ref": "#/$defs/LayoutPreferences" }
+      }
+    },
+    "ColorScheme": {
+      "type": "object",
+      "properties": {
+        "scheme": { "type": "string" },
+        "primary": { "type": "string" },
+        "secondary": { "type": "string" },
+        "accent": { "type": "string" },
+        "background": { "type": "string" },
+        "surface": { "type": "string" },
+        "text": { "type": "string" },
+        "textSecondary": { "type": "string" },
+        "custom": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "FontScheme": {
+      "type": "object",
+      "properties": {
+        "scheme": { "type": "string" },
+        "heading": { "$ref": "#/$defs/Font" },
+        "body": { "$ref": "#/$defs/Font" },
+        "accent": { "$ref": "#/$defs/Font" },
+        "code": { "$ref": "#/$defs/Font" }
+      }
+    },
+    "Font": {
+      "type": "object",
+      "required": ["family"],
+      "properties": {
+        "family": { "type": "string" },
+        "weight": { "type": "number" },
+        "style": { "type": "string", "enum": ["normal", "italic"] },
+        "letterSpacing": { "type": "number" }
+      }
+    },
+    "Dimensions": {
+      "type": "object",
+      "properties": {
+        "preset": { "type": "string", "enum": ["16:9", "4:3", "16:10", "letter", "a4"] },
+        "widthInches": { "type": "number", "exclusiveMinimum": 0 },
+        "heightInches": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "Background": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["solid", "gradient", "image", "pattern"] },
+        "color": { "type": "string" },
+        "gradient": {
+          "type": "object",
+          "properties": {
+            "angle": { "type": "number" },
+            "stops": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["color", "position"],
+                "properties": {
+                  "color": { "type": "string" },
+                  "position": { "type": "number", "minimum": 0, "maximum": 1 }
+                }
+              }
+            }
+          }
+        },
+        "image": {
+          "type": "object",
+          "required": ["url"],
+          "properties": {
+            "url": { "type": "string" },
+            "fit": { "type": "string", "enum": ["cover", "contain", "tile"] }
+          }
+        },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "Brand": {
+      "type": "object",
+      "properties": {
+        "logo": {
+          "type": "object",
+          "properties": {
+            "url": { "type": "string" },
+            "position": { "$ref": "#/$defs/Position" },
+            "widthInches": { "type": "number" }
+          }
+        },
+        "watermark": {
+          "type": "object",
+          "properties": {
+            "url": { "type": "string" },
+            "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "companyName": { "type": "string" }
+      }
+    },
+    "LayoutPreferences": {
+      "type": "object",
+      "properties": {
+        "density": { "type": "string", "enum": ["minimal", "balanced", "dense"] },
+        "alignment": { "type": "string", "enum": ["left", "center", "right"] },
+        "animations": { "type": "boolean" },
+        "slideNumbers": { "type": "boolean" }
+      }
+    },
+    "Slide": {
+      "type": "object",
+      "required": ["id", "layout", "elements"],
+      "properties": {
+        "id": { "type": "string" },
+        "layout": { "type": "string" },
+        "designOverrides": { "$ref": "#/$defs/Design" },
+        "elements": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Element" }
+        },
+        "notes": { "type": "string" },
+        "transition": { "$ref": "#/$defs/Transition" },
+        "hidden": { "type": "boolean" },
+        "section": { "type": "string" }
+      }
+    },
+    "Transition": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["none", "fade", "slide", "push", "wipe", "morph", "zoom"] },
+        "duration": { "type": "number" },
+        "direction": { "type": "string", "enum": ["left", "right", "up", "down"] }
+      }
+    },
+    "Position": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "anchor": { "type": "string" }
+      }
+    },
+    "Size": {
+      "type": "object",
+      "properties": {
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "unit": { "type": "string", "enum": ["in", "%", "px"] }
+      }
+    },
+    "Element": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["text", "image", "shape", "chart", "table", "video", "code", "group", "placeholder"]
+        },
+        "position": { "$ref": "#/$defs/Position" },
+        "size": { "$ref": "#/$defs/Size" },
+        "slot": { "type": "string" },
+        "animation": { "$ref": "#/$defs/Animation" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "text" } } },
+          "then": {
+            "properties": {
+              "content": { "$ref": "#/$defs/TextContent" },
+              "style": { "$ref": "#/$defs/TextStyle" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "image" } } },
+          "then": {
+            "required": ["src"],
+            "properties": {
+              "src": { "type": "string" },
+              "alt": { "type": "string" },
+              "fit": { "type": "string", "enum": ["cover", "contain", "fill", "none"] },
+              "borderRadius": { "type": "number" },
+              "shadow-sm": { "type": "boolean" },
+              "caption": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "chart" } } },
+          "then": {
+            "required": ["chartType", "data"],
+            "properties": {
+              "chartType": {
+                "type": "string",
+                "enum": ["bar", "column", "line", "pie", "donut", "area", "scatter", "radar", "waterfall", "funnel", "treemap", "combo"]
+              },
+              "data": { "$ref": "#/$defs/ChartData" },
+              "options": { "$ref": "#/$defs/ChartOptions" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "table" } } },
+          "then": {
+            "required": ["rows"],
+            "properties": {
+              "headers": { "type": "array", "items": { "type": "string" } },
+              "rows": { "type": "array", "items": { "type": "array" } },
+              "style": { "$ref": "#/$defs/TableStyle" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "shape" } } },
+          "then": {
+            "required": ["shape"],
+            "properties": {
+              "shape": { "type": "string" },
+              "fill": { "type": "string" },
+              "stroke": {
+                "type": "object",
+                "properties": {
+                  "color": { "type": "string" },
+                  "width": { "type": "number" }
+                }
+              },
+              "cornerRadius": { "type": "number" },
+              "text": { "$ref": "#/$defs/TextContent" },
+              "path": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "code" } } },
+          "then": {
+            "required": ["code"],
+            "properties": {
+              "code": { "type": "string" },
+              "language": { "type": "string" },
+              "theme": { "type": "string", "enum": ["dark", "light"] },
+              "showLineNumbers": { "type": "boolean" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "group" } } },
+          "then": {
+            "required": ["children"],
+            "properties": {
+              "children": { "type": "array", "items": { "$ref": "#/$defs/Element" } }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "placeholder" } } },
+          "then": {
+            "required": ["prompt"],
+            "properties": {
+              "prompt": { "type": "string" },
+              "expectedType": { "type": "string", "enum": ["text", "image", "chart", "table"] }
+            }
+          }
+        }
+      ]
+    },
+    "Animation": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["appear", "fadeIn", "slideIn", "zoomIn", "typewriter", "custom"] },
+        "delay": { "type": "number" },
+        "duration": { "type": "number" },
+        "order": { "type": "integer" }
+      }
+    },
+    "TextContent": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "runs": { "type": "array", "items": { "$ref": "#/$defs/TextRun" } },
+        "markdown": { "type": "string" },
+        "bullets": { "type": "array" },
+        "numbered": { "type": "array" }
+      }
+    },
+    "TextRun": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": { "type": "string" },
+        "bold": { "type": "boolean" },
+        "italic": { "type": "boolean" },
+        "underline": { "type": "boolean" },
+        "strikethrough": { "type": "boolean" },
+        "color": { "type": "string" },
+        "fontSize": { "type": "number" },
+        "fontFamily": { "type": "string" },
+        "link": { "type": "string" },
+        "superscript": { "type": "boolean" },
+        "subscript": { "type": "boolean" }
+      }
+    },
+    "TextStyle": {
+      "type": "object",
+      "properties": {
+        "fontSize": { "type": "number" },
+        "fontFamily": { "type": "string" },
+        "color": { "type": "string" },
+        "alignment": { "type": "string", "enum": ["left", "center", "right", "justify"] },
+        "lineHeight": { "type": "number" },
+        "letterSpacing": { "type": "number" },
+        "textTransform": { "type": "string", "enum": ["none", "uppercase", "lowercase", "capitalize"] },
+        "verticalAlignment": { "type": "string", "enum": ["top", "middle", "bottom"] }
+      }
+    },
+    "ChartData": {
+      "type": "object",
+      "required": ["datasets"],
+      "properties": {
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "datasets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "values"],
+            "properties": {
+              "label": { "type": "string" },
+              "values": { "type": "array", "items": { "type": "number" } },
+              "color": { "type": "string" },
+              "type": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "ChartOptions": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "legend": {},
+        "showValues": { "type": "boolean" },
+        "showGrid": { "type": "boolean" },
+        "stacked": { "type": "boolean" },
+        "yAxis": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string" },
+            "min": { "type": "number" },
+            "max": { "type": "number" },
+            "format": { "type": "string" }
+          }
+        },
+        "xAxis": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string" },
+            "format": { "type": "string" }
+          }
+        }
+      }
+    },
+    "TableStyle": {
+      "type": "object",
+      "properties": {
+        "headerBackground": { "type": "string" },
+        "headerColor": { "type": "string" },
+        "stripedRows": { "type": "boolean" },
+        "borderColor": { "type": "string" },
+        "compact": { "type": "boolean" }
+      }
+    }
+  }
+}
