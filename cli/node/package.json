@@ -7,11 +7,11 @@
   "homepage": "https://www.pptx.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Data-Advantage/pptx-dev.git",
-    "directory": "sdk/cli"
+    "url": "https://github.com/Data-Advantage/opf.git",
+    "directory": "cli/node"
   },
   "bugs": {
-    "url": "https://github.com/Data-Advantage/pptx-dev/issues"
+    "url": "https://github.com/Data-Advantage/opf/issues"
   },
   "keywords": [
     "pptx",
@@ -65,7 +65,7 @@
     "commander": "^12.1.0"
   },
   "devDependencies": {
-    "@pptx/sdk": "file:../typescript",
+    "@pptx/sdk": "file:../../typescript",
     "@types/node": "^20.19.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"

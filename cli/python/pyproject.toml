@@ -40,8 +40,8 @@ pptx = "pptx_cli.main:run"
 [project.urls]
 Homepage = "https://www.pptx.dev"
 Documentation = "https://www.pptx.dev/docs/cli"
-Repository = "https://github.com/Data-Advantage/pptx-dev"
-Issues = "https://github.com/Data-Advantage/pptx-dev/issues"
+Repository = "https://github.com/Data-Advantage/opf"
+Issues = "https://github.com/Data-Advantage/opf/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pptx_cli"]

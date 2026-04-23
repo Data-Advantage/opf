@@ -1,0 +1,169 @@
+name: Publish pptx-cli (PyPI)
+
+on:
+  push:
+    tags:
+      - "cli-py-v*"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry-run (skip actual publish, run build + check only)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  id-token: write # required for PyPI Trusted Publishing (OIDC)
+
+jobs:
+  build:
+    name: Build sdist + wheel
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.pkg.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python build tooling
+        run: python -m pip install --upgrade pip build twine
+
+      - name: Read package version
+        id: pkg
+        working-directory: cli/python
+        run: |
+          VERSION=$(python -c "import re, pathlib; m = re.search(r'^version\s*=\s*\"([^\"]+)\"', pathlib.Path('pyproject.toml').read_text(), re.M); print(m.group(1))")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Verify tag matches pyproject.toml version
+        if: startsWith(github.ref, 'refs/tags/cli-py-v')
+        run: |
+          TAG="${GITHUB_REF_NAME#cli-py-v}"
+          PKG="${{ steps.pkg.outputs.version }}"
+          if [ "$TAG" != "$PKG" ]; then
+            echo "::error::Tag version ($TAG) does not match pyproject.toml version ($PKG)"
+            exit 1
+          fi
+
+      # @pptx/cli bundles @pptx/sdk via `file:../../typescript` and tsup
+      # `noExternal`, so the SDK's dist/ must exist before cli/node builds.
+      - name: Build @pptx/sdk (dependency)
+        working-directory: typescript
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
+
+      - name: Install @pptx/cli dependencies
+        working-directory: cli/node
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck @pptx/cli
+        working-directory: cli/node
+        run: pnpm run typecheck
+
+      - name: Build self-contained @pptx/cli bundle
+        working-directory: cli/node
+        run: pnpm run build:bundle
+
+      - name: Stage vendored JS bundle into Python package
+        working-directory: cli/python
+        run: python scripts/stage_vendor.py
+
+      - name: Build sdist + wheel
+        working-directory: cli/python
+        run: python -m build
+
+      - name: Twine check
+        working-directory: cli/python
+        run: python -m twine check dist/*
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pptx-cli-dist
+          path: cli/python/dist/*
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/pptx-cli/
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: pptx-cli-dist
+          path: dist
+
+      - name: Publish to PyPI (Trusted Publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
+          print-hash: true
+
+  smoke-test:
+    name: Smoke test (${{ matrix.os }})
+    needs: [build, publish]
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node.js (runtime for the CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pipx
+        run: python -m pip install --upgrade pipx
+
+      - name: Wait for PyPI propagation
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            if python -m pip index versions pptx-cli 2>/dev/null | grep -q "$VERSION"; then
+              echo "Found pptx-cli==$VERSION on PyPI."
+              exit 0
+            fi
+            echo "Attempt $i: pptx-cli==$VERSION not yet on PyPI, sleeping 15s..."
+            sleep 15
+          done
+          echo "::warning::pptx-cli==$VERSION did not appear on PyPI within the expected window — continuing anyway; pipx will retry."
+
+      - name: pipx install pptx-cli
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+        run: pipx install "pptx-cli==$VERSION"
+
+      - name: pptx --version
+        run: pptx --version
+
+      - name: pptx --help
+        run: pptx --help
