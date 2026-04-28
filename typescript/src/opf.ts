@@ -23,9 +23,6 @@ export interface OPFDocument {
   /** Ordered array of slides */
   slides: OPFSlide[];
 
-  /** Optional global speaker notes / presenter guide */
-  presenterGuide?: string;
-
   /** Optional custom data passthrough for agent workflows */
   extensions?: Record<string, unknown>;
 }
@@ -34,6 +31,12 @@ export interface OPFDocument {
 
 export interface OPFMeta {
   title: string;
+  /**
+   * Free-form prose describing what this presentation is about. Used by
+   * agents and humans as a deck-level summary; complements `meta.purpose`
+   * (the goal) and `meta.narrative` (the structured storyline).
+   */
+  description?: string;
   /**
    * Optional base filename for exports (without extension). The engine
    * silently normalizes whitespace, drops a trailing `.`, and strips one

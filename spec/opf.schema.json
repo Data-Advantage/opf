@@ -8,121 +8,303 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://pptx.dev/schema/opf/v1"
+      "const": "https://pptx.dev/schema/opf/v1",
+      "description": "Identifies the OPF schema version so validators and editors can resolve the correct rules."
     },
-    "meta": { "$ref": "#/$defs/Meta" },
-    "design": { "$ref": "#/$defs/Design" },
+    "meta": {
+      "$ref": "#/$defs/Meta",
+      "description": "High-level presentation metadata such as title, author, audience, and narrative."
+    },
+    "design": {
+      "$ref": "#/$defs/Design",
+      "description": "Design system covering colors, fonts, dimensions, background, brand, and layout preferences applied to the deck."
+    },
     "slides": {
       "type": "array",
       "items": { "$ref": "#/$defs/Slide" },
-      "minItems": 1
+      "minItems": 1,
+      "description": "Ordered array of slides that make up the presentation."
     },
-    "presenterGuide": { "type": "string" },
-    "extensions": { "type": "object" }
+    "extensions": {
+      "type": "object",
+      "description": "Custom data passthrough for agent workflows; ignored by the engine but preserved across read/write round-trips."
+    }
   },
   "$defs": {
     "Meta": {
       "type": "object",
+      "description": "Presentation-level metadata describing what the deck is, who it's for, and how it should be told.",
       "required": ["title"],
       "properties": {
-        "title": { "type": "string" },
+        "title": {
+          "type": "string",
+          "description": "Display title of the presentation."
+        },
+        "description": {
+          "type": "string",
+          "description": "Free-form prose describing what this presentation is about. Used by agents and humans as a deck-level summary; complements meta.purpose (the goal) and meta.narrative (the structured storyline)."
+        },
         "filename": {
           "type": "string",
           "description": "Optional base filename for exports (without extension). Engine strips a trailing .pptx, .pdf, .png, or .svg (case-insensitive) and appends the target format's extension. When omitted, the engine slugifies meta.title. See /docs/opf for full validation rules."
         },
-        "subtitle": { "type": "string" },
-        "author": { "type": "string" },
-        "company": { "type": "string" },
-        "audience": { "type": "string" },
-        "purpose": { "type": "string" },
-        "narrative": { "$ref": "#/$defs/Narrative" },
-        "language": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "tags": { "type": "array", "items": { "type": "string" } }
+        "subtitle": {
+          "type": "string",
+          "description": "Optional subtitle shown alongside the title, typically on cover slides."
+        },
+        "author": {
+          "type": "string",
+          "description": "Author or presenter name."
+        },
+        "company": {
+          "type": "string",
+          "description": "Company or organization the presentation is from."
+        },
+        "audience": {
+          "type": "string",
+          "description": "Intended audience for the presentation (e.g., 'executives', 'engineering team'). Used by AI to tune tone and depth."
+        },
+        "purpose": {
+          "type": "string",
+          "description": "Primary goal of the presentation (e.g., 'pitch for Series B funding'). Complements meta.description and meta.narrative."
+        },
+        "narrative": {
+          "$ref": "#/$defs/Narrative",
+          "description": "Structured storyline describing the deck's arc, key messages, and tone."
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP 47 language tag for the presentation content (e.g., 'en-US')."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp marking when the presentation was created."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free-form labels used for categorization, search, and filtering."
+        }
       }
     },
     "Narrative": {
       "type": "object",
+      "description": "Structured storyline metadata used by AI to shape generated content.",
       "properties": {
-        "template": { "type": "string" },
-        "description": { "type": "string" },
-        "keyMessages": { "type": "array", "items": { "type": "string" } },
-        "tone": { "type": "string", "enum": ["formal", "casual", "inspirational", "technical", "persuasive"] },
-        "durationMinutes": { "type": "number", "minimum": 1 }
+        "template": {
+          "type": "string",
+          "description": "Reference to a named narrative template, e.g. 'problem-solution'."
+        },
+        "description": {
+          "type": "string",
+          "description": "Free-form narrative description used for AI-driven generation."
+        },
+        "keyMessages": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key messages the presentation should convey."
+        },
+        "tone": {
+          "type": "string",
+          "enum": ["formal", "casual", "inspirational", "technical", "persuasive"],
+          "description": "Desired tone for the presentation."
+        },
+        "durationMinutes": {
+          "type": "number",
+          "minimum": 1,
+          "description": "Target presentation duration in minutes."
+        }
       }
     },
     "Design": {
       "type": "object",
+      "description": "Visual design system applied to the presentation; individual slides may override fields via Slide.designOverrides.",
       "properties": {
-        "theme": { "type": "string" },
-        "colors": { "$ref": "#/$defs/ColorScheme" },
-        "fonts": { "$ref": "#/$defs/FontScheme" },
-        "dimensions": { "$ref": "#/$defs/Dimensions" },
-        "background": { "$ref": "#/$defs/Background" },
-        "brand": { "$ref": "#/$defs/Brand" },
-        "layoutPreferences": { "$ref": "#/$defs/LayoutPreferences" }
+        "theme": {
+          "type": "string",
+          "description": "Reference a named theme from pptx.gallery, or define the design inline via the other fields."
+        },
+        "colors": {
+          "$ref": "#/$defs/ColorScheme",
+          "description": "Color palette for the presentation."
+        },
+        "fonts": {
+          "$ref": "#/$defs/FontScheme",
+          "description": "Typography selections for heading, body, accent, and code text."
+        },
+        "dimensions": {
+          "$ref": "#/$defs/Dimensions",
+          "description": "Slide dimensions and aspect ratio."
+        },
+        "background": {
+          "$ref": "#/$defs/Background",
+          "description": "Default slide background applied across the deck unless overridden on a slide."
+        },
+        "brand": {
+          "$ref": "#/$defs/Brand",
+          "description": "Brand assets such as logo, watermark, and company name."
+        },
+        "layoutPreferences": {
+          "$ref": "#/$defs/LayoutPreferences",
+          "description": "Hints that influence layout decisions across slides."
+        }
       }
     },
     "ColorScheme": {
       "type": "object",
+      "description": "Color palette used by the design system. Pick a named scheme and/or override individual color roles.",
       "properties": {
-        "scheme": { "type": "string" },
-        "primary": { "type": "string" },
-        "secondary": { "type": "string" },
-        "accent": { "type": "string" },
-        "background": { "type": "string" },
-        "surface": { "type": "string" },
-        "text": { "type": "string" },
-        "textSecondary": { "type": "string" },
-        "custom": { "type": "object", "additionalProperties": { "type": "string" } }
+        "scheme": {
+          "type": "string",
+          "description": "Named color scheme from the gallery, e.g. 'ocean-depth' or 'corporate-blue'."
+        },
+        "primary": {
+          "type": "string",
+          "description": "Primary brand color as a hex string (e.g., '#1E40AF')."
+        },
+        "secondary": {
+          "type": "string",
+          "description": "Secondary brand color as a hex string."
+        },
+        "accent": {
+          "type": "string",
+          "description": "Accent color used for highlights and emphasis."
+        },
+        "background": {
+          "type": "string",
+          "description": "Default slide background color as a hex string."
+        },
+        "surface": {
+          "type": "string",
+          "description": "Color for elevated surfaces such as cards and panels."
+        },
+        "text": {
+          "type": "string",
+          "description": "Primary body text color."
+        },
+        "textSecondary": {
+          "type": "string",
+          "description": "Secondary or muted text color used for captions and supporting copy."
+        },
+        "custom": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "Map of custom named colors for advanced or theme-specific use."
+        }
       }
     },
     "FontScheme": {
       "type": "object",
+      "description": "Typography selections used by the design system. Pick a named scheme and/or override individual font roles.",
       "properties": {
-        "scheme": { "type": "string" },
-        "heading": { "$ref": "#/$defs/Font" },
-        "body": { "$ref": "#/$defs/Font" },
-        "accent": { "$ref": "#/$defs/Font" },
-        "code": { "$ref": "#/$defs/Font" }
+        "scheme": {
+          "type": "string",
+          "description": "Named font scheme from the gallery, e.g. 'modern-sans' or 'classic-serif'."
+        },
+        "heading": {
+          "$ref": "#/$defs/Font",
+          "description": "Font used for slide titles and headings."
+        },
+        "body": {
+          "$ref": "#/$defs/Font",
+          "description": "Font used for body copy."
+        },
+        "accent": {
+          "$ref": "#/$defs/Font",
+          "description": "Font used for accent text such as quotes or callouts."
+        },
+        "code": {
+          "$ref": "#/$defs/Font",
+          "description": "Monospaced font used for code blocks."
+        }
       }
     },
     "Font": {
       "type": "object",
+      "description": "Specification for a single font role.",
       "required": ["family"],
       "properties": {
-        "family": { "type": "string" },
-        "weight": { "type": "number" },
-        "style": { "type": "string", "enum": ["normal", "italic"] },
-        "letterSpacing": { "type": "number" }
+        "family": {
+          "type": "string",
+          "description": "Font family name (e.g., 'Inter', 'Roboto')."
+        },
+        "weight": {
+          "type": "number",
+          "description": "Numeric font weight (e.g., 400 for regular, 700 for bold)."
+        },
+        "style": {
+          "type": "string",
+          "enum": ["normal", "italic"],
+          "description": "Font style."
+        },
+        "letterSpacing": {
+          "type": "number",
+          "description": "Letter spacing (tracking) in ems."
+        }
       }
     },
     "Dimensions": {
       "type": "object",
+      "description": "Slide dimensions; either pick a preset or specify custom inches.",
       "properties": {
-        "preset": { "type": "string", "enum": ["16:9", "4:3", "16:10", "letter", "a4"] },
-        "widthInches": { "type": "number", "exclusiveMinimum": 0 },
-        "heightInches": { "type": "number", "exclusiveMinimum": 0 }
+        "preset": {
+          "type": "string",
+          "enum": ["16:9", "4:3", "16:10", "letter", "a4"],
+          "description": "Named dimension preset; chooses both aspect ratio and physical size."
+        },
+        "widthInches": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Custom slide width in inches; overrides the preset width when provided."
+        },
+        "heightInches": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Custom slide height in inches; overrides the preset height when provided."
+        }
       }
     },
     "Background": {
       "type": "object",
+      "description": "Background fill applied to slides.",
       "required": ["type"],
       "properties": {
-        "type": { "type": "string", "enum": ["solid", "gradient", "image", "pattern"] },
-        "color": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["solid", "gradient", "image", "pattern"],
+          "description": "Background fill type."
+        },
+        "color": {
+          "type": "string",
+          "description": "Solid fill color as a hex string (used when type is 'solid')."
+        },
         "gradient": {
           "type": "object",
+          "description": "Gradient fill definition (used when type is 'gradient').",
           "properties": {
-            "angle": { "type": "number" },
+            "angle": {
+              "type": "number",
+              "description": "Gradient angle in degrees (0 = left-to-right, 90 = top-to-bottom)."
+            },
             "stops": {
               "type": "array",
+              "description": "Ordered list of color stops along the gradient.",
               "items": {
                 "type": "object",
+                "description": "Color stop along the gradient.",
                 "required": ["color", "position"],
                 "properties": {
-                  "color": { "type": "string" },
-                  "position": { "type": "number", "minimum": 0, "maximum": 1 }
+                  "color": {
+                    "type": "string",
+                    "description": "Stop color as a hex string."
+                  },
+                  "position": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Stop position along the gradient, from 0 (start) to 1 (end)."
+                  }
                 }
               }
             }
@@ -130,108 +312,238 @@
         },
         "image": {
           "type": "object",
+          "description": "Image fill definition (used when type is 'image').",
           "required": ["url"],
           "properties": {
-            "url": { "type": "string" },
-            "fit": { "type": "string", "enum": ["cover", "contain", "tile"] }
+            "url": {
+              "type": "string",
+              "description": "Source URL or asset reference for the background image."
+            },
+            "fit": {
+              "type": "string",
+              "enum": ["cover", "contain", "tile"],
+              "description": "How the image fills the slide background."
+            }
           }
         },
-        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Background opacity from 0 (fully transparent) to 1 (fully opaque)."
+        }
       }
     },
     "Brand": {
       "type": "object",
+      "description": "Brand assets surfaced across slides, such as logo, watermark, and company name.",
       "properties": {
         "logo": {
           "type": "object",
+          "description": "Logo image displayed on slides.",
           "properties": {
-            "url": { "type": "string" },
-            "position": { "$ref": "#/$defs/Position" },
-            "widthInches": { "type": "number" }
+            "url": {
+              "type": "string",
+              "description": "Source URL or asset reference for the logo image."
+            },
+            "position": {
+              "$ref": "#/$defs/Position",
+              "description": "Where the logo is placed on the slide."
+            },
+            "widthInches": {
+              "type": "number",
+              "description": "Rendered logo width in inches."
+            }
           }
         },
         "watermark": {
           "type": "object",
+          "description": "Watermark image displayed across slides.",
           "properties": {
-            "url": { "type": "string" },
-            "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+            "url": {
+              "type": "string",
+              "description": "Source URL or asset reference for the watermark image."
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Watermark opacity from 0 (fully transparent) to 1 (fully opaque)."
+            }
           }
         },
-        "companyName": { "type": "string" }
+        "companyName": {
+          "type": "string",
+          "description": "Company name shown alongside brand assets."
+        }
       }
     },
     "LayoutPreferences": {
       "type": "object",
+      "description": "Hints that influence default layout decisions across slides.",
       "properties": {
-        "density": { "type": "string", "enum": ["minimal", "balanced", "dense"] },
-        "alignment": { "type": "string", "enum": ["left", "center", "right"] },
-        "animations": { "type": "boolean" },
-        "slideNumbers": { "type": "boolean" }
+        "density": {
+          "type": "string",
+          "enum": ["minimal", "balanced", "dense"],
+          "description": "Default content density across slides."
+        },
+        "alignment": {
+          "type": "string",
+          "enum": ["left", "center", "right"],
+          "description": "Default horizontal alignment for slide content."
+        },
+        "animations": {
+          "type": "boolean",
+          "description": "Whether to enable element animations by default."
+        },
+        "slideNumbers": {
+          "type": "boolean",
+          "description": "Whether to render slide numbers."
+        }
       }
     },
     "Slide": {
       "type": "object",
+      "description": "A single slide with its layout, elements, and presentation behavior.",
       "required": ["id", "layout", "elements"],
       "properties": {
-        "id": { "type": "string" },
-        "layout": { "type": "string" },
-        "designOverrides": { "$ref": "#/$defs/Design" },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the slide within the document."
+        },
+        "layout": {
+          "type": "string",
+          "description": "Layout type — references a pptx.gallery layout or a custom layout name."
+        },
+        "designOverrides": {
+          "$ref": "#/$defs/Design",
+          "description": "Slide-level design overrides applied on top of the deck-wide design."
+        },
         "elements": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Element" }
+          "items": { "$ref": "#/$defs/Element" },
+          "description": "Content elements rendered on this slide."
         },
-        "notes": { "type": "string" },
-        "transition": { "$ref": "#/$defs/Transition" },
-        "hidden": { "type": "boolean" },
-        "section": { "type": "string" }
+        "notes": {
+          "type": "string",
+          "description": "Speaker notes shown in presenter view."
+        },
+        "transition": {
+          "$ref": "#/$defs/Transition",
+          "description": "Transition used when entering this slide."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether the slide is hidden from the presented sequence."
+        },
+        "section": {
+          "type": "string",
+          "description": "Section marker used to group slides in presenter view and outlines."
+        }
       }
     },
     "Transition": {
       "type": "object",
+      "description": "Animated transition used when entering a slide.",
       "required": ["type"],
       "properties": {
-        "type": { "type": "string", "enum": ["none", "fade", "slide", "push", "wipe", "morph", "zoom"] },
-        "duration": { "type": "number" },
-        "direction": { "type": "string", "enum": ["left", "right", "up", "down"] }
+        "type": {
+          "type": "string",
+          "enum": ["none", "fade", "slide", "push", "wipe", "morph", "zoom"],
+          "description": "Transition style."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Transition duration in seconds."
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["left", "right", "up", "down"],
+          "description": "Direction for directional transitions (e.g., slide, push, wipe)."
+        }
       }
     },
     "Position": {
       "type": "object",
+      "description": "Element position on the slide.",
       "properties": {
-        "x": { "type": "number" },
-        "y": { "type": "number" },
-        "anchor": { "type": "string" }
+        "x": {
+          "type": "number",
+          "description": "Horizontal coordinate; interpretation depends on the containing element's units."
+        },
+        "y": {
+          "type": "number",
+          "description": "Vertical coordinate; interpretation depends on the containing element's units."
+        },
+        "anchor": {
+          "type": "string",
+          "description": "Anchor to layout grid, e.g. 'top-left', 'center', or 'bottom-right'."
+        }
       }
     },
     "Size": {
       "type": "object",
+      "description": "Element size on the slide.",
       "properties": {
-        "width": { "type": "number" },
-        "height": { "type": "number" },
-        "unit": { "type": "string", "enum": ["in", "%", "px"] }
+        "width": {
+          "type": "number",
+          "description": "Element width expressed in the unit specified by 'unit'."
+        },
+        "height": {
+          "type": "number",
+          "description": "Element height expressed in the unit specified by 'unit'."
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["in", "%", "px"],
+          "description": "Unit for width and height: 'in' (inches), '%' (percentage of slide), or 'px' (pixels)."
+        }
       }
     },
     "Element": {
       "type": "object",
+      "description": "A renderable item on a slide. The 'type' discriminator selects which additional fields are valid.",
       "required": ["id", "type"],
       "properties": {
-        "id": { "type": "string" },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the element within its slide."
+        },
         "type": {
           "type": "string",
-          "enum": ["text", "image", "shape", "chart", "table", "video", "code", "group", "placeholder"]
+          "enum": ["text", "image", "shape", "chart", "table", "video", "code", "group", "placeholder"],
+          "description": "Element kind, which determines the additional fields available."
         },
-        "position": { "$ref": "#/$defs/Position" },
-        "size": { "$ref": "#/$defs/Size" },
-        "slot": { "type": "string" },
-        "animation": { "$ref": "#/$defs/Animation" }
+        "position": {
+          "$ref": "#/$defs/Position",
+          "description": "Explicit element position; when omitted, the element is positioned by the layout."
+        },
+        "size": {
+          "$ref": "#/$defs/Size",
+          "description": "Explicit element size; when omitted, the element is sized by the layout."
+        },
+        "slot": {
+          "type": "string",
+          "description": "Named slot from the layout template, e.g. 'title', 'body', or 'image-right'."
+        },
+        "animation": {
+          "$ref": "#/$defs/Animation",
+          "description": "Animation applied to this element."
+        }
       },
       "allOf": [
         {
           "if": { "properties": { "type": { "const": "text" } } },
           "then": {
             "properties": {
-              "content": { "$ref": "#/$defs/TextContent" },
-              "style": { "$ref": "#/$defs/TextStyle" }
+              "content": {
+                "$ref": "#/$defs/TextContent",
+                "description": "Text content as plain text, formatted runs, markdown, or list items."
+              },
+              "style": {
+                "$ref": "#/$defs/TextStyle",
+                "description": "Text styling applied to the entire content."
+              }
             }
           }
         },
@@ -240,12 +552,31 @@
           "then": {
             "required": ["src"],
             "properties": {
-              "src": { "type": "string" },
-              "alt": { "type": "string" },
-              "fit": { "type": "string", "enum": ["cover", "contain", "fill", "none"] },
-              "borderRadius": { "type": "number" },
-              "shadow-sm": { "type": "boolean" },
-              "caption": { "type": "string" }
+              "src": {
+                "type": "string",
+                "description": "Source URL or asset reference for the image."
+              },
+              "alt": {
+                "type": "string",
+                "description": "Accessible alt text describing the image."
+              },
+              "fit": {
+                "type": "string",
+                "enum": ["cover", "contain", "fill", "none"],
+                "description": "How the image fills its bounding box."
+              },
+              "borderRadius": {
+                "type": "number",
+                "description": "Corner radius in points; produces rounded corners when greater than 0."
+              },
+              "shadow-sm": {
+                "type": "boolean",
+                "description": "Whether to render a small drop shadow behind the image."
+              },
+              "caption": {
+                "type": "string",
+                "description": "Caption rendered beneath the image."
+              }
             }
           }
         },
@@ -256,10 +587,17 @@
             "properties": {
               "chartType": {
                 "type": "string",
-                "enum": ["bar", "column", "line", "pie", "donut", "area", "scatter", "radar", "waterfall", "funnel", "treemap", "combo"]
+                "enum": ["bar", "column", "line", "pie", "donut", "area", "scatter", "radar", "waterfall", "funnel", "treemap", "combo"],
+                "description": "Chart variant to render."
               },
-              "data": { "$ref": "#/$defs/ChartData" },
-              "options": { "$ref": "#/$defs/ChartOptions" }
+              "data": {
+                "$ref": "#/$defs/ChartData",
+                "description": "Chart data, including labels and datasets."
+              },
+              "options": {
+                "$ref": "#/$defs/ChartOptions",
+                "description": "Visual and behavioral chart options."
+              }
             }
           }
         },
@@ -268,9 +606,20 @@
           "then": {
             "required": ["rows"],
             "properties": {
-              "headers": { "type": "array", "items": { "type": "string" } },
-              "rows": { "type": "array", "items": { "type": "array" } },
-              "style": { "$ref": "#/$defs/TableStyle" }
+              "headers": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Header row labels rendered above the data rows."
+              },
+              "rows": {
+                "type": "array",
+                "items": { "type": "array" },
+                "description": "Two-dimensional array of row data; each row aligns by index with the headers/columns."
+              },
+              "style": {
+                "$ref": "#/$defs/TableStyle",
+                "description": "Visual styling applied to the table."
+              }
             }
           }
         },
@@ -279,18 +628,40 @@
           "then": {
             "required": ["shape"],
             "properties": {
-              "shape": { "type": "string" },
-              "fill": { "type": "string" },
+              "shape": {
+                "type": "string",
+                "description": "Shape type, e.g. 'rectangle', 'circle', 'ellipse', 'triangle', 'arrow', 'line', 'star', 'callout', or 'custom'."
+              },
+              "fill": {
+                "type": "string",
+                "description": "Fill color as a hex string."
+              },
               "stroke": {
                 "type": "object",
+                "description": "Outline stroke for the shape.",
                 "properties": {
-                  "color": { "type": "string" },
-                  "width": { "type": "number" }
+                  "color": {
+                    "type": "string",
+                    "description": "Stroke color as a hex string."
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "Stroke width in points."
+                  }
                 }
               },
-              "cornerRadius": { "type": "number" },
-              "text": { "$ref": "#/$defs/TextContent" },
-              "path": { "type": "string" }
+              "cornerRadius": {
+                "type": "number",
+                "description": "Corner radius in points (used for rectangles)."
+              },
+              "text": {
+                "$ref": "#/$defs/TextContent",
+                "description": "Text rendered inside the shape."
+              },
+              "path": {
+                "type": "string",
+                "description": "SVG path data used when shape is 'custom'."
+              }
             }
           }
         },
@@ -299,10 +670,23 @@
           "then": {
             "required": ["code"],
             "properties": {
-              "code": { "type": "string" },
-              "language": { "type": "string" },
-              "theme": { "type": "string", "enum": ["dark", "light"] },
-              "showLineNumbers": { "type": "boolean" }
+              "code": {
+                "type": "string",
+                "description": "Source code to display."
+              },
+              "language": {
+                "type": "string",
+                "description": "Language identifier used for syntax highlighting (e.g., 'python', 'ts')."
+              },
+              "theme": {
+                "type": "string",
+                "enum": ["dark", "light"],
+                "description": "Syntax highlighting theme."
+              },
+              "showLineNumbers": {
+                "type": "boolean",
+                "description": "Whether to render line numbers alongside the code."
+              }
             }
           }
         },
@@ -311,7 +695,11 @@
           "then": {
             "required": ["children"],
             "properties": {
-              "children": { "type": "array", "items": { "$ref": "#/$defs/Element" } }
+              "children": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/Element" },
+                "description": "Child elements rendered as a group; their positions and sizes nest within the group's bounds."
+              }
             }
           }
         },
@@ -320,8 +708,15 @@
           "then": {
             "required": ["prompt"],
             "properties": {
-              "prompt": { "type": "string" },
-              "expectedType": { "type": "string", "enum": ["text", "image", "chart", "table"] }
+              "prompt": {
+                "type": "string",
+                "description": "AI instruction describing what content should be generated for this slot."
+              },
+              "expectedType": {
+                "type": "string",
+                "enum": ["text", "image", "chart", "table"],
+                "description": "Expected content type the engine or agent should produce."
+              }
             }
           }
         }
@@ -329,69 +724,182 @@
     },
     "Animation": {
       "type": "object",
+      "description": "Animation effect applied to an element.",
       "required": ["type"],
       "properties": {
-        "type": { "type": "string", "enum": ["appear", "fadeIn", "slideIn", "zoomIn", "typewriter", "custom"] },
-        "delay": { "type": "number" },
-        "duration": { "type": "number" },
-        "order": { "type": "integer" }
+        "type": {
+          "type": "string",
+          "enum": ["appear", "fadeIn", "slideIn", "zoomIn", "typewriter", "custom"],
+          "description": "Animation effect applied to the element."
+        },
+        "delay": {
+          "type": "number",
+          "description": "Delay before the animation starts, in seconds."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Animation duration in seconds."
+        },
+        "order": {
+          "type": "integer",
+          "description": "Order in the slide's animation sequence; lower values play first."
+        }
       }
     },
     "TextContent": {
       "type": "object",
+      "description": "Text content expressed as plain text, rich runs, markdown, or list items.",
       "properties": {
-        "text": { "type": "string" },
-        "runs": { "type": "array", "items": { "$ref": "#/$defs/TextRun" } },
-        "markdown": { "type": "string" },
-        "bullets": { "type": "array" },
-        "numbered": { "type": "array" }
+        "text": {
+          "type": "string",
+          "description": "Simple text string for basic use; ignored when 'runs' or 'markdown' is provided."
+        },
+        "runs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TextRun" },
+          "description": "Rich text expressed as formatted runs."
+        },
+        "markdown": {
+          "type": "string",
+          "description": "Markdown source converted to runs by the engine."
+        },
+        "bullets": {
+          "type": "array",
+          "description": "Bulleted list items; each item is either a string or a nested TextContent."
+        },
+        "numbered": {
+          "type": "array",
+          "description": "Numbered list items; each item is either a string or a nested TextContent."
+        }
       }
     },
     "TextRun": {
       "type": "object",
+      "description": "A contiguous run of text sharing the same character formatting.",
       "required": ["text"],
       "properties": {
-        "text": { "type": "string" },
-        "bold": { "type": "boolean" },
-        "italic": { "type": "boolean" },
-        "underline": { "type": "boolean" },
-        "strikethrough": { "type": "boolean" },
-        "color": { "type": "string" },
-        "fontSize": { "type": "number" },
-        "fontFamily": { "type": "string" },
-        "link": { "type": "string" },
-        "superscript": { "type": "boolean" },
-        "subscript": { "type": "boolean" }
+        "text": {
+          "type": "string",
+          "description": "Text for this run."
+        },
+        "bold": {
+          "type": "boolean",
+          "description": "Whether the run is rendered in bold."
+        },
+        "italic": {
+          "type": "boolean",
+          "description": "Whether the run is rendered in italic."
+        },
+        "underline": {
+          "type": "boolean",
+          "description": "Whether the run is underlined."
+        },
+        "strikethrough": {
+          "type": "boolean",
+          "description": "Whether the run is rendered with a strikethrough line."
+        },
+        "color": {
+          "type": "string",
+          "description": "Run text color as a hex string."
+        },
+        "fontSize": {
+          "type": "number",
+          "description": "Run font size in points."
+        },
+        "fontFamily": {
+          "type": "string",
+          "description": "Run font family override."
+        },
+        "link": {
+          "type": "string",
+          "description": "URL to link the run text to."
+        },
+        "superscript": {
+          "type": "boolean",
+          "description": "Whether the run is rendered as superscript."
+        },
+        "subscript": {
+          "type": "boolean",
+          "description": "Whether the run is rendered as subscript."
+        }
       }
     },
     "TextStyle": {
       "type": "object",
+      "description": "Paragraph-level text styling applied to a TextContent.",
       "properties": {
-        "fontSize": { "type": "number" },
-        "fontFamily": { "type": "string" },
-        "color": { "type": "string" },
-        "alignment": { "type": "string", "enum": ["left", "center", "right", "justify"] },
-        "lineHeight": { "type": "number" },
-        "letterSpacing": { "type": "number" },
-        "textTransform": { "type": "string", "enum": ["none", "uppercase", "lowercase", "capitalize"] },
-        "verticalAlignment": { "type": "string", "enum": ["top", "middle", "bottom"] }
+        "fontSize": {
+          "type": "number",
+          "description": "Font size in points."
+        },
+        "fontFamily": {
+          "type": "string",
+          "description": "Font family override."
+        },
+        "color": {
+          "type": "string",
+          "description": "Text color as a hex string."
+        },
+        "alignment": {
+          "type": "string",
+          "enum": ["left", "center", "right", "justify"],
+          "description": "Horizontal text alignment."
+        },
+        "lineHeight": {
+          "type": "number",
+          "description": "Line height multiplier (e.g., 1.5)."
+        },
+        "letterSpacing": {
+          "type": "number",
+          "description": "Letter spacing (tracking) in ems."
+        },
+        "textTransform": {
+          "type": "string",
+          "enum": ["none", "uppercase", "lowercase", "capitalize"],
+          "description": "Capitalization transform applied to the text."
+        },
+        "verticalAlignment": {
+          "type": "string",
+          "enum": ["top", "middle", "bottom"],
+          "description": "Vertical alignment within the text frame."
+        }
       }
     },
     "ChartData": {
       "type": "object",
+      "description": "Data driving a chart element.",
       "required": ["datasets"],
       "properties": {
-        "labels": { "type": "array", "items": { "type": "string" } },
+        "labels": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Category labels shared across datasets (e.g., x-axis tick labels)."
+        },
         "datasets": {
           "type": "array",
+          "description": "One or more data series rendered on the chart.",
           "items": {
             "type": "object",
+            "description": "A single data series.",
             "required": ["label", "values"],
             "properties": {
-              "label": { "type": "string" },
-              "values": { "type": "array", "items": { "type": "number" } },
-              "color": { "type": "string" },
-              "type": { "type": "string" }
+              "label": {
+                "type": "string",
+                "description": "Dataset name shown in the legend."
+              },
+              "values": {
+                "type": "array",
+                "items": { "type": "number" },
+                "description": "Numeric values for the dataset; aligns by index with the chart's labels."
+              },
+              "color": {
+                "type": "string",
+                "description": "Override color for this dataset as a hex string."
+              },
+              "type": {
+                "type": "string",
+                "description": "Per-dataset chart type override (used by combo charts, e.g., 'line' or 'column')."
+              }
             }
           }
         }
@@ -399,38 +907,89 @@
     },
     "ChartOptions": {
       "type": "object",
+      "description": "Visual and behavioral options for a chart element.",
       "properties": {
-        "title": { "type": "string" },
-        "legend": {},
-        "showValues": { "type": "boolean" },
-        "showGrid": { "type": "boolean" },
-        "stacked": { "type": "boolean" },
+        "title": {
+          "type": "string",
+          "description": "Chart title shown above the plot."
+        },
+        "legend": {
+          "description": "Legend configuration: pass a boolean to toggle the legend, or an object such as { position: 'top' | 'bottom' | 'left' | 'right' } to customize placement."
+        },
+        "showValues": {
+          "type": "boolean",
+          "description": "Whether to render data labels next to each value."
+        },
+        "showGrid": {
+          "type": "boolean",
+          "description": "Whether to render gridlines on the chart."
+        },
+        "stacked": {
+          "type": "boolean",
+          "description": "Whether series should be stacked rather than grouped."
+        },
         "yAxis": {
           "type": "object",
+          "description": "Y-axis configuration.",
           "properties": {
-            "label": { "type": "string" },
-            "min": { "type": "number" },
-            "max": { "type": "number" },
-            "format": { "type": "string" }
+            "label": {
+              "type": "string",
+              "description": "Y-axis title."
+            },
+            "min": {
+              "type": "number",
+              "description": "Minimum y-axis value."
+            },
+            "max": {
+              "type": "number",
+              "description": "Maximum y-axis value."
+            },
+            "format": {
+              "type": "string",
+              "description": "Tick label format string (e.g., '$#,##0' or '0.0%')."
+            }
           }
         },
         "xAxis": {
           "type": "object",
+          "description": "X-axis configuration.",
           "properties": {
-            "label": { "type": "string" },
-            "format": { "type": "string" }
+            "label": {
+              "type": "string",
+              "description": "X-axis title."
+            },
+            "format": {
+              "type": "string",
+              "description": "Tick label format string."
+            }
           }
         }
       }
     },
     "TableStyle": {
       "type": "object",
+      "description": "Visual styling applied to a table element.",
       "properties": {
-        "headerBackground": { "type": "string" },
-        "headerColor": { "type": "string" },
-        "stripedRows": { "type": "boolean" },
-        "borderColor": { "type": "string" },
-        "compact": { "type": "boolean" }
+        "headerBackground": {
+          "type": "string",
+          "description": "Header row background color as a hex string."
+        },
+        "headerColor": {
+          "type": "string",
+          "description": "Header row text color as a hex string."
+        },
+        "stripedRows": {
+          "type": "boolean",
+          "description": "Whether to alternate row backgrounds for readability."
+        },
+        "borderColor": {
+          "type": "string",
+          "description": "Color of cell borders as a hex string."
+        },
+        "compact": {
+          "type": "boolean",
+          "description": "Use a denser row height and reduced padding."
+        }
       }
     }
   }

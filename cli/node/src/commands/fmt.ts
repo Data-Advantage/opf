@@ -61,7 +61,6 @@ const TOP_LEVEL_ORDER = [
   "meta",
   "design",
   "slides",
-  "presenterGuide",
   "extensions",
 ];
 

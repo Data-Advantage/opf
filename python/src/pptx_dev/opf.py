@@ -39,6 +39,7 @@ class OPFNarrative(_OPFBase):
 
 class OPFMeta(_OPFBase):
     title: str
+    description: str | None = None
     filename: str | None = None
     subtitle: str | None = None
     author: str | None = None
@@ -394,7 +395,6 @@ class OPFDocument(_OPFBase):
     meta: OPFMeta
     design: OPFDesign
     slides: list[OPFSlide]
-    presenter_guide: str | None = Field(default=None, alias="presenterGuide")
     extensions: dict[str, Any] | None = None
 
 
