@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-social/v1",
+  "title": "OPF Social Platform",
+  "description": "Schema for social-platform records in the pptx.gallery library. Each record describes a single social-media platform — its base URL, profile-URL pattern, handle prefix, brand color, and themed icons. Records are referenced from OPF documents indirectly: the property keys of any Socials object (Organization.socials, Speaker.socials) match record ids, and renderers use the catalog record to format URLs and pick icons. The engine resolves references against catalogs.socials (inline) → catalogs.socials.source → the default catalog at https://www.pptx.gallery/socials.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-social/v1",
+      "description": "Identifies this record as a social-platform entry in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this platform — appears as a property key on Socials objects. Lowercase kebab-case.",
+      "examples": [
+        "linkedin",
+        "x",
+        "github",
+        "youtube",
+        "instagram",
+        "facebook",
+        "tiktok",
+        "threads",
+        "mastodon",
+        "bluesky"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable platform name shown in pickers and footers.",
+      "examples": [
+        "LinkedIn",
+        "X",
+        "GitHub",
+        "YouTube",
+        "Instagram",
+        "Facebook",
+        "TikTok",
+        "Threads",
+        "Mastodon",
+        "Bluesky"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the platform — what it's used for and who's on it.",
+      "examples": [
+        "Professional social network for individuals and companies.",
+        "Real-time microblog for news, opinions, and discussion."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the platform and any rendering conventions (e.g., handle prefixes, distributed instances).",
+      "examples": [
+        "LinkedIn distinguishes between member profiles ('/in/<handle>') and company pages ('/company/<handle>'). Renderers should pick the appropriate URL pattern based on whether the parent is an Organization or a Speaker."
+      ]
+    },
+    "baseUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical base URL of the platform — used as the prefix when normalizing handles to full URLs.",
+      "examples": [
+        "https://linkedin.com",
+        "https://x.com",
+        "https://github.com",
+        "https://youtube.com"
+      ]
+    },
+    "profileUrlPattern": {
+      "type": "string",
+      "description": "URL pattern for individual member profiles. Use '{handle}' as the placeholder for the handle (with the prefix already stripped).",
+      "examples": [
+        "https://linkedin.com/in/{handle}",
+        "https://x.com/{handle}",
+        "https://github.com/{handle}",
+        "https://youtube.com/@{handle}"
+      ]
+    },
+    "companyUrlPattern": {
+      "type": "string",
+      "description": "Optional URL pattern for organization / company pages, when the platform distinguishes them from member profiles. Use '{handle}' as the placeholder.",
+      "examples": [
+        "https://linkedin.com/company/{handle}",
+        "https://github.com/{handle}",
+        "https://facebook.com/{handle}"
+      ]
+    },
+    "handlePrefix": {
+      "type": "string",
+      "description": "Conventional prefix character displayed before the handle (e.g. '@' for X / Mastodon / Threads / TikTok). Empty string when no prefix is used. Renderers strip it before substituting into URL patterns.",
+      "examples": ["@", ""]
+    },
+    "handleExample": {
+      "type": "string",
+      "description": "Example handle in its conventional rendered form, used by picker UIs and validation hints.",
+      "examples": [
+        "alice-chen",
+        "@alicechen",
+        "alicechen",
+        "alice.bsky.social",
+        "@alice@hachyderm.io"
+      ]
+    },
+    "brandColor": {
+      "type": "string",
+      "description": "Brand color (hex) used for branded icon chips, link styling, or section accents.",
+      "examples": [
+        "#0A66C2",
+        "#000000",
+        "#181717",
+        "#FF0000"
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "description": "Default icon source. Accepts an HTTPS URL, data URI, relative path, or asset reference. Used as the fallback when a themed (Light/Dark) variant isn't set.",
+      "examples": [
+        "https://www.pptx.gallery/socials/linkedin.svg",
+        "./assets/socials/linkedin.svg",
+        "asset_social_linkedin"
+      ]
+    },
+    "iconLight": {
+      "type": "string",
+      "description": "Light-colored icon variant intended for rendering on dark backgrounds.",
+      "examples": [
+        "https://www.pptx.gallery/socials/linkedin-light.svg",
+        "./assets/socials/linkedin-light.svg"
+      ]
+    },
+    "iconDark": {
+      "type": "string",
+      "description": "Dark-colored icon variant intended for rendering on light backgrounds.",
+      "examples": [
+        "https://www.pptx.gallery/socials/linkedin-dark.svg",
+        "./assets/socials/linkedin-dark.svg"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        ["professional", "default"],
+        ["microblog", "news"],
+        ["developer", "code"],
+        ["video"],
+        ["decentralized"]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG)."
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views."
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size."
+        }
+      }
+    }
+  }
+}

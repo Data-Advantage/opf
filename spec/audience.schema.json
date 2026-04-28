@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-audience/v1",
+  "title": "OPF Audience",
+  "description": "Schema for audience records in the pptx.gallery library. Each record names an audience archetype (e.g. 'executives', 'engineering-team', 'investors') and carries seniority, technical-fluency, decision-power, and attention-budget hints used by AI-driven generation. Audiences are referenced from OPF documents via meta.audience; the engine resolves the reference against catalogs.audiences (inline) → catalogs.audiences.source → the default catalog at https://www.pptx.gallery/audiences. The meta.audience field also accepts free-form strings; this catalog is for engine-aware audience archetypes that carry generation hints.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-audience/v1",
+      "description": "Identifies this record as an audience in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this audience via meta.audience. Lowercase kebab-case.",
+      "examples": [
+        "executives",
+        "board",
+        "engineering-team",
+        "investors",
+        "customers",
+        "sales-team",
+        "marketing-team",
+        "all-hands",
+        "candidates",
+        "regulators"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable audience name shown in pickers.",
+      "examples": [
+        "Executives",
+        "Board of Directors",
+        "Engineering Team",
+        "Investors",
+        "Customers",
+        "Sales Team",
+        "Marketing Team",
+        "All Hands",
+        "Candidates",
+        "Regulators"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the audience — who they are and what they care about.",
+      "examples": [
+        "Senior leaders who need the recommendation up front, the evidence behind it, and the ask.",
+        "Practitioners building the system; they want depth, mechanism, and tradeoffs."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the audience archetype and how to address them.",
+      "examples": [
+        "Executives are time-poor and decision-oriented. Lead with the recommendation, support it with three claims and one number per claim, and end with a clear ask. Avoid drilling into mechanisms unless invited; offer to follow up rather than including everything in the deck."
+      ]
+    },
+    "seniority": {
+      "type": "string",
+      "enum": [
+        "ic",
+        "manager",
+        "director",
+        "vp",
+        "c-suite",
+        "mixed"
+      ],
+      "description": "Typical seniority level of the audience. Engines use this as a hint for default depth and pacing."
+    },
+    "technicalFluency": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "mixed"
+      ],
+      "description": "Typical technical fluency of the audience. AI generation uses this to decide whether to expand or assume technical terminology."
+    },
+    "decisionPower": {
+      "type": "string",
+      "enum": [
+        "informational",
+        "advisory",
+        "decision-maker"
+      ],
+      "description": "Whether the audience is expected to be informed, to advise, or to actually decide. Shapes the strength of the closing ask."
+    },
+    "attentionBudgetMinutes": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Realistic upper bound on this audience's focused attention for a single presentation, in minutes. Used as a hint when comparing against meta.durationMinutes and the resolved narrative's durationRange."
+    },
+    "recommendedNarratives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Soft cross-link: narrative-catalog ids that work well for this audience. Used by picker UIs to suggest narratives once an audience is chosen. Validators warn on unknown ids; never error.",
+      "examples": [
+        ["scqa", "board-meeting", "qbr"]
+      ]
+    },
+    "recommendedTones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Soft cross-link: tone-catalog ids that work well for this audience.",
+      "examples": [
+        ["formal", "authoritative"]
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        ["leadership", "external"],
+        ["internal", "engineering"],
+        ["external", "customer"]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG)."
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views."
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size."
+        }
+      }
+    }
+  }
+}

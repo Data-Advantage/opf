@@ -64,10 +64,34 @@ export interface OPFMeta {
    * differ (e.g., analyst-written, exec-presented).
    */
   authors?: string[];
+  /**
+   * Intended audience. Free-form description or a catalog id resolved
+   * against `catalogs.audiences` (default: https://www.pptx.gallery/audiences).
+   */
   audience?: string;
   purpose?: string;
-  narrative?: OPFNarrative;
+  /**
+   * Structured storyline. String shorthand (catalog id, URL, or `pkg:`
+   * reference) for the common case; object form for inline overrides or
+   * fully custom narratives. Object shape mirrors
+   * https://pptx.dev/schema/opf-narrative/v1 (sans `$schema`).
+   */
+  narrative?: string | OPFNarrative;
+  /**
+   * Language for the presentation content. BCP-47 tag or catalog id
+   * resolved against `catalogs.languages`.
+   */
   language?: string;
+  /**
+   * Desired tone. Resolves to the `id` of a `tones` catalog record.
+   * Historical enum values (`formal`, `casual`, `inspirational`,
+   * `technical`, `persuasive`) are valid catalog ids.
+   */
+  tone?: string;
+  /** Key messages the presentation should convey. */
+  keyMessages?: string[];
+  /** Target presentation duration in minutes. */
+  durationMinutes?: number;
   /**
    * Free-form labels used for categorization, search, and filtering.
    * Lowercase kebab-case is recommended for consistency.
@@ -143,54 +167,64 @@ export interface OPFSpeaker {
 }
 
 /**
- * Social media handles or URLs. Every property is optional; values may
- * be full URLs or platform handles. Used by both organizations and
+ * Social media handles or URLs, keyed by platform id from the `socials`
+ * catalog (https://pptx.dev/schema/opf-social/v1 — default catalog at
+ * https://www.pptx.gallery/socials). Each value is a string — either a
+ * full URL or a platform handle (e.g., "@acme"). The catalog record for
+ * each platform carries the URL pattern, handle prefix, brand color, and
+ * themed icons used by renderers. Used both for organizations and
  * speakers.
+ *
+ * Common platform ids: `linkedin`, `x`, `github`, `youtube`, `instagram`,
+ * `facebook`, `tiktok`, `threads`, `mastodon`, `bluesky`. Unknown ids
+ * render with engine fallbacks.
  */
-export interface OPFSocials {
-  linkedin?: string;
-  /** X (formerly Twitter) profile URL or handle. */
-  x?: string;
-  github?: string;
-  youtube?: string;
-  instagram?: string;
-  facebook?: string;
-  tiktok?: string;
-  threads?: string;
-  /** Mastodon profile URL (include the instance). */
-  mastodon?: string;
-  /** Bluesky profile URL or handle (e.g., "user.bsky.social"). */
-  bluesky?: string;
-}
+export type OPFSocials = Record<string, string>;
 
 /**
- * Structured storyline metadata used by AI to shape generated content.
+ * Structured storyline used by AI to shape generated content. Mirrors the
+ * OPF Narrative Template record at https://pptx.dev/schema/opf-narrative/v1
+ * (sans `$schema`), so a library record and an inline narrative are
+ * interchangeable.
  *
- * Narrative declares the deck's intended story arc; slides may opt into beats
- * via `Slide.beat`. The narrative does not constrain slide structure —
- * validators warn on drift (orphan slides, unused beats) but never error.
- * Slides are the source of truth; narrative is intent that travels with the deck.
+ * When `id` matches a record in the resolved `narratives` catalog, the
+ * inline fields override matching fields on the catalog record (beats merge
+ * by beat `id`). When `id` doesn't match, this object defines a fully
+ * custom inline narrative.
+ *
+ * Deck-level concerns that aren't part of the storyline (audience, tone,
+ * key messages, duration) live as siblings on `meta` rather than inside
+ * this object.
  */
 export interface OPFNarrative {
   /**
-   * Reference a named narrative template from the pptx.dev library, e.g.
-   * "problem-solution", "scqa", "pitch-deck", "qbr". Unknown template IDs
-   * produce a validation warning, not an error.
+   * Stable slug identifying this narrative. Resolves to the `id` of a
+   * `narratives` catalog record when it matches; otherwise this is a
+   * fully custom inline narrative. Lowercase kebab-case.
    */
-  template?: string;
-  /** Free-form narrative description for AI-driven generation */
-  description?: string;
-  /** Key messages to convey */
-  keyMessages?: string[];
-  /** Desired tone: "formal" | "casual" | "inspirational" | "technical" | "persuasive" */
-  tone?: string;
-  /** Target duration in minutes */
-  durationMinutes?: number;
+  id?: string;
+  /** Human-readable narrative name. */
+  name?: string;
+  /** One-sentence description of when and why to use this narrative. */
+  summary?: string;
   /**
-   * Inline narrative beats. When provided alongside a `template`, beats here
-   * override or extend matching template beats by `id`. Without `template`,
-   * this defines a fully custom narrative arc. Beat IDs must be unique
-   * within the document.
+   * Longer prose describing the narrative arc. Used by AI-driven
+   * generation to seed deck-level direction.
+   */
+  description?: string;
+  /** Audiences this narrative works well for. */
+  audienceFit?: string[];
+  /** Typical talk-length window this narrative suits. */
+  durationRange?: { minMinutes?: number; maxMinutes?: number };
+  /** Free-form labels for filtering and search. */
+  tags?: string[];
+  /** Visual previews used by picker UIs and inline rendering. */
+  preview?: { src?: string; thumbnailSrc?: string; vectorSrc?: string };
+  /**
+   * Ordered list of beats that make up the narrative arc. When `id`
+   * matches a catalog record, beats here override or extend matching
+   * catalog beats by their own `id`. Beat IDs must be unique within the
+   * narrative.
    */
   beats?: OPFNarrativeBeat[];
 }
@@ -198,7 +232,9 @@ export interface OPFNarrative {
 /**
  * A single narrative beat — a labeled segment of the story arc with a
  * specific dramatic purpose (e.g. "hook", "problem", "evidence", "ask").
- * Slides reference beats via `Slide.beat`.
+ * Slides reference beats via `Slide.beat`. Mirrors the Beat definition in
+ * narrative.schema.json (https://pptx.dev/schema/opf-narrative/v1) so
+ * library entries and inline OPF beats are interchangeable.
  */
 export interface OPFNarrativeBeat {
   /**
@@ -213,6 +249,8 @@ export interface OPFNarrativeBeat {
    * generation of slides assigned to this beat.
    */
   description?: string;
+  /** Short author-facing instruction for the beat — typically one phrase. */
+  instructions?: string;
   /**
    * Optional explicit slide count for this beat. Defaults to 1 when omitted;
    * values >1 are reserved for beats that intentionally span multiple slides.
@@ -221,21 +259,51 @@ export interface OPFNarrativeBeat {
    * differs significantly.
    */
   slideCount?: number;
+  /** Default content kind for the beat's slide. */
+  slideType?: "text" | "image" | "chart" | "table" | "code";
   /** Suggested layout for the opening slide of this beat */
   layoutHint?: string;
+  /** Boolean flags indicating which standard slide placeholders the beat expects to fill. */
+  placeholders?: {
+    tag?: boolean;
+    title?: boolean;
+    subtitle?: boolean;
+    slideImage?: boolean;
+  };
+  /** Engine-facing options that fine-tune how the resolved layout is populated. */
+  options?: {
+    multiple?: "1x" | "2x" | "3x" | "4x" | "5x" | "6x";
+    showLabel?: boolean;
+    showDescription?: boolean;
+  };
+  /** Optional speaker prompts or thinking cues attached to the beat. */
+  thoughtCues?: string[];
 }
 
 // ─── Design System ───────────────────────────────────────────────────
 
 export interface OPFDesign {
-  /** Reference a named theme from pptx.gallery, or define inline */
+  /**
+   * Theme reference. Resolves to the `id` of a `themes` catalog record
+   * (default catalog: https://www.pptx.gallery/themes).
+   */
   theme?: string;
 
-  /** Color palette */
-  colors?: OPFColorScheme;
+  /**
+   * Color palette. String shorthand (catalog id, URL, or `pkg:` reference)
+   * for the common case; object form for the `scheme` ref plus slot/role
+   * overrides. Slot fields mirror color-scheme.schema.json
+   * (https://pptx.dev/schema/opf-color-scheme/v1).
+   */
+  colors?: string | OPFColorScheme;
 
-  /** Typography */
-  fonts?: OPFFontScheme;
+  /**
+   * Typography. String shorthand (catalog id, URL, or `pkg:` reference)
+   * for the common case; object form for the `scheme` ref plus pair/role
+   * overrides. Pair fields mirror font-scheme.schema.json
+   * (https://pptx.dev/schema/opf-font-scheme/v1).
+   */
+  fonts?: string | OPFFontScheme;
 
   /** Slide dimensions */
   dimensions?: OPFDimensions;
@@ -251,9 +319,27 @@ export interface OPFDesign {
 }
 
 export interface OPFColorScheme {
-  /** Named scheme from gallery, e.g. "ocean-depth", "corporate-blue" */
+  /**
+   * Color scheme reference (OPF-specific; not part of the catalog record
+   * schema). Resolves to the `id` of a `colorSchemes` catalog record.
+   */
   scheme?: string;
-  /** Override individual color roles */
+  /** OOXML accent slots (mirror color-scheme.schema.json). */
+  accent1?: string;
+  accent2?: string;
+  accent3?: string;
+  accent4?: string;
+  accent5?: string;
+  accent6?: string;
+  /** OOXML neutral slots. */
+  dark1?: string;
+  dark2?: string;
+  light1?: string;
+  light2?: string;
+  /** OOXML hyperlink colors. */
+  hyperlink?: string;
+  followedHyperlink?: string;
+  /** Abstract roles (OPF-specific authoring conveniences). */
   primary?: string;
   secondary?: string;
   accent?: string;
@@ -261,14 +347,27 @@ export interface OPFColorScheme {
   surface?: string;
   text?: string;
   textSecondary?: string;
-  /** Custom named colors for advanced use */
+  /** Custom named colors for advanced use. */
   custom?: Record<string, string>;
 }
 
 export interface OPFFontScheme {
-  /** Named scheme from gallery, e.g. "modern-sans", "classic-serif" */
+  /**
+   * Font scheme reference (OPF-specific; not part of the catalog record
+   * schema). Resolves to the `id` of a `fontSchemes` catalog record.
+   */
   scheme?: string;
-  /** Override individual font roles */
+  /** OOXML majorFont (heading) family — mirrors font-scheme.schema.json. */
+  major?: string;
+  /** OOXML minorFont (body) family — mirrors font-scheme.schema.json. */
+  minor?: string;
+  /** High-level typographic class. */
+  type?: "sans-serif" | "serif" | "monospace";
+  /** Target application. */
+  app?: "PowerPoint" | "Google Slides";
+  /** OOXML font-language family. */
+  languageFamily?: "latin" | "ea" | "cs";
+  /** Abstract roles (OPF-specific authoring conveniences). */
   heading?: OPFFont;
   body?: OPFFont;
   accent?: OPFFont;
@@ -550,7 +649,19 @@ export interface OPFShapeElement extends OPFElementBase {
 
 export interface OPFChartElement extends OPFElementBase {
   type: "chart";
-  chartType: "bar" | "column" | "line" | "pie" | "donut" | "area" | "scatter" | "radar" | "waterfall" | "funnel" | "treemap" | "combo";
+  /**
+   * Generic chart variant. Engine-agnostic alternative to `chartPreset`;
+   * for finer control, use `chartPreset` instead.
+   */
+  chartType?: "bar" | "column" | "line" | "pie" | "donut" | "area" | "scatter" | "radar" | "waterfall" | "funnel" | "treemap" | "combo" | string;
+  /**
+   * Chart preset reference. Resolves to the `id` of a `charts` catalog
+   * record (default catalog: https://www.pptx.gallery/charts). When set,
+   * the engine sources the visual template from the resolved preset and
+   * uses `data` to populate it. At least one of `chartType` or
+   * `chartPreset` must be set.
+   */
+  chartPreset?: string;
   data: OPFChartData;
   options?: OPFChartOptions;
 }

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf-narrative/v1",
   "title": "OPF Narrative Template",
-  "description": "Schema for narrative template files in the pptx.dev library. Each template describes a named story arc (e.g. 'problem-solution', 'scqa') as an ordered list of beats. Templates are referenced from OPF documents via meta.narrative.template.",
+  "description": "Schema for narrative template files in the pptx.dev library. Each template describes a named story arc (e.g. 'problem-solution', 'scqa') as an ordered list of beats. Templates are referenced from OPF documents via meta.narrative — either as a bare id string (e.g. 'classic-story') or as an inline object whose shape matches this schema (sans '$schema').",
   "type": "object",
   "required": [
     "$schema",
@@ -27,6 +27,13 @@
     "summary": {
       "type": "string",
       "description": "One-sentence description of when and why to use this narrative."
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the narrative arc and ideal use cases. Used by AI-driven generation to seed deck-level direction.",
+      "examples": [
+        "Open with the cost of slow agentic workflows, contrast with what becomes possible at sub-second latency, then walk through our architecture and benchmark results, ending with a concrete adoption ask."
+      ]
     },
     "audienceFit": {
       "type": "array",
@@ -146,7 +153,7 @@
         "slideCount": {
           "type": "integer",
           "minimum": 1,
-          "description": "Optional explicit slide count for this beat. Defaults to 1 when omitted; values >1 are reserved for beats that intentionally span multiple slides. Prefer decomposing a heavy beat into multiple beats over setting a high slideCount.",
+          "description": "Optional explicit slide count for this beat. Defaults to 1 when omitted; values >1 are reserved for beats that intentionally span multiple slides. Prefer decomposing a heavy beat into multiple beats over setting a high slideCount. The validator emits a warning if the deck's actual count differs significantly.",
           "examples": [
             1,
             2,

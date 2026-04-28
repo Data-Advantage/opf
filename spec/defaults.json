@@ -8,13 +8,18 @@
     "fontSchemes":  { "source": "https://www.pptx.gallery/font-schemes" },
     "languages":    { "source": "https://www.pptx.gallery/languages" },
     "layouts":      { "source": "https://www.pptx.gallery/layouts" },
-    "charts":       { "source": "https://www.pptx.gallery/charts" }
+    "charts":       { "source": "https://www.pptx.gallery/charts" },
+    "tones":        { "source": "https://www.pptx.gallery/tones" },
+    "audiences":    { "source": "https://www.pptx.gallery/audiences" },
+    "socials":      { "source": "https://www.pptx.gallery/socials" }
   },
 
   "theme": "minimal",
   "colorScheme": "cool-horizon",
   "language": "english",
   "narrative": "classic-story",
+  "tone": "formal",
+  "audience": "executives",
 
   "fontScheme": {
     "pptx":   { "latin": "aptos",  "ea": "microsoft-yahei", "cs": "nirmala-ui" },

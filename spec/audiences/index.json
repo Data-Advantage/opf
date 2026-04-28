@@ -1,0 +1,67 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-audience-index/v1",
+  "version": "1",
+  "description": "Catalog of presentation audiences available in the pptx.dev library. Each entry is a lightweight summary; full audience records (seniority, technical fluency, decision power, attention budget, recommended narratives and tones) live in the per-id JSON files alongside this index. Audiences are referenced from OPF documents via meta.audience.",
+  "records": [
+    {
+      "id": "executives",
+      "name": "Executives",
+      "summary": "Senior leaders who need the recommendation up front, the evidence behind it, and the ask.",
+      "file": "executives.json"
+    },
+    {
+      "id": "board",
+      "name": "Board of Directors",
+      "summary": "Directors with fiduciary responsibility who balance oversight, advice, and approval.",
+      "file": "board.json"
+    },
+    {
+      "id": "engineering-team",
+      "name": "Engineering Team",
+      "summary": "Practitioners building the system; they want depth, mechanism, and tradeoffs.",
+      "file": "engineering-team.json"
+    },
+    {
+      "id": "investors",
+      "name": "Investors",
+      "summary": "Capital allocators evaluating fit, traction, and risk-adjusted return.",
+      "file": "investors.json"
+    },
+    {
+      "id": "customers",
+      "name": "Customers",
+      "summary": "Buyers and users — outcome-focused, allergic to jargon, sensitive to time.",
+      "file": "customers.json"
+    },
+    {
+      "id": "sales-team",
+      "name": "Sales Team",
+      "summary": "Quota-carrying reps who want talk tracks, objection handling, and crisp proof.",
+      "file": "sales-team.json"
+    },
+    {
+      "id": "marketing-team",
+      "name": "Marketing Team",
+      "summary": "Brand and demand-gen practitioners aligning on positioning, messaging, and campaigns.",
+      "file": "marketing-team.json"
+    },
+    {
+      "id": "all-hands",
+      "name": "All Hands",
+      "summary": "The full company — mixed roles, mixed seniority, looking for context, signal, and inclusion.",
+      "file": "all-hands.json"
+    },
+    {
+      "id": "candidates",
+      "name": "Candidates",
+      "summary": "Potential hires evaluating company, role, and people.",
+      "file": "candidates.json"
+    },
+    {
+      "id": "regulators",
+      "name": "Regulators",
+      "summary": "Government, agency, and policy reviewers evaluating compliance, risk, and impact.",
+      "file": "regulators.json"
+    }
+  ]
+}

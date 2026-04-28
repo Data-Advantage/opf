@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf/v1",
   "title": "OPF — Open Presentation Format",
-  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, and design — the engine handles OOXML complexity.\n\nFields that reference catalog records (design.theme, design.colors.scheme, design.fonts.scheme, Slide.layout, chart.chartPresetId, meta.language, meta.narrative.template) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document → 'catalogs.<kind>.source' on the document → engine defaults → the default catalog at https://www.pptx.gallery/<kind>. When an OPF document omits a reference entirely, the engine falls back to its 'defaults.json' (see /spec/defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.",
+  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, and design — the engine handles OOXML complexity.\n\nFields that reference catalog records (meta.narrative, meta.language, meta.tone, meta.audience, design.theme, design.colors / design.colors.scheme, design.fonts / design.fonts.scheme, Slide.layout, chart.chartPreset, Organization.socials / Speaker.socials) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document → 'catalogs.<kind>.source' on the document → engine defaults → the default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. When an OPF document omits a reference entirely, the engine falls back to its 'defaults.json' (see /spec/defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.\n\nMost catalog references accept the bare 'id' as a string for the common case (e.g. meta.narrative = 'classic-story', design.colors = 'cool-horizon'). Object forms allow inline overrides or fully inline records.",
   "type": "object",
   "required": ["$schema", "meta", "design", "slides"],
   "properties": {
@@ -27,7 +27,7 @@
     },
     "catalogs": {
       "$ref": "#/$defs/Catalogs",
-      "description": "Optional per-kind catalog overrides. Each kind may declare a non-default 'source' and/or inline 'records' that override or supplement the default catalog at https://www.pptx.gallery/<kind>. References elsewhere in the document (e.g. design.theme, meta.narrative.template) resolve through this section before falling back to the default catalog."
+      "description": "Optional per-kind catalog overrides. Each kind may declare a non-default 'source' and/or inline 'records' that override or supplement the default catalog at https://www.pptx.gallery/<kind>. References elsewhere in the document (e.g. design.theme, meta.narrative) resolve through this section before falling back to the default catalog."
     },
     "extensions": {
       "type": "object",
@@ -78,8 +78,8 @@
         },
         "audience": {
           "type": "string",
-          "description": "Intended audience for the presentation. Used by AI to tune tone and depth.",
-          "examples": ["executives", "engineering team", "Series B investors", "board of directors"]
+          "description": "Intended audience for the presentation. Used by AI to tune tone and depth. Accepts either:\n- A free-form description ('Series B investors', 'engineering team').\n- A catalog reference resolved against catalogs.audiences and the default catalog at https://www.pptx.gallery/audiences — a bare id (lowercase kebab-case, e.g. 'executives'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Catalog records carry seniority, technical-fluency, and decision-power hints used by AI generation.\n\nResolution order for the catalog form: inline catalogs.audiences.records[] → catalogs.audiences.source → default catalog. Free-form values that don't resolve to any catalog id are accepted as-is.",
+          "examples": ["executives", "board", "engineering-team", "investors", "customers", "Series B investors", "https://acme.com/decks/audiences/acme-board.json", "pkg:@acme/decks/audiences/acme-board"]
         },
         "purpose": {
           "type": "string",
@@ -87,13 +87,45 @@
           "examples": ["Raise a Series B round of $30M", "Align the engineering org on Q4 priorities", "Educate customers on the new pricing model"]
         },
         "narrative": {
-          "$ref": "#/$defs/Narrative",
-          "description": "Structured storyline describing the deck's arc, key messages, and tone."
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/Narrative" }
+          ],
+          "description": "Structured storyline describing the deck's arc and beats. Resolves to the 'id' of a 'narratives' catalog record.\n\nAccepts two forms:\n- String shorthand for the common case: 'meta.narrative = \"classic-story\"'. Accepts a bare id (lowercase kebab-case), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n- Object form for inline overrides or fully custom narratives: 'meta.narrative = { id: \"classic-story\", beats: [...] }'. The object shape mirrors https://pptx.dev/schema/opf-narrative/v1 (sans '$schema'), so a library record and an inline narrative are interchangeable.\n\nResolution order: inline catalogs.narratives.records[] → catalogs.narratives.source → default catalog at https://www.pptx.gallery/narratives. Unknown ids produce a validation warning, not an error.\n\nDeck-level concerns that aren't part of the storyline (audience, tone, key messages, duration) live as siblings on 'meta' rather than inside the narrative object.",
+          "examples": [
+            "classic-story",
+            "problem-solution",
+            "scqa",
+            "pitch-deck",
+            { "id": "custom-pitch", "name": "Custom Pitch", "beats": [{ "id": "hook", "name": "Hook" }, { "id": "ask", "name": "Ask" }] },
+            "https://acme.com/decks/narratives/founder-pitch.json",
+            "pkg:@acme/decks/narratives/founder-pitch"
+          ]
         },
         "language": {
           "type": "string",
-          "description": "Language for the presentation content. Accepts either:\n- A BCP-47 language tag ('en-US', 'ja-JP', 'fr').\n- A catalog reference resolved against catalogs.languages and the default catalog at https://www.pptx.gallery/languages — a bare id (lowercase kebab-case, e.g. 'english'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n\nResolution order for the catalog form: inline catalogs.languages.records[] → catalogs.languages.source → default catalog.",
+          "description": "Language for the presentation content. Resolves to the 'id' of a 'languages' catalog record, or accepts a BCP-47 tag directly. Accepts either:\n- A BCP-47 language tag ('en-US', 'ja-JP', 'fr').\n- A catalog reference resolved against catalogs.languages and the default catalog at https://www.pptx.gallery/languages — a bare id (lowercase kebab-case, e.g. 'english'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n\nResolution order for the catalog form: inline catalogs.languages.records[] → catalogs.languages.source → default catalog.",
           "examples": ["en-US", "en-GB", "es-MX", "ja-JP", "fr", "english", "japanese", "https://acme.com/decks/languages/en-acme.json", "pkg:@acme/decks/languages/en-acme"]
+        },
+        "tone": {
+          "type": "string",
+          "description": "Desired tone for the presentation. Resolves to the 'id' of a 'tones' catalog record, or accepts an HTTPS URL / 'pkg:' reference. The catalog record carries voice cues, anti-patterns, and sample phrases used by AI generation.\n\nResolution order: inline catalogs.tones.records[] → catalogs.tones.source → default catalog at https://www.pptx.gallery/tones. The historical enum values ('formal', 'casual', 'inspirational', 'technical', 'persuasive') are valid catalog ids.",
+          "examples": ["formal", "casual", "inspirational", "technical", "persuasive", "authoritative", "conversational", "https://acme.com/decks/tones/acme-voice.json", "pkg:@acme/decks/tones/acme-voice"]
+        },
+        "keyMessages": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key messages the presentation should convey. Deck-level intent used by AI to seed and pressure-test slide content.",
+          "examples": [[
+            "Agent latency is the new bottleneck for AI products.",
+            "Our runtime is 8x faster than the next-best option.",
+            "Customers see ROI within the first quarter."
+          ]]
+        },
+        "durationMinutes": {
+          "type": "number",
+          "minimum": 1,
+          "description": "Target presentation duration in minutes. Used by AI to set pace and depth, and to compare against the resolved narrative's durationRange."
         },
         "tags": {
           "type": "array",
@@ -228,106 +260,111 @@
     },
     "Socials": {
       "type": "object",
-      "description": "Social media handles or URLs. Every property is optional; consumers may render values either as full URLs or as platform handles (e.g., '@acme'). Use this both for organizations and individual speakers.",
-      "properties": {
-        "linkedin": {
-          "type": "string",
-          "description": "LinkedIn profile or company page URL or handle.",
-          "examples": ["https://linkedin.com/in/alice-chen", "https://linkedin.com/company/acme"]
+      "description": "Social media handles or URLs, keyed by platform id from the 'socials' catalog. Each value is a string — either a full URL or a platform handle (e.g., '@acme'). The catalog record for each platform carries the URL pattern, handle prefix, brand color, and themed icons used by renderers.\n\nKeys resolve to the 'id' of a 'socials' catalog record. Resolution order: inline catalogs.socials.records[] → catalogs.socials.source → default catalog at https://www.pptx.gallery/socials. Unknown platform keys render with engine fallbacks (the raw value as text). Used both for organizations and individual speakers.",
+      "additionalProperties": {
+        "type": "string",
+        "description": "Handle or URL for the platform identified by the property key."
+      },
+      "examples": [
+        {
+          "linkedin": "https://linkedin.com/in/alice-chen",
+          "x": "@alicechen",
+          "github": "alicechen"
         },
-        "x": {
-          "type": "string",
-          "description": "X (formerly Twitter) profile URL or handle.",
-          "examples": ["@alicechen", "https://x.com/acme"]
-        },
-        "github": {
-          "type": "string",
-          "description": "GitHub user or organization URL or handle.",
-          "examples": ["alicechen", "https://github.com/acme"]
-        },
-        "youtube": {
-          "type": "string",
-          "description": "YouTube channel URL or handle.",
-          "examples": ["@acme", "https://youtube.com/@acme"]
-        },
-        "instagram": {
-          "type": "string",
-          "description": "Instagram profile URL or handle.",
-          "examples": ["@acme", "https://instagram.com/acme"]
-        },
-        "facebook": {
-          "type": "string",
-          "description": "Facebook page URL or handle.",
-          "examples": ["acme", "https://facebook.com/acme"]
-        },
-        "tiktok": {
-          "type": "string",
-          "description": "TikTok profile URL or handle.",
-          "examples": ["@acme", "https://tiktok.com/@acme"]
-        },
-        "threads": {
-          "type": "string",
-          "description": "Threads profile URL or handle.",
-          "examples": ["@alicechen", "https://threads.net/@acme"]
-        },
-        "mastodon": {
-          "type": "string",
-          "description": "Mastodon profile URL (include the instance, e.g., 'https://mastodon.social/@user').",
-          "examples": ["https://mastodon.social/@alice", "https://hachyderm.io/@acme"]
-        },
-        "bluesky": {
-          "type": "string",
-          "description": "Bluesky profile URL or handle (e.g., 'user.bsky.social').",
-          "examples": ["alice.bsky.social", "https://bsky.app/profile/acme.bsky.social"]
+        {
+          "linkedin": "https://linkedin.com/company/acme",
+          "bluesky": "acme.bsky.social",
+          "mastodon": "https://hachyderm.io/@acme"
         }
+      ],
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "description": "Platform id (lowercase kebab-case). Common ids include 'linkedin', 'x', 'github', 'youtube', 'instagram', 'facebook', 'tiktok', 'threads', 'mastodon', 'bluesky'."
       }
     },
     "Narrative": {
       "type": "object",
-      "description": "Structured storyline metadata used by AI to shape generated content. Narrative declares the deck's intended story arc; slides may opt into beats via Slide.beat. The narrative does not constrain slide structure — validators warn on drift (orphan slides, unused beats) but never error. Slides are the source of truth; narrative is intent that travels with the deck.",
+      "description": "Structured storyline used by AI to shape generated content. Mirrors the OPF Narrative Template record at https://pptx.dev/schema/opf-narrative/v1 (sans '$schema'), so a library record and an inline narrative are interchangeable.\n\nNarrative declares the deck's intended story arc; slides may opt into beats via Slide.beat. The narrative does not constrain slide structure — validators warn on drift (orphan slides, unused beats) but never error. Slides are the source of truth; narrative is intent that travels with the deck.\n\nWhen 'id' matches a record in the resolved 'narratives' catalog, the inline fields override matching fields on the catalog record (beats merge by beat 'id'). When 'id' doesn't match, this object defines a fully custom inline narrative.\n\nDeck-level concerns that aren't part of the storyline (audience, tone, key messages, duration) live as siblings on 'meta' rather than inside this object.",
       "properties": {
-        "template": {
+        "id": {
           "type": "string",
-          "description": "Catalog reference resolved against catalogs.narratives and the default catalog at https://www.pptx.gallery/narratives. Accepts a bare id (lowercase kebab-case, e.g. 'classic-story'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n\nResolution order: inline catalogs.narratives.records[] → catalogs.narratives.source → default catalog. Unknown ids produce a validation warning, not an error.",
-          "examples": ["problem-solution", "scqa", "pitch-deck", "qbr", "weekly-progress", "classic-story", "https://acme.com/decks/narratives/founder-pitch.json", "pkg:@acme/decks/narratives/founder-pitch"]
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Stable slug identifying this narrative. When it matches a record in the resolved 'narratives' catalog, the catalog record's beats and metadata seed this narrative; inline fields override per-key. When it doesn't match, this is a fully custom inline narrative. Lowercase kebab-case.",
+          "examples": ["classic-story", "problem-solution", "scqa", "pitch-deck", "qbr", "weekly-progress", "custom-pitch"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable narrative name.",
+          "examples": ["Classic Story", "Problem → Solution", "SCQA", "Founder Pitch"]
+        },
+        "summary": {
+          "type": "string",
+          "description": "One-sentence description of when and why to use this narrative."
         },
         "description": {
           "type": "string",
-          "description": "Free-form narrative description used for AI-driven generation.",
+          "description": "Longer prose describing the narrative arc and ideal use cases. Used by AI-driven generation to seed deck-level direction.",
           "examples": [
             "Open with the cost of slow agentic workflows, contrast with what becomes possible at sub-second latency, then walk through our architecture and benchmark results, ending with a concrete adoption ask."
           ]
         },
-        "keyMessages": {
+        "audienceFit": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Key messages the presentation should convey.",
-          "examples": [[
-            "Agent latency is the new bottleneck for AI products.",
-            "Our runtime is 8x faster than the next-best option.",
-            "Customers see ROI within the first quarter."
-          ]]
+          "description": "Audiences this narrative works well for. Free-form strings or 'audiences' catalog ids.",
+          "examples": [["executives", "investors", "customers"]]
         },
-        "tone": {
-          "type": "string",
-          "enum": ["formal", "casual", "inspirational", "technical", "persuasive"],
-          "description": "Desired tone for the presentation."
+        "durationRange": {
+          "type": "object",
+          "description": "Typical talk-length window this narrative suits. Compared by validators against meta.durationMinutes.",
+          "properties": {
+            "minMinutes": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "maxMinutes": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
         },
-        "durationMinutes": {
-          "type": "number",
-          "minimum": 1,
-          "description": "Target presentation duration in minutes."
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free-form labels for filtering and search.",
+          "examples": [["business", "pitch", "internal"]]
+        },
+        "preview": {
+          "type": "object",
+          "description": "Visual previews of the narrative, used by picker UIs and inline rendering. All sub-fields are optional.",
+          "properties": {
+            "src": {
+              "type": "string",
+              "format": "uri",
+              "description": "Main preview image (PNG/JPG)."
+            },
+            "thumbnailSrc": {
+              "type": "string",
+              "format": "uri",
+              "description": "Smaller thumbnail preview for dense grid views."
+            },
+            "vectorSrc": {
+              "type": "string",
+              "format": "uri",
+              "description": "SVG / vector preview for crisp scaling at any size."
+            }
+          }
         },
         "beats": {
           "type": "array",
           "items": { "$ref": "#/$defs/NarrativeBeat" },
-          "description": "Inline narrative beats. When provided alongside a 'template', beats here override or extend matching template beats by 'id'. Without 'template', this defines a fully custom narrative arc. Beat IDs must be unique within the document."
+          "description": "Ordered list of beats that make up the narrative arc. When 'id' matches a catalog record, beats here override or extend matching catalog beats by their own 'id'. Beat IDs must be unique within the narrative."
         }
       }
     },
     "NarrativeBeat": {
       "type": "object",
-      "description": "A single narrative beat — a labeled segment of the story arc with a specific dramatic purpose (e.g. 'hook', 'problem', 'evidence', 'ask'). Slides reference beats via Slide.beat. Beats may also carry slide-blueprint hints (slideType, layoutHint, placeholders, options, thoughtCues, instructions) that pre-shape the generated slide.",
+      "description": "A single narrative beat — a labeled segment of the story arc with a specific dramatic purpose (e.g. 'hook', 'problem', 'evidence', 'ask'). Slides reference beats via Slide.beat. Beats may also carry slide-blueprint hints (slideType, layoutHint, placeholders, options, thoughtCues, instructions) that pre-shape the generated slide.\n\nMirrors the Beat definition in narrative.schema.json (https://pptx.dev/schema/opf-narrative/v1) so library entries and inline OPF beats are interchangeable.",
       "required": ["id", "name"],
       "properties": {
         "id": {
@@ -386,7 +423,7 @@
     },
     "NarrativeBeatPlaceholders": {
       "type": "object",
-      "description": "Boolean flags indicating which standard slide placeholders the beat expects to fill. Engines may use these as content-generation hints; missing flags are treated as 'unspecified', not 'false'.",
+      "description": "Boolean flags indicating which standard slide placeholders the beat expects to fill. Engines may use these as content-generation hints; missing flags are treated as 'unspecified', not 'false'.\n\nMirrors BeatPlaceholders in narrative.schema.json (https://pptx.dev/schema/opf-narrative/v1).",
       "properties": {
         "tag":        { "type": "boolean", "description": "Whether to render a small tag / label above the title.", "examples": [false, true] },
         "title":      { "type": "boolean", "description": "Whether the beat fills the slide title.", "examples": [true, false] },
@@ -396,7 +433,7 @@
     },
     "NarrativeBeatOptions": {
       "type": "object",
-      "description": "Engine-facing options that fine-tune how a beat's resolved layout is populated.",
+      "description": "Engine-facing options that fine-tune how a beat's resolved layout is populated.\n\nMirrors BeatOptions in narrative.schema.json (https://pptx.dev/schema/opf-narrative/v1).",
       "properties": {
         "multiple": {
           "type": "string",
@@ -421,16 +458,33 @@
       "properties": {
         "theme": {
           "type": "string",
-          "description": "Catalog reference resolved against catalogs.themes and the default catalog at https://www.pptx.gallery/themes. Accepts a bare id (lowercase kebab-case, e.g. 'minimal'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. Inline overrides on design.colors / design.fonts / design.background / design.dimensions take precedence over the resolved theme.\n\nResolution order: inline catalogs.themes.records[] → catalogs.themes.source → default catalog.",
+          "description": "Theme for the deck. Resolves to the 'id' of a 'themes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'minimal'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. Inline overrides on design.colors / design.fonts / design.background / design.dimensions take precedence over the resolved theme.\n\nResolution order: inline catalogs.themes.records[] → catalogs.themes.source → default catalog at https://www.pptx.gallery/themes.",
           "examples": ["minimal", "classic", "dark", "bold", "corporate-minimal", "ocean-depth", "https://acme.com/decks/themes/acme-brand.json", "pkg:@acme/decks/themes/acme-brand"]
         },
         "colors": {
-          "$ref": "#/$defs/ColorScheme",
-          "description": "Color palette for the presentation."
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/ColorScheme" }
+          ],
+          "description": "Color palette for the presentation. Accepts two forms:\n- String shorthand: 'design.colors = \"cool-horizon\"' — equivalent to '{ scheme: \"cool-horizon\" }'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'colorSchemes' catalog record.\n- Object form: a ColorScheme with a 'scheme' ref plus slot/role overrides.\n\nResolution order: inline catalogs.colorSchemes.records[] → catalogs.colorSchemes.source → default catalog at https://www.pptx.gallery/color-schemes.",
+          "examples": [
+            "cool-horizon",
+            "boost",
+            "burnt-orange",
+            { "scheme": "cool-horizon", "accent1": "#FF6F61" }
+          ]
         },
         "fonts": {
-          "$ref": "#/$defs/FontScheme",
-          "description": "Typography selections for heading, body, accent, and code text."
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/FontScheme" }
+          ],
+          "description": "Typography selections for heading, body, accent, and code text. Accepts two forms:\n- String shorthand: 'design.fonts = \"aptos\"' — equivalent to '{ scheme: \"aptos\" }'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'fontSchemes' catalog record.\n- Object form: a FontScheme with a 'scheme' ref plus pair/role overrides.\n\nResolution order: inline catalogs.fontSchemes.records[] → catalogs.fontSchemes.source → default catalog at https://www.pptx.gallery/font-schemes.",
+          "examples": [
+            "aptos",
+            "tenorite",
+            { "scheme": "aptos", "heading": { "family": "Inter", "weight": 700 } }
+          ]
         },
         "dimensions": {
           "$ref": "#/$defs/Dimensions",
@@ -452,11 +506,11 @@
     },
     "ColorScheme": {
       "type": "object",
-      "description": "Color palette used by the design system. Two parallel models are supported and may be mixed:\n\n- OOXML slots (accent1–accent6, dark1, dark2, light1, light2, hyperlink, followedHyperlink) — these mirror the 12-slot PowerPoint theme model and round-trip directly to OOXML. Use these when you want full control over the palette as PowerPoint sees it.\n- Abstract roles (primary, secondary, accent, background, surface, text, textSecondary, custom) — semantic aliases the engine maps onto the OOXML slots. Convenient for inline overrides without thinking in slot numbers.\n\nReference a named scheme via 'scheme' and/or override individual fields below; field overrides take precedence over the resolved scheme.",
+      "description": "Color palette used by the design system. The slot fields (accent1–accent6, dark1, dark2, light1, light2, hyperlink, followedHyperlink) mirror color-scheme.schema.json (https://pptx.dev/schema/opf-color-scheme/v1) so library records and inline OPF overrides are interchangeable on those fields.\n\nTwo parallel models are supported and may be mixed:\n- OOXML slots — the 12-slot PowerPoint theme model that round-trips directly to OOXML. Use these for full control over the palette as PowerPoint sees it.\n- Abstract roles (primary, secondary, accent, background, surface, text, textSecondary, custom) — OPF-specific semantic aliases the engine maps onto the OOXML slots. Convenient for inline overrides without thinking in slot numbers; not part of the catalog record schema.\n\nReference a named scheme via 'scheme' and/or override individual fields below; field overrides take precedence over the resolved scheme. The string shorthand on design.colors is equivalent to setting only 'scheme'.",
       "properties": {
         "scheme": {
           "type": "string",
-          "description": "Catalog reference resolved against catalogs.colorSchemes and the default catalog at https://www.pptx.gallery/color-schemes. Accepts a bare id (lowercase kebab-case, e.g. 'cool-horizon'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. Slot and role overrides on the surrounding ColorScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.colorSchemes.records[] → catalogs.colorSchemes.source → default catalog.",
+          "description": "Color scheme reference. OPF-specific (no counterpart in color-scheme.schema.json). Resolves to the 'id' of a 'colorSchemes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'cool-horizon'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Slot and role overrides on the surrounding ColorScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.colorSchemes.records[] → catalogs.colorSchemes.source → default catalog at https://www.pptx.gallery/color-schemes.",
           "examples": ["cool-horizon", "boost", "burnt-orange", "ocean-depth", "corporate-blue", "https://acme.com/decks/color-schemes/acme.json", "pkg:@acme/decks/color-schemes/acme"]
         },
         "accent1": {
@@ -564,11 +618,11 @@
     },
     "FontScheme": {
       "type": "object",
-      "description": "Typography selections used by the design system. Two parallel models are supported and may be mixed:\n\n- OOXML pairs (major, minor) — heading and body family names that mirror the PowerPoint majorFont/minorFont entries and round-trip directly to OOXML. The optional 'app', 'languageFamily', and 'type' fields refine which app and script family the pairing targets.\n- Abstract roles (heading, body, accent, code) — semantic Font objects the engine maps onto the OOXML pair when serializing. Convenient for inline overrides and for adding accent/code roles that don't have a direct OOXML slot.\n\nReference a named scheme via 'scheme' and/or override individual fields below; field overrides take precedence over the resolved scheme.",
+      "description": "Typography selections used by the design system. The pair fields (major, minor) and refinement fields (type, app, languageFamily) mirror font-scheme.schema.json (https://pptx.dev/schema/opf-font-scheme/v1) so library records and inline OPF overrides are interchangeable on those fields.\n\nTwo parallel models are supported and may be mixed:\n- OOXML pairs (major, minor) — heading and body family names that round-trip directly to PowerPoint majorFont/minorFont entries.\n- Abstract roles (heading, body, accent, code) — OPF-specific Font objects the engine maps onto the OOXML pair when serializing. Convenient for inline overrides and for adding accent/code roles that don't have a direct OOXML slot; not part of the catalog record schema.\n\nReference a named scheme via 'scheme' and/or override individual fields below; field overrides take precedence over the resolved scheme. The string shorthand on design.fonts is equivalent to setting only 'scheme'.",
       "properties": {
         "scheme": {
           "type": "string",
-          "description": "Catalog reference resolved against catalogs.fontSchemes and the default catalog at https://www.pptx.gallery/font-schemes. Accepts a bare id (lowercase kebab-case, e.g. 'aptos'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. Field overrides on the surrounding FontScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.fontSchemes.records[] → catalogs.fontSchemes.source → default catalog.",
+          "description": "Font scheme reference. OPF-specific (no counterpart in font-scheme.schema.json). Resolves to the 'id' of a 'fontSchemes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'aptos'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Field overrides on the surrounding FontScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.fontSchemes.records[] → catalogs.fontSchemes.source → default catalog at https://www.pptx.gallery/font-schemes.",
           "examples": ["aptos", "tenorite", "seaford", "noto-sans", "modern-sans", "classic-serif", "https://acme.com/decks/font-schemes/acme.json", "pkg:@acme/decks/font-schemes/acme"]
         },
         "major": {
@@ -922,7 +976,7 @@
         },
         "layout": {
           "type": "string",
-          "description": "Catalog reference resolved against catalogs.layouts and the default catalog at https://www.pptx.gallery/layouts. Accepts a bare id (lowercase kebab-case, e.g. 'title-left'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.\n\nResolution order: inline catalogs.layouts.records[] → catalogs.layouts.source → default catalog.",
+          "description": "Slide layout reference. Resolves to the 'id' of a 'layouts' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'title-left'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.\n\nResolution order: inline catalogs.layouts.records[] → catalogs.layouts.source → default catalog at https://www.pptx.gallery/layouts.",
           "examples": ["title-slide", "title-left", "section-divider", "two-column", "image-right", "stat-hero", "blank", "https://acme.com/decks/layouts/cover.json", "pkg:@acme/decks/layouts/cover"]
         },
         "designOverrides": {
@@ -1119,21 +1173,21 @@
             "required": ["data"],
             "anyOf": [
               { "required": ["chartType"] },
-              { "required": ["chartPresetId"] }
+              { "required": ["chartPreset"] }
             ],
             "properties": {
               "chartType": {
                 "type": "string",
-                "description": "Generic chart variant. Use this for engine-agnostic decks where you want the engine to pick a sensible preset; for finer control, use 'chartPresetId' instead. Accepts a generic type ('bar', 'line', etc.) or any chart-preset id from /spec/charts (the engine treats common preset ids as synonyms here).",
+                "description": "Generic chart variant. Use this for engine-agnostic decks where you want the engine to pick a sensible preset; for finer control, use 'chartPreset' instead. Accepts a generic type ('bar', 'line', etc.) or any chart-preset id from /spec/charts (the engine treats common preset ids as synonyms here).",
                 "examples": [
                   "bar", "column", "line", "pie", "donut", "doughnut", "area", "scatter", "radar",
                   "waterfall", "funnel", "treemap", "combo",
                   "clustered-column", "stacked-column", "stacked-column-100", "bullet-column", "box-and-whisker", "histogram"
                 ]
               },
-              "chartPresetId": {
+              "chartPreset": {
                 "type": "string",
-                "description": "Catalog reference resolved against catalogs.charts and the default catalog at https://www.pptx.gallery/charts. Accepts a bare id (lowercase kebab-case, e.g. 'clustered-column'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. When set, the engine sources the visual template from the resolved preset and uses 'data' to populate it; 'chartType' (if also set) is treated as a generic-class hint.\n\nResolution order: inline catalogs.charts.records[] → catalogs.charts.source → default catalog.",
+                "description": "Chart preset reference. Resolves to the 'id' of a 'charts' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'clustered-column'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. When set, the engine sources the visual template from the resolved preset and uses 'data' to populate it; 'chartType' (if also set) is treated as a generic-class hint.\n\nResolution order: inline catalogs.charts.records[] → catalogs.charts.source → default catalog at https://www.pptx.gallery/charts.",
                 "examples": ["column", "clustered-column", "stacked-column", "doughnut", "bullet-column", "box-and-whisker", "https://acme.com/decks/charts/branded-column.json", "pkg:@acme/decks/charts/branded-column"]
               },
               "data": {
@@ -1575,7 +1629,7 @@
     },
     "Catalogs": {
       "type": "object",
-      "description": "Catalog overrides for the in-document references. Every property is optional. The default catalog for a kind lives at https://www.pptx.gallery/<kind> (e.g. https://www.pptx.gallery/narratives, https://www.pptx.gallery/themes). For each kind, declaring a 'source' replaces the default registry and/or 'records' adds inline records that take precedence over anything fetched from a source.\n\nResolution order for any reference (e.g. meta.narrative.template, design.theme): inline catalogs.<kind>.records[] → catalogs.<kind>.source → default catalog at https://www.pptx.gallery/<kind>. References that are themselves URLs or 'pkg:' references skip the catalog lookup and resolve directly.",
+      "description": "Catalog overrides for the in-document references. Every property is optional. The default catalog for a kind lives at https://www.pptx.gallery/<kind> (e.g. https://www.pptx.gallery/narratives, https://www.pptx.gallery/themes). For each kind, declaring a 'source' replaces the default registry and/or 'records' adds inline records that take precedence over anything fetched from a source.\n\nResolution order for any reference (e.g. meta.narrative, design.theme): inline catalogs.<kind>.records[] → catalogs.<kind>.source → default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. References that are themselves URLs or 'pkg:' references skip the catalog lookup and resolve directly.",
       "properties": {
         "narratives": {
           "$ref": "#/$defs/CatalogEntry",
@@ -1604,6 +1658,18 @@
         "charts": {
           "$ref": "#/$defs/CatalogEntry",
           "description": "Catalog of chart presets. Records validate against https://pptx.dev/schema/opf-chart/v1. Default source: https://www.pptx.gallery/charts."
+        },
+        "tones": {
+          "$ref": "#/$defs/CatalogEntry",
+          "description": "Catalog of presentation tones. Records validate against https://pptx.dev/schema/opf-tone/v1. Default source: https://www.pptx.gallery/tones. Referenced from meta.tone."
+        },
+        "audiences": {
+          "$ref": "#/$defs/CatalogEntry",
+          "description": "Catalog of presentation audiences. Records validate against https://pptx.dev/schema/opf-audience/v1. Default source: https://www.pptx.gallery/audiences. Referenced from meta.audience."
+        },
+        "socials": {
+          "$ref": "#/$defs/CatalogEntry",
+          "description": "Catalog of social-media platforms. Records validate against https://pptx.dev/schema/opf-social/v1. Default source: https://www.pptx.gallery/socials. Referenced via the property keys of any Socials object (Organization.socials, Speaker.socials)."
         }
       }
     },

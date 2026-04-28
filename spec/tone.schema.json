@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-tone/v1",
+  "title": "OPF Tone",
+  "description": "Schema for tone records in the pptx.gallery library. Each record names a presentation tone (e.g. 'formal', 'casual', 'inspirational') and carries voice cues, anti-patterns, and sample phrases that AI-driven generation uses to shape output. Tones are referenced from OPF documents via meta.tone; the engine resolves the reference against catalogs.tones (inline) → catalogs.tones.source → the default catalog at https://www.pptx.gallery/tones.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-tone/v1",
+      "description": "Identifies this record as a tone in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this tone via meta.tone. Lowercase kebab-case.",
+      "examples": [
+        "formal",
+        "casual",
+        "inspirational",
+        "technical",
+        "persuasive",
+        "authoritative",
+        "conversational"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable tone name shown in pickers.",
+      "examples": [
+        "Formal",
+        "Casual",
+        "Inspirational",
+        "Technical",
+        "Persuasive",
+        "Authoritative",
+        "Conversational"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the tone — when to reach for it.",
+      "examples": [
+        "Polished, restrained voice for board, investor, and regulator audiences.",
+        "Warm, plain-spoken voice for internal updates and customer storytelling."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the tone and the kinds of decks it suits.",
+      "examples": [
+        "Authoritative without being cold. Use third-person constructions, full sentences, and concrete numbers. Avoid hedges and humor that depend on shared in-jokes; rely on clarity and precision to land."
+      ]
+    },
+    "voiceCues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Short directives that shape AI generation toward this tone. Phrased as imperatives, e.g. 'use second-person', 'favor short sentences', 'lead with the recommendation'.",
+      "examples": [
+        [
+          "Use third person.",
+          "Lead with the recommendation, then evidence.",
+          "Quote concrete numbers; avoid round-tripping ranges."
+        ]
+      ]
+    },
+    "avoid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Anti-patterns that AI generation should not produce when this tone is active.",
+      "examples": [
+        [
+          "Slang, idioms, or in-jokes.",
+          "Hedging language ('maybe', 'sort of', 'I think').",
+          "Marketing superlatives ('world-class', 'best-in-class')."
+        ]
+      ]
+    },
+    "samplePhrases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Short example phrases that exemplify this tone. Used by picker UIs and as few-shot examples for AI generation.",
+      "examples": [
+        [
+          "Q4 revenue grew 18% year over year, led by enterprise expansion.",
+          "We recommend approving the Series B raise at $30M.",
+          "Net retention was 124%; gross retention was 96%."
+        ]
+      ]
+    },
+    "recommendedNarratives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Soft cross-link: narrative-catalog ids this tone pairs well with. Used by picker UIs to suggest narratives once a tone is chosen. Validators warn on unknown ids; never error.",
+      "examples": [
+        ["board-meeting", "qbr", "scqa"]
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        ["business", "executive"],
+        ["internal", "warm"],
+        ["motivational", "keynote"]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG)."
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views."
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size."
+        }
+      }
+    }
+  }
+}

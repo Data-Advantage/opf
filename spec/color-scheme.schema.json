@@ -62,7 +62,7 @@
     },
     "accent2": {
       "type": "string",
-      "description": "Accent 2 color (hex).",
+      "description": "Accent 2 color (hex). Mirrors the OOXML accent2 slot.",
       "examples": [
         "#1B4F72",
         "#0308DB",
@@ -71,7 +71,7 @@
     },
     "accent3": {
       "type": "string",
-      "description": "Accent 3 color (hex).",
+      "description": "Accent 3 color (hex). Mirrors the OOXML accent3 slot.",
       "examples": [
         "#5499C7",
         "#4F4955",
@@ -80,7 +80,7 @@
     },
     "accent4": {
       "type": "string",
-      "description": "Accent 4 color (hex).",
+      "description": "Accent 4 color (hex). Mirrors the OOXML accent4 slot.",
       "examples": [
         "#7BDBB2",
         "#A1DB30",
@@ -89,7 +89,7 @@
     },
     "accent5": {
       "type": "string",
-      "description": "Accent 5 color (hex).",
+      "description": "Accent 5 color (hex). Mirrors the OOXML accent5 slot.",
       "examples": [
         "#3AC67A",
         "#0682FE",
@@ -98,7 +98,7 @@
     },
     "accent6": {
       "type": "string",
-      "description": "Accent 6 color (hex).",
+      "description": "Accent 6 color (hex). Mirrors the OOXML accent6 slot.",
       "examples": [
         "#24A89E",
         "#FC03BE",

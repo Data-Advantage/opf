@@ -1,0 +1,23 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-audience/v1",
+  "id": "sales-team",
+  "name": "Sales Team",
+  "summary": "Quota-carrying reps who want talk tracks, objection handling, and crisp proof.",
+  "description": "Sales audiences need actionable assets, not strategy framing. Surface the talk tracks they'll repeat, the three objections they'll hear, and the data points that close. Keep slides scannable — much of this content is consumed asynchronously between calls.",
+  "seniority": "mixed",
+  "technicalFluency": "low",
+  "decisionPower": "informational",
+  "attentionBudgetMinutes": 30,
+  "recommendedNarratives": [
+    "marketing-strategy",
+    "persuasive-sales",
+    "weekly-progress",
+    "status-update"
+  ],
+  "recommendedTones": [
+    "casual",
+    "persuasive",
+    "conversational"
+  ],
+  "tags": ["internal", "go-to-market", "enablement"]
+}

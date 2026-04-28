@@ -29,60 +29,106 @@ class _OPFBase(BaseModel):
 # ─── Narrative / Meta ────────────────────────────────────────────────
 
 
+class OPFNarrativeBeatPlaceholders(_OPFBase):
+    """Boolean flags indicating which standard slide placeholders the beat
+    expects to fill. Mirrors BeatPlaceholders in narrative.schema.json."""
+
+    tag: bool | None = None
+    title: bool | None = None
+    subtitle: bool | None = None
+    slide_image: bool | None = Field(default=None, alias="slideImage")
+
+
+class OPFNarrativeBeatOptions(_OPFBase):
+    """Engine-facing options that fine-tune how a beat's resolved layout is
+    populated. Mirrors BeatOptions in narrative.schema.json."""
+
+    multiple: Literal["1x", "2x", "3x", "4x", "5x", "6x"] | None = None
+    show_label: bool | None = Field(default=None, alias="showLabel")
+    show_description: bool | None = Field(default=None, alias="showDescription")
+
+
 class OPFNarrativeBeat(_OPFBase):
     """A single narrative beat — a labeled segment of the story arc.
 
-    Slides reference beats via ``OPFSlide.beat``.
+    Slides reference beats via ``OPFSlide.beat``. Mirrors the Beat
+    definition in narrative.schema.json
+    (https://pptx.dev/schema/opf-narrative/v1) so library entries and
+    inline OPF beats are interchangeable.
     """
 
     id: str
     name: str
     description: str | None = None
+    instructions: str | None = None
     slide_count: int | None = Field(default=None, alias="slideCount")
     """Optional explicit slide count for this beat. Defaults to 1 when
     omitted; values >1 are reserved for beats that intentionally span
     multiple slides. Prefer decomposing a heavy beat into multiple beats
-    over setting a high ``slideCount``."""
+    over setting a high ``slideCount``. The validator emits a warning if
+    the deck's actual count differs significantly."""
+    slide_type: Literal["text", "image", "chart", "table", "code"] | None = Field(
+        default=None, alias="slideType"
+    )
     layout_hint: str | None = Field(default=None, alias="layoutHint")
+    placeholders: OPFNarrativeBeatPlaceholders | None = None
+    options: OPFNarrativeBeatOptions | None = None
+    thought_cues: list[str] | None = Field(default=None, alias="thoughtCues")
+
+
+class OPFNarrativePreview(_OPFBase):
+    """Visual previews of a narrative, used by picker UIs and inline
+    rendering."""
+
+    src: str | None = None
+    thumbnail_src: str | None = Field(default=None, alias="thumbnailSrc")
+    vector_src: str | None = Field(default=None, alias="vectorSrc")
+
+
+class OPFNarrativeDurationRange(_OPFBase):
+    """Typical talk-length window a narrative suits."""
+
+    min_minutes: float | None = Field(default=None, alias="minMinutes")
+    max_minutes: float | None = Field(default=None, alias="maxMinutes")
 
 
 class OPFNarrative(_OPFBase):
-    """Structured storyline metadata used by AI to shape generated content.
+    """Structured storyline used by AI to shape generated content.
 
-    Narrative declares the deck's intended story arc; slides may opt into
-    beats via ``OPFSlide.beat``. The narrative does not constrain slide
-    structure — validators warn on drift but never error. Slides are the
-    source of truth; narrative is intent that travels with the deck.
+    Mirrors the OPF Narrative Template record at
+    https://pptx.dev/schema/opf-narrative/v1 (sans ``$schema``) so library
+    records and inline OPF narratives are interchangeable.
+
+    When ``id`` matches a record in the resolved ``narratives`` catalog,
+    the inline fields override matching fields on the catalog record (beats
+    merge by beat ``id``). When ``id`` doesn't match, this object defines
+    a fully custom inline narrative.
+
+    Deck-level concerns (audience, tone, key messages, duration) live as
+    siblings on ``meta`` rather than inside this object.
     """
 
-    template: str | None = None
+    id: str | None = None
+    name: str | None = None
+    summary: str | None = None
     description: str | None = None
-    key_messages: list[str] | None = Field(default=None, alias="keyMessages")
-    tone: str | None = None
-    duration_minutes: float | None = Field(default=None, alias="durationMinutes")
+    audience_fit: list[str] | None = Field(default=None, alias="audienceFit")
+    duration_range: OPFNarrativeDurationRange | None = Field(
+        default=None, alias="durationRange"
+    )
+    tags: list[str] | None = None
+    preview: OPFNarrativePreview | None = None
     beats: list[OPFNarrativeBeat] | None = None
 
 
-class OPFSocials(_OPFBase):
-    """Social media handles or URLs.
-
-    Every property is optional; values may be full URLs or platform handles.
-    Used by both organizations and speakers.
-    """
-
-    linkedin: str | None = None
-    x: str | None = None
-    """X (formerly Twitter) profile URL or handle."""
-    github: str | None = None
-    youtube: str | None = None
-    instagram: str | None = None
-    facebook: str | None = None
-    tiktok: str | None = None
-    threads: str | None = None
-    mastodon: str | None = None
-    """Mastodon profile URL (include the instance)."""
-    bluesky: str | None = None
-    """Bluesky profile URL or handle (e.g., 'user.bsky.social')."""
+# ``OPFSocials`` is a free-form mapping of platform-id → handle/URL string.
+# Property keys resolve to the ``id`` of a ``socials`` catalog record
+# (https://pptx.dev/schema/opf-social/v1; default catalog at
+# https://www.pptx.gallery/socials). Common platform ids include
+# ``linkedin``, ``x``, ``github``, ``youtube``, ``instagram``, ``facebook``,
+# ``tiktok``, ``threads``, ``mastodon``, ``bluesky``. Used both for
+# organizations and speakers.
+OPFSocials = dict[str, str]
 
 
 class OPFOrganization(_OPFBase):
@@ -154,9 +200,27 @@ class OPFMeta(_OPFBase):
     """Optional credit list for people who authored or contributed to the
     deck, distinct from speakers. Use when the writer and presenter differ."""
     audience: str | None = None
+    """Intended audience. Free-form description or a catalog id resolved
+    against ``catalogs.audiences`` (default catalog at
+    https://www.pptx.gallery/audiences)."""
     purpose: str | None = None
-    narrative: OPFNarrative | None = None
+    narrative: Union[str, OPFNarrative] | None = None
+    """Structured storyline. String shorthand (catalog id, URL, or ``pkg:``
+    reference) for the common case; object form for inline overrides or
+    fully custom narratives. Object shape mirrors
+    https://pptx.dev/schema/opf-narrative/v1 (sans ``$schema``)."""
     language: str | None = None
+    """Language for the presentation content. BCP-47 tag or catalog id
+    resolved against ``catalogs.languages``."""
+    tone: str | None = None
+    """Desired tone. Resolves to the ``id`` of a ``tones`` catalog record
+    (default catalog at https://www.pptx.gallery/tones). Historical enum
+    values (``formal``, ``casual``, ``inspirational``, ``technical``,
+    ``persuasive``) are valid catalog ids."""
+    key_messages: list[str] | None = Field(default=None, alias="keyMessages")
+    """Key messages the presentation should convey."""
+    duration_minutes: float | None = Field(default=None, alias="durationMinutes")
+    """Target presentation duration in minutes."""
     tags: list[str] | None = None
     """Free-form labels used for categorization, search, and filtering.
     Lowercase kebab-case is recommended for consistency."""
@@ -166,7 +230,33 @@ class OPFMeta(_OPFBase):
 
 
 class OPFColorScheme(_OPFBase):
+    """Color palette used by the design system.
+
+    Slot fields (``accent1``\u2013``accent6``, ``dark1``/``dark2``,
+    ``light1``/``light2``, ``hyperlink``, ``followedHyperlink``) mirror
+    color-scheme.schema.json (https://pptx.dev/schema/opf-color-scheme/v1)
+    so library records and inline OPF overrides are interchangeable on
+    those fields. ``scheme`` and the abstract roles (``primary``,
+    ``secondary``, ``accent``, ``background``, ``surface``, ``text``,
+    ``textSecondary``, ``custom``) are OPF-specific authoring conveniences
+    with no counterpart in the catalog record schema.
+    """
+
     scheme: str | None = None
+    """Color scheme reference (OPF-specific). Resolves to the ``id`` of a
+    ``colorSchemes`` catalog record."""
+    accent1: str | None = None
+    accent2: str | None = None
+    accent3: str | None = None
+    accent4: str | None = None
+    accent5: str | None = None
+    accent6: str | None = None
+    dark1: str | None = None
+    dark2: str | None = None
+    light1: str | None = None
+    light2: str | None = None
+    hyperlink: str | None = None
+    followed_hyperlink: str | None = Field(default=None, alias="followedHyperlink")
     primary: str | None = None
     secondary: str | None = None
     accent: str | None = None
@@ -185,7 +275,27 @@ class OPFFont(_OPFBase):
 
 
 class OPFFontScheme(_OPFBase):
+    """Typography selections used by the design system.
+
+    Pair fields (``major``, ``minor``) and refinement fields (``type``,
+    ``app``, ``languageFamily``) mirror font-scheme.schema.json
+    (https://pptx.dev/schema/opf-font-scheme/v1) so library records and
+    inline OPF overrides are interchangeable on those fields. ``scheme``
+    and the abstract role objects (``heading``, ``body``, ``accent``,
+    ``code``) are OPF-specific authoring conveniences with no counterpart
+    in the catalog record schema.
+    """
+
     scheme: str | None = None
+    """Font scheme reference (OPF-specific). Resolves to the ``id`` of a
+    ``fontSchemes`` catalog record."""
+    major: str | None = None
+    minor: str | None = None
+    type: Literal["sans-serif", "serif", "monospace"] | None = None
+    app: Literal["PowerPoint", "Google Slides"] | None = None
+    language_family: Literal["latin", "ea", "cs"] | None = Field(
+        default=None, alias="languageFamily"
+    )
     heading: OPFFont | None = None
     body: OPFFont | None = None
     accent: OPFFont | None = None
@@ -315,8 +425,16 @@ class OPFLayoutPreferences(_OPFBase):
 
 class OPFDesign(_OPFBase):
     theme: str | None = None
-    colors: OPFColorScheme | None = None
-    fonts: OPFFontScheme | None = None
+    """Theme reference. Resolves to the ``id`` of a ``themes`` catalog
+    record (default catalog at https://www.pptx.gallery/themes)."""
+    colors: Union[str, OPFColorScheme] | None = None
+    """Color palette. String shorthand (catalog id, URL, or ``pkg:``
+    reference) for the common case; object form for the ``scheme`` ref
+    plus slot/role overrides."""
+    fonts: Union[str, OPFFontScheme] | None = None
+    """Typography. String shorthand (catalog id, URL, or ``pkg:``
+    reference) for the common case; object form for the ``scheme`` ref
+    plus pair/role overrides."""
     dimensions: OPFDimensions | None = None
     background: OPFBackground | None = None
     brand: OPFBrand | None = None
@@ -462,20 +580,15 @@ class OPFChartOptions(_OPFBase):
 
 class OPFChartElement(_OPFElementBase):
     type: Literal["chart"] = "chart"
-    chart_type: Literal[
-        "bar",
-        "column",
-        "line",
-        "pie",
-        "donut",
-        "area",
-        "scatter",
-        "radar",
-        "waterfall",
-        "funnel",
-        "treemap",
-        "combo",
-    ] = Field(alias="chartType")
+    chart_type: str | None = Field(default=None, alias="chartType")
+    """Generic chart variant. Engine-agnostic alternative to
+    ``chartPreset``. Accepts a generic type (``bar``, ``column``, ``line``,
+    ``pie``, ``donut``, ``area``, ``scatter``, ``radar``, ``waterfall``,
+    ``funnel``, ``treemap``, ``combo``) or any chart-preset id."""
+    chart_preset: str | None = Field(default=None, alias="chartPreset")
+    """Chart preset reference. Resolves to the ``id`` of a ``charts``
+    catalog record (default catalog at https://www.pptx.gallery/charts).
+    At least one of ``chartType`` or ``chartPreset`` must be set."""
     data: OPFChartData
     options: OPFChartOptions | None = None
 
@@ -614,6 +727,10 @@ __all__ = [
     "OPFMeta",
     "OPFNarrative",
     "OPFNarrativeBeat",
+    "OPFNarrativeBeatOptions",
+    "OPFNarrativeBeatPlaceholders",
+    "OPFNarrativeDurationRange",
+    "OPFNarrativePreview",
     "OPFOrganization",
     "OPFPlaceholderElement",
     "OPFPosition",

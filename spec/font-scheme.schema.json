@@ -73,7 +73,7 @@
         "PowerPoint",
         "Google Slides"
       ],
-      "description": "Target application that ships this font by default."
+      "description": "Target application this font pairing is intended for."
     },
     "languageFamily": {
       "type": "string",

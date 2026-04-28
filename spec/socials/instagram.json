@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-social/v1",
+  "id": "instagram",
+  "name": "Instagram",
+  "summary": "Photo and short-form video network from Meta.",
+  "baseUrl": "https://instagram.com",
+  "profileUrlPattern": "https://instagram.com/{handle}",
+  "handlePrefix": "@",
+  "handleExample": "@acme",
+  "brandColor": "#E4405F",
+  "tags": ["photo", "video", "lifestyle"]
+}
