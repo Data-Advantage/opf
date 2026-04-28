@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "poppins",
+  "name": "Poppins",
+  "app": "Google Slides",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Poppins",
+  "minor": "Poppins",
+  "textSample": "Clean and readable",
+  "type": "sans-serif"
+}

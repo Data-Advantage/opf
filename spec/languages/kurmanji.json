@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "kurmanji",
+  "name": "Kurmanji",
+  "code": "KMR",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

@@ -1,0 +1,447 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language-index/v1",
+  "version": "1",
+  "description": "Catalog of languages available in the pptx.dev library. Each entry is a lightweight summary; full language records live in the per-id JSON files alongside this index.",
+  "records": [
+    {
+      "id": "afrikaans",
+      "name": "Afrikaans",
+      "file": "afrikaans.json"
+    },
+    {
+      "id": "albanian",
+      "name": "Albanian",
+      "file": "albanian.json"
+    },
+    {
+      "id": "amharic",
+      "name": "Amharic",
+      "file": "amharic.json"
+    },
+    {
+      "id": "arabic",
+      "name": "Arabic",
+      "file": "arabic.json"
+    },
+    {
+      "id": "armenian",
+      "name": "Armenian",
+      "file": "armenian.json"
+    },
+    {
+      "id": "aymara",
+      "name": "Aymara",
+      "file": "aymara.json"
+    },
+    {
+      "id": "azerbaijani",
+      "name": "Azerbaijani",
+      "file": "azerbaijani.json"
+    },
+    {
+      "id": "bengali",
+      "name": "Bengali",
+      "file": "bengali.json"
+    },
+    {
+      "id": "berber-latin",
+      "name": "Berber (Latin)",
+      "file": "berber-latin.json"
+    },
+    {
+      "id": "bosnian-latin",
+      "name": "Bosnian (Latin)",
+      "file": "bosnian-latin.json"
+    },
+    {
+      "id": "bulgarian",
+      "name": "Bulgarian",
+      "file": "bulgarian.json"
+    },
+    {
+      "id": "catalan",
+      "name": "Catalan",
+      "file": "catalan.json"
+    },
+    {
+      "id": "cebuano",
+      "name": "Cebuano",
+      "file": "cebuano.json"
+    },
+    {
+      "id": "chinese-simplified",
+      "name": "Chinese (Simplified)",
+      "file": "chinese-simplified.json"
+    },
+    {
+      "id": "chinese-traditional",
+      "name": "Chinese (Traditional)",
+      "file": "chinese-traditional.json"
+    },
+    {
+      "id": "chittagonian",
+      "name": "Chittagonian",
+      "file": "chittagonian.json"
+    },
+    {
+      "id": "croatian",
+      "name": "Croatian",
+      "file": "croatian.json"
+    },
+    {
+      "id": "czech",
+      "name": "Czech",
+      "file": "czech.json"
+    },
+    {
+      "id": "danish",
+      "name": "Danish",
+      "file": "danish.json"
+    },
+    {
+      "id": "dutch",
+      "name": "Dutch",
+      "file": "dutch.json"
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "file": "english.json"
+    },
+    {
+      "id": "estonian",
+      "name": "Estonian",
+      "file": "estonian.json"
+    },
+    {
+      "id": "filipino",
+      "name": "Filipino",
+      "file": "filipino.json"
+    },
+    {
+      "id": "finnish",
+      "name": "Finnish",
+      "file": "finnish.json"
+    },
+    {
+      "id": "french",
+      "name": "French",
+      "file": "french.json"
+    },
+    {
+      "id": "fulfulde",
+      "name": "Fulfulde",
+      "file": "fulfulde.json"
+    },
+    {
+      "id": "galician",
+      "name": "Galician",
+      "file": "galician.json"
+    },
+    {
+      "id": "georgian",
+      "name": "Georgian",
+      "file": "georgian.json"
+    },
+    {
+      "id": "german",
+      "name": "German",
+      "file": "german.json"
+    },
+    {
+      "id": "greek",
+      "name": "Greek",
+      "file": "greek.json"
+    },
+    {
+      "id": "gujarati",
+      "name": "Gujarati",
+      "file": "gujarati.json"
+    },
+    {
+      "id": "hausa",
+      "name": "Hausa",
+      "file": "hausa.json"
+    },
+    {
+      "id": "hebrew",
+      "name": "Hebrew",
+      "file": "hebrew.json"
+    },
+    {
+      "id": "hindi",
+      "name": "Hindi",
+      "file": "hindi.json"
+    },
+    {
+      "id": "hungarian",
+      "name": "Hungarian",
+      "file": "hungarian.json"
+    },
+    {
+      "id": "igbo",
+      "name": "Igbo",
+      "file": "igbo.json"
+    },
+    {
+      "id": "indonesian",
+      "name": "Indonesian",
+      "file": "indonesian.json"
+    },
+    {
+      "id": "italian",
+      "name": "Italian",
+      "file": "italian.json"
+    },
+    {
+      "id": "japanese",
+      "name": "Japanese",
+      "file": "japanese.json"
+    },
+    {
+      "id": "kannada",
+      "name": "Kannada",
+      "file": "kannada.json"
+    },
+    {
+      "id": "kazakh",
+      "name": "Kazakh",
+      "file": "kazakh.json"
+    },
+    {
+      "id": "khmer",
+      "name": "Khmer",
+      "file": "khmer.json"
+    },
+    {
+      "id": "kinyarwanda",
+      "name": "Kinyarwanda",
+      "file": "kinyarwanda.json"
+    },
+    {
+      "id": "korean",
+      "name": "Korean",
+      "file": "korean.json"
+    },
+    {
+      "id": "kurmanji",
+      "name": "Kurmanji",
+      "file": "kurmanji.json"
+    },
+    {
+      "id": "latvian",
+      "name": "Latvian",
+      "file": "latvian.json"
+    },
+    {
+      "id": "lithuanian",
+      "name": "Lithuanian",
+      "file": "lithuanian.json"
+    },
+    {
+      "id": "macedonian",
+      "name": "Macedonian",
+      "file": "macedonian.json"
+    },
+    {
+      "id": "malagasy",
+      "name": "Malagasy",
+      "file": "malagasy.json"
+    },
+    {
+      "id": "malay",
+      "name": "Malay",
+      "file": "malay.json"
+    },
+    {
+      "id": "malayalam",
+      "name": "Malayalam",
+      "file": "malayalam.json"
+    },
+    {
+      "id": "maori",
+      "name": "Māori",
+      "file": "maori.json"
+    },
+    {
+      "id": "marathi",
+      "name": "Marathi",
+      "file": "marathi.json"
+    },
+    {
+      "id": "mongolian",
+      "name": "Mongolian",
+      "file": "mongolian.json"
+    },
+    {
+      "id": "nepali",
+      "name": "Nepali",
+      "file": "nepali.json"
+    },
+    {
+      "id": "norwegian",
+      "name": "Norwegian",
+      "file": "norwegian.json"
+    },
+    {
+      "id": "odia",
+      "name": "Odia",
+      "file": "odia.json"
+    },
+    {
+      "id": "oromo",
+      "name": "Oromo",
+      "file": "oromo.json"
+    },
+    {
+      "id": "pashto",
+      "name": "Pashto",
+      "file": "pashto.json"
+    },
+    {
+      "id": "persian",
+      "name": "Persian",
+      "file": "persian.json"
+    },
+    {
+      "id": "polish",
+      "name": "Polish",
+      "file": "polish.json"
+    },
+    {
+      "id": "portuguese",
+      "name": "Portuguese",
+      "file": "portuguese.json"
+    },
+    {
+      "id": "punjabi-gurmukhi",
+      "name": "Punjabi (Gurmukhi)",
+      "file": "punjabi-gurmukhi.json"
+    },
+    {
+      "id": "punjabi-shahmukhi",
+      "name": "Punjabi (Shahmukhi)",
+      "file": "punjabi-shahmukhi.json"
+    },
+    {
+      "id": "romanian",
+      "name": "Romanian",
+      "file": "romanian.json"
+    },
+    {
+      "id": "russian",
+      "name": "Russian",
+      "file": "russian.json"
+    },
+    {
+      "id": "serbian-cyrillic",
+      "name": "Serbian (Cyrillic)",
+      "file": "serbian-cyrillic.json"
+    },
+    {
+      "id": "serbian-latin",
+      "name": "Serbian (Latin)",
+      "file": "serbian-latin.json"
+    },
+    {
+      "id": "shona",
+      "name": "Shona",
+      "file": "shona.json"
+    },
+    {
+      "id": "slovak",
+      "name": "Slovak",
+      "file": "slovak.json"
+    },
+    {
+      "id": "slovenian",
+      "name": "Slovenian",
+      "file": "slovenian.json"
+    },
+    {
+      "id": "somali",
+      "name": "Somali",
+      "file": "somali.json"
+    },
+    {
+      "id": "spanish",
+      "name": "Spanish",
+      "file": "spanish.json"
+    },
+    {
+      "id": "swahili",
+      "name": "Swahili",
+      "file": "swahili.json"
+    },
+    {
+      "id": "swedish",
+      "name": "Swedish",
+      "file": "swedish.json"
+    },
+    {
+      "id": "tagalog",
+      "name": "Tagalog",
+      "file": "tagalog.json"
+    },
+    {
+      "id": "tajik",
+      "name": "Tajik",
+      "file": "tajik.json"
+    },
+    {
+      "id": "tamil",
+      "name": "Tamil",
+      "file": "tamil.json"
+    },
+    {
+      "id": "telugu",
+      "name": "Telugu",
+      "file": "telugu.json"
+    },
+    {
+      "id": "thai",
+      "name": "Thai",
+      "file": "thai.json"
+    },
+    {
+      "id": "turkish",
+      "name": "Turkish",
+      "file": "turkish.json"
+    },
+    {
+      "id": "ukrainian",
+      "name": "Ukrainian",
+      "file": "ukrainian.json"
+    },
+    {
+      "id": "urdu",
+      "name": "Urdu",
+      "file": "urdu.json"
+    },
+    {
+      "id": "uzbek-latin",
+      "name": "Uzbek (Latin)",
+      "file": "uzbek-latin.json"
+    },
+    {
+      "id": "vietnamese-quoc-ngu",
+      "name": "Vietnamese (Quốc Ngữ)",
+      "file": "vietnamese-quoc-ngu.json"
+    },
+    {
+      "id": "xhosa",
+      "name": "Xhosa",
+      "file": "xhosa.json"
+    },
+    {
+      "id": "yoruba",
+      "name": "Yoruba",
+      "file": "yoruba.json"
+    },
+    {
+      "id": "zulu",
+      "name": "Zulu",
+      "file": "zulu.json"
+    }
+  ]
+}

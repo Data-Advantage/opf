@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "lucida-sans",
+  "name": "Lucida Sans",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Lucida Sans",
+  "minor": "Lucida Sans",
+  "textSample": "Friendly clear text",
+  "type": "sans-serif"
+}

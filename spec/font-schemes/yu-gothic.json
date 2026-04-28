@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "yu-gothic",
+  "name": "Yu Gothic",
+  "app": "PowerPoint",
+  "languageFamily": "ea",
+  "languages": [
+    "Japanese"
+  ],
+  "major": "Yu Gothic",
+  "minor": "Yu Gothic",
+  "textSample": "これは游ゴシックフォントで書かれています",
+  "type": "sans-serif"
+}

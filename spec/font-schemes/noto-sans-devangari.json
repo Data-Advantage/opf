@@ -1,0 +1,15 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-devangari",
+  "name": "Noto Sans Devanagari",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Hindi",
+    "Nepali"
+  ],
+  "major": "Noto Sans Devanagari",
+  "minor": "Noto Sans Devanagari",
+  "textSample": "यह बहुत अच्छा",
+  "type": "sans-serif"
+}

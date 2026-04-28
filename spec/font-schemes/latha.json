@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "latha",
+  "name": "Latha",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Tamil"
+  ],
+  "major": "Latha",
+  "minor": "Latha",
+  "textSample": "இது லதா எழுத்துருவில் எழுதப்பட்டுள்ளது",
+  "type": "sans-serif"
+}

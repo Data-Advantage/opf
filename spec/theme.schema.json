@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-theme/v1",
+  "title": "OPF Theme",
+  "description": "Schema for theme records in the pptx.gallery library. Each theme is a small, named bundle that pairs a color scheme, a font scheme, a default background slot, and a slide size. Themes are referenced from OPF documents via design.theme; the engine resolves the reference against catalogs.themes (inline) → catalogs.themes.source → the default catalog at https://www.pptx.gallery/themes. Inline overrides on design.colors / design.fonts / design.background / design.dimensions take precedence over a resolved theme.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-theme/v1",
+      "description": "Identifies this record as a theme in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this theme via design.theme. Lowercase kebab-case.",
+      "examples": [
+        "minimal",
+        "classic",
+        "dark",
+        "bold"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable theme name shown in pickers.",
+      "examples": [
+        "Minimal",
+        "Classic",
+        "Dark",
+        "Bold"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the theme — when to reach for it.",
+      "examples": [
+        "A clean, minimalist theme for professional, straightforward presentations.",
+        "A rich dark-mode theme with bold contrast and modern style."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing what the theme looks and feels like and the kinds of decks it suits.",
+      "examples": [
+        "A clean, minimalistic theme with a focus on simplicity and readability. Ideal for professional, straightforward presentations."
+      ]
+    },
+    "colorScheme": {
+      "type": "string",
+      "description": "Catalog reference to the theme's default color scheme — resolved against catalogs.colorSchemes the same way design.colors.scheme is. Accepts a bare id, HTTPS URL, or 'pkg:' reference.",
+      "examples": [
+        "cool-horizon",
+        "boost",
+        "burnt-orange"
+      ]
+    },
+    "fontScheme": {
+      "type": "string",
+      "description": "Catalog reference to the theme's default font scheme — resolved against catalogs.fontSchemes the same way design.fonts.scheme is. Accepts a bare id, HTTPS URL, or 'pkg:' reference.",
+      "examples": [
+        "aptos",
+        "tenorite",
+        "seaford",
+        "impact"
+      ]
+    },
+    "background": {
+      "type": "string",
+      "description": "Default background slot from the active color scheme. The engine resolves this against the theme's color scheme to a hex value.",
+      "enum": [
+        "light1",
+        "light2",
+        "dark1",
+        "dark2"
+      ]
+    },
+    "dimensions": {
+      "type": "string",
+      "description": "Default slide size for this theme. Accepts the same preset values as design.dimensions.preset.",
+      "examples": [
+        "16:9",
+        "4:3",
+        "16:10",
+        "letter",
+        "a4",
+        "widescreen",
+        "standard"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        [
+          "minimal",
+          "professional"
+        ],
+        [
+          "bold",
+          "high-impact"
+        ]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/themes/minimal.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/themes/minimal.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/themes/minimal.svg"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-chart/v1",
+  "id": "united-states",
+  "name": "UNITED_STATES",
+  "label": "United States",
+  "type": "MAP",
+  "categories": 11,
+  "columns": [
+    "State",
+    "Value"
+  ],
+  "group": "Map",
+  "groupSort": 12,
+  "series": 1,
+  "seriesGroups": 1,
+  "slideNumber": 67,
+  "useSecondaryCategories": false,
+  "workbookRange": "Sheet1!$A$1:$L$2",
+  "complexity": "simple",
+  "dataColumns": [
+    {
+      "name": "State",
+      "role": "categoryLabel",
+      "type": "string",
+      "position": "row0_col0"
+    },
+    {
+      "name": "Value",
+      "role": "series",
+      "type": "number",
+      "position": "row1_col0"
+    }
+  ],
+  "sampleData": {
+    "headers": [
+      "State",
+      "Q1 2024",
+      "Q2 2024",
+      "Q3 2024",
+      "Q4 2024",
+      "Q1 2025",
+      "Q2 2025",
+      "Q3 2025",
+      "Q4 2025",
+      "Q1 2026",
+      "Q2 2026",
+      "Q3 2026"
+    ],
+    "rows": [
+      [
+        "Value",
+        39041,
+        53655,
+        32037,
+        20011,
+        76910,
+        92998,
+        24945,
+        79547,
+        76840,
+        35415,
+        55793
+      ]
+    ]
+  },
+  "preview": {
+    "src": "https://xano.storyd.ai/vault/PMfrMmjB/ciSF6nGZuQtomgVx1YTKFMKUFxw/hCPM6w../067_UNITED_STATES.png",
+    "vectorSrc": "https://xano.storyd.ai/vault/PMfrMmjB/bXexWD_6t6roz52u3ftRlma10f8/D5dA6A../067_UNITED_STATES.svg"
+  }
+}

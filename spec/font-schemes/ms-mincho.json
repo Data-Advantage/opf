@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "ms-mincho",
+  "name": "MS Mincho",
+  "app": "PowerPoint",
+  "languageFamily": "ea",
+  "languages": [
+    "Japanese"
+  ],
+  "major": "MS Mincho",
+  "minor": "MS Mincho",
+  "textSample": "これはMS明朝フォントで書かれています",
+  "type": "serif"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "bookman",
+  "name": "Bookman",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Bookman Old Style",
+  "minor": "Bookman Old Style",
+  "textSample": "Classic serif style",
+  "type": "serif"
+}

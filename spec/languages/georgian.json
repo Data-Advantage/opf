@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "georgian",
+  "name": "Georgian",
+  "code": "KAT",
+  "fontScheme": "sylfaen",
+  "googleFontScheme": "noto-sans-georgian"
+}

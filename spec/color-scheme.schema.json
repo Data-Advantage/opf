@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "title": "OPF Color Scheme",
+  "description": "Schema for color-scheme records in the pptx.gallery library. Each scheme is a named palette with the twelve PowerPoint color slots (six accents, two darks, two lights, plus hyperlink and followed-hyperlink), suitable for being mapped directly into OOXML theme XML. Color schemes are referenced from OPF documents via design.colors.scheme; the engine resolves the reference against catalogs.colorSchemes (inline) → catalogs.colorSchemes.source → the default catalog at https://www.pptx.gallery/color-schemes. Slot overrides on design.colors take precedence over the resolved scheme.\n\nThe slot fields here mirror the inline-override fields on the in-document ColorScheme type (in opf.schema.json), so library entries and inline OPF overrides are interchangeable.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-color-scheme/v1",
+      "description": "Identifies this record as a color scheme in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this color scheme. Lowercase kebab-case.",
+      "examples": [
+        "cool-horizon",
+        "boost",
+        "burnt-orange",
+        "forest-green"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable scheme name shown in pickers.",
+      "examples": [
+        "Cool Horizon",
+        "Boost",
+        "Burnt Orange",
+        "Forest Green"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the palette — what mood it evokes and where to use it.",
+      "examples": [
+        "Cool blue-green palette tuned for B2B SaaS and finance decks.",
+        "High-energy warm palette built around burnt-orange accents."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the palette and its intended use.",
+      "examples": [
+        "A balanced cool-toned scheme: a deep navy dark slot pairs with mid-saturation blues and a teal accent for charts and callouts. Works well on both light and dark backgrounds."
+      ]
+    },
+    "accent1": {
+      "type": "string",
+      "description": "Accent 1 color (hex). Mirrors the OOXML accent1 slot.",
+      "examples": [
+        "#2874A6",
+        "#FD3223",
+        "#F77F00"
+      ]
+    },
+    "accent2": {
+      "type": "string",
+      "description": "Accent 2 color (hex).",
+      "examples": [
+        "#1B4F72",
+        "#0308DB",
+        "#D62828"
+      ]
+    },
+    "accent3": {
+      "type": "string",
+      "description": "Accent 3 color (hex).",
+      "examples": [
+        "#5499C7",
+        "#4F4955",
+        "#003049"
+      ]
+    },
+    "accent4": {
+      "type": "string",
+      "description": "Accent 4 color (hex).",
+      "examples": [
+        "#7BDBB2",
+        "#A1DB30",
+        "#FCBF49"
+      ]
+    },
+    "accent5": {
+      "type": "string",
+      "description": "Accent 5 color (hex).",
+      "examples": [
+        "#3AC67A",
+        "#0682FE",
+        "#EAE2B7"
+      ]
+    },
+    "accent6": {
+      "type": "string",
+      "description": "Accent 6 color (hex).",
+      "examples": [
+        "#24A89E",
+        "#FC03BE",
+        "#BFBFBF"
+      ]
+    },
+    "dark1": {
+      "type": "string",
+      "description": "Dark 1 color (hex). Typically the deepest neutral; OOXML dark1.",
+      "examples": [
+        "#000000"
+      ]
+    },
+    "dark2": {
+      "type": "string",
+      "description": "Dark 2 color (hex). Secondary dark; OOXML dark2.",
+      "examples": [
+        "#011842"
+      ]
+    },
+    "light1": {
+      "type": "string",
+      "description": "Light 1 color (hex). Typically the slide canvas; OOXML lt1.",
+      "examples": [
+        "#FFFFFF"
+      ]
+    },
+    "light2": {
+      "type": "string",
+      "description": "Light 2 color (hex). Secondary light surface; OOXML lt2.",
+      "examples": [
+        "#F0F0F0"
+      ]
+    },
+    "hyperlink": {
+      "type": "string",
+      "description": "Hyperlink color (hex). OOXML hlink.",
+      "examples": [
+        "#0563C1"
+      ]
+    },
+    "followedHyperlink": {
+      "type": "string",
+      "description": "Followed-hyperlink color (hex). OOXML folHlink.",
+      "examples": [
+        "#954F72"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        [
+          "corporate",
+          "blue",
+          "calm"
+        ],
+        [
+          "bold",
+          "warm",
+          "high-energy"
+        ]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/color-schemes/cool-horizon.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/color-schemes/cool-horizon.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/color-schemes/cool-horizon.svg"
+          ]
+        }
+      }
+    }
+  }
+}

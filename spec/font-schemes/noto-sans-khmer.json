@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-khmer",
+  "name": "Noto Sans Khmer",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Khmer"
+  ],
+  "major": "Noto Sans Khmer",
+  "minor": "Noto Sans Khmer",
+  "textSample": "ភាសាខ្មែរពិតជាស្រស់ស្អាត",
+  "type": "sans-serif"
+}

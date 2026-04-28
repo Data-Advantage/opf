@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "id": "luxury",
+  "name": "Luxury",
+  "accent1": "#997929",
+  "accent2": "#C15937",
+  "accent3": "#951233",
+  "accent4": "#1D483F",
+  "accent5": "#4B6977",
+  "accent6": "#639391",
+  "dark1": "#000000",
+  "dark2": "#2C2C2C",
+  "followedHyperlink": "#CC00CC",
+  "hyperlink": "#0066CC",
+  "light1": "#FFFFFF",
+  "light2": "#EFEFEF"
+}

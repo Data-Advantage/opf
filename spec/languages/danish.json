@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "danish",
+  "name": "Danish",
+  "code": "DAN",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

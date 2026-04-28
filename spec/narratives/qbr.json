@@ -3,15 +3,40 @@
   "id": "qbr",
   "name": "Quarterly Business Review",
   "summary": "Standard QBR / business-review arc for internal leadership reviews. Recap commitments, show what the numbers say, separate wins from challenges, lay out the plan, surface risks, and request the asks the team needs to execute.",
-  "audienceFit": ["leadership", "executives", "cross-functional-partners"],
-  "durationRange": { "minMinutes": 30, "maxMinutes": 90 },
-  "tags": ["internal", "review", "operations", "reporting"],
+  "audienceFit": [
+    "leadership",
+    "executives",
+    "cross-functional-partners"
+  ],
+  "durationRange": {
+    "minMinutes": 30,
+    "maxMinutes": 90
+  },
+  "tags": [
+    "internal",
+    "review",
+    "operations",
+    "reporting"
+  ],
   "beats": [
     {
       "id": "objectives",
       "name": "Objectives",
       "description": "Open with what this review is for and what decisions you want out of it. Frame the scope and the hour ahead, so the audience knows what they're being asked to weigh in on.",
-      "layoutHint": "section-divider"
+      "layoutHint": "title-center",
+      "instructions": "Set the expectations",
+      "slideType": "text",
+      "options": {
+        "multiple": "2x",
+        "showLabel": true,
+        "showDescription": true
+      },
+      "placeholders": {
+        "tag": false,
+        "title": true,
+        "subtitle": false,
+        "slideImage": false
+      }
     },
     {
       "id": "recap",
@@ -36,7 +61,21 @@
     {
       "id": "challenges",
       "name": "Challenges",
-      "description": "Name the misses and headwinds honestly. What didn't work, what's still hard, what got harder. Pretending things are fine costs more credibility than acknowledging they aren't."
+      "description": "Name the misses and headwinds honestly. What didn't work, what's still hard, what got harder. Pretending things are fine costs more credibility than acknowledging they aren't.",
+      "instructions": "Address difficulties",
+      "slideType": "text",
+      "layoutHint": "text-1x-left",
+      "options": {
+        "multiple": "2x",
+        "showLabel": true,
+        "showDescription": true
+      },
+      "placeholders": {
+        "tag": false,
+        "title": true,
+        "subtitle": false,
+        "slideImage": false
+      }
     },
     {
       "id": "insights",
@@ -62,7 +101,7 @@
       "id": "asks",
       "name": "Asks",
       "description": "Specific, named requests of the audience. Decisions needed, resources required, escalations to unblock. End with clarity on what happens next and who owns it.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     }
   ]
 }

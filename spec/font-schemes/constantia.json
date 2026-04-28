@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "constantia",
+  "name": "Constantia",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Constantia",
+  "minor": "Constantia",
+  "textSample": "Elegant modern serif",
+  "type": "serif"
+}

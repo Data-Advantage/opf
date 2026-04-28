@@ -1,0 +1,15 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "shonar-bangla",
+  "name": "Shonar Bangla",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Bengali",
+    "Chittagonian"
+  ],
+  "major": "Shonar Bangla",
+  "minor": "Shonar Bangla",
+  "textSample": "এটা খুব সুন্দর",
+  "type": "sans-serif"
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-language/v1",
+  "title": "OPF Language",
+  "description": "Schema for language records in the pptx.gallery library. Each record names a presentation language and pairs it with sensible default font schemes for PowerPoint and Google Slides output. Languages are referenced from OPF documents via meta.language; the engine resolves the reference against catalogs.languages (inline) → catalogs.languages.source → the default catalog at https://www.pptx.gallery/languages. The meta.language field also accepts BCP-47 tags directly; this catalog is for engine-aware language records that carry default-font hints.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-language/v1",
+      "description": "Identifies this record as a language in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this language via meta.language. Lowercase kebab-case.",
+      "examples": [
+        "english",
+        "spanish",
+        "japanese",
+        "chinese-simplified"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable language name.",
+      "examples": [
+        "English",
+        "Spanish",
+        "Japanese",
+        "Chinese (simplified)"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "description": "ISO 639-3 (or 639-2) three-letter language code. Carried for engines that prefer ISO codes.",
+      "examples": [
+        "ENG",
+        "SPA",
+        "FRA",
+        "JPN",
+        "CHI"
+      ]
+    },
+    "bcp47": {
+      "type": "string",
+      "description": "BCP-47 language tag for this record. Optional — use when the catalog id and BCP-47 form differ.",
+      "examples": [
+        "en-US",
+        "es-MX",
+        "ja-JP",
+        "zh-Hans"
+      ]
+    },
+    "fontScheme": {
+      "type": "string",
+      "description": "Default font-scheme id for this language when targeting PowerPoint output. Resolves against catalogs.fontSchemes the same way design.fonts.scheme does.",
+      "examples": [
+        "aptos",
+        "microsoft-yahei",
+        "nirmala-ui"
+      ]
+    },
+    "googleFontScheme": {
+      "type": "string",
+      "description": "Default font-scheme id for this language when targeting Google Slides output. Resolves against catalogs.fontSchemes the same way design.fonts.scheme does.",
+      "examples": [
+        "roboto",
+        "noto-sans",
+        "noto-sans-sc"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence note about coverage or font defaults.",
+      "examples": [
+        "English language preset using a Latin-script font scheme.",
+        "Japanese language preset paired with a Microsoft YaHei East-Asian scheme."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the language record and any font-pairing rationale.",
+      "examples": [
+        "English (US) preset. Defaults to Aptos for PowerPoint output and Roboto for Google Slides output. Use this entry as a baseline; override fontScheme on individual decks when brand fonts differ."
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        [
+          "latin",
+          "default"
+        ],
+        [
+          "east-asian"
+        ],
+        [
+          "complex-script",
+          "rtl"
+        ]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/languages/english.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/languages/english.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/languages/english.svg"
+          ]
+        }
+      }
+    }
+  }
+}

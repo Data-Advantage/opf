@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "nepali",
+  "name": "Nepali",
+  "code": "NEP",
+  "fontScheme": "mangal",
+  "googleFontScheme": "noto-sans-devangari"
+}

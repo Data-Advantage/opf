@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "punjabi-gurmukhi",
+  "name": "Punjabi (Gurmukhi)",
+  "code": "PAN",
+  "fontScheme": "raavi",
+  "googleFontScheme": "noto-sans-gurmukhi"
+}

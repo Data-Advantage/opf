@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-thai",
+  "name": "Noto Sans Thai",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Thai"
+  ],
+  "major": "Noto Sans Thai",
+  "minor": "Noto Sans Thai",
+  "textSample": "นี่คือสวยงาม",
+  "type": "sans-serif"
+}

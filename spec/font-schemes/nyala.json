@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "nyala",
+  "name": "Nyala",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Amharic"
+  ],
+  "major": "Nyala",
+  "minor": "Nyala",
+  "textSample": "አማርኛ ቋንቋ እጅግ ጥሩ ነው።",
+  "type": "sans-serif"
+}

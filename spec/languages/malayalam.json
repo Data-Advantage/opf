@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "malayalam",
+  "name": "Malayalam",
+  "code": "MAL",
+  "fontScheme": "kartika",
+  "googleFontScheme": "noto-sans-malayalam"
+}

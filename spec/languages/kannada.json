@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "kannada",
+  "name": "Kannada",
+  "code": "KAN",
+  "fontScheme": "tunga",
+  "googleFontScheme": "noto-sans-kannada"
+}

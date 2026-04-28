@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "raleway",
+  "name": "Raleway",
+  "app": "Google Slides",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Raleway",
+  "minor": "Raleway",
+  "textSample": "Stylish and modern",
+  "type": "sans-serif"
+}

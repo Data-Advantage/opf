@@ -76,6 +76,15 @@
       "file": "early-startup-pitch.json"
     },
     {
+      "id": "venture-pitch",
+      "name": "Venture Pitch",
+      "summary": "Series A/B fundraising arc structured around the canonical investor questions.",
+      "audienceFit": ["investors", "venture-capitalists", "series-a", "series-b"],
+      "durationRange": { "minMinutes": 10, "maxMinutes": 30 },
+      "tags": ["startup", "fundraising", "pitch", "investor", "series-a"],
+      "file": "venture-pitch.json"
+    },
+    {
       "id": "persuasive-sales",
       "name": "Persuasive Sales",
       "summary": "Top-of-funnel sales arc anchored in market change, leading to your unique capabilities, supported by proof, ending with a clear ask.",

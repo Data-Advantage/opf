@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-sc",
+  "name": "Noto Sans SC",
+  "app": "Google Slides",
+  "languageFamily": "ea",
+  "languages": [
+    "Chinese (simplified)",
+    "Chinese (traditional)",
+    "Japanese",
+    "Korean"
+  ],
+  "major": "Noto Sans SC",
+  "minor": "Noto Sans SC",
+  "textSample": "这是美丽的",
+  "type": "sans-serif"
+}

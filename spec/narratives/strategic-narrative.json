@@ -3,9 +3,23 @@
   "id": "strategic-narrative",
   "name": "Strategic Narrative",
   "summary": "The change-driven founder/sales arc: a tectonic shift creates winners and losers, the audience must respond, and your product is the only credible way to land in the winners' camp. Used for top-of-funnel sales pitches, board re-positioning, and high-stakes founder talks.",
-  "audienceFit": ["customers", "prospects", "board", "investors", "executives"],
-  "durationRange": { "minMinutes": 10, "maxMinutes": 30 },
-  "tags": ["strategic", "sales", "positioning", "category"],
+  "audienceFit": [
+    "customers",
+    "prospects",
+    "board",
+    "investors",
+    "executives"
+  ],
+  "durationRange": {
+    "minMinutes": 10,
+    "maxMinutes": 30
+  },
+  "tags": [
+    "strategic",
+    "sales",
+    "positioning",
+    "category"
+  ],
   "beats": [
     {
       "id": "shift",
@@ -41,7 +55,7 @@
       "id": "ask",
       "name": "Call to Action",
       "description": "Close with the single decision you want the audience to make. Frame it as the obvious next move given the shift, the stakes, and the new game. Make it small enough to say yes to today and large enough to start a real engagement.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     }
   ]
 }

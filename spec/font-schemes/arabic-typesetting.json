@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "arabic-typesetting",
+  "name": "Arabic Typesetting",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Arabic"
+  ],
+  "major": "Arabic Typesetting",
+  "minor": "Arabic Typesetting",
+  "textSample": "هذا مكتوب بخط الأنواع العربية",
+  "type": "serif"
+}

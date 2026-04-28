@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "angsana-new",
+  "name": "Angsana New",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Thai"
+  ],
+  "major": "Angsana New",
+  "minor": "Angsana New",
+  "textSample": "ภาษาไทยสวยมาก",
+  "type": "sans-serif"
+}

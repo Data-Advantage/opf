@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "segoe-ui-light",
+  "name": "Segoe UI Light",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Segoe UI Semilight",
+  "minor": "Segoe UI Light",
+  "textSample": "Clean airy look",
+  "type": "sans-serif"
+}

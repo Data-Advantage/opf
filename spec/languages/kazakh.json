@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "kazakh",
+  "name": "Kazakh",
+  "code": "KAZ",
+  "fontScheme": "aptos",
+  "googleFontScheme": "noto-sans"
+}

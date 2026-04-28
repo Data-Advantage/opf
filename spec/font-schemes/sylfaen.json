@@ -1,0 +1,15 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "sylfaen",
+  "name": "Sylfaen",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Armenian",
+    "Georgian"
+  ],
+  "major": "Sylfaen",
+  "minor": "Sylfaen",
+  "textSample": "ეს ჩემი სახლი",
+  "type": "sans-serif"
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "marathi",
+  "name": "Marathi",
+  "code": "MAR",
+  "fontScheme": "mangal",
+  "googleFontScheme": "noto-sans-devangari"
+}

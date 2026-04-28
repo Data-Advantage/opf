@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "title": "OPF Font Scheme",
+  "description": "Schema for font-scheme records in the pptx.gallery library. Each scheme pairs a major (heading) and minor (body) font family in the OOXML majorFont/minorFont sense, scoped to a target app (PowerPoint or Google Slides) and a language family (Latin, East Asian, or Complex Script). Font schemes are referenced from OPF documents via design.fonts.scheme; the engine resolves the reference against catalogs.fontSchemes (inline) → catalogs.fontSchemes.source → the default catalog at https://www.pptx.gallery/font-schemes. Role overrides on design.fonts (heading, body, accent, code) take precedence over the resolved scheme.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name",
+    "major",
+    "minor"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-font-scheme/v1",
+      "description": "Identifies this record as a font scheme in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this font scheme. Lowercase kebab-case.",
+      "examples": [
+        "aptos",
+        "tenorite",
+        "seaford",
+        "noto-sans",
+        "microsoft-yahei"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable scheme name shown in pickers.",
+      "examples": [
+        "Aptos",
+        "Tenorite",
+        "Seaford",
+        "Noto Sans",
+        "Microsoft Yahei"
+      ]
+    },
+    "major": {
+      "type": "string",
+      "description": "Heading (major) font family — mirrors the OOXML majorFont entry.",
+      "examples": [
+        "Aptos Display",
+        "Calibri",
+        "Microsoft YaHei"
+      ]
+    },
+    "minor": {
+      "type": "string",
+      "description": "Body (minor) font family — mirrors the OOXML minorFont entry.",
+      "examples": [
+        "Aptos",
+        "Calibri",
+        "Microsoft YaHei"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "sans-serif",
+        "serif",
+        "monospace"
+      ],
+      "description": "High-level typographic class of the scheme."
+    },
+    "app": {
+      "type": "string",
+      "enum": [
+        "PowerPoint",
+        "Google Slides"
+      ],
+      "description": "Target application that ships this font by default."
+    },
+    "languageFamily": {
+      "type": "string",
+      "enum": [
+        "latin",
+        "ea",
+        "cs"
+      ],
+      "description": "OOXML font-language family this scheme is intended for: 'latin' for Latin-script content, 'ea' for East Asian scripts, 'cs' for Complex Scripts."
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional list of human-readable language names this scheme is curated for. Useful for picker UIs that group fonts by language coverage.",
+      "examples": [
+        [
+          "Chinese (simplified)",
+          "Chinese (traditional)",
+          "Japanese",
+          "Korean"
+        ]
+      ]
+    },
+    "textSample": {
+      "type": "string",
+      "description": "Short specimen string used by picker UIs to preview the scheme.",
+      "examples": [
+        "Smooth professional look",
+        "这是用微软雅黑字体写的"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the font pairing.",
+      "examples": [
+        "PowerPoint-default sans-serif curated for general business decks.",
+        "East-Asian sans-serif suitable for Chinese, Japanese, and Korean content."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the font scheme and where it shines.",
+      "examples": [
+        "Aptos is the default Microsoft 365 sans-serif. The major (display) cut adds optical weight for headings, and the minor (text) cut keeps body copy readable at smaller sizes."
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        [
+          "latin",
+          "sans-serif",
+          "default"
+        ],
+        [
+          "east-asian",
+          "system"
+        ]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/font-schemes/aptos.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/font-schemes/aptos.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/font-schemes/aptos.svg"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "trebuchet-ms",
+  "name": "Trebuchet MS",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Trebuchet MS",
+  "minor": "Trebuchet MS",
+  "textSample": "Casual web style",
+  "type": "sans-serif"
+}

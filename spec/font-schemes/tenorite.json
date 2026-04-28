@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "tenorite",
+  "name": "Tenorite",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Tenorite Display",
+  "minor": "Tenorite",
+  "textSample": "Rounded modern tone",
+  "type": "sans-serif"
+}

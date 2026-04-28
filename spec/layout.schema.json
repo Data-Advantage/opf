@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-layout/v1",
+  "title": "OPF Slide Layout",
+  "description": "Schema for slide-layout records in the pptx.gallery library. Each record describes a single named slide layout — what kind of content it holds, how that content is arranged on the slide, and which slide-master it pairs with. Layouts are referenced from OPF documents via Slide.layout; the engine resolves the reference against catalogs.layouts (inline) → catalogs.layouts.source → the default catalog at https://www.pptx.gallery/layouts. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-layout/v1",
+      "description": "Identifies this record as a slide layout in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this layout via Slide.layout. Lowercase kebab-case.",
+      "examples": [
+        "title-left",
+        "chart-1x-title-left",
+        "two-column",
+        "image-right"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Internal layout name (often Title_Case_With_Underscores matching the engine's master deck).",
+      "examples": [
+        "Title_Left",
+        "Chart_1x_Title_Left",
+        "Two_Column"
+      ]
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label shown in layout pickers.",
+      "examples": [
+        "Title Left",
+        "Chart 1x Title Left",
+        "Two Column"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the layout — when to reach for it.",
+      "examples": [
+        "Slide title aligned left over a single content area — flexible workhorse layout.",
+        "Title plus a single chart on the left and supporting copy on the right."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the layout structure and ideal use cases.",
+      "examples": [
+        "Two equal-width columns under a left-aligned slide title. Use when comparing two ideas, before/after pairs, or paired text + image content."
+      ]
+    },
+    "master": {
+      "type": "string",
+      "description": "Name of the slide-master deck this layout belongs to.",
+      "examples": [
+        "Dark",
+        "Light",
+        "Classic"
+      ]
+    },
+    "masterSlideIndex": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Zero-based index of this layout within its master deck.",
+      "examples": [
+        0,
+        1,
+        150,
+        399
+      ]
+    },
+    "groupHash": {
+      "type": "string",
+      "description": "Stable content-addressed hash that groups visually similar layouts. Layouts with the same groupHash share a content footprint and can be hot-swapped.",
+      "examples": [
+        "73095b38af6f6277a95810ad67f0c7c71b02fe1bb217769065ffbb8c68e01717"
+      ]
+    },
+    "groupDefault": {
+      "type": "boolean",
+      "description": "Whether this layout is the default within its groupHash bucket.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    "contentType": {
+      "type": "string",
+      "enum": [
+        "Title",
+        "Text",
+        "List",
+        "Image",
+        "Number",
+        "Chart"
+      ],
+      "description": "Primary kind of content the layout holds. Drives pickers and AI placement decisions."
+    },
+    "contentMultiple": {
+      "type": "string",
+      "enum": [
+        "None",
+        "1x",
+        "2x",
+        "3x",
+        "4x",
+        "5x",
+        "6x"
+      ],
+      "description": "How many parallel content blocks the layout exposes ('2x' = two-column, '3x' = three-up, etc.)."
+    },
+    "contentAlignment": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Left",
+        "Center"
+      ],
+      "description": "Default horizontal alignment of the content area."
+    },
+    "contentBox": {
+      "type": "boolean",
+      "description": "Whether the content area is rendered inside a visible box / card.",
+      "examples": [
+        false,
+        true
+      ]
+    },
+    "contentTypeChartPrimary": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Top",
+        "Bottom",
+        "Left",
+        "Right"
+      ],
+      "description": "For chart layouts, where the primary chart sits relative to the rest of the content."
+    },
+    "contentTypeImageFill": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Crop",
+        "Fit"
+      ],
+      "description": "For image layouts, how the image fills its slot."
+    },
+    "contentTypeListBullet": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Character",
+        "Image"
+      ],
+      "description": "For list layouts, how bullets are rendered."
+    },
+    "contentTypeListHeading": {
+      "type": "boolean",
+      "description": "For list layouts, whether each list item carries a heading.",
+      "examples": [
+        false,
+        true
+      ]
+    },
+    "slideTitle": {
+      "type": "boolean",
+      "description": "Whether the layout includes a slide title region.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    "slideTitleAlignment": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Left",
+        "Center"
+      ],
+      "description": "Horizontal alignment of the slide title region."
+    },
+    "slideImage": {
+      "type": "boolean",
+      "description": "Whether the layout includes a dedicated slide-level image region (separate from any content image).",
+      "examples": [
+        false,
+        true
+      ]
+    },
+    "slideImageAlignment": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Top",
+        "Bottom",
+        "Left",
+        "Right",
+        "Background"
+      ],
+      "description": "Where the slide-level image sits relative to the content."
+    },
+    "slideLayoutDirection": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Horizontal",
+        "Vertical"
+      ],
+      "description": "Axis along which the layout's primary regions are arranged."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        [
+          "title",
+          "minimal"
+        ],
+        [
+          "chart",
+          "kpi"
+        ],
+        [
+          "two-column",
+          "comparison"
+        ]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/layouts/title-left.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/layouts/title-left.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/layouts/title-left.svg"
+          ]
+        }
+      }
+    }
+  }
+}

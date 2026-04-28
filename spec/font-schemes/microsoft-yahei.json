@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "microsoft-yahei",
+  "name": "Microsoft Yahei",
+  "app": "PowerPoint",
+  "languageFamily": "ea",
+  "languages": [
+    "Chinese (simplified)",
+    "Chinese (traditional)",
+    "Japanese",
+    "Korean"
+  ],
+  "major": "Microsoft YaHei",
+  "minor": "Microsoft YaHei",
+  "textSample": "这是用微软雅黑字体写的",
+  "type": "sans-serif"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "david",
+  "name": "David",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Hebrew"
+  ],
+  "major": "David",
+  "minor": "David",
+  "textSample": "זה כתוב בגופן דוד",
+  "type": "serif"
+}

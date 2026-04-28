@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "rockwell",
+  "name": "Rockwell",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Rockwell",
+  "minor": "Rockwell",
+  "textSample": "Solid slab serif",
+  "type": "serif"
+}

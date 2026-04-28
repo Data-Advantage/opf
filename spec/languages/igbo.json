@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "igbo",
+  "name": "Igbo",
+  "code": "IBO",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

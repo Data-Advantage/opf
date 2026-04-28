@@ -3,15 +3,28 @@
   "id": "pitch-deck",
   "name": "Startup Pitch Deck",
   "summary": "The canonical investor-pitch arc, drawn from Sequoia and Y Combinator's templates. Optimized for 10–20 minute meetings with VCs and angels. Each beat answers the question an investor will ask next.",
-  "audienceFit": ["investors", "venture-capitalists", "angels", "advisors"],
-  "durationRange": { "minMinutes": 10, "maxMinutes": 20 },
-  "tags": ["startup", "fundraising", "pitch", "investor"],
+  "audienceFit": [
+    "investors",
+    "venture-capitalists",
+    "angels",
+    "advisors"
+  ],
+  "durationRange": {
+    "minMinutes": 10,
+    "maxMinutes": 20
+  },
+  "tags": [
+    "startup",
+    "fundraising",
+    "pitch",
+    "investor"
+  ],
   "beats": [
     {
       "id": "opening",
       "name": "Opening",
       "description": "Open with the company name, logo, and a one-line tagline that doubles as a positioning statement. Set the visual tone for the deck. Keep it confident and uncluttered — this is the cover.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     },
     {
       "id": "purpose",
@@ -82,13 +95,13 @@
       "id": "ask",
       "name": "The Ask",
       "description": "State the round size, intended use of funds, and what milestones the capital takes you to. Be specific — investors should leave knowing exactly what you want and what they get.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     },
     {
       "id": "closing",
       "name": "Closing",
       "description": "Close on a strong final image: logo, contact info, and the one line you most want the investor to remember. Leave space for the conversation that follows.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     }
   ]
 }

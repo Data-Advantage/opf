@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "latvian",
+  "name": "Latvian",
+  "code": "LAV",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

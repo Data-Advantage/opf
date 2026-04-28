@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "times-new-roman",
+  "name": "Times New Roman",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Times New Roman",
+  "minor": "Times New Roman",
+  "textSample": "Classic newspaper look",
+  "type": "serif"
+}

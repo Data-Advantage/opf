@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "vietnamese-quoc-ngu",
+  "name": "Vietnamese (Quốc Ngữ)",
+  "code": "VIE",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

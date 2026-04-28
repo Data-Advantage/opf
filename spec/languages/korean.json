@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "korean",
+  "name": "Korean",
+  "code": "KOR",
+  "fontScheme": "malgun-gothic",
+  "googleFontScheme": "noto-sans-kr"
+}

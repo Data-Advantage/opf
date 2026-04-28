@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-hebrew",
+  "name": "Noto Sans Hebrew",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Hebrew"
+  ],
+  "major": "Noto Sans Hebrew",
+  "minor": "Noto Sans Hebrew",
+  "textSample": "זה ספר יפהפה",
+  "type": "sans-serif"
+}

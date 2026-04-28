@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "armenian",
+  "name": "Armenian",
+  "code": "HYE",
+  "fontScheme": "sylfaen",
+  "googleFontScheme": "noto-sans-armenian"
+}

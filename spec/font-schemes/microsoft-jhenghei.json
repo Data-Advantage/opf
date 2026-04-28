@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "microsoft-jhenghei",
+  "name": "Microsoft JhengHei",
+  "app": "PowerPoint",
+  "languageFamily": "ea",
+  "languages": [
+    "Chinese (traditional)"
+  ],
+  "major": "Microsoft JhengHei",
+  "minor": "Microsoft JhengHei",
+  "textSample": "這是用微軟正黑體寫的",
+  "type": "sans-serif"
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "malagasy",
+  "name": "Malagasy",
+  "code": "MLG",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "id": "steel-blue",
+  "name": "Steel Blue",
+  "accent1": "#4A66AC",
+  "accent2": "#629DD1",
+  "accent3": "#297FD5",
+  "accent4": "#7F8FA9",
+  "accent5": "#5AA2AE",
+  "accent6": "#9D90A0",
+  "dark1": "#000000",
+  "dark2": "#182238",
+  "followedHyperlink": "#3EBBF0",
+  "hyperlink": "#9454C3",
+  "light1": "#FFFFFF",
+  "light2": "#EAEDF6"
+}

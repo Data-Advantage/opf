@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "id": "golden-yellow",
+  "name": "Golden Yellow",
+  "accent1": "#FCC82B",
+  "accent2": "#44ADAD",
+  "accent3": "#3E506B",
+  "accent4": "#E23A59",
+  "accent5": "#0F5E8C",
+  "accent6": "#EFECCA",
+  "dark1": "#000000",
+  "dark2": "#3D2E02",
+  "followedHyperlink": "#44ADAD",
+  "hyperlink": "#E23A59",
+  "light1": "#FFFFFF",
+  "light2": "#FEFCF0"
+}

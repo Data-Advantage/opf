@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "kartika",
+  "name": "Kartika",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Malayalam"
+  ],
+  "major": "Kartika",
+  "minor": "Kartika",
+  "textSample": "ഇത് കാർത്തിക ഫോണ്ടിൽ എഴുതിയിരിക്കുന്നു",
+  "type": "sans-serif"
+}

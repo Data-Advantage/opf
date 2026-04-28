@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "hindi",
+  "name": "Hindi",
+  "code": "HIN",
+  "fontScheme": "mangal",
+  "googleFontScheme": "noto-sans-devangari"
+}

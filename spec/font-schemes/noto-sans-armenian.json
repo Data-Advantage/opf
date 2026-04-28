@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-armenian",
+  "name": "Noto Sans Armenian",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Armenian"
+  ],
+  "major": "Noto Sans Armenian",
+  "minor": "Noto Sans Armenian",
+  "textSample": "Սա հիանալի է",
+  "type": "sans-serif"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-nastaliq-urdu",
+  "name": "Noto Nastaliq Urdu",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Urdu",
+    "Punjabi (Shahmukhi)"
+  ],
+  "major": "Noto Nastaliq Urdu",
+  "minor": "Noto Nastaliq Urdu",
+  "textSample": "یہ خوبصورت ہے",
+  "type": "sans-serif"
+}

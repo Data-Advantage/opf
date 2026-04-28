@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "kalinga",
+  "name": "Kalinga",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Odia"
+  ],
+  "major": "Kalinga",
+  "minor": "Kalinga",
+  "textSample": "ଏହା କଳିଙ୍ଗ ଫଣ୍ଟରେ ଲେଖାଯାଇଛି",
+  "type": "sans-serif"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "impact",
+  "name": "Impact",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Impact",
+  "minor": "Grandview",
+  "textSample": "Strong bold headline",
+  "type": "sans-serif"
+}

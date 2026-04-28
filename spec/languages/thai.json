@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "thai",
+  "name": "Thai",
+  "code": "THA",
+  "fontScheme": "angsana-new",
+  "googleFontScheme": "noto-sans-thai"
+}

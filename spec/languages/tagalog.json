@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "tagalog",
+  "name": "Tagalog",
+  "code": "TGL",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

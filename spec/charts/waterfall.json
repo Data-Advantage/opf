@@ -1,0 +1,64 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-chart/v1",
+  "id": "waterfall",
+  "name": "WATERFALL",
+  "label": "Waterfall",
+  "type": "WATERFALL",
+  "categories": 8,
+  "columns": [
+    "Category",
+    "Series1"
+  ],
+  "group": "Other",
+  "groupSort": 13,
+  "series": 1,
+  "seriesGroups": 1,
+  "slideNumber": 74,
+  "useSecondaryCategories": false,
+  "workbookRange": "Sheet1!$A$1:$I$2",
+  "complexity": "simple",
+  "dataColumns": [
+    {
+      "name": "Category",
+      "role": "categoryLabel",
+      "type": "string",
+      "position": "row0_col0"
+    },
+    {
+      "name": "Series1",
+      "role": "series",
+      "type": "number",
+      "position": "row1_col0"
+    }
+  ],
+  "sampleData": {
+    "headers": [
+      "Category",
+      "Q1 2024",
+      "Q2 2024",
+      "Q3 2024",
+      "Q4 2024",
+      "Q1 2025",
+      "Q2 2025",
+      "Q3 2025",
+      "Q4 2025"
+    ],
+    "rows": [
+      [
+        "Series1",
+        88282,
+        59377,
+        30218,
+        31266,
+        33703,
+        91885,
+        31697,
+        67366
+      ]
+    ]
+  },
+  "preview": {
+    "src": "https://xano.storyd.ai/vault/PMfrMmjB/cSZeqxbY1TiTbaJbIzLRN2SPwg8/llp_2w../074_WATERFALL.png",
+    "vectorSrc": "https://xano.storyd.ai/vault/PMfrMmjB/EQ8oUeCzDgoueIWLp5JybV3wpmo/R6hRMQ../074_WATERFALL.svg"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "serbian-latin",
+  "name": "Serbian (Latin)",
+  "code": "SRP",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

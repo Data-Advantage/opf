@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-gurmukhi",
+  "name": "Noto Sans Gurmukhi",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Punjabi (Gurmukhi)"
+  ],
+  "major": "Noto Sans Gurmukhi",
+  "minor": "Noto Sans Gurmukhi",
+  "textSample": "ਇਹ ਬਹੁਤ ਸੋਹਣਾ ਹੈ",
+  "type": "sans-serif"
+}

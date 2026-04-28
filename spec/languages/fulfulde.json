@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "fulfulde",
+  "name": "Fulfulde",
+  "code": "FUL",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

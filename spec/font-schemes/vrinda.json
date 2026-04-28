@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "vrinda",
+  "name": "Vrinda",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Bengali"
+  ],
+  "major": "Vrinda",
+  "minor": "Vrinda",
+  "textSample": "এটি ভ্রিন্দা ফন্টে লেখা হয়েছে।",
+  "type": "sans-serif"
+}

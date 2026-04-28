@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "gautami",
+  "name": "Gautami",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Telugu"
+  ],
+  "major": "Gautami",
+  "minor": "Gautami",
+  "textSample": "ఇది గౌతమి ఫాంట్‌లో వ్రాయబడింది",
+  "type": "sans-serif"
+}

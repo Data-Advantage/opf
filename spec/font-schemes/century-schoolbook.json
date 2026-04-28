@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "century-schoolbook",
+  "name": "Century Schoolbook",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Century Schoolbook",
+  "minor": "Century Schoolbook",
+  "textSample": "Traditional learning style",
+  "type": "serif"
+}

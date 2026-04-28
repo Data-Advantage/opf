@@ -1,0 +1,56 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-chart/v1",
+  "id": "united-kindom",
+  "name": "UNITED_KINGDOM",
+  "label": "United Kingdom",
+  "type": "MAP",
+  "categories": 4,
+  "columns": [
+    "State",
+    "Value"
+  ],
+  "group": "Map",
+  "groupSort": 12,
+  "series": 1,
+  "seriesGroups": 1,
+  "slideNumber": 69,
+  "useSecondaryCategories": false,
+  "workbookRange": "Sheet1!$A$1:$E$2",
+  "complexity": "simple",
+  "dataColumns": [
+    {
+      "name": "State",
+      "role": "categoryLabel",
+      "type": "string",
+      "position": "row0_col0"
+    },
+    {
+      "name": "Value",
+      "role": "series",
+      "type": "number",
+      "position": "row1_col0"
+    }
+  ],
+  "sampleData": {
+    "headers": [
+      "State",
+      "Q1 2024",
+      "Q2 2024",
+      "Q3 2024",
+      "Q4 2024"
+    ],
+    "rows": [
+      [
+        "Value",
+        33218,
+        92306,
+        74764,
+        70811
+      ]
+    ]
+  },
+  "preview": {
+    "src": "https://xano.storyd.ai/vault/PMfrMmjB/K4SaoiLppKy1yqxPSbXILhlGNIY/yy0Wtw../069_UNITED_KINGDOM.png",
+    "vectorSrc": "https://xano.storyd.ai/vault/PMfrMmjB/Zr-6ns_70vsaWJZV7CDwlDuoRp0/M0F31g../069_UNITED_KINGDOM.svg"
+  }
+}

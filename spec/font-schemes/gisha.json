@@ -1,0 +1,15 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "gisha",
+  "name": "Gisha",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Hebrew",
+    "Arabic"
+  ],
+  "major": "Gisha",
+  "minor": "Gisha",
+  "textSample": "זה נכתב בגופן גישה",
+  "type": "sans-serif"
+}

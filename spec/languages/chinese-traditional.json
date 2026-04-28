@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "chinese-traditional",
+  "name": "Chinese (Traditional)",
+  "code": "ZHO",
+  "fontScheme": "microsoft-jhenghei",
+  "googleFontScheme": "noto-sans-tc"
+}

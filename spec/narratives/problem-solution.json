@@ -3,15 +3,28 @@
   "id": "problem-solution",
   "name": "Problem → Solution",
   "summary": "Classic business arc: name the pain, raise the stakes, present your fix, show how it works, prove it, ask. The default for sales decks, internal proposals, and most general business presentations.",
-  "audienceFit": ["customers", "stakeholders", "executives", "internal-teams"],
-  "durationRange": { "minMinutes": 5, "maxMinutes": 30 },
-  "tags": ["business", "sales", "general", "proposal"],
+  "audienceFit": [
+    "customers",
+    "stakeholders",
+    "executives",
+    "internal-teams"
+  ],
+  "durationRange": {
+    "minMinutes": 5,
+    "maxMinutes": 30
+  },
+  "tags": [
+    "business",
+    "sales",
+    "general",
+    "proposal"
+  ],
   "beats": [
     {
       "id": "hook",
       "name": "Hook",
       "description": "Open with a striking question, statistic, customer quote, or moment that earns the audience's attention. The goal is to make them want to hear what comes next, not to convey information.",
-      "layoutHint": "section-divider"
+      "layoutHint": "title-center"
     },
     {
       "id": "problem",
@@ -42,7 +55,7 @@
       "id": "ask",
       "name": "The Ask",
       "description": "State a clear, specific call to action. What do you want the audience to do, decide, or commit to next? Make the smallest credible ask that moves things forward, and make it unambiguous.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     }
   ]
 }

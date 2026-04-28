@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "consolas",
+  "name": "Consolas",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Consolas",
+  "minor": "Consolas",
+  "textSample": "Code block view",
+  "type": "monospace"
+}

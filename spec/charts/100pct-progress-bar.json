@@ -1,0 +1,92 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-chart/v1",
+  "id": "100pct-progress-bar",
+  "name": "100PCT_PROGRESS_BAR",
+  "label": "100% Progress Bar",
+  "type": "PERCENTS_STACKED_BAR",
+  "categories": 6,
+  "columns": [
+    "Category",
+    "Target",
+    "Actual"
+  ],
+  "group": "Bar",
+  "groupSort": 4,
+  "series": 2,
+  "seriesGroups": 1,
+  "slideNumber": 27,
+  "useSecondaryCategories": false,
+  "workbookRange": "Sheet1!$A$1:$G$5",
+  "complexity": "calculated",
+  "dataColumns": [
+    {
+      "name": "Category",
+      "role": "categoryLabel",
+      "type": "string",
+      "position": "row0_col0"
+    },
+    {
+      "name": "Target",
+      "role": "series",
+      "type": "number",
+      "position": "row1_col0"
+    },
+    {
+      "name": "Actual",
+      "role": "series",
+      "type": "number",
+      "position": "row2_col0"
+    },
+    {
+      "name": "Remainder",
+      "role": "helper",
+      "type": "number",
+      "position": "row3_col0"
+    },
+    {
+      "name": "Progress",
+      "role": "helper",
+      "type": "number",
+      "position": "row4_col0"
+    }
+  ],
+  "helperColumns": [
+    "Remainder",
+    "Progress"
+  ],
+  "sampleData": {
+    "headers": [
+      "Category",
+      "Q1 2024",
+      "Q2 2024",
+      "Q3 2024",
+      "Q4 2024",
+      "Q1 2025",
+      "Q2 2025"
+    ],
+    "rows": [
+      [
+        "Target",
+        93,
+        90,
+        92,
+        89,
+        97,
+        84
+      ],
+      [
+        "Actual",
+        62,
+        76,
+        92,
+        74,
+        93,
+        61
+      ]
+    ]
+  },
+  "preview": {
+    "src": "https://xano.storyd.ai/vault/PMfrMmjB/yKO-h3iZ8YvJfvVOQ5e6CVhwe6I/tSy0Bg../027_100PCT_PROGRESS_BAR.png",
+    "vectorSrc": "https://xano.storyd.ai/vault/PMfrMmjB/vliQFeHUA7FkCsfZy1iDOqh8jlI/PNLGdA../027_100PCT_PROGRESS_BAR.svg"
+  }
+}

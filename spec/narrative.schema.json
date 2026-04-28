@@ -4,7 +4,12 @@
   "title": "OPF Narrative Template",
   "description": "Schema for narrative template files in the pptx.dev library. Each template describes a named story arc (e.g. 'problem-solution', 'scqa') as an ordered list of beats. Templates are referenced from OPF documents via meta.narrative.template.",
   "type": "object",
-  "required": ["$schema", "id", "name", "beats"],
+  "required": [
+    "$schema",
+    "id",
+    "name",
+    "beats"
+  ],
   "properties": {
     "$schema": {
       "type": "string",
@@ -25,26 +30,68 @@
     },
     "audienceFit": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "Audiences this narrative works well for, e.g. ['executives', 'investors', 'customers']."
     },
     "durationRange": {
       "type": "object",
       "description": "Typical talk-length window this narrative suits.",
       "properties": {
-        "minMinutes": { "type": "number", "exclusiveMinimum": 0 },
-        "maxMinutes": { "type": "number", "exclusiveMinimum": 0 }
+        "minMinutes": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "maxMinutes": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
       }
     },
     "tags": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "Free-form labels for filtering and search, e.g. ['business', 'pitch', 'internal']."
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/narratives/classic-story.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/narratives/classic-story.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/narratives/classic-story.svg"
+          ]
+        }
+      }
     },
     "beats": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/Beat" },
+      "items": {
+        "$ref": "#/$defs/Beat"
+      },
       "description": "Ordered list of beats that make up the narrative arc."
     }
   },
@@ -52,29 +99,174 @@
     "Beat": {
       "type": "object",
       "description": "A single narrative beat — a labeled segment of the story arc with a specific dramatic purpose. Mirrors the NarrativeBeat definition in opf.schema.json so library entries and inline OPF beats are interchangeable.",
-      "required": ["id", "name"],
+      "required": [
+        "id",
+        "name"
+      ],
       "properties": {
         "id": {
           "type": "string",
           "pattern": "^[a-z][a-z0-9-]*$",
-          "description": "Stable slug used by Slide.beat to reference this beat. Lowercase kebab-case."
+          "description": "Stable slug used by Slide.beat to reference this beat. Lowercase kebab-case.",
+          "examples": [
+            "opening",
+            "problem",
+            "evidence",
+            "ask",
+            "next-steps"
+          ]
         },
         "name": {
           "type": "string",
-          "description": "Human-readable beat name, e.g. 'The Problem'."
+          "description": "Human-readable beat name, e.g. 'The Problem'.",
+          "examples": [
+            "Opening",
+            "The Problem",
+            "Why Now",
+            "The Ask"
+          ]
         },
         "description": {
           "type": "string",
-          "description": "What this beat should accomplish. Used as a prompt for AI-driven generation of slides assigned to this beat."
+          "description": "Curator-written prose that explains what this beat should accomplish. Used as a prompt for AI-driven generation of slides assigned to this beat.",
+          "examples": [
+            "Quantify the pain customers feel today, with one striking stat the audience can repeat afterward."
+          ]
+        },
+        "instructions": {
+          "type": "string",
+          "description": "Short author-facing instruction for the beat — typically one phrase. Complements 'description'; AI uses this as a directive while 'description' supplies the rationale.",
+          "examples": [
+            "Capture audience attention",
+            "Introduce problem",
+            "Detail implementation",
+            "Inspire & conclude"
+          ]
         },
         "slideCount": {
           "type": "integer",
           "minimum": 1,
-          "description": "Optional explicit slide count for this beat. Defaults to 1 when omitted; values >1 are reserved for beats that intentionally span multiple slides. Prefer decomposing a heavy beat into multiple beats over setting a high slideCount."
+          "description": "Optional explicit slide count for this beat. Defaults to 1 when omitted; values >1 are reserved for beats that intentionally span multiple slides. Prefer decomposing a heavy beat into multiple beats over setting a high slideCount.",
+          "examples": [
+            1,
+            2,
+            3
+          ]
+        },
+        "slideType": {
+          "type": "string",
+          "enum": [
+            "text",
+            "image",
+            "chart",
+            "table",
+            "code"
+          ],
+          "description": "Default content kind for the beat's slide. Mirrors Element.type and helps engines choose a sensible layout when only the beat is specified."
         },
         "layoutHint": {
           "type": "string",
-          "description": "Suggested layout for the opening slide of this beat, e.g. 'section-divider', 'title-slide'."
+          "description": "Suggested layout id for the beat's opening slide, e.g. 'section-divider', 'title-slide', 'text-left'. Resolves the same way as Slide.layout — against catalogs.layouts and the default catalog at https://www.pptx.gallery/layouts.",
+          "examples": [
+            "section-divider",
+            "title-slide",
+            "title-left",
+            "two-column",
+            "text-left"
+          ]
+        },
+        "placeholders": {
+          "$ref": "#/$defs/BeatPlaceholders",
+          "description": "Which slide placeholders the beat expects to be filled. Helps the engine and AI decide what content to generate."
+        },
+        "options": {
+          "$ref": "#/$defs/BeatOptions",
+          "description": "Beat rendering options that shape how the resolved layout is populated."
+        },
+        "thoughtCues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional speaker prompts or thinking cues attached to the beat. Surfaced in presenter notes or AI prompts.",
+          "examples": [
+            [
+              "What pain is the audience feeling right now?",
+              "Why hasn't anyone solved this yet?"
+            ]
+          ]
+        }
+      }
+    },
+    "BeatPlaceholders": {
+      "type": "object",
+      "description": "Boolean flags indicating which standard slide placeholders the beat expects to fill. Engines may use these as content-generation hints; missing flags are treated as 'unspecified', not 'false'. Mirrors NarrativeBeatPlaceholders in opf.schema.json.",
+      "properties": {
+        "tag": {
+          "type": "boolean",
+          "description": "Whether to render a small tag / label above the title.",
+          "examples": [
+            false,
+            true
+          ]
+        },
+        "title": {
+          "type": "boolean",
+          "description": "Whether the beat fills the slide title.",
+          "examples": [
+            true,
+            false
+          ]
+        },
+        "subtitle": {
+          "type": "boolean",
+          "description": "Whether the beat fills the slide subtitle.",
+          "examples": [
+            false,
+            true
+          ]
+        },
+        "slideImage": {
+          "type": "boolean",
+          "description": "Whether the beat carries a dedicated slide-level image (separate from any content image).",
+          "examples": [
+            false,
+            true
+          ]
+        }
+      }
+    },
+    "BeatOptions": {
+      "type": "object",
+      "description": "Engine-facing options that fine-tune how a beat's resolved layout is populated. Mirrors NarrativeBeatOptions in opf.schema.json.",
+      "properties": {
+        "multiple": {
+          "type": "string",
+          "enum": [
+            "1x",
+            "2x",
+            "3x",
+            "4x",
+            "5x",
+            "6x"
+          ],
+          "description": "How many parallel content blocks the beat expects in its layout (e.g. '2x' for a two-column beat)."
+        },
+        "showLabel": {
+          "type": "boolean",
+          "description": "Whether to render the beat's label/tag on the slide.",
+          "examples": [
+            true,
+            false
+          ]
+        },
+        "showDescription": {
+          "type": "boolean",
+          "description": "Whether to render the beat's description as supporting copy on the slide.",
+          "examples": [
+            true,
+            false
+          ]
         }
       }
     }

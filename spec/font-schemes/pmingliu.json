@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "pmingliu",
+  "name": "PMingLiU",
+  "app": "PowerPoint",
+  "languageFamily": "ea",
+  "languages": [
+    "Chinese (traditional)"
+  ],
+  "major": "PMingLiU",
+  "minor": "PMingLiU",
+  "textSample": "這是以新細明體字型撰寫的",
+  "type": "serif"
+}

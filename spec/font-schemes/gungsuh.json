@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "gungsuh",
+  "name": "Gungsuh",
+  "app": "PowerPoint",
+  "languageFamily": "ea",
+  "languages": [
+    "Korean"
+  ],
+  "major": "GungsuhChe",
+  "minor": "Gungsuh",
+  "textSample": "이것은 궁서 폰트로 쓰여졌습니다",
+  "type": "serif"
+}

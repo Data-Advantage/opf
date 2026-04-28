@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "tunga",
+  "name": "Tunga",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Kannada"
+  ],
+  "major": "Tunga",
+  "minor": "Tunga",
+  "textSample": "ಇದು ತುಂಗ ಫಾಂಟ್‌ನಲ್ಲಿ ಬರೆಯಲಾಗಿದೆ",
+  "type": "sans-serif"
+}

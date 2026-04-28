@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "shruti",
+  "name": "Shruti",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Gujarati"
+  ],
+  "major": "Shruti",
+  "minor": "Shruti",
+  "textSample": "આ શ્રુતિ ફોન્ટમાં લખાયું છે",
+  "type": "sans-serif"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "seaford",
+  "name": "Seaford",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Seaford Display",
+  "minor": "Seaford",
+  "textSample": "Humanist gentle tone",
+  "type": "sans-serif"
+}

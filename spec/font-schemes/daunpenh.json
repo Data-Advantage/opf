@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "daunpenh",
+  "name": "DaunPenh",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Khmer"
+  ],
+  "major": "DaunPenh",
+  "minor": "DaunPenh",
+  "textSample": "ភាសាខ្មែរពិតជាស្រស់ស្អាត",
+  "type": "sans-serif"
+}

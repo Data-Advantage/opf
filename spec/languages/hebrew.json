@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "hebrew",
+  "name": "Hebrew",
+  "code": "HEB",
+  "fontScheme": "david",
+  "googleFontScheme": "noto-sans-hebrew"
+}

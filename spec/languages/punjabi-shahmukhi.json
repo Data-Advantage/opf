@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "punjabi-shahmukhi",
+  "name": "Punjabi (Shahmukhi)",
+  "code": "PAN",
+  "fontScheme": "arial",
+  "googleFontScheme": "noto-nastaliq-urdu"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "dilleniaupc",
+  "name": "DilleniaUPC",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Thai"
+  ],
+  "major": "DilleniaUPC",
+  "minor": "DilleniaUPC",
+  "textSample": "ราตรีสวัสดิ์นะ",
+  "type": "sans-serif"
+}

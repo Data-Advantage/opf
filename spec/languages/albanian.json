@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "albanian",
+  "name": "Albanian",
+  "code": "SQI",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

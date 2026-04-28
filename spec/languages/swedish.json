@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "swedish",
+  "name": "Swedish",
+  "code": "SWE",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

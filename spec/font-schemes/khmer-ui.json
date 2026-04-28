@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "khmer-ui",
+  "name": "Khmer UI",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Khmer"
+  ],
+  "major": "Khmer UI",
+  "minor": "Khmer UI",
+  "textSample": "ភាសាខ្មែរពិតជាស្រស់ស្អាត",
+  "type": "sans-serif"
+}

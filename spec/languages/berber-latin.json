@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "berber-latin",
+  "name": "Berber (Latin)",
+  "code": "BER",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

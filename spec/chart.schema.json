@@ -1,0 +1,437 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-chart/v1",
+  "title": "OPF Chart Preset",
+  "description": "Schema for chart-preset records in the pptx.gallery library. Each record describes a single named chart variant — the OOXML/Aspose chart type, its series/category cardinality, the column structure of the underlying workbook, and a small sample dataset suitable for previews. Chart presets are referenced from OPF chart elements; the engine resolves the reference against catalogs.charts (inline) → catalogs.charts.source → the default catalog at https://www.pptx.gallery/charts.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-chart/v1",
+      "description": "Identifies this record as a chart preset in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this preset. Lowercase kebab-case. Chart preset ids may start with a digit (e.g., '100pct-stacked-column', '3d-column') — unlike most other catalog ids — to mirror conventional chart-naming.",
+      "examples": [
+        "column",
+        "clustered-column",
+        "stacked-column",
+        "doughnut",
+        "bullet-column",
+        "100pct-stacked-column"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Internal name (often UPPER_SNAKE_CASE matching the engine's enum).",
+      "examples": [
+        "COLUMN",
+        "CLUSTERED_COLUMN",
+        "DOUGHNUT",
+        "BULLET_COLUMN"
+      ]
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label shown in chart pickers.",
+      "examples": [
+        "Column",
+        "Clustered Column",
+        "Doughnut",
+        "Bullet Column"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning — when to reach for this chart variant.",
+      "examples": [
+        "Single-series vertical column chart for comparing values across categories.",
+        "Bullet chart that benchmarks one value against ranked threshold bands."
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing the chart and ideal use cases.",
+      "examples": [
+        "Use a clustered column when you want to compare a small number of series across the same categories — e.g., revenue by quarter for two product lines. Best with 2–4 series and ≤12 categories."
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "Engine chart-type identifier (Aspose / OOXML form). Distinct from an OPF chart element's discriminator 'type' — this is the catalog record's own engine-level chart kind.",
+      "examples": [
+        "CLUSTERED_COLUMN",
+        "STACKED_COLUMN",
+        "LINE_WITH_MARKERS",
+        "DOUGHNUT",
+        "FUNNEL",
+        "TREEMAP"
+      ]
+    },
+    "group": {
+      "type": "string",
+      "description": "Top-level grouping in the chart picker (column, bar, line, area, pie, radar, etc.).",
+      "examples": [
+        "Column",
+        "Bar",
+        "Line",
+        "Area",
+        "Pie",
+        "Radar",
+        "Histogram",
+        "XY (Scatter)",
+        "Treemap",
+        "Bullet",
+        "Sparkline",
+        "Map",
+        "Other"
+      ]
+    },
+    "groupSort": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Display ordering hint within the chart group.",
+      "examples": [
+        1,
+        2,
+        10
+      ]
+    },
+    "complexity": {
+      "type": "string",
+      "enum": [
+        "simple",
+        "calculated",
+        "hierarchical",
+        "normalized"
+      ],
+      "description": "Shape of the underlying data: a flat series ('simple'), one with engine-side calculation ('calculated'), parent-child rows ('hierarchical'), or pre-normalized rows ('normalized')."
+    },
+    "series": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of data series this preset expects.",
+      "examples": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "categories": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of category labels this preset expects on the primary axis.",
+      "examples": [
+        4,
+        6,
+        8,
+        12
+      ]
+    },
+    "seriesGroups": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of series groups (axis bands) this preset uses; >1 for combo or banded charts.",
+      "examples": [
+        1,
+        2,
+        3
+      ]
+    },
+    "useSecondaryCategories": {
+      "type": "boolean",
+      "description": "Whether the preset uses a secondary category axis.",
+      "examples": [
+        false,
+        true
+      ]
+    },
+    "workbookRange": {
+      "type": "string",
+      "description": "A1 reference to the source range in the embedded workbook.",
+      "examples": [
+        "Sheet1!$A$1:$I$2",
+        "Sheet1!$A$1:$G$3"
+      ]
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Column header names of the embedded workbook, in left-to-right order.",
+      "examples": [
+        [
+          "Series 1",
+          "Value"
+        ],
+        [
+          "Series 1",
+          "Value 1",
+          "Value 2"
+        ]
+      ]
+    },
+    "dataColumns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ChartDataColumn"
+      },
+      "description": "Per-column metadata describing the role and position of each column in the workbook source.",
+      "examples": [
+        [
+          {
+            "name": "Series 1",
+            "role": "categoryLabel",
+            "type": "string",
+            "position": "row0_col0"
+          },
+          {
+            "name": "Value 1",
+            "role": "series",
+            "type": "number",
+            "position": "row1_col0"
+          },
+          {
+            "name": "Value 2",
+            "role": "series",
+            "type": "number",
+            "position": "row2_col0"
+          }
+        ]
+      ]
+    },
+    "helperColumns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional auxiliary column names used by calculated or banded charts (e.g., 'Excellent', 'Good', 'Fair', 'Poor' for a bullet chart).",
+      "examples": [
+        [
+          "Excellent",
+          "Good",
+          "Fair",
+          "Poor"
+        ],
+        [
+          "Band"
+        ]
+      ]
+    },
+    "sampleData": {
+      "$ref": "#/$defs/ChartSampleData",
+      "description": "Inline sample dataset for previews and pickers.",
+      "examples": [
+        {
+          "headers": [
+            "Series 1",
+            "Q1 2024",
+            "Q2 2024",
+            "Q3 2024",
+            "Q4 2024"
+          ],
+          "rows": [
+            [
+              "Value",
+              93810,
+              24592,
+              13278,
+              46048
+            ]
+          ]
+        }
+      ]
+    },
+    "slideNumber": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Source slide number in the original chart-gallery deck. Carried for traceability.",
+      "examples": [
+        1,
+        2,
+        48
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search.",
+      "examples": [
+        [
+          "column",
+          "comparison"
+        ],
+        [
+          "bullet",
+          "kpi",
+          "benchmark"
+        ]
+      ]
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG). Used as the primary visual in picker UIs and previews of the record.",
+          "examples": [
+            "https://www.pptx.gallery/charts/clustered-column.png"
+          ]
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views.",
+          "examples": [
+            "https://www.pptx.gallery/charts/clustered-column.thumbnail.png"
+          ]
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size.",
+          "examples": [
+            "https://www.pptx.gallery/charts/clustered-column.svg"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "ChartDataColumn": {
+      "type": "object",
+      "description": "One column of the embedded chart workbook, annotated with its role and grid position.",
+      "required": [
+        "name",
+        "role",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Column header name (e.g. 'Series 1', 'Value', 'Level1', 'Level2').",
+          "examples": [
+            "Series 1",
+            "Value",
+            "Level1",
+            "Level2"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "categoryLabel",
+            "series",
+            "helper"
+          ],
+          "description": "Role this column plays: a category label (axis tick), a series (plotted values), or a helper (calculated/auxiliary)."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number"
+          ],
+          "description": "Cell value type for the column."
+        },
+        "position": {
+          "type": "string",
+          "pattern": "^row[0-9]+_col[0-9]+$",
+          "description": "Grid position of the column header in the source workbook, as 'row<N>_col<M>' (zero-indexed).",
+          "examples": [
+            "row0_col0",
+            "row1_col0",
+            "row2_col0"
+          ]
+        }
+      }
+    },
+    "ChartSampleData": {
+      "type": "object",
+      "description": "Inline sample dataset for previews. Mirrors a small workbook with header row plus data rows.",
+      "required": [
+        "headers",
+        "rows"
+      ],
+      "properties": {
+        "headers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Header row labels. The first cell typically labels the series column; the rest are category labels.",
+          "examples": [
+            [
+              "Series 1",
+              "Q1 2024",
+              "Q2 2024",
+              "Q3 2024",
+              "Q4 2024",
+              "Q1 2025",
+              "Q2 2025",
+              "Q3 2025",
+              "Q4 2025"
+            ]
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "number"
+              ]
+            }
+          },
+          "description": "Two-dimensional sample data. Each row aligns by index with the headers — first cell is the row label, remaining cells are values.",
+          "examples": [
+            [
+              [
+                "Value",
+                93810,
+                24592,
+                13278,
+                46048,
+                42098,
+                39256,
+                28289,
+                23434
+              ]
+            ],
+            [
+              [
+                "Value 1",
+                98696,
+                81482,
+                21395,
+                87397
+              ],
+              [
+                "Value 2",
+                38657,
+                40495,
+                76237,
+                88907
+              ]
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

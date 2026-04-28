@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "roboto",
+  "name": "Roboto",
+  "app": "Google Slides",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Roboto",
+  "minor": "Roboto",
+  "textSample": "Perfect for tech",
+  "type": "sans-serif"
+}

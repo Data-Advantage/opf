@@ -1,0 +1,23 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-layout/v1",
+  "id": "chart-3x",
+  "name": "Chart_3x",
+  "label": "Chart 3x",
+  "contentAlignment": "Center",
+  "contentBox": false,
+  "contentMultiple": "3x",
+  "contentTypeChartPrimary": "None",
+  "contentTypeImageFill": "None",
+  "contentTypeListBullet": "None",
+  "contentTypeListHeading": false,
+  "contentType": "Chart",
+  "groupDefault": false,
+  "groupHash": "a329b3de98995a8402ea5d8e1543f1c777b3a84fab7e6db449afd279915ee68d",
+  "master": "Dark",
+  "masterSlideIndex": 158,
+  "slideImage": false,
+  "slideImageAlignment": "None",
+  "slideLayoutDirection": "Horizontal",
+  "slideTitle": false,
+  "slideTitleAlignment": "None"
+}

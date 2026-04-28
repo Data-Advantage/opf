@@ -1,0 +1,16 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-arabic",
+  "name": "Noto Sans Arabic",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Arabic",
+    "Pashto",
+    "Punjabi (Shahmukhi)"
+  ],
+  "major": "Noto Naskh Arabic",
+  "minor": "Noto Naskh Arabic",
+  "textSample": "نص عربي أنيق",
+  "type": "sans-serif"
+}

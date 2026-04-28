@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-telugu",
+  "name": "Noto Sans Telugu",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Telugu"
+  ],
+  "major": "Noto Sans Telugu",
+  "minor": "Noto Sans Telugu",
+  "textSample": "ఇది చక్కనిది",
+  "type": "sans-serif"
+}

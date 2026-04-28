@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "croatian",
+  "name": "Croatian",
+  "code": "HRV",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

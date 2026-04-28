@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "uzbek-latin",
+  "name": "Uzbek (Latin)",
+  "code": "UZB",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

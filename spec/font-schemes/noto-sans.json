@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans",
+  "name": "Noto Sans",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Russian",
+    "Ukrainian",
+    "Serbian (Cyrillic)",
+    "Tajik"
+  ],
+  "major": "Noto Sans",
+  "minor": "Noto Sans",
+  "textSample": "Universal and clear",
+  "type": "sans-serif"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "calibri",
+  "name": "Calibri",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Calibri",
+  "minor": "Calibri",
+  "textSample": "Smooth professional look",
+  "type": "sans-serif"
+}

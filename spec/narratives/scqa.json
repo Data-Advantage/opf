@@ -3,9 +3,22 @@
   "id": "scqa",
   "name": "SCQA (Situation–Complication–Question–Answer)",
   "summary": "Barbara Minto's pyramid-principle arc: surface the recommendation up front, then layer key arguments and supporting evidence beneath it. The default for executive memos, strategic recommendations, and consulting decks where the audience needs the answer fast.",
-  "audienceFit": ["executives", "boards", "leadership-teams"],
-  "durationRange": { "minMinutes": 5, "maxMinutes": 20 },
-  "tags": ["executive", "strategy", "consulting", "minto", "pyramid"],
+  "audienceFit": [
+    "executives",
+    "boards",
+    "leadership-teams"
+  ],
+  "durationRange": {
+    "minMinutes": 5,
+    "maxMinutes": 20
+  },
+  "tags": [
+    "executive",
+    "strategy",
+    "consulting",
+    "minto",
+    "pyramid"
+  ],
   "beats": [
     {
       "id": "situation",
@@ -26,7 +39,7 @@
       "id": "answer",
       "name": "Answer",
       "description": "Deliver the recommendation in a single sentence, up front. No arguments yet, no caveats — just the conclusion the rest of the deck will defend. This is the apex of the Minto pyramid; everything that follows supports it.",
-      "layoutHint": "title-slide"
+      "layoutHint": "title-left"
     },
     {
       "id": "key-arguments",

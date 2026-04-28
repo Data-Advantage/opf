@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-gujarati",
+  "name": "Noto Sans Gujarati",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Gujarati"
+  ],
+  "major": "Noto Sans Gujarati",
+  "minor": "Noto Sans Gujarati",
+  "textSample": "આ સારી સ્થિતિ છે",
+  "type": "sans-serif"
+}

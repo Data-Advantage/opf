@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "skeena",
+  "name": "Skeena",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Skeena Display",
+  "minor": "Skeena",
+  "textSample": "Balanced contemporary style",
+  "type": "sans-serif"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "verdana",
+  "name": "Verdana",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Verdana",
+  "minor": "Verdana",
+  "textSample": "Wide readable font",
+  "type": "sans-serif"
+}

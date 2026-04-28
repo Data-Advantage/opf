@@ -1,0 +1,8 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "czech",
+  "name": "Czech",
+  "code": "CES",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

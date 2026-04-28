@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-mongolian",
+  "name": "Noto Sans Mongolian",
+  "app": "Google Slides",
+  "languageFamily": "cs",
+  "languages": [
+    "Mongolian"
+  ],
+  "major": "Noto Sans Mongolian",
+  "minor": "Noto Sans Mongolian",
+  "textSample": "Энэ маш сайхан",
+  "type": "sans-serif"
+}

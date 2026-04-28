@@ -1,0 +1,14 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "noto-sans-jp",
+  "name": "Noto Sans JP",
+  "app": "Google Slides",
+  "languageFamily": "ea",
+  "languages": [
+    "Japanese"
+  ],
+  "major": "Noto Sans JP",
+  "minor": "Noto Sans JP",
+  "textSample": "これは美しいです",
+  "type": "sans-serif"
+}

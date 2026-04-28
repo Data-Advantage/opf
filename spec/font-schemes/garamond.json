@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "garamond",
+  "name": "Garamond",
+  "app": "PowerPoint",
+  "languageFamily": "latin",
+  "languages": [],
+  "major": "Garamond",
+  "minor": "Garamond",
+  "textSample": "Timeless book feel",
+  "type": "serif"
+}

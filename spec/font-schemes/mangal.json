@@ -1,0 +1,17 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "id": "mangal",
+  "name": "Mangal",
+  "app": "PowerPoint",
+  "languageFamily": "cs",
+  "languages": [
+    "Hindi",
+    "Sanskrit",
+    "Marathi",
+    "Nepali"
+  ],
+  "major": "Mangal",
+  "minor": "Mangal",
+  "textSample": "यह मंगल फ़ॉन्ट में लिखा गया है",
+  "type": "sans-serif"
+}
