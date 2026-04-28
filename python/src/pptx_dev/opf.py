@@ -29,12 +29,35 @@ class _OPFBase(BaseModel):
 # ─── Narrative / Meta ────────────────────────────────────────────────
 
 
+class OPFNarrativeBeat(_OPFBase):
+    """A single narrative beat — a labeled segment of the story arc.
+
+    Slides reference beats via ``OPFSlide.beat``.
+    """
+
+    id: str
+    name: str
+    description: str | None = None
+    weight: float | None = None
+    slide_count: int | None = Field(default=None, alias="slideCount")
+    layout_hint: str | None = Field(default=None, alias="layoutHint")
+
+
 class OPFNarrative(_OPFBase):
+    """Structured storyline metadata used by AI to shape generated content.
+
+    Narrative declares the deck's intended story arc; slides may opt into
+    beats via ``OPFSlide.beat``. The narrative does not constrain slide
+    structure — validators warn on drift but never error. Slides are the
+    source of truth; narrative is intent that travels with the deck.
+    """
+
     template: str | None = None
     description: str | None = None
     key_messages: list[str] | None = Field(default=None, alias="keyMessages")
     tone: str | None = None
     duration_minutes: float | None = Field(default=None, alias="durationMinutes")
+    beats: list[OPFNarrativeBeat] | None = None
 
 
 class OPFMeta(_OPFBase):
@@ -385,6 +408,7 @@ class OPFSlide(_OPFBase):
     transition: OPFTransition | None = None
     hidden: bool | None = None
     section: str | None = None
+    beat: str | None = None
 
 
 class OPFDocument(_OPFBase):
@@ -432,6 +456,7 @@ __all__ = [
     "OPFLayoutPreferences",
     "OPFMeta",
     "OPFNarrative",
+    "OPFNarrativeBeat",
     "OPFPlaceholderElement",
     "OPFPosition",
     "OPFShapeElement",

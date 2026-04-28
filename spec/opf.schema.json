@@ -90,11 +90,11 @@
     },
     "Narrative": {
       "type": "object",
-      "description": "Structured storyline metadata used by AI to shape generated content.",
+      "description": "Structured storyline metadata used by AI to shape generated content. Narrative declares the deck's intended story arc; slides may opt into beats via Slide.beat. The narrative does not constrain slide structure — validators warn on drift (orphan slides, unused beats) but never error. Slides are the source of truth; narrative is intent that travels with the deck.",
       "properties": {
         "template": {
           "type": "string",
-          "description": "Reference to a named narrative template, e.g. 'problem-solution'."
+          "description": "Reference to a named narrative template from the pptx.dev library, e.g. 'problem-solution', 'scqa', 'pitch-deck', 'qbr'. The library lives at /spec/narratives. Unknown template IDs produce a validation warning, not an error."
         },
         "description": {
           "type": "string",
@@ -114,6 +114,45 @@
           "type": "number",
           "minimum": 1,
           "description": "Target presentation duration in minutes."
+        },
+        "beats": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/NarrativeBeat" },
+          "description": "Inline narrative beats. When provided alongside a 'template', beats here override or extend matching template beats by 'id'. Without 'template', this defines a fully custom narrative arc. Beat IDs must be unique within the document."
+        }
+      }
+    },
+    "NarrativeBeat": {
+      "type": "object",
+      "description": "A single narrative beat — a labeled segment of the story arc with a specific dramatic purpose (e.g. 'hook', 'problem', 'evidence', 'ask'). Slides reference beats via Slide.beat.",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Stable slug used by Slide.beat to reference this beat. Lowercase kebab-case."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable beat name, e.g. 'The Problem'."
+        },
+        "description": {
+          "type": "string",
+          "description": "What this beat should accomplish. Used as a prompt for AI-driven generation of slides assigned to this beat."
+        },
+        "weight": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Relative share of the deck this beat occupies. The engine normalizes weights across all beats; values do not need to sum to 1."
+        },
+        "slideCount": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Optional explicit slide count for this beat. If actual count differs significantly, the validator emits a warning."
+        },
+        "layoutHint": {
+          "type": "string",
+          "description": "Suggested layout for the opening slide of this beat, e.g. 'section-divider', 'title-slide'."
         }
       }
     },
@@ -439,6 +478,10 @@
         "section": {
           "type": "string",
           "description": "Section marker used to group slides in presenter view and outlines."
+        },
+        "beat": {
+          "type": "string",
+          "description": "Optional reference to a narrative beat (matches an id from meta.narrative.beats or the resolved template). Declares the slide's role in the story arc; does not constrain ordering or structure. Slides without a beat are valid; multiple slides may share a beat."
         }
       }
     },

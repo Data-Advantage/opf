@@ -1,0 +1,74 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "id": "pitch-deck",
+  "name": "Startup Pitch Deck",
+  "summary": "The canonical investor-pitch arc, drawn from Sequoia and Y Combinator's templates. Optimized for 10–15 minute meetings with VCs and angels. Each beat answers the question an investor will ask next.",
+  "audienceFit": ["investors", "venture-capitalists", "angels", "advisors"],
+  "durationRange": { "minMinutes": 10, "maxMinutes": 20 },
+  "tags": ["startup", "fundraising", "pitch", "investor"],
+  "beats": [
+    {
+      "id": "purpose",
+      "name": "Company Purpose",
+      "description": "Open with a single sentence that captures what the company does and why it exists. Should be immediately understandable without industry jargon. Often doubles as the answer to 'so what do you do?'",
+      "weight": 0.05,
+      "slideCount": 1,
+      "layoutHint": "title-slide"
+    },
+    {
+      "id": "problem",
+      "name": "Problem",
+      "description": "Describe the pain point you solve. Make it concrete with a specific user or customer scenario. The more visceral and recognizable the problem, the stronger the rest of the pitch lands.",
+      "weight": 0.10
+    },
+    {
+      "id": "solution",
+      "name": "Solution",
+      "description": "Show how you solve the problem and why your approach is uniquely better. Lead with the outcome for the customer, then show the mechanism. This is your product story.",
+      "weight": 0.10
+    },
+    {
+      "id": "why-now",
+      "name": "Why Now",
+      "description": "Explain the technological, regulatory, behavioral, or market shift that makes this opportunity possible today and impossible five years ago. Investors want to know why this is a window, not just an idea.",
+      "weight": 0.08
+    },
+    {
+      "id": "market",
+      "name": "Market Size",
+      "description": "Size the opportunity. Top-down (TAM/SAM/SOM) or bottom-up (units × price). Show how big the prize is if you win, and why this market is attractive to a venture-scale outcome.",
+      "weight": 0.08
+    },
+    {
+      "id": "product",
+      "name": "Product",
+      "description": "Demonstrate the product in action. Screenshots, a short demo, or a walk-through of the core user flow. Show real software solving real problems for real users.",
+      "weight": 0.15
+    },
+    {
+      "id": "traction",
+      "name": "Traction",
+      "description": "Prove momentum. Revenue, users, growth rate, customer logos, retention, engagement — whatever metrics best show the business is working. One credible chart beats five vanity numbers.",
+      "weight": 0.15
+    },
+    {
+      "id": "team",
+      "name": "Team",
+      "description": "Establish why this team uniquely wins this market. Founder backgrounds, relevant experience, prior outcomes, key advisors. Investors back people first; make the case.",
+      "weight": 0.08
+    },
+    {
+      "id": "business-model",
+      "name": "Business Model",
+      "description": "Explain how the company makes money. Pricing, unit economics, sales motion, payback period. Should answer: what does it cost to acquire a customer, and what do they pay you?",
+      "weight": 0.07
+    },
+    {
+      "id": "ask",
+      "name": "The Ask",
+      "description": "State the round size, intended use of funds, and what milestones the capital takes you to. Be specific — investors should leave knowing exactly what you want and what they get.",
+      "weight": 0.14,
+      "layoutHint": "title-slide"
+    }
+  ]
+}

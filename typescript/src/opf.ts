@@ -56,8 +56,20 @@ export interface OPFMeta {
   tags?: string[];
 }
 
+/**
+ * Structured storyline metadata used by AI to shape generated content.
+ *
+ * Narrative declares the deck's intended story arc; slides may opt into beats
+ * via `Slide.beat`. The narrative does not constrain slide structure —
+ * validators warn on drift (orphan slides, unused beats) but never error.
+ * Slides are the source of truth; narrative is intent that travels with the deck.
+ */
 export interface OPFNarrative {
-  /** Reference to a named narrative template, e.g. "problem-solution" */
+  /**
+   * Reference a named narrative template from the pptx.dev library, e.g.
+   * "problem-solution", "scqa", "pitch-deck", "qbr". Unknown template IDs
+   * produce a validation warning, not an error.
+   */
   template?: string;
   /** Free-form narrative description for AI-driven generation */
   description?: string;
@@ -67,6 +79,45 @@ export interface OPFNarrative {
   tone?: string;
   /** Target duration in minutes */
   durationMinutes?: number;
+  /**
+   * Inline narrative beats. When provided alongside a `template`, beats here
+   * override or extend matching template beats by `id`. Without `template`,
+   * this defines a fully custom narrative arc. Beat IDs must be unique
+   * within the document.
+   */
+  beats?: OPFNarrativeBeat[];
+}
+
+/**
+ * A single narrative beat — a labeled segment of the story arc with a
+ * specific dramatic purpose (e.g. "hook", "problem", "evidence", "ask").
+ * Slides reference beats via `Slide.beat`.
+ */
+export interface OPFNarrativeBeat {
+  /**
+   * Stable slug used by `Slide.beat` to reference this beat.
+   * Lowercase kebab-case.
+   */
+  id: string;
+  /** Human-readable beat name, e.g. "The Problem" */
+  name: string;
+  /**
+   * What this beat should accomplish. Used as a prompt for AI-driven
+   * generation of slides assigned to this beat.
+   */
+  description?: string;
+  /**
+   * Relative share of the deck this beat occupies. The engine normalizes
+   * weights across all beats; values do not need to sum to 1.
+   */
+  weight?: number;
+  /**
+   * Optional explicit slide count for this beat. If actual count differs
+   * significantly, the validator emits a warning.
+   */
+  slideCount?: number;
+  /** Suggested layout for the opening slide of this beat */
+  layoutHint?: string;
 }
 
 // ─── Design System ───────────────────────────────────────────────────
@@ -186,6 +237,14 @@ export interface OPFSlide {
 
   /** Section marker — groups slides in presenter view */
   section?: string;
+
+  /**
+   * Optional reference to a narrative beat (matches an `id` from
+   * `meta.narrative.beats` or the resolved template). Declares the slide's
+   * role in the story arc; does not constrain ordering or structure.
+   * Slides without a beat are valid; multiple slides may share a beat.
+   */
+  beat?: string;
 }
 
 export interface OPFTransition {

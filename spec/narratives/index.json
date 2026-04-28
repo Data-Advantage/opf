@@ -1,0 +1,43 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-narrative-index/v1",
+  "version": "1",
+  "description": "Catalog of narrative templates available in the pptx.dev library. Each entry is a lightweight summary; full beat definitions live in the per-template JSON files alongside this index.",
+  "templates": [
+    {
+      "id": "problem-solution",
+      "name": "Problem → Solution",
+      "summary": "Classic business arc: name the pain, raise the stakes, present your fix, prove it, ask.",
+      "audienceFit": ["customers", "stakeholders", "executives", "internal-teams"],
+      "durationRange": { "minMinutes": 5, "maxMinutes": 30 },
+      "tags": ["business", "sales", "general", "proposal"],
+      "file": "problem-solution.json"
+    },
+    {
+      "id": "scqa",
+      "name": "SCQA (Situation–Complication–Question–Answer)",
+      "summary": "Minto's pyramid-principle opener; ideal for executive memos and strategic recommendations.",
+      "audienceFit": ["executives", "boards", "leadership-teams"],
+      "durationRange": { "minMinutes": 5, "maxMinutes": 20 },
+      "tags": ["executive", "strategy", "consulting", "minto"],
+      "file": "scqa.json"
+    },
+    {
+      "id": "pitch-deck",
+      "name": "Startup Pitch Deck",
+      "summary": "Canonical investor-pitch arc drawn from Sequoia and YC templates; optimized for 10–15 minute meetings.",
+      "audienceFit": ["investors", "venture-capitalists", "angels", "advisors"],
+      "durationRange": { "minMinutes": 10, "maxMinutes": 20 },
+      "tags": ["startup", "fundraising", "pitch", "investor"],
+      "file": "pitch-deck.json"
+    },
+    {
+      "id": "qbr",
+      "name": "Quarterly Business Review",
+      "summary": "Standard internal review arc: recap, performance, insights, plan, risks, asks.",
+      "audienceFit": ["leadership", "executives", "cross-functional-partners"],
+      "durationRange": { "minMinutes": 30, "maxMinutes": 90 },
+      "tags": ["internal", "review", "operations", "reporting"],
+      "file": "qbr.json"
+    }
+  ]
+}
