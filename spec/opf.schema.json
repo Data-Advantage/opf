@@ -13,7 +13,7 @@
     },
     "meta": {
       "$ref": "#/$defs/Meta",
-      "description": "High-level presentation metadata such as title, author, audience, and narrative."
+      "description": "High-level presentation metadata such as title, speakers, organizations, audience, and narrative."
     },
     "design": {
       "$ref": "#/$defs/Design",
@@ -52,13 +52,20 @@
           "type": "string",
           "description": "Optional subtitle shown alongside the title, typically on cover slides."
         },
-        "author": {
-          "type": "string",
-          "description": "Author or presenter name."
+        "organizations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Organization" },
+          "description": "Organizations associated with the presentation (e.g., the presenting company, host conference, partners, clients, sponsors). The 'primary' organization (declared via Organization.role or, if no role is set, the first item) drives default branding such as cover-slide logo. Optional — simple decks may omit this."
         },
-        "company": {
-          "type": "string",
-          "description": "Company or organization the presentation is from."
+        "speakers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Speaker" },
+          "description": "People presenting the deck. Used for cover slides, bio slides, footers, and panel attribution. Optional — simple decks may omit this."
+        },
+        "authors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional credit list for people who authored or contributed to the deck, distinct from speakers. Use when the writer and presenter differ (e.g., analyst-written, exec-presented)."
         },
         "audience": {
           "type": "string",
@@ -76,15 +83,161 @@
           "type": "string",
           "description": "BCP 47 language tag for the presentation content (e.g., 'en-US')."
         },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "ISO 8601 timestamp marking when the presentation was created."
-        },
         "tags": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Free-form labels used for categorization, search, and filtering."
+          "description": "Free-form labels used for categorization, search, and filtering. Lowercase kebab-case is recommended for consistency across a deck library."
+        }
+      }
+    },
+    "Organization": {
+      "type": "object",
+      "description": "An organization associated with the presentation — typically the presenting company, but also hosts, partners, clients, or sponsors. Surfaced on cover slides, footers, and brand bars; the primary organization's logo is the default for design.brand.logo unless overridden.",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "description": "Stable identifier for the organization, used to reference it from Speaker.organizationId. Must be unique within the deck."
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name shown on slides (e.g., 'Acme Corp')."
+        },
+        "legalName": {
+          "type": "string",
+          "description": "Optional legal entity name when it differs from the display name (e.g., 'Acme Corporation, Inc.')."
+        },
+        "logo": {
+          "type": "string",
+          "description": "Source for the organization's logo image. Accepts an HTTPS URL, data URI, relative path (resolved against the OPF file location), or asset reference. The primary organization's logo is used by default for cover-slide and footer branding; design.brand.logo overrides both source and rendering."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Bare internet domain for the organization (e.g., 'acme.com'). Used for footers, contact slides, and engine-driven asset lookups (e.g., favicon-based brand defaults)."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "General contact email for the organization (e.g., 'hello@acme.com'). Used on contact slides and footer attribution."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Main contact phone number for the organization. E.164 format is recommended (e.g., '+14155551234')."
+        },
+        "tagline": {
+          "type": "string",
+          "description": "Short tagline rendered alongside the organization name on cover slides."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["primary", "partner", "client", "sponsor", "host"],
+          "description": "Role of the organization relative to the presentation. When omitted, the first organization in the array is treated as primary."
+        },
+        "socials": {
+          "$ref": "#/$defs/Socials",
+          "description": "Optional social media handles or URLs for the organization."
+        }
+      }
+    },
+    "Speaker": {
+      "type": "object",
+      "description": "A person presenting the deck. Used for cover slides, bio/intro slides, footer attribution, and panel formats with multiple presenters.",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "description": "Stable identifier for the speaker, used for cross-references within the deck. Must be unique within the deck."
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name (e.g., 'Alice Chen')."
+        },
+        "title": {
+          "type": "string",
+          "description": "Role or title (e.g., 'VP of Engineering', 'Founder & CEO'). Often paired with the speaker's organization on cover slides."
+        },
+        "photo": {
+          "type": "string",
+          "description": "URL or asset reference for the speaker's headshot, used on cover and bio slides."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email, used on contact slides or footer attribution when appropriate."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number for the speaker. E.164 format is recommended (e.g., '+14155551234')."
+        },
+        "bio": {
+          "type": "string",
+          "description": "Short biographical paragraph for bio or 'about the speaker' slides."
+        },
+        "organizationId": {
+          "type": "string",
+          "description": "Reference to an Organization.id in meta.organizations. Lets a speaker be attributed to their org in panel or multi-org decks without repeating organization details."
+        },
+        "socials": {
+          "$ref": "#/$defs/Socials",
+          "description": "Optional social media handles or URLs for the speaker."
+        }
+      }
+    },
+    "Socials": {
+      "type": "object",
+      "description": "Social media handles or URLs. Every property is optional; consumers may render values either as full URLs or as platform handles (e.g., '@acme'). Use this both for organizations and individual speakers.",
+      "properties": {
+        "linkedin": {
+          "type": "string",
+          "description": "LinkedIn profile or company page URL or handle.",
+          "examples": ["https://linkedin.com/in/alice-chen", "https://linkedin.com/company/acme"]
+        },
+        "x": {
+          "type": "string",
+          "description": "X (formerly Twitter) profile URL or handle.",
+          "examples": ["@alicechen", "https://x.com/acme"]
+        },
+        "github": {
+          "type": "string",
+          "description": "GitHub user or organization URL or handle.",
+          "examples": ["alicechen", "https://github.com/acme"]
+        },
+        "youtube": {
+          "type": "string",
+          "description": "YouTube channel URL or handle.",
+          "examples": ["@acme", "https://youtube.com/@acme"]
+        },
+        "instagram": {
+          "type": "string",
+          "description": "Instagram profile URL or handle.",
+          "examples": ["@acme", "https://instagram.com/acme"]
+        },
+        "facebook": {
+          "type": "string",
+          "description": "Facebook page URL or handle.",
+          "examples": ["acme", "https://facebook.com/acme"]
+        },
+        "tiktok": {
+          "type": "string",
+          "description": "TikTok profile URL or handle.",
+          "examples": ["@acme", "https://tiktok.com/@acme"]
+        },
+        "threads": {
+          "type": "string",
+          "description": "Threads profile URL or handle.",
+          "examples": ["@alicechen", "https://threads.net/@acme"]
+        },
+        "mastodon": {
+          "type": "string",
+          "description": "Mastodon profile URL (include the instance, e.g., 'https://mastodon.social/@user').",
+          "examples": ["https://mastodon.social/@alice", "https://hachyderm.io/@acme"]
+        },
+        "bluesky": {
+          "type": "string",
+          "description": "Bluesky profile URL or handle (e.g., 'user.bsky.social').",
+          "examples": ["alice.bsky.social", "https://bsky.app/profile/acme.bsky.social"]
         }
       }
     },
@@ -177,7 +330,7 @@
         },
         "brand": {
           "$ref": "#/$defs/Brand",
-          "description": "Brand assets such as logo, watermark, and company name."
+          "description": "Visual brand assets applied to slides (watermark, and an optional logo override). Organization identity (name, primary logo) lives in meta.organizations; design.brand only overrides visual rendering."
         },
         "layoutPreferences": {
           "$ref": "#/$defs/LayoutPreferences",
@@ -347,11 +500,11 @@
         "image": {
           "type": "object",
           "description": "Image fill definition (used when type is 'image').",
-          "required": ["url"],
+          "required": ["src"],
           "properties": {
-            "url": {
+            "src": {
               "type": "string",
-              "description": "Source URL or asset reference for the background image."
+              "description": "Source for the background image. Accepts an HTTPS URL, data URI, relative path (resolved against the OPF file location), or asset reference."
             },
             "fit": {
               "type": "string",
@@ -370,15 +523,15 @@
     },
     "Brand": {
       "type": "object",
-      "description": "Brand assets surfaced across slides, such as logo, watermark, and company name.",
+      "description": "Visual brand assets surfaced across slides. Organization identity (name, primary logo) lives in meta.organizations; this object only carries visual overrides and decorative marks.",
       "properties": {
         "logo": {
           "type": "object",
-          "description": "Logo image displayed on slides.",
+          "description": "Optional logo override. When set, this takes precedence over the primary organization's logo for slide-level rendering. When omitted, the engine falls back to meta.organizations[primary].logo and uses default placement and sizing.",
           "properties": {
-            "url": {
+            "src": {
               "type": "string",
-              "description": "Source URL or asset reference for the logo image."
+              "description": "Source for the logo image. Accepts an HTTPS URL, data URI, relative path (resolved against the OPF file location), or asset reference."
             },
             "position": {
               "$ref": "#/$defs/Position",
@@ -394,9 +547,9 @@
           "type": "object",
           "description": "Watermark image displayed across slides.",
           "properties": {
-            "url": {
+            "src": {
               "type": "string",
-              "description": "Source URL or asset reference for the watermark image."
+              "description": "Source for the watermark image. Accepts an HTTPS URL, data URI, relative path (resolved against the OPF file location), or asset reference."
             },
             "opacity": {
               "type": "number",
@@ -405,10 +558,6 @@
               "description": "Watermark opacity from 0 (fully transparent) to 1 (fully opaque)."
             }
           }
-        },
-        "companyName": {
-          "type": "string",
-          "description": "Company name shown alongside brand assets."
         }
       }
     },

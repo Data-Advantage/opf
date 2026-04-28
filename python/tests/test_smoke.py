@@ -33,7 +33,27 @@ def test_opf_document_roundtrip_camel_case() -> None:
     doc = OPFDocument.model_validate(
         {
             "$schema": "https://pptx.dev/schema/opf/v1",
-            "meta": {"title": "Hello", "createdAt": "2026-01-01"},
+            "meta": {
+                "title": "Hello",
+                "organizations": [
+                    {
+                        "id": "acme",
+                        "name": "Acme",
+                        "role": "primary",
+                        "logo": "https://x/logo.png",
+                    }
+                ],
+                "speakers": [
+                    {
+                        "id": "alice",
+                        "name": "Alice Chen",
+                        "title": "VP Eng",
+                        "organizationId": "acme",
+                        "socials": {"linkedin": "alice"},
+                    }
+                ],
+                "tags": ["qbr", "internal"],
+            },
             "design": {"theme": "corporate-minimal"},
             "slides": [
                 {
@@ -54,7 +74,8 @@ def test_opf_document_roundtrip_camel_case() -> None:
     payload = doc.model_dump(mode="json", by_alias=True, exclude_none=True)
 
     assert payload["$schema"] == "https://pptx.dev/schema/opf/v1"
-    assert payload["meta"]["createdAt"] == "2026-01-01"
+    assert payload["meta"]["organizations"][0]["logo"] == "https://x/logo.png"
+    assert payload["meta"]["speakers"][0]["organizationId"] == "acme"
     assert payload["slides"][0]["elements"][0]["type"] == "text"
 
 

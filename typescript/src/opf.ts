@@ -46,14 +46,121 @@ export interface OPFMeta {
    */
   filename?: string;
   subtitle?: string;
-  author?: string;
-  company?: string;
+  /**
+   * Organizations associated with the presentation (presenting company,
+   * host, partners, clients, sponsors). The primary organization
+   * (`role: "primary"`, or first item if no role is set) drives default
+   * branding such as cover-slide logo.
+   */
+  organizations?: OPFOrganization[];
+  /**
+   * People presenting the deck. Used for cover slides, bio slides,
+   * footers, and panel attribution.
+   */
+  speakers?: OPFSpeaker[];
+  /**
+   * Optional credit list for people who authored or contributed to the
+   * deck, distinct from speakers. Use when the writer and presenter
+   * differ (e.g., analyst-written, exec-presented).
+   */
+  authors?: string[];
   audience?: string;
   purpose?: string;
   narrative?: OPFNarrative;
   language?: string;
-  createdAt?: string;
+  /**
+   * Free-form labels used for categorization, search, and filtering.
+   * Lowercase kebab-case is recommended for consistency.
+   */
   tags?: string[];
+}
+
+/**
+ * An organization associated with the presentation — typically the
+ * presenting company, but also hosts, partners, clients, or sponsors.
+ * Surfaced on cover slides, footers, and brand bars; the primary
+ * organization's logo is the default for `design.brand.logo` unless
+ * overridden.
+ */
+export interface OPFOrganization {
+  /** Stable identifier, referenced by `OPFSpeaker.organizationId`. Must be unique within the deck. */
+  id: string;
+  /** Display name shown on slides. */
+  name: string;
+  /** Optional legal entity name when it differs from the display name. */
+  legalName?: string;
+  /**
+   * Source for the organization's logo image. Accepts an HTTPS URL,
+   * data URI, relative path, or asset reference. The primary
+   * organization's logo is used by default for cover-slide and footer
+   * branding; `design.brand.logo` overrides both source and rendering.
+   */
+  logo?: string;
+  /** Bare internet domain (e.g., "acme.com"). */
+  domain?: string;
+  /** General contact email (e.g., "hello@acme.com"). */
+  email?: string;
+  /**
+   * Main contact phone number. E.164 format is recommended
+   * (e.g., "+14155551234").
+   */
+  phone?: string;
+  /** Short tagline rendered alongside the organization name. */
+  tagline?: string;
+  /**
+   * Role of the organization relative to the presentation. When omitted,
+   * the first organization in the array is treated as primary.
+   */
+  role?: "primary" | "partner" | "client" | "sponsor" | "host";
+  socials?: OPFSocials;
+}
+
+/**
+ * A person presenting the deck. Used for cover slides, bio/intro slides,
+ * footer attribution, and panel formats with multiple presenters.
+ */
+export interface OPFSpeaker {
+  /** Stable identifier for cross-references within the deck. Must be unique within the deck. */
+  id: string;
+  /** Display name. */
+  name: string;
+  /** Role or title (e.g., "VP of Engineering"). */
+  title?: string;
+  /** URL or asset reference for the speaker's headshot. */
+  photo?: string;
+  /** Contact email. */
+  email?: string;
+  /**
+   * Contact phone number. E.164 format is recommended
+   * (e.g., "+14155551234").
+   */
+  phone?: string;
+  /** Short biographical paragraph for bio slides. */
+  bio?: string;
+  /** Reference to an `OPFOrganization.id` in `meta.organizations`. */
+  organizationId?: string;
+  socials?: OPFSocials;
+}
+
+/**
+ * Social media handles or URLs. Every property is optional; values may
+ * be full URLs or platform handles. Used by both organizations and
+ * speakers.
+ */
+export interface OPFSocials {
+  linkedin?: string;
+  /** X (formerly Twitter) profile URL or handle. */
+  x?: string;
+  github?: string;
+  youtube?: string;
+  instagram?: string;
+  facebook?: string;
+  tiktok?: string;
+  threads?: string;
+  /** Mastodon profile URL (include the instance). */
+  mastodon?: string;
+  /** Bluesky profile URL or handle (e.g., "user.bsky.social"). */
+  bluesky?: string;
 }
 
 /**
@@ -188,14 +295,24 @@ export interface OPFBackground {
   type: "solid" | "gradient" | "image" | "pattern";
   color?: string;
   gradient?: { angle: number; stops: { color: string; position: number }[] };
-  image?: { url: string; fit: "cover" | "contain" | "tile" };
+  image?: { src: string; fit: "cover" | "contain" | "tile" };
   opacity?: number;
 }
 
+/**
+ * Visual brand assets surfaced across slides. Organization identity
+ * (name, primary logo) lives in `meta.organizations`; this object only
+ * carries visual overrides and decorative marks.
+ */
 export interface OPFBrand {
-  logo?: { url: string; position?: OPFPosition; widthInches?: number };
-  watermark?: { url: string; opacity?: number };
-  companyName?: string;
+  /**
+   * Optional logo override. When set, this takes precedence over the
+   * primary organization's logo for slide-level rendering. When omitted,
+   * the engine falls back to `meta.organizations[primary].logo` and uses
+   * default placement and sizing.
+   */
+  logo?: { src: string; position?: OPFPosition; widthInches?: number };
+  watermark?: { src: string; opacity?: number };
 }
 
 export interface OPFLayoutPreferences {

@@ -63,19 +63,103 @@ class OPFNarrative(_OPFBase):
     beats: list[OPFNarrativeBeat] | None = None
 
 
+class OPFSocials(_OPFBase):
+    """Social media handles or URLs.
+
+    Every property is optional; values may be full URLs or platform handles.
+    Used by both organizations and speakers.
+    """
+
+    linkedin: str | None = None
+    x: str | None = None
+    """X (formerly Twitter) profile URL or handle."""
+    github: str | None = None
+    youtube: str | None = None
+    instagram: str | None = None
+    facebook: str | None = None
+    tiktok: str | None = None
+    threads: str | None = None
+    mastodon: str | None = None
+    """Mastodon profile URL (include the instance)."""
+    bluesky: str | None = None
+    """Bluesky profile URL or handle (e.g., 'user.bsky.social')."""
+
+
+class OPFOrganization(_OPFBase):
+    """An organization associated with the presentation.
+
+    Typically the presenting company, but also hosts, partners, clients, or
+    sponsors. Surfaced on cover slides, footers, and brand bars; the primary
+    organization's logo is the default for ``design.brand.logo`` unless
+    overridden.
+    """
+
+    id: str
+    """Stable identifier, referenced by ``OPFSpeaker.organization_id``.
+    Must be unique within the deck."""
+    name: str
+    legal_name: str | None = Field(default=None, alias="legalName")
+    logo: str | None = None
+    """Source for the organization's logo image. Accepts an HTTPS URL,
+    data URI, relative path, or asset reference."""
+    domain: str | None = None
+    """Bare internet domain (e.g., 'acme.com')."""
+    email: str | None = None
+    """General contact email (e.g., 'hello@acme.com')."""
+    phone: str | None = None
+    """Main contact phone number. E.164 format is recommended
+    (e.g., '+14155551234')."""
+    tagline: str | None = None
+    role: Literal["primary", "partner", "client", "sponsor", "host"] | None = None
+    """Role of the organization relative to the presentation. When omitted,
+    the first organization in the array is treated as primary."""
+    socials: OPFSocials | None = None
+
+
+class OPFSpeaker(_OPFBase):
+    """A person presenting the deck.
+
+    Used for cover slides, bio/intro slides, footer attribution, and panel
+    formats with multiple presenters.
+    """
+
+    id: str
+    """Stable identifier for cross-references within the deck. Must be unique
+    within the deck."""
+    name: str
+    title: str | None = None
+    photo: str | None = None
+    email: str | None = None
+    phone: str | None = None
+    """Contact phone number. E.164 format is recommended
+    (e.g., '+14155551234')."""
+    bio: str | None = None
+    organization_id: str | None = Field(default=None, alias="organizationId")
+    """Reference to an ``OPFOrganization.id`` in ``meta.organizations``."""
+    socials: OPFSocials | None = None
+
+
 class OPFMeta(_OPFBase):
     title: str
     description: str | None = None
     filename: str | None = None
     subtitle: str | None = None
-    author: str | None = None
-    company: str | None = None
+    organizations: list[OPFOrganization] | None = None
+    """Organizations associated with the presentation. The primary
+    organization (``role="primary"``, or first item if no role is set)
+    drives default branding such as cover-slide logo."""
+    speakers: list[OPFSpeaker] | None = None
+    """People presenting the deck."""
+    authors: list[str] | None = None
+    """Optional credit list for people who authored or contributed to the
+    deck, distinct from speakers. Use when the writer and presenter differ."""
     audience: str | None = None
     purpose: str | None = None
     narrative: OPFNarrative | None = None
     language: str | None = None
-    created_at: str | None = Field(default=None, alias="createdAt")
     tags: list[str] | None = None
+    """Free-form labels used for categorization, search, and filtering.
+    Lowercase kebab-case is recommended for consistency."""
 
 
 # ─── Design System ───────────────────────────────────────────────────
@@ -125,7 +209,9 @@ class OPFGradient(_OPFBase):
 
 
 class OPFBackgroundImage(_OPFBase):
-    url: str
+    src: str
+    """Source for the background image. Accepts an HTTPS URL, data URI,
+    relative path, or asset reference."""
     fit: Literal["cover", "contain", "tile"]
 
 
@@ -144,20 +230,33 @@ class OPFPosition(_OPFBase):
 
 
 class OPFBrandLogo(_OPFBase):
-    url: str
+    src: str
+    """Source for the logo image. Accepts an HTTPS URL, data URI,
+    relative path, or asset reference."""
     position: OPFPosition | None = None
     width_inches: float | None = Field(default=None, alias="widthInches")
 
 
 class OPFBrandWatermark(_OPFBase):
-    url: str
+    src: str
+    """Source for the watermark image. Accepts an HTTPS URL, data URI,
+    relative path, or asset reference."""
     opacity: float | None = None
 
 
 class OPFBrand(_OPFBase):
+    """Visual brand assets surfaced across slides.
+
+    Organization identity (name, primary logo) lives in
+    ``meta.organizations``; this object only carries visual overrides and
+    decorative marks.
+    """
+
     logo: OPFBrandLogo | None = None
+    """Optional logo override. When set, this takes precedence over the
+    primary organization's logo for slide-level rendering. When omitted,
+    the engine falls back to ``meta.organizations[primary].logo``."""
     watermark: OPFBrandWatermark | None = None
-    company_name: str | None = Field(default=None, alias="companyName")
 
 
 class OPFLayoutPreferences(_OPFBase):
@@ -434,6 +533,9 @@ class OPFDocument(_OPFBase):
 OPFTextContent.model_rebuild()
 OPFGroupElement.model_rebuild()
 OPFSlide.model_rebuild()
+OPFOrganization.model_rebuild()
+OPFSpeaker.model_rebuild()
+OPFMeta.model_rebuild()
 OPFDocument.model_rebuild()
 
 
@@ -466,12 +568,15 @@ __all__ = [
     "OPFMeta",
     "OPFNarrative",
     "OPFNarrativeBeat",
+    "OPFOrganization",
     "OPFPlaceholderElement",
     "OPFPosition",
     "OPFShapeElement",
     "OPFShapeStroke",
     "OPFSize",
     "OPFSlide",
+    "OPFSocials",
+    "OPFSpeaker",
     "OPFTableElement",
     "OPFTableStyle",
     "OPFTextContent",
