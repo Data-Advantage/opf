@@ -11,7 +11,7 @@ Bottom: OPF + pptx.gallery + SDKs   — open-source primitives, MIT (Tier 1)  �
 ```
 
 - **Role in Tier 1:** OPF is the interchange format. It defines the JSON contract between LLM intent and rendered presentations so every agent in the ecosystem — ours or a third party's — can produce interoperable deck documents.
-- **Siblings in Tier 1:** [pptx.gallery](https://pptx.gallery) provides the human-browsable shared vocabulary. The canonical package source for machine consumers lives in this repo under `spec/` and `@dataadvantage/opf`.
+- **Siblings in Tier 1:** [pptx.gallery](https://www.pptx.gallery) provides the human-browsable shared vocabulary. The canonical package source for machine consumers lives in this repo under `spec/` and `@dataadvantage/opf`.
 - **Relationship to Tier 2 (pptx.dev):** OPF documents flow into `https://api.pptx.dev/v1` for rendering, parsing, generation, and export. The hosted engine is the paid surface. Core OPF packages do not call that API.
 - **Relationship to Tier 3 (STORYD2, DeckChat):** Commercial wrappers produce OPF and hand it to pptx.dev. Keeping OPF MIT makes STORYD2 and DeckChat *more* valuable, not less — the format is open so every AI tool standardizes on it, and the consumer products compete on UX and agent strategy.
 
@@ -35,6 +35,7 @@ One format, every runtime:
 
 | Surface | Package | Audience |
 |---|---|---|
+| OPF JSON documents | `*.opf.json` | Portable, versionable deck files for humans, agents, and validators |
 | JSON Schema | `https://pptx.dev/schema/opf/v1` | Any JSON Schema validator, editor, or agent |
 | JavaScript/TypeScript OPF package | `@dataadvantage/opf` (npm, private until schema freeze) | Schemas, catalogs, types, local validation |
 | Local OPF CLI | `opf` (distribution deferred) | Validate, format, and inspect OPF locally |
@@ -58,6 +59,7 @@ Existing `@pptx/sdk`, `pptx-dev`, `pptx.dev/go`, `@pptx/cli`, and `pptx-mcp` cod
 ## Key Decisions
 
 - **MIT license, always.** The format and client tools must stay open so every AI tool (including competitors) can produce OPF. Format lock-in is not the moat — ecosystem adoption is.
+- **Open Presentation Format is the public name.** `OPF` is shorthand, and `*.opf.json` is the recommended filename pattern for complete JSON deck documents.
 - **Spec + local format packages live together, service clients move separately.** This repo owns the OPF spec, schemas, catalogs, and local validation packages. Hosted PPTX.dev clients and MCP tooling should live with the PPTX.dev service.
 - **Vanity URLs are stable.** `pptx.dev/go`, `@pptx/*`, `pptx-dev` (PyPI), and `https://pptx.dev/schema/opf/v1` do not move even as source repos move. Existing users do not need to update import paths.
 - **PPTX.dev consumes OPF.** The hosted engine generates, renders, parses, stores, and previews presentations. OPF packages define and validate the data contract locally.

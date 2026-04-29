@@ -4,6 +4,12 @@ Canonical Open Presentation Format package for JavaScript and TypeScript.
 
 This package is currently private while the OPF schema is being stabilized. It is intended to publish the OPF schemas, catalog presets, generated TypeScript types, and local validation helpers. It does not call PPTX.dev, render PowerPoint files, parse `.pptx`, fetch remote catalogs, or use AI.
 
+## File naming
+
+Use `*.opf.json` for complete Open Presentation Format documents, such as `deck.opf.json`.
+
+OPF documents are plain JSON, and the `.opf.json` suffix keeps that visible to editors, validators, agents, and repository tooling. Avoid bare `*.opf` for OPF JSON because that extension is already used by other document and project formats.
+
 ## Expected Usage
 
 Build the workspace package first:

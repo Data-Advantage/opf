@@ -4,6 +4,16 @@ Open Presentation Format is the portable, human-readable JSON document format fo
 
 This repository is the canonical home for the OPF **spec**, **JSON Schemas**, **catalog presets**, generated developer types, and local validation tooling. Anything that renders PowerPoint files, fills presentations with AI, parses `.pptx`, or calls the hosted [pptx.dev](https://pptx.dev) API belongs to PPTX.dev-specific packages, not the core OPF package.
 
+## File naming
+
+Open Presentation Format documents are JSON files. Use `*.opf.json` for complete OPF presentation documents, for example `board-review.opf.json` or `deck.opf.json`.
+
+Avoid using bare `*.opf` for OPF JSON. The `.opf` extension is already used by other document and project formats, while `.opf.json` keeps the OPF identity and still makes the underlying JSON format clear to editors, validators, agents, and version-control tooling.
+
+## Naming and reuse
+
+The format name is **Open Presentation Format**. The schemas, catalogs, packages, and local tooling in this repository are free and open source under the MIT license, so third-party tools may read, write, validate, and describe support for Open Presentation Format without using PPTX.dev branding.
+
 ## Why OPF
 
 `.pptx` is a zipped bundle of XML. Humans can't diff it, LLMs can't read or write it reliably, and git can't track it meaningfully. Every change looks like a binary blob.
