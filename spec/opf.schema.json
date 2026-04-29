@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf/v1",
   "title": "OPF — Open Presentation Format",
-  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, and design — the engine handles OOXML complexity.\n\nFields that reference catalog records (meta.narrative, meta.language, meta.tone, meta.audience, design.theme, design.colors / design.colors.scheme, design.fonts / design.fonts.scheme, Slide.layout, chart.chartPreset, Organization.socials / Speaker.socials) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document → 'catalogs.<kind>.source' on the document → engine defaults → the default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. When an OPF document omits a reference entirely, the engine falls back to its 'defaults.json' (see /spec/defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.\n\nMost catalog references accept the bare 'id' as a string for the common case (e.g. meta.narrative = 'classic-story', design.colors = 'cool-horizon'). Object forms allow inline overrides or fully inline records.",
+  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, and design — the engine handles OOXML complexity.\n\nFields that reference catalog records (meta.narrative, meta.language, meta.tone, meta.audience, design.theme / design.theme.id, design.colorScheme / design.colorScheme.id, design.fontScheme / design.fontScheme.id, Slide.layout, chart.chartPreset, Organization.socials / Speaker.socials) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document → 'catalogs.<kind>.source' on the document → engine defaults → the default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. When an OPF document omits a reference entirely, the engine falls back to its 'defaults.json' (see /spec/defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.\n\nMost catalog references accept the bare 'id' as a string for the common case (e.g. meta.narrative = 'classic-story', design.colorScheme = 'cool-horizon'). Design object forms use 'id' as a base catalog reference plus inline overrides.",
   "type": "object",
   "required": ["$schema", "meta", "design", "slides"],
   "properties": {
@@ -17,7 +17,7 @@
     },
     "design": {
       "$ref": "#/$defs/Design",
-      "description": "Design system covering colors, fonts, dimensions, background, brand, and layout preferences applied to the deck."
+      "description": "Design system covering theme, color scheme, font scheme, dimensions, background, brand, and layout preferences applied to the deck."
     },
     "slides": {
       "type": "array",
@@ -418,42 +418,63 @@
       "description": "Visual design system applied to the presentation; individual slides may override fields via Slide.designOverrides.",
       "properties": {
         "theme": {
-          "type": "string",
-          "description": "Theme for the deck. Resolves to the 'id' of a 'themes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'minimal'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package. Inline overrides on design.colors / design.fonts / design.background / design.dimensions take precedence over the resolved theme.\n\nResolution order: inline catalogs.themes.records[] → catalogs.themes.source → default catalog at https://www.pptx.gallery/themes.",
-          "examples": ["minimal", "classic", "dark", "bold", "corporate-minimal", "ocean-depth", "https://acme.com/decks/themes/acme-brand.json", "pkg:@acme/decks/themes/acme-brand"]
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/Theme" }
+          ],
+          "description": "Theme for the deck. Accepts two forms:\n- String shorthand: 'design.theme = \"minimal\"'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'themes' catalog record.\n- Object form: a Theme with an optional 'id' base reference plus theme-level overrides.\n\nInline overrides on design.colorScheme / design.fontScheme / design.background / design.dimensions take precedence over the resolved theme.\n\nResolution order: inline catalogs.themes.records[] -> catalogs.themes.source -> default catalog at https://www.pptx.gallery/themes.",
+          "examples": [
+            "minimal",
+            "classic",
+            "dark",
+            "bold",
+            "corporate-minimal",
+            "ocean-depth",
+            "https://acme.com/decks/themes/acme-brand.json",
+            "pkg:@acme/decks/themes/acme-brand",
+            { "id": "minimal", "background": "dark1", "dimensions": "widescreen" }
+          ]
         },
-        "colors": {
+        "colorScheme": {
           "oneOf": [
             { "type": "string" },
             { "$ref": "#/$defs/ColorScheme" }
           ],
-          "description": "Color palette for the presentation. Accepts two forms:\n- String shorthand: 'design.colors = \"cool-horizon\"' — equivalent to '{ scheme: \"cool-horizon\" }'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'colorSchemes' catalog record.\n- Object form: a ColorScheme with a 'scheme' ref plus slot/role overrides.\n\nResolution order: inline catalogs.colorSchemes.records[] → catalogs.colorSchemes.source → default catalog at https://www.pptx.gallery/color-schemes.",
+          "description": "Color scheme for the presentation. Accepts two forms:\n- String shorthand: 'design.colorScheme = \"cool-horizon\"'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'colorSchemes' catalog record.\n- Object form: a ColorScheme with an optional 'id' base reference plus slot/role overrides.\n\nResolution order: inline catalogs.colorSchemes.records[] -> catalogs.colorSchemes.source -> default catalog at https://www.pptx.gallery/color-schemes.",
           "examples": [
             "cool-horizon",
             "boost",
             "burnt-orange",
-            { "scheme": "cool-horizon", "accent1": "#FF6F61" }
+            { "id": "cool-horizon", "accent1": "#FF6F61" }
           ]
         },
-        "fonts": {
+        "fontScheme": {
           "oneOf": [
             { "type": "string" },
             { "$ref": "#/$defs/FontScheme" }
           ],
-          "description": "Typography selections for heading, body, accent, and code text. Accepts two forms:\n- String shorthand: 'design.fonts = \"aptos\"' — equivalent to '{ scheme: \"aptos\" }'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'fontSchemes' catalog record.\n- Object form: a FontScheme with a 'scheme' ref plus pair/role overrides.\n\nResolution order: inline catalogs.fontSchemes.records[] → catalogs.fontSchemes.source → default catalog at https://www.pptx.gallery/font-schemes.",
+          "description": "Font scheme for heading, body, accent, and code text. Accepts two forms:\n- String shorthand: 'design.fontScheme = \"aptos\"'. Bare id, HTTPS URL, or 'pkg:' reference resolved as the 'id' of a 'fontSchemes' catalog record.\n- Object form: a FontScheme with an optional 'id' base reference plus pair/role overrides.\n\nResolution order: inline catalogs.fontSchemes.records[] -> catalogs.fontSchemes.source -> default catalog at https://www.pptx.gallery/font-schemes.",
           "examples": [
             "aptos",
             "tenorite",
-            { "scheme": "aptos", "heading": { "family": "Inter", "weight": 700 } }
+            { "id": "aptos", "heading": { "family": "Inter", "weight": 700 } }
           ]
         },
         "dimensions": {
-          "$ref": "#/$defs/Dimensions",
-          "description": "Slide dimensions and aspect ratio."
+          "oneOf": [
+            { "$ref": "#/$defs/DimensionPreset" },
+            { "$ref": "#/$defs/Dimensions" }
+          ],
+          "description": "Slide dimensions and aspect ratio. String shorthand such as 'widescreen' is equivalent to { preset: 'widescreen' }.",
+          "examples": ["widescreen", "16:9", { "preset": "16:10" }]
         },
         "background": {
-          "$ref": "#/$defs/Background",
-          "description": "Default slide background applied across the deck unless overridden on a slide. Theme backgrounds use PowerPoint's four color-scheme background slots; fixed backgrounds use explicit solid, gradient, image, or pattern fills."
+          "oneOf": [
+            { "$ref": "#/$defs/BackgroundShortcut" },
+            { "$ref": "#/$defs/Background" }
+          ],
+          "description": "Default slide background applied across the deck unless overridden on a slide. String shorthand accepts theme slots ('light1', 'light2', 'dark1', 'dark2') or hex colors; object forms support theme, solid, gradient, image, or pattern fills.",
+          "examples": ["dark1", "#ffff00", { "type": "theme", "slot": "light1" }]
         },
         "brand": {
           "$ref": "#/$defs/Brand",
@@ -465,13 +486,74 @@
         }
       }
     },
+    "Theme": {
+      "type": "object",
+      "description": "Theme bundle used by the design system. In design.theme, 'id' resolves a themes catalog record as the base; any sibling fields override the resolved theme. The string shorthand on design.theme is equivalent to setting only 'id'.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Theme reference. Resolves to the 'id' of a 'themes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'minimal'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Field overrides on the surrounding Theme object take precedence over the resolved theme.\n\nResolution order: inline catalogs.themes.records[] -> catalogs.themes.source -> default catalog at https://www.pptx.gallery/themes.",
+          "examples": ["minimal", "classic", "dark", "bold", "https://acme.com/decks/themes/acme-brand.json", "pkg:@acme/decks/themes/acme-brand"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable theme name shown in pickers.",
+          "examples": ["Minimal", "Classic", "Dark", "Bold"]
+        },
+        "summary": {
+          "type": "string",
+          "description": "One-sentence positioning of the theme - when to reach for it."
+        },
+        "description": {
+          "type": "string",
+          "description": "Longer prose describing what the theme looks and feels like and the kinds of decks it suits."
+        },
+        "colorScheme": {
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/ColorScheme" }
+          ],
+          "description": "Default color scheme for this theme. A string resolves against catalogs.colorSchemes; an object may provide an 'id' base reference plus overrides.",
+          "examples": ["cool-horizon", { "id": "cool-horizon", "accent1": "#FF6F61" }]
+        },
+        "fontScheme": {
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/FontScheme" }
+          ],
+          "description": "Default font scheme for this theme. A string resolves against catalogs.fontSchemes; an object may provide an 'id' base reference plus overrides.",
+          "examples": ["aptos", { "id": "aptos", "heading": { "family": "Inter", "weight": 700 } }]
+        },
+        "background": {
+          "oneOf": [
+            { "$ref": "#/$defs/BackgroundShortcut" },
+            { "$ref": "#/$defs/Background" }
+          ],
+          "description": "Default background for this theme. String shorthand accepts theme slots ('light1', 'light2', 'dark1', 'dark2') or hex colors.",
+          "examples": ["dark1", "#ffff00", { "type": "theme", "slot": "dark2" }]
+        },
+        "dimensions": {
+          "oneOf": [
+            { "$ref": "#/$defs/DimensionPreset" },
+            { "$ref": "#/$defs/Dimensions" }
+          ],
+          "description": "Default slide size for this theme. A string preset is equivalent to { preset: value }.",
+          "examples": ["widescreen", { "preset": "16:9" }]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free-form labels for filtering and search."
+        }
+      }
+    },
     "ColorScheme": {
       "type": "object",
-      "description": "Color palette used by the design system. The slot fields (accent1–accent6, dark1, dark2, light1, light2, hyperlink, followedHyperlink) mirror color-scheme.schema.json (https://pptx.dev/schema/opf-color-scheme/v1) so library records and inline OPF overrides are interchangeable on those fields.\n\nTwo parallel models are supported and may be mixed:\n- OOXML slots — the 12-slot PowerPoint theme model that round-trips directly to OOXML. Use these for full control over the palette as PowerPoint sees it.\n- Abstract roles (primary, secondary, accent, background, surface, text, textSecondary, custom) — OPF-specific semantic aliases the engine maps onto the OOXML slots. Convenient for inline overrides without thinking in slot numbers; not part of the catalog record schema.\n\nReference a named scheme via 'scheme' and/or override individual fields below; field overrides take precedence over the resolved scheme. The string shorthand on design.colors is equivalent to setting only 'scheme'.",
+      "description": "Color palette used by the design system. The slot fields (accent1-accent6, dark1, dark2, light1, light2, hyperlink, followedHyperlink) mirror color-scheme.schema.json (https://pptx.dev/schema/opf-color-scheme/v1) so library records and inline OPF overrides are interchangeable on those fields.\n\nTwo parallel models are supported and may be mixed:\n- OOXML slots - the 12-slot PowerPoint theme model that round-trips directly to OOXML. Use these for full control over the palette as PowerPoint sees it.\n- Abstract roles (primary, secondary, accent, background, surface, text, textSecondary, custom) - OPF-specific semantic aliases the engine maps onto the OOXML slots. Convenient for inline overrides without thinking in slot numbers; not part of the catalog record schema.\n\nIn design.colorScheme, 'id' resolves a colorSchemes catalog record as the base; slot and role overrides on the same object take precedence over the resolved scheme. The string shorthand on design.colorScheme is equivalent to setting only 'id'.",
       "properties": {
-        "scheme": {
+        "id": {
           "type": "string",
-          "description": "Color scheme reference. OPF-specific (no counterpart in color-scheme.schema.json). Resolves to the 'id' of a 'colorSchemes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'cool-horizon'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Slot and role overrides on the surrounding ColorScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.colorSchemes.records[] → catalogs.colorSchemes.source → default catalog at https://www.pptx.gallery/color-schemes.",
+          "description": "Color scheme reference. Resolves to the 'id' of a 'colorSchemes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'cool-horizon'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Slot and role overrides on the surrounding ColorScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.colorSchemes.records[] -> catalogs.colorSchemes.source -> default catalog at https://www.pptx.gallery/color-schemes.",
           "examples": ["cool-horizon", "boost", "burnt-orange", "ocean-depth", "corporate-blue", "https://acme.com/decks/color-schemes/acme.json", "pkg:@acme/decks/color-schemes/acme"]
         },
         "accent1": {
@@ -579,11 +661,11 @@
     },
     "FontScheme": {
       "type": "object",
-      "description": "Typography selections used by the design system. The pair fields (major, minor) and refinement fields (type, app, languageFamily) mirror font-scheme.schema.json (https://pptx.dev/schema/opf-font-scheme/v1) so library records and inline OPF overrides are interchangeable on those fields.\n\nTwo parallel models are supported and may be mixed:\n- OOXML pairs (major, minor) — heading and body family names that round-trip directly to PowerPoint majorFont/minorFont entries.\n- Abstract roles (heading, body, accent, code) — OPF-specific Font objects the engine maps onto the OOXML pair when serializing. Convenient for inline overrides and for adding accent/code roles that don't have a direct OOXML slot; not part of the catalog record schema.\n\nReference a named scheme via 'scheme' and/or override individual fields below; field overrides take precedence over the resolved scheme. The string shorthand on design.fonts is equivalent to setting only 'scheme'.",
+      "description": "Typography selections used by the design system. The pair fields (major, minor) and refinement fields (type, app, languageFamily) mirror font-scheme.schema.json (https://pptx.dev/schema/opf-font-scheme/v1) so library records and inline OPF overrides are interchangeable on those fields.\n\nTwo parallel models are supported and may be mixed:\n- OOXML pairs (major, minor) - heading and body family names that round-trip directly to PowerPoint majorFont/minorFont entries.\n- Abstract roles (heading, body, accent, code) - OPF-specific Font objects the engine maps onto the OOXML pair when serializing. Convenient for inline overrides and for adding accent/code roles that don't have a direct OOXML slot; not part of the catalog record schema.\n\nIn design.fontScheme, 'id' resolves a fontSchemes catalog record as the base; pair and role overrides on the same object take precedence over the resolved scheme. The string shorthand on design.fontScheme is equivalent to setting only 'id'.",
       "properties": {
-        "scheme": {
+        "id": {
           "type": "string",
-          "description": "Font scheme reference. OPF-specific (no counterpart in font-scheme.schema.json). Resolves to the 'id' of a 'fontSchemes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'aptos'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Field overrides on the surrounding FontScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.fontSchemes.records[] → catalogs.fontSchemes.source → default catalog at https://www.pptx.gallery/font-schemes.",
+          "description": "Font scheme reference. Resolves to the 'id' of a 'fontSchemes' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'aptos'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Field overrides on the surrounding FontScheme object take precedence over the resolved scheme.\n\nResolution order: inline catalogs.fontSchemes.records[] -> catalogs.fontSchemes.source -> default catalog at https://www.pptx.gallery/font-schemes.",
           "examples": ["aptos", "tenorite", "seaford", "noto-sans", "modern-sans", "classic-serif", "https://acme.com/decks/font-schemes/acme.json", "pkg:@acme/decks/font-schemes/acme"]
         },
         "major": {
@@ -654,14 +736,17 @@
         }
       }
     },
+    "DimensionPreset": {
+      "type": "string",
+      "enum": ["16:9", "4:3", "16:10", "letter", "a4", "widescreen", "standard"],
+      "description": "Named dimension preset; chooses both aspect ratio and physical size. 'widescreen' is an alias for 16:9 in PowerPoint widescreen size; 'standard' is an alias for 4:3 in PowerPoint standard size."
+    },
     "Dimensions": {
       "type": "object",
       "description": "Slide dimensions; either pick a preset or specify custom inches.",
       "properties": {
         "preset": {
-          "type": "string",
-          "enum": ["16:9", "4:3", "16:10", "letter", "a4", "widescreen", "standard"],
-          "description": "Named dimension preset; chooses both aspect ratio and physical size. 'widescreen' is an alias for 16:9 in PowerPoint widescreen size; 'standard' is an alias for 4:3 in PowerPoint standard size."
+          "$ref": "#/$defs/DimensionPreset"
         },
         "widthInches": {
           "type": "number",
@@ -679,6 +764,20 @@
       "type": "string",
       "description": "PowerPoint theme-controlled slide background slot from the active color scheme. These are slots, not assumptions about actual colors: light1 is usually white and dark1 is usually black by convention, but the color scheme controls the real values.",
       "enum": ["light1", "light2", "dark1", "dark2"]
+    },
+    "HexColor": {
+      "type": "string",
+      "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$",
+      "description": "Hex color shorthand accepted by selected string fields.",
+      "examples": ["#fff", "#ffff00", "#0F172AFF"]
+    },
+    "BackgroundShortcut": {
+      "oneOf": [
+        { "$ref": "#/$defs/ThemeBackgroundSlot" },
+        { "$ref": "#/$defs/HexColor" }
+      ],
+      "description": "String shorthand for a background. Theme slots ('light1', 'light2', 'dark1', 'dark2') are equivalent to { type: 'theme', slot: value }; hex colors are equivalent to { type: 'solid', color: value }.",
+      "examples": ["dark1", "light2", "#ffff00"]
     },
     "Background": {
       "description": "Background fill applied to slides. Theme backgrounds preserve PowerPoint's color-scheme background choice; other variants represent fixed background fills.",

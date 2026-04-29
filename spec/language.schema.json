@@ -59,7 +59,7 @@
     },
     "fontScheme": {
       "type": "string",
-      "description": "Default font-scheme id for this language when targeting PowerPoint output. Resolves against catalogs.fontSchemes the same way design.fonts.scheme does.",
+      "description": "Default font-scheme id for this language when targeting PowerPoint output. Resolves against catalogs.fontSchemes the same way design.fontScheme or design.fontScheme.id does.",
       "examples": [
         "aptos",
         "microsoft-yahei",
@@ -68,7 +68,7 @@
     },
     "googleFontScheme": {
       "type": "string",
-      "description": "Default font-scheme id for this language when targeting Google Slides output. Resolves against catalogs.fontSchemes the same way design.fonts.scheme does.",
+      "description": "Default font-scheme id for this language when targeting Google Slides output. Resolves against catalogs.fontSchemes the same way design.fontScheme or design.fontScheme.id does.",
       "examples": [
         "roboto",
         "noto-sans",
