@@ -11,8 +11,8 @@ Bottom: OPF + pptx.gallery + SDKs   — open-source primitives, MIT (Tier 1)  �
 ```
 
 - **Role in Tier 1:** OPF is the interchange format. It defines the JSON contract between LLM intent and rendered presentations so every agent in the ecosystem — ours or a third party's — can produce interoperable deck documents.
-- **Siblings in Tier 1:** [pptx.gallery](https://pptx.gallery) provides the shared vocabulary (named layouts, color schemes, narratives, themes). The SDKs, CLIs, and MCP server in this repo are thin clients over the Tier-2 REST API.
-- **Relationship to Tier 2 (pptx.dev):** OPF documents flow into `https://api.pptx.dev/v1` for rendering, parsing, and export. The hosted engine is the only paid surface; everything in this repo is free to use, vendor, and fork.
+- **Siblings in Tier 1:** [pptx.gallery](https://pptx.gallery) provides the human-browsable shared vocabulary. The canonical package source for machine consumers lives in this repo under `spec/` and `@dataadvantage/opf`.
+- **Relationship to Tier 2 (pptx.dev):** OPF documents flow into `https://api.pptx.dev/v1` for rendering, parsing, generation, and export. The hosted engine is the paid surface. Core OPF packages do not call that API.
 - **Relationship to Tier 3 (STORYD2, DeckChat):** Commercial wrappers produce OPF and hand it to pptx.dev. Keeping OPF MIT makes STORYD2 and DeckChat *more* valuable, not less — the format is open so every AI tool standardizes on it, and the consumer products compete on UX and agent strategy.
 
 ## Vision
@@ -35,15 +35,13 @@ One format, every runtime:
 
 | Surface | Package | Audience |
 |---|---|---|
-| JSON Schema | `https://pptx.dev/schema/opf/v1` | Any JSON Schema validator, MCP, OpenAPI tooling |
-| OpenAPI spec | `spec/openapi.yaml` | REST clients, code generators |
-| TypeScript SDK | `@pptx/sdk` (npm) | Node, Next.js, Bun, browser agents |
-| Python SDK | `pptx-dev` (PyPI) | Data teams, LangChain, LlamaIndex, notebooks |
-| Go SDK | `pptx.dev/go` | Backend services, Go agents |
-| CLI | `@pptx/cli` (npm), `pptx` (PyPI / pipx / Homebrew) | DevOps, CI/CD, content pipelines |
-| MCP server | `pptx-mcp` | Claude Code, Claude Desktop, any MCP-aware agent |
+| JSON Schema | `https://pptx.dev/schema/opf/v1` | Any JSON Schema validator, editor, or agent |
+| JavaScript/TypeScript OPF package | `@dataadvantage/opf` (npm, private until schema freeze) | Schemas, catalogs, types, local validation |
+| Local OPF CLI | `opf` (distribution deferred) | Validate, format, and inspect OPF locally |
+| Future Python OPF package | TBD | Local models, schemas, catalogs, validation |
+| Future Go OPF module | TBD | Local structs, embedded schemas/catalogs, validation |
 
-All SDKs, CLIs, and the MCP server are thin clients over `https://api.pptx.dev/v1`. The REST API is the substrate; this repo is the client + spec surface.
+Existing `@pptx/sdk`, `pptx-dev`, `pptx.dev/go`, `@pptx/cli`, and `pptx-mcp` code in this repo is PPTX.dev-specific and pending migration to PPTX.dev ownership. Those packages consume OPF and handle hosted generation/rendering workflows; they are not the canonical OPF package direction.
 
 ## Monetization
 
@@ -52,17 +50,17 @@ All SDKs, CLIs, and the MCP server are thin clients over `https://api.pptx.dev/v
 ## Current Priorities
 
 1. **v1 spec freeze** — finalize the OPF JSON Schema, OpenAPI contract, and TS/Python/Go type surfaces so downstream SDKs can ship stable releases.
-2. **SDK parity** — TypeScript, Python, Go SDKs at feature parity with the REST API surface.
-3. **CLI + MCP server** — single-binary CLI (`pptx`) and `pptx-mcp` discoverable by agent runtimes.
-4. **Gallery integration** — OPF documents reference [pptx.gallery](https://pptx.gallery) items by slug; the SDK resolves names to concrete layouts/themes/schemes.
+2. **Canonical OPF packages** — JavaScript first, then Python and Go local-only packages for schemas, catalogs, types/models, and validation.
+3. **Local OPF CLI** — validate, format, and inspect OPF without calling PPTX.dev.
+4. **Gallery integration** — OPF documents reference catalog items by slug; packages expose the canonical bundled catalogs while pptx.gallery remains the browsable reference.
 5. **Ecosystem adoption** — inbound partnerships with agent frameworks (Claude Code, Cursor, Codex, LangChain, LlamaIndex) so OPF is the default deck format.
 
 ## Key Decisions
 
 - **MIT license, always.** The format and client tools must stay open so every AI tool (including competitors) can produce OPF. Format lock-in is not the moat — ecosystem adoption is.
-- **Spec + clients live together, service lives separately.** This repo owns the OPF spec, the JSON Schema, and every client SDK/CLI/MCP. The hosted engine (Next.js app, REST API implementation, Studio, marketing site) lives in `Data-Advantage/pptx-dev`.
+- **Spec + local format packages live together, service clients move separately.** This repo owns the OPF spec, schemas, catalogs, and local validation packages. Hosted PPTX.dev clients and MCP tooling should live with the PPTX.dev service.
 - **Vanity URLs are stable.** `pptx.dev/go`, `@pptx/*`, `pptx-dev` (PyPI), and `https://pptx.dev/schema/opf/v1` do not move even as source repos move. Existing users do not need to update import paths.
-- **REST is the substrate.** Every SDK, the CLI, and the MCP server are thin clients over `https://api.pptx.dev/v1`. Anyone can skip the SDKs and call the API directly with `curl`.
+- **PPTX.dev consumes OPF.** The hosted engine generates, renders, parses, stores, and previews presentations. OPF packages define and validate the data contract locally.
 
 ## What OPF models
 

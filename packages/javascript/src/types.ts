@@ -1,0 +1,14 @@
+export type { Presentation } from "./generated/types/presentation.js";
+export type { Audience } from "./generated/types/audience.js";
+export type { Tone } from "./generated/types/tone.js";
+export type { Theme } from "./generated/types/theme.js";
+export type { Layout } from "./generated/types/layout.js";
+export type { Chart } from "./generated/types/chart.js";
+export type { Narrative } from "./generated/types/narrative.js";
+export type { Social } from "./generated/types/social.js";
+export type { Language } from "./generated/types/language.js";
+export type { ColorScheme } from "./generated/types/color-scheme.js";
+export type { FontScheme } from "./generated/types/font-scheme.js";
+export type { CatalogKind } from "./generated/catalogs.js";
+export type { SchemaName } from "./generated/schemas.js";
+export type { ValidationIssue, ValidationResult } from "./validator.js";

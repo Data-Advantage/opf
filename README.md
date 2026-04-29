@@ -1,8 +1,8 @@
 # Open Presentation Format (OPF)
 
-Open Presentation Format is the portable, human-readable JSON document format for slide decks powering [pptx.dev](https://pptx.dev).
+Open Presentation Format is the portable, human-readable JSON document format for slide decks.
 
-This repository is the canonical home for the OPF **spec**, the **JSON Schema**, and the official **client tools** that talk to the pptx.dev REST API.
+This repository is the canonical home for the OPF **spec**, **JSON Schemas**, **catalog presets**, generated developer types, and local validation tooling. Anything that renders PowerPoint files, fills presentations with AI, parses `.pptx`, or calls the hosted [pptx.dev](https://pptx.dev) API belongs to PPTX.dev-specific packages, not the core OPF package.
 
 ## Why OPF
 
@@ -12,34 +12,101 @@ OPF is plain JSON. A human can open it in an editor. A model can read and write 
 
 That's the shift that lets LLMs actually *author* decks. When the format stops fighting them, models can do the work that matters — narrative structure, persuasive framing, data analysis, chart recommendations, ruthless revision passes — instead of wrestling with `<p:sp>` tags.
 
-And they don't start from a blank canvas. [pptx.gallery](https://pptx.gallery) is a growing library of decks, slides, blocks, themes, charts, and analyses. Real building blocks to compose with, not an empty file.
+And they don't start from a blank canvas. [pptx.gallery](https://pptx.gallery) is the human-browsable reference for OPF catalog presets: layouts, themes, color schemes, font schemes, chart presets, narratives, tones, audiences, languages, and social platforms.
 
-## Use it from anywhere
+## JavaScript and TypeScript
 
-OPF is designed to meet you where you already work.
+The canonical JavaScript/TypeScript package is being developed at [`packages/javascript`](./packages/javascript) as `@dataadvantage/opf`.
 
-If you're a developer or technical power user, you should be able to generate, edit, validate, and render OPF decks from your current chat app, IDE, coding agent, or shell — not get funneled into yet another proprietary editor. That's why we ship first-class **Go, TypeScript, and Python SDKs**, **Node and Python CLIs**, and an **MCP server**. OPF drops straight into Claude Code, Cursor, Codex, agent frameworks, and whatever comes next.
+It is currently marked `private: true` while the schema stabilizes. Its responsibility is local and format-level only:
 
-Consumer surfaces are next. The same format is built to land inside ChatGPT, Claude, Gemini, Slack, and other everyday apps via plugins, connectors, and MCP. Pick your surface — OPF travels with you.
+- export the canonical schemas from [`spec/`](./spec)
+- export bundled catalog records from [`spec/`](./spec)
+- generate TypeScript types, with `Presentation` as the top-level type
+- validate OPF JSON and catalog records locally
 
-Underneath it all: **one REST API** (`https://api.pptx.dev/v1`), **one schema**, many clients. That's the contract.
+It does not render `.pptx`, parse `.pptx`, generate content with AI, fetch remote catalogs, or call PPTX.dev.
+
+### Expected Usage
+
+Install dependencies and build the local package:
+
+```sh
+pnpm install
+pnpm build
+```
+
+Use the format package from JavaScript or TypeScript:
+
+```ts
+import {
+  presentation,
+  audiences,
+  tones,
+  validatePresentation,
+} from "@dataadvantage/opf";
+
+import type { Presentation } from "@dataadvantage/opf";
+
+const deck: Presentation = {
+  $schema: "https://pptx.dev/schema/opf/v1",
+  meta: { title: "Quarterly Review" },
+  design: {},
+  slides: [{ id: "title", layout: "title-left", elements: [] }],
+};
+
+const result = validatePresentation(deck);
+console.log(result.valid);
+console.log(audiences.length, tones.length);
+```
+
+Use focused imports when you only need one surface:
+
+```ts
+import { presentation } from "@dataadvantage/opf/schemas";
+import { audiences } from "@dataadvantage/opf/catalogs";
+import { validate } from "@dataadvantage/opf/validator";
+import type { Presentation } from "@dataadvantage/opf/types";
+```
+
+Use raw JSON when an engine or resolver needs package-addressable files:
+
+```ts
+import presentationSchema from "@dataadvantage/opf/spec/opf.schema.json" with {
+  type: "json",
+};
+```
+
+Use the private local CLI source during development:
+
+```sh
+pnpm --filter @dataadvantage/opf-cli build
+node packages/cli/dist/index.js schemas
+node packages/cli/dist/index.js catalogs
+node packages/cli/dist/index.js validate path/to/deck.opf.json
+```
 
 ## Layout
 
 | Path | Contents |
 |---|---|
-| [`spec/openapi.yaml`](./spec/openapi.yaml) | Canonical OpenAPI 3.1 spec for `https://api.pptx.dev/v1`. |
-| [`spec/opf.schema.json`](./spec/opf.schema.json) | JSON Schema for OPF documents (served at `https://pptx.dev/schema/opf/v1`). |
-| [`go/`](./go) | Go SDK, module `pptx.dev/go`. `go get pptx.dev/go`. |
-| [`typescript/`](./typescript) | TypeScript SDK, published to npm as `@pptx/sdk`. |
-| [`python/`](./python) | Python SDK, published to PyPI as `pptx-dev`. |
-| [`cli/node/`](./cli/node) | TypeScript CLI, published to npm as `@pptx/cli`. |
-| [`cli/python/`](./cli/python) | Python CLI. |
-| [`mcp/`](./mcp) | MCP server for pptx.dev. |
+| [`spec/opf.schema.json`](./spec/opf.schema.json) | Canonical JSON Schema for top-level OPF `Presentation` documents. |
+| [`spec/*.schema.json`](./spec) | Companion schemas for catalog records and sub-objects. |
+| [`spec/<catalog-kind>/`](./spec) | Canonical bundled catalog records. |
+| [`packages/javascript/`](./packages/javascript) | Private pre-release source for `@dataadvantage/opf`. |
+| [`packages/cli/`](./packages/cli) | Private local-only OPF CLI source; native distribution is deferred. |
+| [`spec/openapi.yaml`](./spec/openapi.yaml) | Legacy PPTX.dev OpenAPI spec, pending migration to PPTX.dev ownership. |
+| [`legacy/typescript/`](./legacy/typescript) | Legacy PPTX.dev TypeScript client, pending review/migration. |
+| [`legacy/python/`](./legacy/python) | Legacy PPTX.dev Python client, pending review/migration. |
+| [`legacy/go/`](./legacy/go) | Legacy PPTX.dev Go client, pending review/migration. |
+| [`legacy/cli/`](./legacy/cli) | Legacy PPTX.dev CLI packages, pending review/migration. |
+| [`legacy/mcp/`](./legacy/mcp) | PPTX.dev MCP server, pending review/migration to PPTX.dev ownership. |
 
-## REST API
+## Package Boundary
 
-The OPF REST API is served from `https://api.pptx.dev/v1`. Its implementation lives in the [pptx-dev](https://github.com/Data-Advantage/pptx-dev) Next.js app — this repo holds the spec and client tooling only.
+OPF defines the format and bundled presets. PPTX.dev consumes OPF to provide hosted generation, rendering, parsing, storage, authentication, jobs, previews, and AI workflows.
+
+Future non-JavaScript OPF packages should follow the same local-only boundary: Python and Go packages should expose schemas, types/models, catalogs, and validation, not PPTX.dev rendering or generation.
 
 ## License
 

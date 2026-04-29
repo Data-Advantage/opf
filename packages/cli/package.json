@@ -1,0 +1,24 @@
+{
+  "name": "@dataadvantage/opf-cli",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local-only OPF CLI source for validation and catalog inspection.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "opf": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "pnpm --filter @dataadvantage/opf build && tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dataadvantage/opf": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}

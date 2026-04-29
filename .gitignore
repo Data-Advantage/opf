@@ -1,0 +1,10 @@
+node_modules
+.pnpm-store
+__pycache__/
+.DS_Store
+*.tsbuildinfo
+
+# Generated from spec/ by package build scripts.
+packages/javascript/src/generated
+packages/javascript/dist
+packages/cli/dist

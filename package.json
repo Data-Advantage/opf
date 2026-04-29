@@ -1,0 +1,16 @@
+{
+  "name": "opf-workspace",
+  "private": true,
+  "description": "Workspace for OPF format packages and tooling.",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter @dataadvantage/opf build && pnpm --filter @dataadvantage/opf-cli build",
+    "typecheck": "pnpm --filter @dataadvantage/opf typecheck && pnpm --filter @dataadvantage/opf-cli typecheck",
+    "test": "pnpm --filter @dataadvantage/opf test",
+    "pack:dry-run": "pnpm --filter @dataadvantage/opf pack:dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.2"
+}
