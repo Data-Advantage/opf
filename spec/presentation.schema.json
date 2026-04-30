@@ -46,7 +46,7 @@
       "properties": {
         "title": {
           "type": "string",
-          "description": "Display title of the presentation.",
+          "description": "Canonical title of the presentation. Serves three roles:\n- File metadata: round-trips to OOXML 'docProps/core.xml' as '<dc:title>', and is used for PDF title, window title, library/search indexing, and similar OS-level surfaces.\n- Default export filename: when 'meta.filename' is omitted, the engine slugifies this value.\n- Slide-content default: on slides whose layout exposes a 'title' slot (e.g. cover/title-slide layouts and most content layouts), the engine fills that slot with this value when no element explicitly populates it. Authors override by adding a text element bound to the slot.",
           "examples": ["Q4 2026 Business Review", "Series B Pitch — Acme", "The Future of Agentic Workflows"]
         },
         "description": {
@@ -61,7 +61,7 @@
         },
         "subtitle": {
           "type": "string",
-          "description": "Optional subtitle shown alongside the title, typically on cover slides.",
+          "description": "Default subtitle for slides whose layout exposes a 'subtitle' slot (typically the cover/title-slide layout). The engine fills that slot with this value when no element explicitly populates it; authors override by adding a text element bound to the slot. Unlike 'meta.title', subtitle is purely slide content — it does not round-trip to OOXML 'docProps/core.xml' and does not appear in OS-level file metadata.",
           "examples": ["Prepared for the Board of Directors", "October 2026"]
         },
         "organizations": {
