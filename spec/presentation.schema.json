@@ -1285,10 +1285,6 @@
           "type": "string",
           "description": "Named slot from the layout template.",
           "examples": ["title", "subtitle", "body", "image-right", "footer"]
-        },
-        "animation": {
-          "$ref": "#/$defs/Animation",
-          "description": "Animation applied to this element."
         }
       },
       "allOf": [
@@ -1517,30 +1513,6 @@
           }
         }
       ]
-    },
-    "Animation": {
-      "type": "object",
-      "description": "Animation effect applied to an element.",
-      "required": ["type"],
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": ["appear", "fadeIn", "slideIn", "zoomIn", "typewriter", "custom"],
-          "description": "Animation effect applied to the element."
-        },
-        "delay": {
-          "type": "number",
-          "description": "Delay before the animation starts, in seconds."
-        },
-        "duration": {
-          "type": "number",
-          "description": "Animation duration in seconds."
-        },
-        "order": {
-          "type": "integer",
-          "description": "Order in the slide's animation sequence; lower values play first."
-        }
-      }
     },
     "TextContent": {
       "type": "object",

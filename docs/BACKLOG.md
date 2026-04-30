@@ -24,3 +24,27 @@ Items intentionally deferred out of v1. Each entry records what was considered, 
 
 - A v2 motion model that covers slide transitions, element builds, and timing under one consistent design.
 - Concrete renderer demand (`.pptx`, web, video export) for at least transitions, plus catalog-style presets so authors pick from named motions instead of freelancing parameters.
+
+## Element animations
+
+**Status:** removed from v1 spec (was `Element.animation` and `$defs/Animation`).
+
+**Sketch of the removed shape:**
+
+- `Element.animation`: optional `Animation` describing the entry effect for the element.
+- `Animation.type`: `appear | fadeIn | slideIn | zoomIn | typewriter | custom`.
+- `Animation.delay`: number, seconds before the effect starts.
+- `Animation.duration`: number, seconds.
+- `Animation.order`: integer, position in the slide's animation sequence (lower plays first).
+
+**Why deferred:**
+
+- Same v1/v2 split as transitions: v1 captures static authoring, animations and builds are v2 territory (`PRODUCT.md` → "v2 adds animations, builds, transitions").
+- Per-element `delay` / `duration` / `order` is the wrong shape for real builds. Real builds need triggers (on click, with previous, after previous), grouped sequences, and exit/emphasis effects in addition to entry — none of which compose with a single optional object on `Element`.
+- Sequencing by integer `order` couples animation timing to authoring order in a brittle way; a v2 model should express sequences as first-class objects, not as scattered numbers on elements.
+- Authoring-time LLMs have no reliable signal for picking entry effects, so the field is overwhelmingly noise in real documents.
+
+**What would bring it back:**
+
+- The same v2 motion model called out for transitions, with builds as a first-class concept that owns sequencing, triggers, and per-element effects together.
+- Catalog-style preset motions (named, curated) so authors pick from a small set instead of freelancing types and timings.
