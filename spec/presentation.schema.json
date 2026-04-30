@@ -1199,10 +1199,6 @@
           "description": "Speaker notes shown in presenter view.",
           "examples": ["Open with the customer story; pause for questions before moving to the architecture slide."]
         },
-        "transition": {
-          "$ref": "#/$defs/Transition",
-          "description": "Transition used when entering this slide."
-        },
         "hidden": {
           "type": "boolean",
           "description": "Whether the slide is hidden from the presented sequence."
@@ -1221,27 +1217,6 @@
             }
           ],
           "description": "Optional reference to one or more narrative beats (each value matches an id from meta.narrative.beats or the resolved template). A single string declares the slide's primary beat; an array declares that one slide covers multiple beats — useful when shorter decks fold beats together (e.g. ['problem', 'why-now']). Declares the slide's role in the story arc; does not constrain ordering or structure. Slides without a beat are valid; multiple slides may share a beat."
-        }
-      }
-    },
-    "Transition": {
-      "type": "object",
-      "description": "Animated transition used when entering a slide.",
-      "required": ["type"],
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": ["none", "fade", "slide", "push", "wipe", "morph", "zoom"],
-          "description": "Transition style."
-        },
-        "duration": {
-          "type": "number",
-          "description": "Transition duration in seconds."
-        },
-        "direction": {
-          "type": "string",
-          "enum": ["left", "right", "up", "down"],
-          "description": "Direction for directional transitions (e.g., slide, push, wipe)."
         }
       }
     },
