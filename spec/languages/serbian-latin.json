@@ -3,6 +3,7 @@
   "id": "serbian-latin",
   "name": "Serbian (Latin)",
   "code": "SRP",
+  "bcp47": "sr-Latn",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

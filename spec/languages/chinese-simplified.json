@@ -3,6 +3,7 @@
   "id": "chinese-simplified",
   "name": "Chinese (Simplified)",
   "code": "ZHO",
+  "bcp47": "zh-Hans",
   "fontScheme": "microsoft-yahei",
   "googleFontScheme": "noto-sans-sc"
 }

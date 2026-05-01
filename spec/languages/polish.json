@@ -3,6 +3,7 @@
   "id": "polish",
   "name": "Polish",
   "code": "POL",
+  "bcp47": "pl",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

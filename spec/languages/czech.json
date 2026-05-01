@@ -3,6 +3,7 @@
   "id": "czech",
   "name": "Czech",
   "code": "CES",
+  "bcp47": "cs",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

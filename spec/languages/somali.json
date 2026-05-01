@@ -3,6 +3,7 @@
   "id": "somali",
   "name": "Somali",
   "code": "SOM",
+  "bcp47": "so",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

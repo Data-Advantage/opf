@@ -3,6 +3,7 @@
   "id": "kazakh",
   "name": "Kazakh",
   "code": "KAZ",
+  "bcp47": "kk",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

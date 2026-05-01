@@ -3,6 +3,7 @@
   "id": "swahili",
   "name": "Swahili",
   "code": "SWA",
+  "bcp47": "sw",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

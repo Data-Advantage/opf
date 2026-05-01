@@ -3,6 +3,7 @@
   "id": "estonian",
   "name": "Estonian",
   "code": "EST",
+  "bcp47": "et",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

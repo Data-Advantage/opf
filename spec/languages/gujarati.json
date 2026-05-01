@@ -3,6 +3,7 @@
   "id": "gujarati",
   "name": "Gujarati",
   "code": "GUJ",
+  "bcp47": "gu",
   "fontScheme": "shruti",
   "googleFontScheme": "noto-sans-gujarati"
 }

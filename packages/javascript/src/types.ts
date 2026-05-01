@@ -1,5 +1,6 @@
 export type { Presentation } from "./generated/types/presentation.js";
 export type { Audience } from "./generated/types/audience.js";
+export type { Purpose } from "./generated/types/purpose.js";
 export type { Tone } from "./generated/types/tone.js";
 export type { Theme } from "./generated/types/theme.js";
 export type { Layout } from "./generated/types/layout.js";

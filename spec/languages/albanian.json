@@ -3,6 +3,7 @@
   "id": "albanian",
   "name": "Albanian",
   "code": "SQI",
+  "bcp47": "sq",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

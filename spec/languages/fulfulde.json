@@ -3,6 +3,7 @@
   "id": "fulfulde",
   "name": "Fulfulde",
   "code": "FUL",
+  "bcp47": "ff",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

@@ -3,6 +3,7 @@
   "id": "bengali",
   "name": "Bengali",
   "code": "BEN",
+  "bcp47": "bn",
   "fontScheme": "shonar-bangla",
   "googleFontScheme": "noto-sans-bengali"
 }

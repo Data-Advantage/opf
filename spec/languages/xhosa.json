@@ -3,6 +3,7 @@
   "id": "xhosa",
   "name": "Xhosa",
   "code": "XHO",
+  "bcp47": "xh",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

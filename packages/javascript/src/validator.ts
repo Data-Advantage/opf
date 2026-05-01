@@ -279,6 +279,10 @@ function hasOwn(value: Record<string, unknown>, key: string): boolean {
   return Object.prototype.hasOwnProperty.call(value, key);
 }
 
+function isEnUkTag(value: unknown): boolean {
+  return typeof value === "string" && value.toLowerCase() === "en-uk";
+}
+
 function pathFor(parentPath: string, key: string): string {
   return parentPath === "/" ? `/${key}` : `${parentPath}/${key.replaceAll("~", "~0").replaceAll("/", "~1")}`;
 }
@@ -477,6 +481,28 @@ function validatePresentationSemantics(value: unknown): ValidationIssue[] {
     }));
   }
 
+  if (hasOwn(value, "durationMinutes")) {
+    issues.push(semanticIssue("/durationMinutes", "Presentation.durationMinutes has been renamed to Presentation.duration", {
+      replacement: "duration",
+    }));
+  }
+
+  if (hasOwn(value, "keyMessages")) {
+    issues.push(semanticIssue("/keyMessages", "Presentation.keyMessages has been renamed to Presentation.takeaways", {
+      replacement: "takeaways",
+    }));
+  }
+
+  if (isEnUkTag(value.language)) {
+    issues.push(semanticIssue("/language", "Use 'en-GB' for UK English; 'en-UK' is not a valid BCP-47 region tag", {
+      replacement: "en-GB",
+    }));
+  } else if (isRecord(value.language) && isEnUkTag(value.language.bcp47)) {
+    issues.push(semanticIssue("/language/bcp47", "Use 'en-GB' for UK English; 'en-UK' is not a valid BCP-47 region tag", {
+      replacement: "en-GB",
+    }));
+  }
+
   value.slides.forEach((slide, index) => {
     if (isRecord(slide)) {
       if (hasOwn(slide, "group")) {
@@ -491,6 +517,20 @@ function validatePresentationSemantics(value: unknown): ValidationIssue[] {
   return issues;
 }
 
+function validateLanguageSemantics(value: unknown): ValidationIssue[] {
+  if (!isRecord(value)) {
+    return [];
+  }
+
+  if (isEnUkTag(value.bcp47)) {
+    return [semanticIssue("/bcp47", "Use 'en-GB' for UK English; 'en-UK' is not a valid BCP-47 region tag", {
+      replacement: "en-GB",
+    })];
+  }
+
+  return [];
+}
+
 export function validate(value: unknown, schemaOrKind: SchemaOrKind = "presentation"): ValidationResult {
   const resolved = resolveValidator(schemaOrKind);
   const valid = resolved.validate(value) === true;
@@ -498,6 +538,8 @@ export function validate(value: unknown, schemaOrKind: SchemaOrKind = "presentat
 
   if (resolved.schemaName === "presentation") {
     errors.push(...validatePresentationSemantics(value));
+  } else if (resolved.schemaName === "language") {
+    errors.push(...validateLanguageSemantics(value));
   }
 
   return {

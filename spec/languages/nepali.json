@@ -3,6 +3,7 @@
   "id": "nepali",
   "name": "Nepali",
   "code": "NEP",
+  "bcp47": "ne",
   "fontScheme": "mangal",
   "googleFontScheme": "noto-sans-devangari"
 }

@@ -3,6 +3,7 @@
   "id": "german",
   "name": "German",
   "code": "DEU",
+  "bcp47": "de",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

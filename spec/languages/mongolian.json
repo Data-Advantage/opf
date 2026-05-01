@@ -3,6 +3,7 @@
   "id": "mongolian",
   "name": "Mongolian",
   "code": "MON",
+  "bcp47": "mn",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans-mongolian"
 }

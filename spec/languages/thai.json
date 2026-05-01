@@ -3,6 +3,7 @@
   "id": "thai",
   "name": "Thai",
   "code": "THA",
+  "bcp47": "th",
   "fontScheme": "angsana-new",
   "googleFontScheme": "noto-sans-thai"
 }

@@ -10,6 +10,7 @@ const destination = path.join(packageRoot, "dist", "spec");
 const source = path.join(repoRoot, "spec");
 const catalogDirs = [
   "audiences",
+  "purposes",
   "tones",
   "themes",
   "layouts",

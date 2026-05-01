@@ -3,6 +3,7 @@
   "id": "azerbaijani",
   "name": "Azerbaijani",
   "code": "AZE",
+  "bcp47": "az",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

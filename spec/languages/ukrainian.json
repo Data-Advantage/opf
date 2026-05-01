@@ -3,6 +3,7 @@
   "id": "ukrainian",
   "name": "Ukrainian",
   "code": "UKR",
+  "bcp47": "uk",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

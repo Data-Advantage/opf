@@ -2,12 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf-language/v1",
   "title": "OPF Language",
-  "description": "Schema for language records in the pptx.gallery library. Each record names a presentation language and pairs it with sensible default font schemes for PowerPoint and Google Slides output. Languages are referenced from OPF documents via language; the engine resolves the reference against catalogs.languages (inline) → catalogs.languages.source → the default catalog at https://www.pptx.gallery/languages. The language field also accepts BCP-47 tags directly; this catalog is for engine-aware language records that carry default-font hints.",
+  "description": "Schema for language records in the pptx.gallery library. Each record names a presentation language, carries a BCP-47 language tag, and pairs it with sensible default font schemes for PowerPoint and Google Slides output. Languages are referenced from OPF documents via language; the engine resolves the reference against catalogs.languages (inline) → catalogs.languages.source → the default catalog at https://www.pptx.gallery/languages. The presentation language field also accepts BCP-47 tags directly or inline Language objects for engine-aware language records that carry default-font hints.",
   "type": "object",
   "required": [
     "$schema",
     "id",
-    "name"
+    "name",
+    "bcp47"
   ],
   "properties": {
     "$schema": {
@@ -49,13 +50,26 @@
     },
     "bcp47": {
       "type": "string",
-      "description": "BCP-47 language tag for this record. Optional — use when the catalog id and BCP-47 form differ.",
+      "description": "BCP-47 language tag for this record. Use 'en-GB' for UK English; 'en-UK' is not a valid BCP-47 region form.",
       "examples": [
+        "en",
         "en-US",
+        "en-GB",
         "es-MX",
         "ja-JP",
         "zh-Hans"
       ]
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["ltr", "rtl"],
+      "description": "Base text direction for the language.",
+      "examples": ["ltr", "rtl"]
+    },
+    "script": {
+      "type": "string",
+      "description": "ISO 15924 script code when the writing system should be explicit.",
+      "examples": ["Latn", "Arab", "Cyrl", "Hans", "Hant"]
     },
     "fontScheme": {
       "type": "string",

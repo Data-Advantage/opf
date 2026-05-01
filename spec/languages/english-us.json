@@ -1,0 +1,9 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "english-us",
+  "name": "English (United States)",
+  "code": "ENG",
+  "bcp47": "en-US",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

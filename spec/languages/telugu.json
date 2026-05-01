@@ -3,6 +3,7 @@
   "id": "telugu",
   "name": "Telugu",
   "code": "TEL",
+  "bcp47": "te",
   "fontScheme": "gautami",
   "googleFontScheme": "noto-sans-telugu"
 }

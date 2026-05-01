@@ -3,6 +3,7 @@
   "id": "slovenian",
   "name": "Slovenian",
   "code": "SLV",
+  "bcp47": "sl",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

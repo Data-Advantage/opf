@@ -1,11 +1,5 @@
 {
   "name": "Media And Placeholder Example",
-  "assets": {
-    "product-shot": {
-      "type": "image",
-      "src": "./assets/product-shot.png"
-    }
-  },
   "slides": [
     {
       "title": "Product Snapshot",
@@ -24,5 +18,11 @@
         "expectedType": "list"
       }
     }
-  ]
+  ],
+  "assets": {
+    "product-shot": {
+      "type": "image",
+      "src": "./assets/product-shot.png"
+    }
+  }
 }

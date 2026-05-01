@@ -3,6 +3,7 @@
   "id": "hebrew",
   "name": "Hebrew",
   "code": "HEB",
+  "bcp47": "he",
   "fontScheme": "david",
   "googleFontScheme": "noto-sans-hebrew"
 }

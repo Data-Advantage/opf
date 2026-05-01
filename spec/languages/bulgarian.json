@@ -3,6 +3,7 @@
   "id": "bulgarian",
   "name": "Bulgarian",
   "code": "BUL",
+  "bcp47": "bg",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

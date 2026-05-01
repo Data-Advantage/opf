@@ -3,6 +3,7 @@
   "id": "galician",
   "name": "Galician",
   "code": "GLG",
+  "bcp47": "gl",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

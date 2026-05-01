@@ -3,6 +3,7 @@
   "id": "filipino",
   "name": "Filipino",
   "code": "FIL",
+  "bcp47": "fil",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

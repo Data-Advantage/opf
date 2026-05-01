@@ -3,6 +3,7 @@
   "id": "hindi",
   "name": "Hindi",
   "code": "HIN",
+  "bcp47": "hi",
   "fontScheme": "mangal",
   "googleFontScheme": "noto-sans-devangari"
 }

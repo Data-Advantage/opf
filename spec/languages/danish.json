@@ -3,6 +3,7 @@
   "id": "danish",
   "name": "Danish",
   "code": "DAN",
+  "bcp47": "da",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

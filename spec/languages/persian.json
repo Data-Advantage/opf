@@ -3,6 +3,7 @@
   "id": "persian",
   "name": "Persian",
   "code": "FAS",
+  "bcp47": "fa",
   "fontScheme": "arabic-typesetting",
   "googleFontScheme": "noto-naksh-arabic"
 }

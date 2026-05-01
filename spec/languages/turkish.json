@@ -3,6 +3,7 @@
   "id": "turkish",
   "name": "Turkish",
   "code": "TUR",
+  "bcp47": "tr",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

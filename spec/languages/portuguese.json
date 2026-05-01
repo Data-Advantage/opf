@@ -3,6 +3,7 @@
   "id": "portuguese",
   "name": "Portuguese",
   "code": "POR",
+  "bcp47": "pt",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

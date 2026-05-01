@@ -3,6 +3,7 @@
   "id": "tajik",
   "name": "Tajik",
   "code": "TGK",
+  "bcp47": "tg",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

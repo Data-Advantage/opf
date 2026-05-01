@@ -3,6 +3,7 @@
   "id": "norwegian",
   "name": "Norwegian",
   "code": "NOR",
+  "bcp47": "no",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

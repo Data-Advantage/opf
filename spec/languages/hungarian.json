@@ -3,6 +3,7 @@
   "id": "hungarian",
   "name": "Hungarian",
   "code": "HUN",
+  "bcp47": "hu",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

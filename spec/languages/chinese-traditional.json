@@ -3,6 +3,7 @@
   "id": "chinese-traditional",
   "name": "Chinese (Traditional)",
   "code": "ZHO",
+  "bcp47": "zh-Hant",
   "fontScheme": "microsoft-jhenghei",
   "googleFontScheme": "noto-sans-tc"
 }

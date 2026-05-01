@@ -3,6 +3,7 @@
   "id": "macedonian",
   "name": "Macedonian",
   "code": "MKD",
+  "bcp47": "mk",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

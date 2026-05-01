@@ -3,6 +3,7 @@
   "id": "english",
   "name": "English",
   "code": "ENG",
+  "bcp47": "en",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

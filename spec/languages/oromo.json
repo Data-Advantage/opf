@@ -3,6 +3,7 @@
   "id": "oromo",
   "name": "Oromo",
   "code": "ORM",
+  "bcp47": "om",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

@@ -3,6 +3,7 @@
   "id": "amharic",
   "name": "Amharic",
   "code": "AMH",
+  "bcp47": "am",
   "fontScheme": "nyala",
   "googleFontScheme": "noto-sans-ethiopic"
 }

@@ -3,6 +3,7 @@
   "id": "maori",
   "name": "Māori",
   "code": "MRI",
+  "bcp47": "mi",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

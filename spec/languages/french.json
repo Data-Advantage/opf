@@ -3,6 +3,7 @@
   "id": "french",
   "name": "French",
   "code": "FRA",
+  "bcp47": "fr",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

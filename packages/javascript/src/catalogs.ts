@@ -1,5 +1,6 @@
 export {
   audiences,
+  purposes,
   tones,
   themes,
   layouts,

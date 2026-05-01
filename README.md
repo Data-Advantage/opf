@@ -22,7 +22,7 @@ OPF is plain JSON. A human can open it in an editor. A model can read and write 
 
 That's the shift that lets LLMs actually *author* decks. When the format stops fighting them, models can do the work that matters — narrative structure, persuasive framing, data analysis, chart recommendations, ruthless revision passes — instead of wrestling with `<p:sp>` tags.
 
-And they don't start from a blank canvas. [pptx.gallery](https://pptx.gallery) is the human-browsable reference for OPF catalog presets: layouts, themes, color schemes, font schemes, chart presets, narratives, tones, audiences, languages, and social platforms.
+And they don't start from a blank canvas. [pptx.gallery](https://pptx.gallery) is the human-browsable reference for OPF catalog presets: layouts, themes, color schemes, font schemes, chart presets, narratives, audiences, purposes, tones, languages, and social platforms.
 
 ## JavaScript and TypeScript
 
@@ -52,6 +52,7 @@ Use the format package from JavaScript or TypeScript:
 import {
   presentation,
   audiences,
+  purposes,
   tones,
   validatePresentation,
 } from "@dataadvantage/opf";
@@ -65,14 +66,14 @@ const deck: Presentation = {
 
 const result = validatePresentation(deck);
 console.log(result.valid);
-console.log(audiences.length, tones.length);
+console.log(audiences.length, purposes.length, tones.length);
 ```
 
 Use focused imports when you only need one surface:
 
 ```ts
 import { presentation } from "@dataadvantage/opf/schemas";
-import { audiences } from "@dataadvantage/opf/catalogs";
+import { audiences, purposes } from "@dataadvantage/opf/catalogs";
 import { validate } from "@dataadvantage/opf/validator";
 import type { Presentation } from "@dataadvantage/opf/types";
 ```

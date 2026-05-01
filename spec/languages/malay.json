@@ -3,6 +3,7 @@
   "id": "malay",
   "name": "Malay",
   "code": "ZSM",
+  "bcp47": "zsm",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

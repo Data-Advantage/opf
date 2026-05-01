@@ -3,6 +3,7 @@
   "id": "pashto",
   "name": "Pashto",
   "code": "PUS",
+  "bcp47": "ps",
   "fontScheme": "arial",
   "googleFontScheme": "noto-sans-arabic"
 }

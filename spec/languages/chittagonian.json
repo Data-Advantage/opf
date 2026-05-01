@@ -3,6 +3,7 @@
   "id": "chittagonian",
   "name": "Chittagonian",
   "code": "CTG",
+  "bcp47": "ctg",
   "fontScheme": "vrinda",
   "googleFontScheme": "noto-sans-bengali"
 }

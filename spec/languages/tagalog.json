@@ -3,6 +3,7 @@
   "id": "tagalog",
   "name": "Tagalog",
   "code": "TGL",
+  "bcp47": "tl",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

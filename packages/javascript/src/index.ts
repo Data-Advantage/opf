@@ -1,6 +1,7 @@
 export {
   presentation,
   audience,
+  purpose,
   tone,
   theme,
   layout,
@@ -17,6 +18,7 @@ export {
 
 export {
   audiences,
+  purposes,
   tones,
   themes,
   layouts,

@@ -3,6 +3,7 @@
   "id": "arabic",
   "name": "Arabic",
   "code": "ARA",
+  "bcp47": "ar",
   "fontScheme": "arabic-typesetting",
   "googleFontScheme": "noto-sans-arabic"
 }

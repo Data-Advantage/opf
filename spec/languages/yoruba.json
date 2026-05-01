@@ -3,6 +3,7 @@
   "id": "yoruba",
   "name": "Yoruba",
   "code": "YOR",
+  "bcp47": "yo",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

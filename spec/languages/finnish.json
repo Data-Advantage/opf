@@ -3,6 +3,7 @@
   "id": "finnish",
   "name": "Finnish",
   "code": "FIN",
+  "bcp47": "fi",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

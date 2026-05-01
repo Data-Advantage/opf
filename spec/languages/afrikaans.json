@@ -3,6 +3,7 @@
   "id": "afrikaans",
   "name": "Afrikaans",
   "code": "AFR",
+  "bcp47": "af",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

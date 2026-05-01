@@ -3,6 +3,7 @@
   "id": "dutch",
   "name": "Dutch",
   "code": "NLD",
+  "bcp47": "nl",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

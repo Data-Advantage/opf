@@ -3,6 +3,7 @@
   "id": "igbo",
   "name": "Igbo",
   "code": "IBO",
+  "bcp47": "ig",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

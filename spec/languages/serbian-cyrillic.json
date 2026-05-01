@@ -3,6 +3,7 @@
   "id": "serbian-cyrillic",
   "name": "Serbian (Cyrillic)",
   "code": "SRP",
+  "bcp47": "sr-Cyrl",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

@@ -3,6 +3,7 @@
   "id": "marathi",
   "name": "Marathi",
   "code": "MAR",
+  "bcp47": "mr",
   "fontScheme": "mangal",
   "googleFontScheme": "noto-sans-devangari"
 }

@@ -3,6 +3,7 @@
   "id": "romanian",
   "name": "Romanian",
   "code": "RON",
+  "bcp47": "ro",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

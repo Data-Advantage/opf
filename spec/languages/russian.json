@@ -3,6 +3,7 @@
   "id": "russian",
   "name": "Russian",
   "code": "RUS",
+  "bcp47": "ru",
   "fontScheme": "aptos",
   "googleFontScheme": "noto-sans"
 }

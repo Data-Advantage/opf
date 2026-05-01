@@ -3,6 +3,7 @@
   "id": "armenian",
   "name": "Armenian",
   "code": "HYE",
+  "bcp47": "hy",
   "fontScheme": "sylfaen",
   "googleFontScheme": "noto-sans-armenian"
 }

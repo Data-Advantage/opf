@@ -3,6 +3,7 @@
   "id": "catalan",
   "name": "Catalan",
   "code": "CAT",
+  "bcp47": "ca",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

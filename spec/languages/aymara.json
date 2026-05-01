@@ -3,6 +3,7 @@
   "id": "aymara",
   "name": "Aymara",
   "code": "AYM",
+  "bcp47": "ay",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

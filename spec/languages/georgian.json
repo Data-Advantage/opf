@@ -3,6 +3,7 @@
   "id": "georgian",
   "name": "Georgian",
   "code": "KAT",
+  "bcp47": "ka",
   "fontScheme": "sylfaen",
   "googleFontScheme": "noto-sans-georgian"
 }

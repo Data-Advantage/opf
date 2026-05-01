@@ -3,6 +3,7 @@
   "id": "croatian",
   "name": "Croatian",
   "code": "HRV",
+  "bcp47": "hr",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

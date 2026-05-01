@@ -3,6 +3,7 @@
   "id": "swedish",
   "name": "Swedish",
   "code": "SWE",
+  "bcp47": "sv",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

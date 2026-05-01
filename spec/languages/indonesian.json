@@ -3,6 +3,7 @@
   "id": "indonesian",
   "name": "Indonesian",
   "code": "IND",
+  "bcp47": "id",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

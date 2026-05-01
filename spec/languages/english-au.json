@@ -1,0 +1,9 @@
+{
+  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "id": "english-au",
+  "name": "English (Australia)",
+  "code": "ENG",
+  "bcp47": "en-AU",
+  "fontScheme": "aptos",
+  "googleFontScheme": "roboto"
+}

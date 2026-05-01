@@ -3,6 +3,7 @@
   "id": "vietnamese-quoc-ngu",
   "name": "Vietnamese (Quốc Ngữ)",
   "code": "VIE",
+  "bcp47": "vi-Latn",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

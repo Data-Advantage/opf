@@ -3,6 +3,7 @@
   "id": "slovak",
   "name": "Slovak",
   "code": "SLK",
+  "bcp47": "sk",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

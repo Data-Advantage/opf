@@ -3,6 +3,7 @@
   "id": "punjabi-shahmukhi",
   "name": "Punjabi (Shahmukhi)",
   "code": "PAN",
+  "bcp47": "pa-Arab",
   "fontScheme": "arial",
   "googleFontScheme": "noto-nastaliq-urdu"
 }

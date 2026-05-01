@@ -3,6 +3,7 @@
   "id": "tamil",
   "name": "Tamil",
   "code": "TAM",
+  "bcp47": "ta",
   "fontScheme": "latha",
   "googleFontScheme": "noto-sans-tamil"
 }

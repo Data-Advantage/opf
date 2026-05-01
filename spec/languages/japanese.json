@@ -3,6 +3,7 @@
   "id": "japanese",
   "name": "Japanese",
   "code": "JPN",
+  "bcp47": "ja",
   "fontScheme": "meiryo",
   "googleFontScheme": "noto-sans-jp"
 }

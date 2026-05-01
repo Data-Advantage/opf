@@ -3,6 +3,7 @@
   "id": "cebuano",
   "name": "Cebuano",
   "code": "CEB",
+  "bcp47": "ceb",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

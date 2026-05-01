@@ -3,6 +3,7 @@
   "id": "lithuanian",
   "name": "Lithuanian",
   "code": "LIT",
+  "bcp47": "lt",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

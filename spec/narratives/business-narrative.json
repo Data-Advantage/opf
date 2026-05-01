@@ -80,7 +80,7 @@
       "name": "Conclusion",
       "description": "Reinforce the key message and the call to action. End on the line you most want repeated in tomorrow's hallway conversations.",
       "layoutHint": "title-left",
-      "instructions": "Reinforce key messages and call to action",
+      "instructions": "Reinforce takeaways and call to action",
       "slideType": "text"
     }
   ]

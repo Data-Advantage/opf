@@ -3,6 +3,7 @@
   "id": "hausa",
   "name": "Hausa",
   "code": "HAU",
+  "bcp47": "ha",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

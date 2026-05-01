@@ -3,6 +3,7 @@
   "id": "bosnian-latin",
   "name": "Bosnian (Latin)",
   "code": "BOS",
+  "bcp47": "bs-Latn",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

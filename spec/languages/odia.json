@@ -3,6 +3,7 @@
   "id": "odia",
   "name": "Odia",
   "code": "ORI",
+  "bcp47": "or",
   "fontScheme": "kalinga",
   "googleFontScheme": "noto-sans-oriya"
 }

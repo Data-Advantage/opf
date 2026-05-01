@@ -3,6 +3,7 @@
   "id": "malagasy",
   "name": "Malagasy",
   "code": "MLG",
+  "bcp47": "mg",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

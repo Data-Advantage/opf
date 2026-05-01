@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pptx.dev/schema/opf-purpose/v1",
+  "title": "OPF Purpose",
+  "description": "Schema for purpose records in the pptx.gallery library. Each record names a presentation objective such as informing, aligning, persuading, driving a decision, or selling. Purposes are referenced from OPF documents via purpose; the engine resolves the reference against catalogs.purposes (inline) → catalogs.purposes.source → the default catalog at https://www.pptx.gallery/purposes. The purpose field also accepts free-form strings and inline Purpose objects.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://pptx.dev/schema/opf-purpose/v1",
+      "description": "Identifies this record as a purpose in the pptx.dev library."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable slug used by OPF documents to reference this purpose via purpose. Lowercase kebab-case.",
+      "examples": ["inform", "decide", "align", "persuade", "educate", "report", "pitch", "sell", "plan"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable purpose name shown in pickers.",
+      "examples": ["Inform", "Drive a Decision", "Align", "Persuade"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence positioning of the purpose — what this deck is trying to accomplish."
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer prose describing when to use this purpose and how it should shape a deck."
+    },
+    "outcome": {
+      "type": "string",
+      "description": "Desired audience outcome after the presentation.",
+      "examples": ["Approve the recommendation", "Understand the status", "Adopt the plan"]
+    },
+    "successCriteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Observable signals that the deck accomplished this purpose."
+    },
+    "recommendedNarratives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Soft cross-link: narrative-catalog ids that work well for this purpose."
+    },
+    "recommendedTones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Soft cross-link: tone-catalog ids that work well for this purpose."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Free-form labels for filtering and search."
+    },
+    "preview": {
+      "type": "object",
+      "description": "Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "Main preview image (PNG/JPG)."
+        },
+        "thumbnailSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "Smaller thumbnail preview suited to dense grid views."
+        },
+        "vectorSrc": {
+          "type": "string",
+          "format": "uri",
+          "description": "SVG / vector preview for crisp scaling at any size."
+        }
+      }
+    }
+  }
+}

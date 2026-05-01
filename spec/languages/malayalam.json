@@ -3,6 +3,7 @@
   "id": "malayalam",
   "name": "Malayalam",
   "code": "MAL",
+  "bcp47": "ml",
   "fontScheme": "kartika",
   "googleFontScheme": "noto-sans-malayalam"
 }

@@ -3,6 +3,7 @@
   "id": "urdu",
   "name": "Urdu",
   "code": "URD",
+  "bcp47": "ur",
   "fontScheme": "arabic-typesetting",
   "googleFontScheme": "noto-nastaliq-urdu"
 }

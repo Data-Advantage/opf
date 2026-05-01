@@ -3,6 +3,7 @@
   "id": "latvian",
   "name": "Latvian",
   "code": "LAV",
+  "bcp47": "lv",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

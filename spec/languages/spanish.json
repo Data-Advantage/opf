@@ -3,6 +3,7 @@
   "id": "spanish",
   "name": "Spanish",
   "code": "SPA",
+  "bcp47": "es",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

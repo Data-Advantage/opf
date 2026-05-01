@@ -3,6 +3,7 @@
   "id": "shona",
   "name": "Shona",
   "code": "SNA",
+  "bcp47": "sn",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

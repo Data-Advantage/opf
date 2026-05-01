@@ -3,6 +3,7 @@
   "id": "berber-latin",
   "name": "Berber (Latin)",
   "code": "BER",
+  "bcp47": "ber-Latn",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

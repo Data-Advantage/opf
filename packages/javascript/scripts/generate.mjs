@@ -13,6 +13,7 @@ const generatedTypesRoot = path.join(generatedRoot, "types");
 const schemaDefinitions = [
   { name: "presentation", typeName: "Presentation", file: "presentation.schema.json" },
   { name: "audience", typeName: "Audience", file: "audience.schema.json" },
+  { name: "purpose", typeName: "Purpose", file: "purpose.schema.json" },
   { name: "tone", typeName: "Tone", file: "tone.schema.json" },
   { name: "theme", typeName: "Theme", file: "theme.schema.json" },
   { name: "layout", typeName: "Layout", file: "layout.schema.json" },
@@ -26,6 +27,7 @@ const schemaDefinitions = [
 
 const catalogDefinitions = [
   { kind: "audiences", schemaName: "audience", dir: "audiences" },
+  { kind: "purposes", schemaName: "purpose", dir: "purposes" },
   { kind: "tones", schemaName: "tone", dir: "tones" },
   { kind: "themes", schemaName: "theme", dir: "themes" },
   { kind: "layouts", schemaName: "layout", dir: "layouts" },

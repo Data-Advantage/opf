@@ -3,6 +3,7 @@
   "id": "khmer",
   "name": "Khmer",
   "code": "KHM",
+  "bcp47": "km",
   "fontScheme": "daunpenh",
   "googleFontScheme": "noto-sans-khmer"
 }

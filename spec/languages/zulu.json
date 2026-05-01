@@ -3,6 +3,7 @@
   "id": "zulu",
   "name": "Zulu",
   "code": "ZUL",
+  "bcp47": "zu",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

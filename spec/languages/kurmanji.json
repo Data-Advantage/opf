@@ -3,6 +3,7 @@
   "id": "kurmanji",
   "name": "Kurmanji",
   "code": "KMR",
+  "bcp47": "kmr",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

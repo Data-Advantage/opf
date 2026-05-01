@@ -3,6 +3,7 @@
   "id": "kinyarwanda",
   "name": "Kinyarwanda",
   "code": "KIN",
+  "bcp47": "rw",
   "fontScheme": "aptos",
   "googleFontScheme": "roboto"
 }

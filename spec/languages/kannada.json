@@ -3,6 +3,7 @@
   "id": "kannada",
   "name": "Kannada",
   "code": "KAN",
+  "bcp47": "kn",
   "fontScheme": "tunga",
   "googleFontScheme": "noto-sans-kannada"
 }
