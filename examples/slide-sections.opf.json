@@ -1,0 +1,38 @@
+{
+  "name": "Slide Sections Example",
+  "slides": [
+    {
+      "section": "Intro",
+      "title": "Slide Sections Example",
+      "text": "The section field groups consecutive slides like PowerPoint slide sections."
+    },
+    {
+      "section": "Market",
+      "title": "Market Context",
+      "items": [
+        "Demand moved upmarket",
+        "Procurement cycles shortened",
+        "Governance became a purchase requirement"
+      ]
+    },
+    {
+      "section": "Market",
+      "title": "Buyer Signal",
+      "left": {
+        "text": "Teams want fewer exports."
+      },
+      "center+right": {
+        "text": "They want review status, owners, and exceptions in one operating view."
+      }
+    },
+    {
+      "section": "Plan",
+      "title": "Next Steps",
+      "items": [
+        "Standardize intake",
+        "Publish escalation rules",
+        "Review adoption weekly"
+      ]
+    }
+  ]
+}

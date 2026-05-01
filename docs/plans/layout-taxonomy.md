@@ -14,7 +14,7 @@ This plan is the long-deferred follow-on to [`layout-placeholders.md`](layout-pl
 
 4. **Eight new design properties** absorb the squashed axes: `titleAlignment`, `contentAlignment`, `contentBox`, `slideImage`, `contentDirection`, `chartPrimary`, `imageFill`, `listBullet`. They live on `Design` so they cascade through `Theme` → `Design` → `Slide.designOverrides`.
 
-5. **Two layout categories** — content layouts (always have an optional `title` slot) and canvas layouts (`image-bleed`, `blank`) with minimal placeholders. Two cover layouts straddle the line as content layouts intentionally trimmed to title + subtitle.
+5. **Two layout categories** — content layouts (always have an optional `title` placeholder populated by `Slide.title` / presentation `title`) and canvas layouts (`image-bleed`, `blank`) with minimal placeholders. Two cover layouts straddle the line as content layouts intentionally trimmed to title + subtitle.
 
 6. **Backwards compatibility is not preserved in the layout catalog.** The schema is still draft, so we prefer a clean public vocabulary over carrying deprecated ids. If legacy documents exist, migrate them explicitly.
 
@@ -31,8 +31,8 @@ Pulling the current names apart, every record encodes some combination of the fo
 ### 1.1 Structural axes (these affect `placeholders`)
 
 - **Content kind** — `title`, `text`, `list`, `number`, `chart`, `image`, `image-only`. Determines what kinds of placeholders appear.
-- **Multiplicity** — `1x` … `6x`. How many parallel content / chart / picture / list-item / number-block placeholders.
-- **Title presence** — driven by `slide_title=true` on the extract row. Determines whether the layout exposes a `title` slot.
+- **Multiplicity** — `1x` … `6x`. How many parallel body / chart / picture / list-item / number-block placeholders.
+- **Title presence** — driven by `slide_title=true` on the extract row. Determines whether the layout exposes a `title` placeholder.
 
 ### 1.2 Design axes (these are visual style; live on `Design` going forward)
 
@@ -45,9 +45,9 @@ Pulling the current names apart, every record encodes some combination of the fo
 - **Image fill** — `-crop` / `-fit` on image layouts.
 - **List bullet style** — `-itemimage` (default = character bullets).
 
-### 1.3 Per-element shape, not layout shape
+### 1.3 Per-content-item shape, not layout shape
 
-- **List heading** — currently `content_type_list_heading: boolean` on layout records. Whether each list item carries a heading is really a per-element choice (does a `TextContent` item have a heading line or not). Drops out of the layout schema entirely; lives on `TextContent` instead.
+- **List heading** — currently `content_type_list_heading: boolean` on layout records. Whether each list item carries a heading is really a per-content-item choice (does a `ContentItem` have a heading line or not). Drops out of the layout schema entirely; lives on `ContentItem` instead.
 
 ---
 
@@ -57,29 +57,29 @@ Pulling the current names apart, every record encodes some combination of the fo
 
 ### 2.1 Cover layouts
 
-Cover layouts are intentionally minimal — designed for opening slides and section dividers. They are special only in that they expose **fewer** content placeholders than the content layouts.
+Cover layouts are intentionally minimal — designed for opening slides and section dividers. They are special only in that they expose **fewer** body/content regions than the content layouts.
 
 - **`title`** — `[title]`. Single heading.
-- **`title-subtitle`** — `[title, subtitle]`. Cover with supporting copy. Drives the `meta.title` / `meta.subtitle` defaulting promise from [`presentation.schema.json:49,62`](../../spec/presentation.schema.json) directly.
+- **`title-subtitle`** — `[title, subtitle]`. Cover with supporting copy. Drives the presentation-level `title` / `subtitle` defaulting promise from [`presentation.schema.json:49,62`](../../spec/presentation.schema.json) directly.
 
 (If `slide_tag=true` is set on a record, both cover layouts also expose a `tag` placeholder above the title — same gating pattern from the placeholder plan §1.7.)
 
 ### 2.2 Content layouts
 
-Content layouts always carry an implicit `title` slot at index 0. The slot is left empty when no element binds and `meta.title` is unset, so a content slide can be title-less without needing a separate layout. Naming pattern: `<kind>-<count>x`.
+Content layouts always carry a `title` placeholder at index 0. The placeholder is filled from `Slide.title`, falls back to the presentation-level `title`, and is left empty when both are unset, so a content slide can be title-less without needing a separate layout. Naming pattern: `<kind>-<count>x`.
 
-- **`text-1x`, `text-2x`, `text-3x`** — `[title, content × N]`. Free-form prose blocks.
-- **`list-1x` … `list-6x`** — `[title, content × N]`. Bulleted/numbered lists. Whether items have headings is a per-element content choice.
-- **`number-1x` … `number-6x`** — `[title, content × N]`. Stat / KPI blocks.
-- **`chart-1x`, `chart-2x`, `chart-3x`** — `[title, chart × N, content × N]`. Each chart pairs with a `content` slot for caption / value annotation.
-- **`image-1x`, `image-2x`, `image-3x`** — `[title, picture × N, content × N]`. Each picture pairs with a `content` slot for caption.
-- **`table-1x`** *(forward-looking)* — `[title, table, content]`.
-- **`code-1x`** *(forward-looking)* — `[title, code, content]`.
-- **`media-1x`** *(forward-looking)* — `[title, media, content]`.
+- **`text-1x`, `text-2x`, `text-3x`** — `[title, body × N]`. Free-form prose blocks.
+- **`list-1x` … `list-6x`** — `[title, body × N]`. Lists. Whether items have headings is a per-content-item choice.
+- **`number-1x` … `number-6x`** — `[title, body × N]`. Stat / KPI blocks.
+- **`chart-1x`, `chart-2x`, `chart-3x`** — `[title, chart × N, body × N]`. Each chart pairs with a `body` slot for caption / value annotation.
+- **`image-1x`, `image-2x`, `image-3x`** — `[title, picture × N, body × N]`. Each picture pairs with a `body` slot for caption.
+- **`table-1x`** *(forward-looking)* — `[title, table, body]`.
+- **`code-1x`** *(forward-looking)* — `[title, code, body]`.
+- **`media-1x`** *(forward-looking)* — `[title, media, body]`.
 
 ### 2.3 Canvas layouts
 
-Authors place most elements manually via `Element.position` / `Element.size`. Chrome suppression is a renderer/design convention for these canonical ids, not a field on the layout record.
+Authors place most content items manually via `ContentItem.position` / `ContentItem.size`. Chrome suppression is a renderer/design convention for these canonical ids, not a field on the layout record.
 
 - **`image-bleed`** — `[picture]`. One full-canvas image, plus author-positioned overlays.
 - **`blank`** — `[]`. No placeholders at all.
@@ -91,7 +91,7 @@ Every canonical layout fits one of three patterns:
 | Pattern | Layouts | Placeholders |
 | --- | --- | --- |
 | Cover | `title`, `title-subtitle` | `[title]`, `[title, subtitle]` |
-| Content (kind = `K`, count = `N`) | `text-Nx`, `list-Nx`, `number-Nx`, `chart-Nx`, `image-Nx`, `table-1x`, `code-1x`, `media-1x` | `[title, ...K-typed × N, ...content × M]` where M depends on kind |
+| Content (kind = `K`, count = `N`) | `text-Nx`, `list-Nx`, `number-Nx`, `chart-Nx`, `image-Nx`, `table-1x`, `code-1x`, `media-1x` | `[title, ...K-typed × N, ...body × M]` where M depends on kind |
 | Canvas | `image-bleed`, `blank` | `[picture]`, `[]` |
 
 ---
@@ -103,12 +103,12 @@ Add eight properties to `Design` (and by inheritance to `Theme` and `Slide.desig
 | Property | Type | Default | Replaces | Notes |
 | --- | --- | --- | --- | --- |
 | `titleAlignment` | `"left"` \| `"center"` \| `"right"` | engine | `-left` / `-center` (title) | Horizontal alignment of the title placeholder. |
-| `contentAlignment` | `"left"` \| `"center"` \| `"right"` | engine | `-left` / `-center` (content) | Horizontal alignment of content placeholders. |
+| `contentAlignment` | `"left"` \| `"center"` \| `"right"` | engine | `-left` / `-center` (content) | Horizontal alignment of body/content regions. |
 | `contentBox` | `boolean` | `false` | `-box` | Render content inside a visible card / surface. |
 | `slideImage` | `AssetSource` \| `{ src, position }` | none | `-slideimage[-...]` | Full-bleed or positioned slide-level image overlay. `position` ∈ `"background"` (default) / `"top"` / `"bottom"` / `"left"` / `"right"`. |
 | `contentDirection` | `"horizontal"` \| `"vertical"` | `"horizontal"` | `-vertical` | Axis along which parallel content blocks are arranged. |
 | `chartPrimary` | `"none"` \| `"top"` \| `"bottom"` \| `"left"` \| `"right"` | `"none"` | chart `-left` / `-right` / `-top` / `-bottom` | Position of the primary chart on chart layouts; `"none"` = equal weight. |
-| `imageFill` | `"crop"` \| `"fit"` | `"crop"` | image `-crop` / `-fit` | How `picture` placeholders fill their box. Already analogous to `Element.fit` on image elements. |
+| `imageFill` | `"crop"` \| `"fit"` | `"crop"` | image `-crop` / `-fit` | How `picture` placeholders fill their box. A future content-item design override may expose this per item. |
 | `listBullet` | `"character"` \| `"image"` | `"character"` | `-itemimage` | Bullet rendering style on `list-Nx` layouts. |
 
 These compose through the existing cascade ([`presentation.schema.json:1188-1191`](../../spec/presentation.schema.json) — `Slide.designOverrides` is already a `Design` object).
@@ -209,7 +209,7 @@ for each C in canonical:
 
 7. **`tag` placeholder on cover layouts.** Decision: include `tag` only when `slide_tag=true` (gated, like `subtitle`). Today no records have `slide_tag` set, so canonical `title` and `title-subtitle` start without tag slots and grow them when data lands.
 
-8. **Where does `meta.subtitle` defaulting happen?** Same as the placeholder plan §2.6: engine fills any unbound `subtitle` placeholder from `meta.subtitle`. Under the canonical model, that means `title-subtitle` slides default both lines from `meta` when authors don't override.
+8. **Where does `subtitle` defaulting happen?** Same as the placeholder plan §2.6: engine fills any unbound `subtitle` placeholder from the presentation-level `subtitle`. Under the canonical model, that means `title-subtitle` slides default both lines from root presentation fields when authors don't override.
 
 ---
 

@@ -62,18 +62,18 @@ function isTitleCover(layout, contentPlaceholders) {
   return layout.content_type === "Title" && contentPlaceholders.some((placeholder) => placeholder.type === "BODY");
 }
 
-function toOpfPlaceholderType(type) {
+function toOpfPlaceholderType(type, layout) {
   switch (type) {
     case "BODY":
-      return "body";
+      return layout.content_type === "List" ? "list" : "text";
     case "OBJECT":
-      return "content";
+      return layout.content_type === "List" ? "list" : "text";
     case "CHART":
       return "chart";
     case "PICTURE":
       return "picture";
     default:
-      throw new Error(`Unsupported content placeholder type: ${type}`);
+      throw new Error(`Unsupported layout placeholder type: ${type}`);
   }
 }
 
@@ -96,7 +96,7 @@ function extractPlaceholders(layout, placeholdersByLayout) {
       continue;
     }
     if (placeholder.type === "BODY") bodySeen += 1;
-    placeholders.push({ type: toOpfPlaceholderType(placeholder.type) });
+    placeholders.push({ type: toOpfPlaceholderType(placeholder.type, layout) });
   }
 
   if (layout.slide_title) {

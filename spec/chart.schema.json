@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf-chart/v1",
   "title": "OPF Chart Preset",
-  "description": "Schema for chart-preset records in the pptx.gallery library. Each record describes a single named chart variant — the OOXML/Aspose chart type, its series/category cardinality, the column structure of the underlying workbook, and a small sample dataset suitable for previews. Chart presets are referenced from OPF chart elements; the engine resolves the reference against catalogs.charts (inline) → catalogs.charts.source → the default catalog at https://www.pptx.gallery/charts.",
+  "description": "Schema for chart-preset records in the pptx.gallery library. Each record describes a single named chart variant — the OOXML/Aspose chart type, its series/category cardinality, the column structure of the underlying workbook, and a small sample dataset suitable for previews. Chart presets are referenced from OPF chart content payloads; the engine resolves the reference against catalogs.charts (inline) → catalogs.charts.source → the default catalog at https://www.pptx.gallery/charts.",
   "type": "object",
   "required": [
     "$schema",
@@ -65,7 +65,7 @@
     },
     "type": {
       "type": "string",
-      "description": "Engine chart-type identifier (Aspose / OOXML form). Distinct from an OPF chart element's discriminator 'type' — this is the catalog record's own engine-level chart kind.",
+      "description": "Engine chart-type identifier (Aspose / OOXML form). Distinct from an OPF chart content payload's discriminator 'type' — this is the catalog record's own engine-level chart kind.",
       "examples": [
         "CLUSTERED_COLUMN",
         "STACKED_COLUMN",

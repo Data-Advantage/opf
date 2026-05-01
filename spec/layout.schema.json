@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf-layout/v1",
   "title": "OPF Slide Layout",
-  "description": "Schema for slide-layout records in the pptx.gallery library. Each record describes a semantic slide layout — what content slots it exposes and how authors bind slide elements to those slots. Layouts are referenced from OPF documents via Slide.layout; the engine resolves the reference against catalogs.layouts (inline) → catalogs.layouts.source → the default catalog at https://www.pptx.gallery/layouts. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.",
+  "description": "Schema for slide-layout records in the pptx.gallery library. Each record describes a semantic slide layout — what regions it exposes and what content kinds those regions are intended to hold. Layouts are referenced from OPF documents via Slide.layout; the engine resolves the reference against catalogs.layouts (inline) → catalogs.layouts.source → the default catalog at https://www.pptx.gallery/layouts. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.",
   "type": "object",
   "required": [
     "$schema",
@@ -195,7 +195,7 @@
     "placeholders": {
       "type": "array",
       "items": { "$ref": "#/$defs/Placeholder" },
-      "description": "Ordered content slots the layout exposes. Slide elements bind to a placeholder by setting Element.slot to the placeholder type; multiple elements with the same slot value fill placeholders of that type in array order. The engine fills any unbound 'title' / 'subtitle' placeholder from meta.title / meta.subtitle. Chrome — slide number, footer, date — is not included here; it is owned by Design.header / Design.footer."
+      "description": "Ordered regions the layout exposes. The engine fills 'title', 'subtitle', and 'tag' placeholders from Slide.title, Slide.subtitle, and Slide.tag. Other placeholders are content-kind hints for renderers and pickers. Slide content itself lives either in root payload fields or promoted region keys on Slide. Chrome — slide number, footer, date — is not included here; it is owned by Design.header / Design.footer."
     },
     "tags": {
       "type": "array",
@@ -255,7 +255,7 @@
       "required": [
         "type"
       ],
-      "description": "A single content slot inside a slide layout. Slide elements bind to it by setting Element.slot to the placeholder's type; the array order in the surrounding 'placeholders' field disambiguates multiple placeholders of the same type.",
+      "description": "A single region inside a slide layout. Title, subtitle, and tag placeholders bind to the corresponding Slide fields; other placeholders describe the intended content kind for that region. The array order in the surrounding 'placeholders' field preserves layout region order.",
       "properties": {
         "type": {
           "type": "string",
@@ -263,8 +263,8 @@
             "title",
             "subtitle",
             "tag",
-            "body",
-            "content",
+            "text",
+            "list",
             "chart",
             "picture",
             "table",
@@ -272,7 +272,7 @@
             "diagram",
             "code"
           ],
-          "description": "OPF placeholder kind. 'content' is the generic flexible slot, capable of hosting any element type. The named kinds describe a specific content role used by pickers, AI generation, and engine defaulting."
+          "description": "OPF placeholder kind. 'text' and 'list' are flexible textual content regions. The named kinds describe a specific content role used by pickers, AI generation, and engine defaulting."
         }
       }
     }

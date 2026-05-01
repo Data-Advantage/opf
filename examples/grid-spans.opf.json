@@ -1,0 +1,40 @@
+{
+  "name": "Grid Spans Example",
+  "slides": [
+    {
+      "title": "Operating Model",
+      "top:left": {
+        "text": "Inputs"
+      },
+      "top:center+right": {
+        "text": "Processing"
+      },
+      "middle+bottom:left+center+right": {
+        "items": [
+          "Queue",
+          "Route",
+          "Resolve"
+        ]
+      }
+    },
+    {
+      "title": "Team Responsibilities",
+      "top+middle:left": {
+        "text": "Product"
+      },
+      "top+middle:center": {
+        "text": "Engineering"
+      },
+      "top+middle:right": {
+        "text": "Operations"
+      },
+      "bottom:left+center+right": {
+        "bullets": [
+          "Weekly planning review",
+          "Shared risk register",
+          "Single launch checklist"
+        ]
+      }
+    }
+  ]
+}

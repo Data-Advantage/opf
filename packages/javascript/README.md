@@ -34,10 +34,8 @@ import {
 import type { Presentation } from "@dataadvantage/opf";
 
 const deck: Presentation = {
-  $schema: "https://pptx.dev/schema/opf/v1",
-  meta: { title: "Quarterly Review" },
-  design: {},
-  slides: [{ id: "title", layout: "title-left", elements: [] }],
+  name: "Quarterly Review",
+  slides: [{ title: "Quarterly Review", items: ["Revenue", "Product", "Hiring"] }],
 };
 
 console.log(presentation.$id);

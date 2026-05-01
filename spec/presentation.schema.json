@@ -2,22 +2,106 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf/v1",
   "title": "OPF — Open Presentation Format",
-  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, reusable assets, and design — the engine handles OOXML complexity.\n\nFields that reference catalog records (meta.narrative, meta.language, meta.tone, meta.audience, design.theme / design.theme.id, design.colorScheme / design.colorScheme.id, design.fontScheme / design.fontScheme.id, Slide.layout, chart.chartPreset, Organization.socials / Speaker.socials) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document → 'catalogs.<kind>.source' on the document → engine defaults → the default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. When an OPF document omits a reference entirely, the engine falls back to its 'defaults.json' (see /spec/defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.\n\nMost catalog references accept the bare 'id' as a string for the common case (e.g. meta.narrative = 'classic-story', design.colorScheme = 'cool-horizon'). Design object forms use 'id' as a base catalog reference plus inline overrides. Asset references use 'asset:<id>' strings that point into the top-level assets registry.",
+  "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, reusable assets, and design — the engine handles OOXML complexity.\n\nFields that reference catalog records (narrative, language, tone, audience, design.theme / design.theme.id, design.colorScheme / design.colorScheme.id, design.fontScheme / design.fontScheme.id, Slide.layout, Organization.socials / Speaker.socials) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document → 'catalogs.<kind>.source' on the document → engine defaults → the default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. When an OPF document omits a reference entirely, the engine falls back to its 'defaults.json' (see /spec/defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.\n\nMost catalog references accept the bare 'id' as a string for the common case (e.g. narrative = 'classic-story', design.colorScheme = 'cool-horizon'). Design object forms use 'id' as a base catalog reference plus inline overrides. Asset references use 'asset:<id>' strings that point into the top-level assets registry.",
   "type": "object",
-  "required": ["$schema", "meta", "design", "slides"],
+  "required": ["slides"],
   "properties": {
     "$schema": {
       "type": "string",
       "const": "https://pptx.dev/schema/opf/v1",
-      "description": "Identifies the OPF schema version so validators and editors can resolve the correct rules."
+      "description": "Optional OPF schema version. When omitted, validators and engines should assume the latest supported OPF schema."
     },
-    "meta": {
-      "$ref": "#/$defs/Meta",
-      "description": "High-level presentation metadata such as title, speakers, organizations, audience, and narrative."
+    "name": {
+      "type": "string",
+      "description": "Display name of the presentation for GUI/TUI lists, library/search indexing, OS-level metadata, and default export filenames. This is deck identity, not slide content. Use slides[].title and slides[].subtitle for text that should appear on presented slides.",
+      "examples": ["Q4 2026 Business Review", "Series B Pitch — Acme", "The Future of Agentic Workflows"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Free-form prose describing what this presentation is about. Used by agents and humans as a deck-level summary; complements purpose (the goal) and narrative (the structured storyline). Round-trips to OOXML 'docProps/core.xml' as '<dc:description>' (PowerPoint surfaces this as the 'Comments' field in File → Properties).",
+      "examples": ["Quarterly business review covering revenue, product, and hiring milestones for the executive team."]
+    },
+    "filename": {
+      "type": "string",
+      "description": "Optional base filename for exports (without extension). Engine strips a trailing .pptx, .pdf, .png, or .svg (case-insensitive) and appends the target format's extension. When omitted, the engine slugifies name when present. See /docs/opf for full validation rules.",
+      "examples": ["q4-2026-business-review", "acme-series-b-pitch"]
+    },
+    "organizations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Organization" },
+      "description": "Organizations associated with the presentation (e.g., the presenting company, host conference, partners, clients, sponsors). The 'primary' organization (declared via Organization.role or, if no role is set, the first item) drives default branding such as cover-slide logo. Optional — simple decks may omit this."
+    },
+    "speakers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Speaker" },
+      "description": "People presenting the deck. Used for cover slides, bio slides, footers, and panel attribution. Optional — simple decks may omit this."
+    },
+    "authors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional credit list for people who authored or contributed to the deck, distinct from speakers. Use when the writer and presenter differ (e.g., analyst-written, exec-presented). Round-trips to OOXML 'docProps/core.xml' as '<dc:creator>' (semicolon-joined when multiple) and seeds '<cp:lastModifiedBy>' on first write; subsequent edits in PowerPoint overwrite '<cp:lastModifiedBy>' with the editing user.",
+      "examples": [["Bob Lee", "Carla Diaz"]]
+    },
+    "audience": {
+      "type": "string",
+      "description": "Intended audience for the presentation. Used by AI to tune tone and depth. Accepts either:\n- A free-form description ('Series B investors', 'engineering team').\n- A catalog reference resolved against catalogs.audiences and the default catalog at https://www.pptx.gallery/audiences — a bare id (lowercase kebab-case, e.g. 'executives'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Catalog records carry seniority, technical-fluency, and decision-power hints used by AI generation.\n\nResolution order for the catalog form: inline catalogs.audiences.records[] → catalogs.audiences.source → default catalog. Free-form values that don't resolve to any catalog id are accepted as-is.",
+      "examples": ["executives", "board", "engineering-team", "investors", "customers", "Series B investors", "https://acme.com/decks/audiences/acme-board.json", "pkg:@acme/decks/audiences/acme-board"]
+    },
+    "purpose": {
+      "type": "string",
+      "description": "Primary goal of the presentation. Complements description and narrative.",
+      "examples": ["Raise a Series B round of $30M", "Align the engineering org on Q4 priorities", "Educate customers on the new pricing model"]
+    },
+    "narrative": {
+      "oneOf": [
+        { "type": "string" },
+        { "$ref": "#/$defs/Narrative" }
+      ],
+      "description": "Structured storyline describing the deck's arc and beats. Resolves to the 'id' of a 'narratives' catalog record.\n\nAccepts two forms:\n- String shorthand for the common case: 'narrative = \"classic-story\"'. Accepts a bare id (lowercase kebab-case), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n- Object form for inline overrides or fully custom narratives: 'narrative = { id: \"classic-story\", beats: [...] }'. The object shape mirrors https://pptx.dev/schema/opf-narrative/v1 (sans '$schema'), so a library record and an inline narrative are interchangeable.\n\nResolution order: inline catalogs.narratives.records[] → catalogs.narratives.source → default catalog at https://www.pptx.gallery/narratives. Unknown ids produce a validation warning, not an error.\n\nDeck-level concerns that aren't part of the storyline (audience, tone, key messages, duration) live as siblings on the presentation root rather than inside the narrative object.",
+      "examples": [
+        "classic-story",
+        "problem-solution",
+        "scqa",
+        "pitch-deck",
+        { "id": "custom-pitch", "name": "Custom Pitch", "beats": [{ "id": "hook", "name": "Hook" }, { "id": "ask", "name": "Ask" }] },
+        "https://acme.com/decks/narratives/founder-pitch.json",
+        "pkg:@acme/decks/narratives/founder-pitch"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "Language for the presentation content. Resolves to the 'id' of a 'languages' catalog record, or accepts a BCP-47 tag directly. Accepts either:\n- A BCP-47 language tag ('en-US', 'ja-JP', 'fr').\n- A catalog reference resolved against catalogs.languages and the default catalog at https://www.pptx.gallery/languages — a bare id (lowercase kebab-case, e.g. 'english'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n\nResolution order for the catalog form: inline catalogs.languages.records[] → catalogs.languages.source → default catalog.",
+      "examples": ["en-US", "en-GB", "es-MX", "ja-JP", "fr", "english", "japanese", "https://acme.com/decks/languages/en-acme.json", "pkg:@acme/decks/languages/en-acme"]
+    },
+    "tone": {
+      "type": "string",
+      "description": "Desired tone for the presentation. Resolves to the 'id' of a 'tones' catalog record, or accepts an HTTPS URL / 'pkg:' reference. The catalog record carries voice cues, anti-patterns, and sample phrases used by AI generation.\n\nResolution order: inline catalogs.tones.records[] → catalogs.tones.source → default catalog at https://www.pptx.gallery/tones. The historical enum values ('formal', 'casual', 'inspirational', 'technical', 'persuasive') are valid catalog ids.",
+      "examples": ["formal", "casual", "inspirational", "technical", "persuasive", "authoritative", "conversational", "https://acme.com/decks/tones/acme-voice.json", "pkg:@acme/decks/tones/acme-voice"]
+    },
+    "keyMessages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Key messages the presentation should convey. Deck-level intent used by AI to seed and pressure-test slide content.",
+      "examples": [[
+        "Agent latency is the new bottleneck for AI products.",
+        "Our runtime is 8x faster than the next-best option.",
+        "Customers see ROI within the first quarter."
+      ]]
+    },
+    "durationMinutes": {
+      "type": "number",
+      "minimum": 1,
+      "description": "Target presentation duration in minutes. Used by AI to set pace and depth, and to compare against the resolved narrative's durationRange."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Free-form labels used for categorization, search, and filtering. Lowercase kebab-case is recommended for consistency across a deck library.",
+      "examples": [["qbr", "internal", "fy26-q4"], ["pitch", "fundraising", "confidential"]]
     },
     "design": {
       "$ref": "#/$defs/Design",
-      "description": "Design system covering theme, color scheme, font scheme, dimensions, background, logo, watermark, header, and footer applied to the deck."
+      "description": "Optional design system covering theme, color scheme, font scheme, dimensions, background, logo, watermark, header, and footer applied to the deck. When omitted, engines use their default design configuration."
     },
     "assets": {
       "$ref": "#/$defs/Assets",
@@ -31,7 +115,7 @@
     },
     "catalogs": {
       "$ref": "#/$defs/Catalogs",
-      "description": "Optional per-kind catalog overrides. Each kind may declare a non-default 'source' and/or inline 'records' that override or supplement the default catalog at https://www.pptx.gallery/<kind>. References elsewhere in the document (e.g. design.theme, meta.narrative) resolve through this section before falling back to the default catalog."
+      "description": "Optional per-kind catalog overrides. Each kind may declare a non-default 'source' and/or inline 'records' that override or supplement the default catalog at https://www.pptx.gallery/<kind>. References elsewhere in the document (e.g. design.theme, narrative) resolve through this section before falling back to the default catalog."
     },
     "extensions": {
       "type": "object",
@@ -39,106 +123,6 @@
     }
   },
   "$defs": {
-    "Meta": {
-      "type": "object",
-      "description": "Presentation-level metadata describing what the deck is, who it's for, and how it should be told.",
-      "required": ["title"],
-      "properties": {
-        "title": {
-          "type": "string",
-          "description": "Canonical title of the presentation. Serves three roles:\n- File metadata: round-trips to OOXML 'docProps/core.xml' as '<dc:title>', and is used for PDF title, window title, library/search indexing, and similar OS-level surfaces.\n- Default export filename: when 'meta.filename' is omitted, the engine slugifies this value.\n- Slide-content default: on slides whose layout exposes a 'title' slot (e.g. cover/title-slide layouts and most content layouts), the engine fills that slot with this value when no element explicitly populates it. Authors override by adding a text element bound to the slot.",
-          "examples": ["Q4 2026 Business Review", "Series B Pitch — Acme", "The Future of Agentic Workflows"]
-        },
-        "description": {
-          "type": "string",
-          "description": "Free-form prose describing what this presentation is about. Used by agents and humans as a deck-level summary; complements meta.purpose (the goal) and meta.narrative (the structured storyline). Round-trips to OOXML 'docProps/core.xml' as '<dc:description>' (PowerPoint surfaces this as the 'Comments' field in File → Properties).",
-          "examples": ["Quarterly business review covering revenue, product, and hiring milestones for the executive team."]
-        },
-        "filename": {
-          "type": "string",
-          "description": "Optional base filename for exports (without extension). Engine strips a trailing .pptx, .pdf, .png, or .svg (case-insensitive) and appends the target format's extension. When omitted, the engine slugifies meta.title. See /docs/opf for full validation rules.",
-          "examples": ["q4-2026-business-review", "acme-series-b-pitch"]
-        },
-        "subtitle": {
-          "type": "string",
-          "description": "Default subtitle for slides whose layout exposes a 'subtitle' slot (typically the cover/title-slide layout). The engine fills that slot with this value when no element explicitly populates it; authors override by adding a text element bound to the slot. Unlike 'meta.title', subtitle is purely slide content — it does not round-trip to OOXML 'docProps/core.xml' and does not appear in OS-level file metadata.",
-          "examples": ["Prepared for the Board of Directors", "October 2026"]
-        },
-        "organizations": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/Organization" },
-          "description": "Organizations associated with the presentation (e.g., the presenting company, host conference, partners, clients, sponsors). The 'primary' organization (declared via Organization.role or, if no role is set, the first item) drives default branding such as cover-slide logo. Optional — simple decks may omit this."
-        },
-        "speakers": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/Speaker" },
-          "description": "People presenting the deck. Used for cover slides, bio slides, footers, and panel attribution. Optional — simple decks may omit this."
-        },
-        "authors": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Optional credit list for people who authored or contributed to the deck, distinct from speakers. Use when the writer and presenter differ (e.g., analyst-written, exec-presented). Round-trips to OOXML 'docProps/core.xml' as '<dc:creator>' (semicolon-joined when multiple) and seeds '<cp:lastModifiedBy>' on first write; subsequent edits in PowerPoint overwrite '<cp:lastModifiedBy>' with the editing user.",
-          "examples": [["Bob Lee", "Carla Diaz"]]
-        },
-        "audience": {
-          "type": "string",
-          "description": "Intended audience for the presentation. Used by AI to tune tone and depth. Accepts either:\n- A free-form description ('Series B investors', 'engineering team').\n- A catalog reference resolved against catalogs.audiences and the default catalog at https://www.pptx.gallery/audiences — a bare id (lowercase kebab-case, e.g. 'executives'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Catalog records carry seniority, technical-fluency, and decision-power hints used by AI generation.\n\nResolution order for the catalog form: inline catalogs.audiences.records[] → catalogs.audiences.source → default catalog. Free-form values that don't resolve to any catalog id are accepted as-is.",
-          "examples": ["executives", "board", "engineering-team", "investors", "customers", "Series B investors", "https://acme.com/decks/audiences/acme-board.json", "pkg:@acme/decks/audiences/acme-board"]
-        },
-        "purpose": {
-          "type": "string",
-          "description": "Primary goal of the presentation. Complements meta.description and meta.narrative.",
-          "examples": ["Raise a Series B round of $30M", "Align the engineering org on Q4 priorities", "Educate customers on the new pricing model"]
-        },
-        "narrative": {
-          "oneOf": [
-            { "type": "string" },
-            { "$ref": "#/$defs/Narrative" }
-          ],
-          "description": "Structured storyline describing the deck's arc and beats. Resolves to the 'id' of a 'narratives' catalog record.\n\nAccepts two forms:\n- String shorthand for the common case: 'meta.narrative = \"classic-story\"'. Accepts a bare id (lowercase kebab-case), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n- Object form for inline overrides or fully custom narratives: 'meta.narrative = { id: \"classic-story\", beats: [...] }'. The object shape mirrors https://pptx.dev/schema/opf-narrative/v1 (sans '$schema'), so a library record and an inline narrative are interchangeable.\n\nResolution order: inline catalogs.narratives.records[] → catalogs.narratives.source → default catalog at https://www.pptx.gallery/narratives. Unknown ids produce a validation warning, not an error.\n\nDeck-level concerns that aren't part of the storyline (audience, tone, key messages, duration) live as siblings on 'meta' rather than inside the narrative object.",
-          "examples": [
-            "classic-story",
-            "problem-solution",
-            "scqa",
-            "pitch-deck",
-            { "id": "custom-pitch", "name": "Custom Pitch", "beats": [{ "id": "hook", "name": "Hook" }, { "id": "ask", "name": "Ask" }] },
-            "https://acme.com/decks/narratives/founder-pitch.json",
-            "pkg:@acme/decks/narratives/founder-pitch"
-          ]
-        },
-        "language": {
-          "type": "string",
-          "description": "Language for the presentation content. Resolves to the 'id' of a 'languages' catalog record, or accepts a BCP-47 tag directly. Accepts either:\n- A BCP-47 language tag ('en-US', 'ja-JP', 'fr').\n- A catalog reference resolved against catalogs.languages and the default catalog at https://www.pptx.gallery/languages — a bare id (lowercase kebab-case, e.g. 'english'), an HTTPS URL pointing at a record file, or a 'pkg:' reference to a locally-installed package.\n\nResolution order for the catalog form: inline catalogs.languages.records[] → catalogs.languages.source → default catalog.",
-          "examples": ["en-US", "en-GB", "es-MX", "ja-JP", "fr", "english", "japanese", "https://acme.com/decks/languages/en-acme.json", "pkg:@acme/decks/languages/en-acme"]
-        },
-        "tone": {
-          "type": "string",
-          "description": "Desired tone for the presentation. Resolves to the 'id' of a 'tones' catalog record, or accepts an HTTPS URL / 'pkg:' reference. The catalog record carries voice cues, anti-patterns, and sample phrases used by AI generation.\n\nResolution order: inline catalogs.tones.records[] → catalogs.tones.source → default catalog at https://www.pptx.gallery/tones. The historical enum values ('formal', 'casual', 'inspirational', 'technical', 'persuasive') are valid catalog ids.",
-          "examples": ["formal", "casual", "inspirational", "technical", "persuasive", "authoritative", "conversational", "https://acme.com/decks/tones/acme-voice.json", "pkg:@acme/decks/tones/acme-voice"]
-        },
-        "keyMessages": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Key messages the presentation should convey. Deck-level intent used by AI to seed and pressure-test slide content.",
-          "examples": [[
-            "Agent latency is the new bottleneck for AI products.",
-            "Our runtime is 8x faster than the next-best option.",
-            "Customers see ROI within the first quarter."
-          ]]
-        },
-        "durationMinutes": {
-          "type": "number",
-          "minimum": 1,
-          "description": "Target presentation duration in minutes. Used by AI to set pace and depth, and to compare against the resolved narrative's durationRange."
-        },
-        "tags": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Free-form labels used for categorization, search, and filtering. Lowercase kebab-case is recommended for consistency across a deck library.",
-          "examples": [["qbr", "internal", "fy26-q4"], ["pitch", "fundraising", "confidential"]]
-        }
-      }
-    },
     "Assets": {
       "type": "object",
       "description": "Reusable asset registry for resources used by slides, charts, metadata, and design. Keys are stable asset ids referenced elsewhere as 'asset:<id>'. Asset src values accept URLs, data URIs, relative paths resolved against the OPF file location, or local filesystem paths.",
@@ -308,7 +292,7 @@
         },
         "organizationId": {
           "type": "string",
-          "description": "Reference to an Organization.id in meta.organizations. Lets a speaker be attributed to their org in panel or multi-org decks without repeating organization details.",
+          "description": "Reference to an Organization.id in organizations. Lets a speaker be attributed to their org in panel or multi-org decks without repeating organization details.",
           "examples": ["acme", "beta", "devconf-2026"]
         },
         "socials": {
@@ -343,7 +327,7 @@
     },
     "Narrative": {
       "type": "object",
-      "description": "Structured storyline used by AI to shape generated content. Mirrors the OPF Narrative Template record at https://pptx.dev/schema/opf-narrative/v1 (sans '$schema'), so a library record and an inline narrative are interchangeable.\n\nNarrative declares the deck's intended story arc; slides may opt into beats via Slide.beat. The narrative does not constrain slide structure — validators warn on drift (orphan slides, unused beats) but never error. Slides are the source of truth; narrative is intent that travels with the deck.\n\nWhen 'id' matches a record in the resolved 'narratives' catalog, the inline fields override matching fields on the catalog record (beats merge by beat 'id'). When 'id' doesn't match, this object defines a fully custom inline narrative.\n\nDeck-level concerns that aren't part of the storyline (audience, tone, key messages, duration) live as siblings on 'meta' rather than inside this object.",
+      "description": "Structured storyline used by AI to shape generated content. Mirrors the OPF Narrative Template record at https://pptx.dev/schema/opf-narrative/v1 (sans '$schema'), so a library record and an inline narrative are interchangeable.\n\nNarrative declares the deck's intended story arc; slides may opt into beats via Slide.beat. The narrative does not constrain slide structure — validators warn on drift (orphan slides, unused beats) but never error. Slides are the source of truth; narrative is intent that travels with the deck.\n\nWhen 'id' matches a record in the resolved 'narratives' catalog, the inline fields override matching fields on the catalog record (beats merge by beat 'id'). When 'id' doesn't match, this object defines a fully custom inline narrative.\n\nDeck-level concerns that aren't part of the storyline (audience, tone, key messages, duration) live as siblings on the presentation root rather than inside this object.",
       "properties": {
         "id": {
           "type": "string",
@@ -375,7 +359,7 @@
         },
         "durationRange": {
           "type": "object",
-          "description": "Typical talk-length window this narrative suits. Compared by validators against meta.durationMinutes.",
+          "description": "Typical talk-length window this narrative suits. Compared by validators against durationMinutes.",
           "properties": {
             "minMinutes": {
               "type": "number",
@@ -457,7 +441,7 @@
         "slideType": {
           "type": "string",
           "enum": ["text", "image", "chart", "table", "code"],
-          "description": "Default content kind for the beat's slide. Mirrors Element.type and helps engines choose a sensible layout when only the beat is specified."
+          "description": "Default content kind for the beat's slide. Mirrors ContentPayload.type and helps engines choose a sensible layout when only the beat is specified."
         },
         "layoutHint": {
           "type": "string",
@@ -540,7 +524,7 @@
             { "$ref": "#/$defs/AssetSource" },
             { "$ref": "#/$defs/LogoSet" }
           ],
-          "description": "Deck logo assets used by layouts, covers, section dividers, headers, and footers. A string is the default logo source; object form provides light/dark, stacked, icon, and wordmark variants. When omitted, the renderer falls back to meta.organizations[primary].logo.",
+          "description": "Deck logo assets used by layouts, covers, section dividers, headers, and footers. A string is the default logo source; object form provides light/dark, stacked, icon, and wordmark variants. When omitted, the renderer falls back to organizations[primary].logo.",
           "examples": [
             "asset:acme-logo",
             { "default": "asset:acme-logo", "light": "asset:acme-logo-white", "icon": "asset:acme-icon" }
@@ -582,11 +566,11 @@
         "contentAlignment": {
           "type": "string",
           "enum": ["left", "center", "right"],
-          "description": "Default horizontal alignment for content placeholders in resolved layouts."
+          "description": "Default horizontal alignment for body/content regions in resolved layouts."
         },
         "contentBox": {
           "type": "boolean",
-          "description": "Whether content placeholders are rendered inside a visible card or surface."
+          "description": "Whether body/content regions are rendered inside a visible card or surface."
         },
         "slideImage": {
           "oneOf": [
@@ -596,7 +580,7 @@
               "properties": {
                 "src": {
                   "$ref": "#/$defs/AssetSource",
-                  "description": "Source for the slide-level image. When omitted in a design override, the object only configures how a slide-level image should be placed when one is supplied by an element, asset, or renderer convention."
+                  "description": "Source for the slide-level image. When omitted in a design override, the object only configures how a slide-level image should be placed when one is supplied by a content payload, asset, or renderer convention."
                 },
                 "position": {
                   "type": "string",
@@ -611,7 +595,7 @@
         "contentDirection": {
           "type": "string",
           "enum": ["horizontal", "vertical"],
-          "description": "Axis along which parallel content placeholders are arranged."
+          "description": "Axis along which parallel body/content regions are arranged."
         },
         "chartPrimary": {
           "type": "string",
@@ -1103,7 +1087,7 @@
     },
     "LogoSet": {
       "type": "object",
-      "description": "Deck logo variants surfaced by layouts, covers, section dividers, headers, and footers. Organization identity lives in meta.organizations; this object only controls visual rendering assets. Renderer convention: on dark backgrounds prefer the 'light' variant, on light backgrounds prefer the 'dark' variant, and in square/vertical slots prefer the stacked family when present.",
+      "description": "Deck logo variants surfaced by layouts, covers, section dividers, headers, and footers. Organization identity lives in organizations; this object only controls visual rendering assets. Renderer convention: on dark backgrounds prefer the 'light' variant, on light backgrounds prefer the 'dark' variant, and in square/vertical slots prefer the stacked family when present.",
       "properties": {
         "default": {
           "$ref": "#/$defs/AssetSource",
@@ -1173,7 +1157,7 @@
     },
     "HeaderFooter": {
       "type": "object",
-      "description": "Repeated header or footer content split into left, center, and right zones. Header/footer content is slide furniture, separate from the main slide elements.",
+      "description": "Repeated header or footer content split into left, center, and right zones. Header/footer content is slide furniture, separate from the main slide content payloads.",
       "properties": {
         "left": {
           "$ref": "#/$defs/HeaderFooterItem",
@@ -1216,7 +1200,7 @@
         },
         "organization": {
           "type": "boolean",
-          "description": "Whether to render the primary organization name from meta.organizations."
+          "description": "Whether to render the primary organization name from organizations."
         },
         "section": {
           "type": "boolean",
@@ -1226,27 +1210,256 @@
     },
     "Slide": {
       "type": "object",
-      "description": "A single slide with its layout, elements, and presentation behavior.",
-      "required": ["id", "layout", "elements"],
+      "description": "A single slide. Content can be authored as a full-slide root payload, or inside promoted named region keys such as 'left', 'center+right', and 'top:left'.",
+      "additionalProperties": false,
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the slide within the document.",
+          "description": "Optional stable identifier for the slide within the document. Use when another system needs to reference a slide across edits, comments, generation state, exports, or narrative tooling. Slide order is defined by the slides array, so simple decks may omit this.",
           "examples": ["s1", "cover", "problem-1", "ask"]
         },
         "layout": {
           "type": "string",
-          "description": "Slide layout reference. Resolves to the 'id' of a 'layouts' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'title-subtitle'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.\n\nResolution order: inline catalogs.layouts.records[] → catalogs.layouts.source → default catalog at https://www.pptx.gallery/layouts.",
+          "description": "Optional slide layout reference. Resolves to the 'id' of a 'layouts' catalog record. When omitted, engines infer a layout from the slide's root payload or promoted region keys. Accepts a bare id (lowercase kebab-case, e.g. 'title-subtitle'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.\n\nResolution order: inline catalogs.layouts.records[] → catalogs.layouts.source → default catalog at https://www.pptx.gallery/layouts.",
           "examples": ["title", "title-subtitle", "text-2x", "chart-3x", "image-bleed", "blank", "https://acme.com/decks/layouts/cover.json", "pkg:@acme/decks/layouts/cover"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Slide-level title content. When the resolved layout exposes a 'title' placeholder, the engine renders this value there.",
+          "examples": ["Quarterly Review", "Why Now", "Next Steps"]
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "Slide-level subtitle or supporting line. When the resolved layout exposes a 'subtitle' placeholder, the engine renders this value there.",
+          "examples": ["Prepared for the board", "Three signals changed this quarter"]
+        },
+        "tag": {
+          "type": "string",
+          "description": "Small slide-level label or badge. When the resolved layout exposes a 'tag' placeholder, the engine renders this value there.",
+          "examples": ["Intro", "Confidential", "Appendix"]
         },
         "designOverrides": {
           "$ref": "#/$defs/Design",
           "description": "Slide-level design overrides applied on top of the deck-wide design."
         },
-        "elements": {
+        "type": {
+          "type": "string",
+          "enum": ["text", "list", "image", "shape", "chart", "table", "video", "code", "group", "placeholder"],
+          "description": "Optional full-slide content kind. When omitted, engines infer the kind from root payload fields."
+        },
+        "text": {
+          "type": "string",
+          "description": "Full-slide text payload."
+        },
+        "runs": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Element" },
-          "description": "Content elements rendered on this slide."
+          "items": { "$ref": "#/$defs/TextRun" },
+          "description": "Full-slide rich text expressed as formatted runs."
+        },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TextListItem" },
+          "description": "Full-slide generic list payload. Presence of this field infers type 'list'."
+        },
+        "bullets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TextListItem" },
+          "description": "Full-slide text-style bullet payload. Presence of this field infers type 'text'."
+        },
+        "src": {
+          "$ref": "#/$defs/AssetSource",
+          "description": "Full-slide image or media source. Infers image unless type is explicitly 'video'."
+        },
+        "chartType": {
+          "type": "string",
+          "description": "Full-slide chart variant. Chart payloads require both chartType and data."
+        },
+        "data": {
+          "oneOf": [
+            { "$ref": "#/$defs/ChartData" },
+            { "$ref": "#/$defs/ChartDataAsset" }
+          ],
+          "description": "Full-slide chart data."
+        },
+        "headers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Full-slide table header labels."
+        },
+        "rows": {
+          "type": "array",
+          "items": { "type": "array" },
+          "description": "Full-slide table row data."
+        },
+        "shape": {
+          "type": "string",
+          "description": "Full-slide shape type."
+        },
+        "code": {
+          "type": "string",
+          "description": "Full-slide source code to display."
+        },
+        "language": {
+          "type": "string",
+          "description": "Language identifier used for syntax highlighting with code payloads."
+        },
+        "children": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ContentPayload" },
+          "description": "Child content payloads rendered as a logical group."
+        },
+        "prompt": {
+          "type": "string",
+          "description": "AI instruction describing what content should be generated for the full slide."
+        },
+        "expectedType": {
+          "type": "string",
+          "enum": ["text", "list", "image", "chart", "table"],
+          "description": "Expected content type the engine or agent should produce for a placeholder payload."
+        },
+        "left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top:left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top:center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top:right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top:left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top:center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top:left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle:left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle:center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle:right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle:left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle:center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle:left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom:left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom:center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom:right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom:left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom:center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "bottom:left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle:left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle:center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle:right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle:left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle:center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle:left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom:left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom:center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom:right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom:left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom:center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "middle+bottom:left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom:left": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom:center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom:right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom:left+center": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom:center+right": {
+          "$ref": "#/$defs/ContentPayload"
+        },
+        "top+middle+bottom:left+center+right": {
+          "$ref": "#/$defs/ContentPayload"
         },
         "notes": {
           "type": "string",
@@ -1259,7 +1472,7 @@
         },
         "section": {
           "type": "string",
-          "description": "Section marker used to group slides in presenter view and outlines.",
+          "description": "PowerPoint-style slide section label. Consecutive slides with the same value belong to the same section in presenter view, outlines, and PowerPoint section-aware exports.",
           "examples": ["Intro", "Problem", "Solution", "Ask", "Appendix"]
         },
         "beat": {
@@ -1270,311 +1483,23 @@
               "items": { "type": "string" }
             }
           ],
-          "description": "Optional reference to one or more narrative beats (each value matches an id from meta.narrative.beats or the resolved template). A single string declares the slide's primary beat; an array declares that one slide covers multiple beats — useful when shorter decks fold beats together (e.g. ['problem', 'why-now']). Declares the slide's role in the story arc; does not constrain ordering or structure. Slides without a beat are valid; multiple slides may share a beat."
+          "description": "Optional reference to one or more narrative beats (each value matches an id from narrative.beats or the resolved template). A single string declares the slide's primary beat; an array declares that one slide covers multiple beats — useful when shorter decks fold beats together (e.g. ['problem', 'why-now']). Declares the slide's role in the story arc; does not constrain ordering or structure. Slides without a beat are valid; multiple slides may share a beat."
         }
       }
     },
-    "Position": {
+    "ContentPayload": {
       "type": "object",
-      "description": "Element position on the slide.",
+      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, runs, bullets, items, src, chartType, rows, code, shape, children, or prompt.",
+      "additionalProperties": false,
       "properties": {
-        "x": {
-          "type": "number",
-          "description": "Horizontal coordinate; interpretation depends on the containing element's units."
-        },
-        "y": {
-          "type": "number",
-          "description": "Vertical coordinate; interpretation depends on the containing element's units."
-        },
-        "anchor": {
-          "type": "string",
-          "description": "Anchor to layout grid.",
-          "examples": ["top-left", "top-right", "center", "bottom-left", "bottom-right"]
-        }
-      }
-    },
-    "Size": {
-      "type": "object",
-      "description": "Element size on the slide.",
-      "properties": {
-        "width": {
-          "type": "number",
-          "description": "Element width expressed in the unit specified by 'unit'."
-        },
-        "height": {
-          "type": "number",
-          "description": "Element height expressed in the unit specified by 'unit'."
-        },
-        "unit": {
-          "type": "string",
-          "enum": ["in", "%", "px"],
-          "description": "Unit for width and height: 'in' (inches), '%' (percentage of slide), or 'px' (pixels)."
-        }
-      }
-    },
-    "Element": {
-      "type": "object",
-      "description": "A renderable item on a slide. The 'type' discriminator selects which additional fields are valid.",
-      "required": ["id", "type"],
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the element within its slide.",
-          "examples": ["title", "subtitle", "h1", "body-1", "logo", "chart"]
-        },
         "type": {
           "type": "string",
-          "enum": ["text", "image", "shape", "chart", "table", "video", "code", "group", "placeholder"],
-          "description": "Element kind, which determines the additional fields available."
+          "enum": ["text", "list", "image", "shape", "chart", "table", "video", "code", "group", "placeholder"],
+          "description": "Optional content kind. When omitted, engines infer the kind from the fields present."
         },
-        "position": {
-          "$ref": "#/$defs/Position",
-          "description": "Explicit element position; when omitted, the element is positioned by the layout."
-        },
-        "size": {
-          "$ref": "#/$defs/Size",
-          "description": "Explicit element size; when omitted, the element is sized by the layout."
-        },
-        "slot": {
-          "type": "string",
-          "description": "Placeholder type from the resolved layout's placeholders array. Multiple elements with the same slot value fill placeholders of that type in array order. Well-known values are defined by the layout schema's Placeholder.type vocabulary.",
-          "examples": ["title", "subtitle", "tag", "body", "content", "chart", "picture"]
-        }
-      },
-      "allOf": [
-        {
-          "if": { "properties": { "type": { "const": "text" } } },
-          "then": {
-            "properties": {
-              "content": {
-                "$ref": "#/$defs/TextContent",
-                "description": "Text content as plain text, formatted runs, markdown, or list items."
-              },
-              "style": {
-                "$ref": "#/$defs/TextStyle",
-                "description": "Text styling applied to the entire content."
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "image" } } },
-          "then": {
-            "required": ["src"],
-            "properties": {
-              "src": {
-                "$ref": "#/$defs/AssetSource",
-                "description": "Source for the image.",
-                "examples": [
-                  "https://cdn.acme.com/images/diagram.png",
-                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9V3iWggAAAAASUVORK5CYII=",
-                  "./images/diagram.png",
-                  "asset:img-diagram"
-                ]
-              },
-              "alt": {
-                "type": "string",
-                "description": "Accessible alt text describing the image.",
-                "examples": ["Architecture diagram showing the agent runtime", "Headshot of Alice Chen"]
-              },
-              "fit": {
-                "type": "string",
-                "enum": ["cover", "contain", "fill", "none"],
-                "description": "How the image fills its bounding box."
-              },
-              "borderRadius": {
-                "type": "number",
-                "description": "Corner radius in points; produces rounded corners when greater than 0."
-              },
-              "shadow-sm": {
-                "type": "boolean",
-                "description": "Whether to render a small drop shadow behind the image."
-              },
-              "caption": {
-                "type": "string",
-                "description": "Caption rendered beneath the image.",
-                "examples": ["Source: Q3 2026 internal benchmarks"]
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "chart" } } },
-          "then": {
-            "required": ["data"],
-            "anyOf": [
-              { "required": ["chartType"] },
-              { "required": ["chartPreset"] }
-            ],
-            "properties": {
-              "chartType": {
-                "type": "string",
-                "description": "Generic chart variant. Use this for engine-agnostic decks where you want the engine to pick a sensible preset; for finer control, use 'chartPreset' instead. Accepts a generic type ('bar', 'line', etc.) or any chart-preset id from /spec/charts (the engine treats common preset ids as synonyms here).",
-                "examples": [
-                  "bar", "column", "line", "pie", "donut", "doughnut", "area", "scatter", "radar",
-                  "waterfall", "funnel", "treemap", "combo",
-                  "clustered-column", "stacked-column", "stacked-column-100", "bullet-column", "box-and-whisker", "histogram"
-                ]
-              },
-              "chartPreset": {
-                "type": "string",
-                "description": "Chart preset reference. Resolves to the 'id' of a 'charts' catalog record. Accepts a bare id (lowercase kebab-case, e.g. 'clustered-column'), an HTTPS URL pointing at a record file, or a 'pkg:' reference. When set, the engine sources the visual template from the resolved preset and uses 'data' to populate it; 'chartType' (if also set) is treated as a generic-class hint.\n\nResolution order: inline catalogs.charts.records[] → catalogs.charts.source → default catalog at https://www.pptx.gallery/charts.",
-                "examples": ["column", "clustered-column", "stacked-column", "doughnut", "bullet-column", "box-and-whisker", "https://acme.com/decks/charts/branded-column.json", "pkg:@acme/decks/charts/branded-column"]
-              },
-              "data": {
-                "oneOf": [
-                  { "$ref": "#/$defs/ChartData" },
-                  { "$ref": "#/$defs/ChartDataAsset" }
-                ],
-                "description": "Chart data, either inline labels/datasets or a reference to a top-level data asset with column mapping."
-              },
-              "options": {
-                "$ref": "#/$defs/ChartOptions",
-                "description": "Visual and behavioral chart options."
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "table" } } },
-          "then": {
-            "required": ["rows"],
-            "properties": {
-              "headers": {
-                "type": "array",
-                "items": { "type": "string" },
-                "description": "Header row labels rendered above the data rows.",
-                "examples": [["Region", "Q3 Revenue", "Q4 Revenue", "YoY %"]]
-              },
-              "rows": {
-                "type": "array",
-                "items": { "type": "array" },
-                "description": "Two-dimensional array of row data; each row aligns by index with the headers/columns.",
-                "examples": [[["North America", 12.4, 18.1, 46], ["EMEA", 8.2, 11.5, 40]]]
-              },
-              "style": {
-                "$ref": "#/$defs/TableStyle",
-                "description": "Visual styling applied to the table."
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "shape" } } },
-          "then": {
-            "required": ["shape"],
-            "properties": {
-              "shape": {
-                "type": "string",
-                "description": "Shape type.",
-                "examples": ["rectangle", "circle", "ellipse", "triangle", "arrow", "line", "star", "callout", "custom"]
-              },
-              "fill": {
-                "type": "string",
-                "description": "Fill color as a hex string.",
-                "examples": ["#1E40AF", "#F8FAFC", "#22D3EE"]
-              },
-              "stroke": {
-                "type": "object",
-                "description": "Outline stroke for the shape.",
-                "properties": {
-                  "color": {
-                    "type": "string",
-                    "description": "Stroke color as a hex string.",
-                    "examples": ["#0F172A", "#FFFFFF"]
-                  },
-                  "width": {
-                    "type": "number",
-                    "description": "Stroke width in points."
-                  }
-                }
-              },
-              "cornerRadius": {
-                "type": "number",
-                "description": "Corner radius in points (used for rectangles)."
-              },
-              "text": {
-                "$ref": "#/$defs/TextContent",
-                "description": "Text rendered inside the shape."
-              },
-              "path": {
-                "type": "string",
-                "description": "SVG path data used when shape is 'custom'.",
-                "examples": ["M10 10 L90 10 L50 90 Z"]
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "code" } } },
-          "then": {
-            "required": ["code"],
-            "properties": {
-              "code": {
-                "type": "string",
-                "description": "Source code to display.",
-                "examples": ["def greet(name: str) -> str:\n    return f\"Hello, {name}!\""]
-              },
-              "language": {
-                "type": "string",
-                "description": "Language identifier used for syntax highlighting.",
-                "examples": ["python", "ts", "tsx", "rust", "go", "bash", "json", "yaml"]
-              },
-              "theme": {
-                "type": "string",
-                "enum": ["dark", "light"],
-                "description": "Syntax highlighting theme."
-              },
-              "showLineNumbers": {
-                "type": "boolean",
-                "description": "Whether to render line numbers alongside the code."
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "group" } } },
-          "then": {
-            "required": ["children"],
-            "properties": {
-              "children": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/Element" },
-                "description": "Child elements rendered as a group; their positions and sizes nest within the group's bounds."
-              }
-            }
-          }
-        },
-        {
-          "if": { "properties": { "type": { "const": "placeholder" } } },
-          "then": {
-            "required": ["prompt"],
-            "properties": {
-              "prompt": {
-                "type": "string",
-                "description": "AI instruction describing what content should be generated for this slot.",
-                "examples": [
-                  "Three bullet points summarizing why our latency advantage matters to enterprise buyers.",
-                  "A two-column comparison of our product vs. the leading competitor."
-                ]
-              },
-              "expectedType": {
-                "type": "string",
-                "enum": ["text", "image", "chart", "table"],
-                "description": "Expected content type the engine or agent should produce."
-              }
-            }
-          }
-        }
-      ]
-    },
-    "TextContent": {
-      "type": "object",
-      "description": "Text content expressed as plain text, rich runs, markdown, or list items.",
-      "properties": {
         "text": {
           "type": "string",
-          "description": "Simple text string for basic use; ignored when 'runs' or 'markdown' is provided.",
+          "description": "Simple text string for basic use; ignored when 'runs' is provided.",
           "examples": ["Hello, world", "The Future of Agentic Workflows"]
         },
         "runs": {
@@ -1582,22 +1507,198 @@
           "items": { "$ref": "#/$defs/TextRun" },
           "description": "Rich text expressed as formatted runs."
         },
-        "markdown": {
-          "type": "string",
-          "description": "Markdown source converted to runs by the engine.",
-          "examples": ["**Bold** opening followed by _emphasis_ and a [link](https://acme.com)."]
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TextListItem" },
+          "description": "Generic list payload. Each item is either a string or a small text object; list nesting uses item.level rather than nested content payloads.",
+          "examples": [["Sub-second agent latency", "Drop-in compatible with OpenAI tool-calling", "SOC 2 Type II"]]
         },
         "bullets": {
           "type": "array",
-          "description": "Bulleted list items; each item is either a string or a nested TextContent.",
+          "items": { "$ref": "#/$defs/TextListItem" },
+          "description": "Text-style bullet payload. Presence of this field infers type 'text'.",
           "examples": [["Sub-second agent latency", "Drop-in compatible with OpenAI tool-calling", "SOC 2 Type II"]]
         },
-        "numbered": {
+        "src": {
+          "$ref": "#/$defs/AssetSource",
+          "description": "Source for an image or media item.",
+          "examples": [
+            "https://cdn.acme.com/images/diagram.png",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9V3iWggAAAAASUVORK5CYII=",
+            "./images/diagram.png",
+            "asset:img-diagram"
+          ]
+        },
+        "chartType": {
+          "type": "string",
+          "description": "Semantic chart variant. The engine maps this content-level chart kind to an appropriate visual treatment.",
+          "examples": [
+            "bar", "column", "line", "pie", "donut", "doughnut", "area", "scatter", "radar",
+            "waterfall", "funnel", "treemap", "combo"
+          ]
+        },
+        "data": {
+          "oneOf": [
+            { "$ref": "#/$defs/ChartData" },
+            { "$ref": "#/$defs/ChartDataAsset" }
+          ],
+          "description": "Chart data, either inline labels/datasets or a reference to a top-level data asset with column mapping."
+        },
+        "headers": {
           "type": "array",
-          "description": "Numbered list items; each item is either a string or a nested TextContent.",
-          "examples": [["Identify the bottleneck", "Profile end-to-end", "Ship the fix"]]
+          "items": { "type": "string" },
+          "description": "Header row labels rendered above table data rows.",
+          "examples": [["Region", "Q3 Revenue", "Q4 Revenue", "YoY %"]]
+        },
+        "rows": {
+          "type": "array",
+          "items": { "type": "array" },
+          "description": "Two-dimensional table row data; each row aligns by index with the headers/columns.",
+          "examples": [[["North America", 12.4, 18.1, 46], ["EMEA", 8.2, 11.5, 40]]]
+        },
+        "shape": {
+          "type": "string",
+          "description": "Shape type.",
+          "examples": ["rectangle", "circle", "ellipse", "triangle", "arrow", "line", "star", "callout", "custom"]
+        },
+        "code": {
+          "type": "string",
+          "description": "Source code to display.",
+          "examples": ["def greet(name: str) -> str:\n    return f\"Hello, {name}!\""]
+        },
+        "language": {
+          "type": "string",
+          "description": "Language identifier used for syntax highlighting.",
+          "examples": ["python", "ts", "tsx", "rust", "go", "bash", "json", "yaml"]
+        },
+        "children": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ContentPayload" },
+          "description": "Child content payloads rendered as a logical group."
+        },
+        "prompt": {
+          "type": "string",
+          "description": "AI instruction describing what content should be generated for this payload.",
+          "examples": [
+            "Three bullet points summarizing why our latency advantage matters to enterprise buyers.",
+            "A two-column comparison of our product vs. the leading competitor."
+          ]
+        },
+        "expectedType": {
+          "type": "string",
+          "enum": ["text", "list", "image", "chart", "table"],
+          "description": "Expected content type the engine or agent should produce."
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "list" } }
+          },
+          "then": {
+            "required": ["items"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "image" } }
+          },
+          "then": {
+            "required": ["src"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "chart" } }
+          },
+          "then": {
+            "required": ["chartType", "data"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "table" } }
+          },
+          "then": {
+            "required": ["rows"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "shape" } }
+          },
+          "then": {
+            "required": ["shape"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "video" } }
+          },
+          "then": {
+            "required": ["src"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "code" } }
+          },
+          "then": {
+            "required": ["code"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "group" } }
+          },
+          "then": {
+            "required": ["children"]
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "properties": { "type": { "const": "placeholder" } }
+          },
+          "then": {
+            "required": ["prompt"]
+          }
+        }
+      ]
+    },
+    "TextListItem": {
+      "description": "A flat item inside a list. Strings cover the common case; object form adds inline runs and nesting depth without creating nested slide content payloads.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Plain text for the list item.",
+              "examples": ["Improve retention by 12 points"]
+            },
+            "runs": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/TextRun" },
+              "description": "Rich text runs for the list item."
+            },
+            "level": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Zero-based nesting level for the list item."
+            }
+          }
+        }
+      ]
     },
     "TextRun": {
       "type": "object",
@@ -1654,52 +1755,9 @@
         }
       }
     },
-    "TextStyle": {
-      "type": "object",
-      "description": "Paragraph-level text styling applied to a TextContent.",
-      "properties": {
-        "fontSize": {
-          "type": "number",
-          "description": "Font size in points."
-        },
-        "fontFamily": {
-          "type": "string",
-          "description": "Font family override.",
-          "examples": ["Inter", "Source Serif Pro", "JetBrains Mono"]
-        },
-        "color": {
-          "type": "string",
-          "description": "Text color as a hex string.",
-          "examples": ["#0F172A", "#F8FAFC"]
-        },
-        "alignment": {
-          "type": "string",
-          "enum": ["left", "center", "right", "justify"],
-          "description": "Horizontal text alignment."
-        },
-        "lineHeight": {
-          "type": "number",
-          "description": "Line height multiplier (e.g., 1.5)."
-        },
-        "letterSpacing": {
-          "type": "number",
-          "description": "Letter spacing (tracking) in ems."
-        },
-        "textTransform": {
-          "type": "string",
-          "enum": ["none", "uppercase", "lowercase", "capitalize"],
-          "description": "Capitalization transform applied to the text."
-        },
-        "verticalAlignment": {
-          "type": "string",
-          "enum": ["top", "middle", "bottom"],
-          "description": "Vertical alignment within the text frame."
-        }
-      }
-    },
     "ChartData": {
       "type": "object",
-      "description": "Data driving a chart element.",
+      "description": "Data driving a chart content payload.",
       "required": ["datasets"],
       "properties": {
         "labels": {
@@ -1809,104 +1867,9 @@
         }
       }
     },
-    "ChartOptions": {
-      "type": "object",
-      "description": "Visual and behavioral options for a chart element.",
-      "properties": {
-        "title": {
-          "type": "string",
-          "description": "Chart title shown above the plot.",
-          "examples": ["Quarterly Revenue", "Monthly Active Users (MAU)"]
-        },
-        "legend": {
-          "description": "Legend configuration: pass a boolean to toggle the legend, or an object such as { position: 'top' | 'bottom' | 'left' | 'right' } to customize placement."
-        },
-        "showValues": {
-          "type": "boolean",
-          "description": "Whether to render data labels next to each value."
-        },
-        "showGrid": {
-          "type": "boolean",
-          "description": "Whether to render gridlines on the chart."
-        },
-        "stacked": {
-          "type": "boolean",
-          "description": "Whether series should be stacked rather than grouped."
-        },
-        "yAxis": {
-          "type": "object",
-          "description": "Y-axis configuration.",
-          "properties": {
-            "label": {
-              "type": "string",
-              "description": "Y-axis title.",
-              "examples": ["Revenue ($M)", "Latency (ms)", "Users"]
-            },
-            "min": {
-              "type": "number",
-              "description": "Minimum y-axis value."
-            },
-            "max": {
-              "type": "number",
-              "description": "Maximum y-axis value."
-            },
-            "format": {
-              "type": "string",
-              "description": "Tick label format string.",
-              "examples": ["$#,##0", "0.0%", "#,##0", "0.0\"ms\""]
-            }
-          }
-        },
-        "xAxis": {
-          "type": "object",
-          "description": "X-axis configuration.",
-          "properties": {
-            "label": {
-              "type": "string",
-              "description": "X-axis title.",
-              "examples": ["Quarter", "Month", "Region"]
-            },
-            "format": {
-              "type": "string",
-              "description": "Tick label format string.",
-              "examples": ["mmm yyyy", "0"]
-            }
-          }
-        }
-      }
-    },
-    "TableStyle": {
-      "type": "object",
-      "description": "Visual styling applied to a table element.",
-      "properties": {
-        "headerBackground": {
-          "type": "string",
-          "description": "Header row background color as a hex string.",
-          "examples": ["#0F172A", "#1E40AF"]
-        },
-        "headerColor": {
-          "type": "string",
-          "description": "Header row text color as a hex string.",
-          "examples": ["#FFFFFF", "#F8FAFC"]
-        },
-        "stripedRows": {
-          "type": "boolean",
-          "description": "Whether to alternate row backgrounds for readability."
-        },
-        "borderColor": {
-          "type": "string",
-          "description": "Color of cell borders as a hex string.",
-          "examples": ["#E2E8F0", "#475569"]
-        },
-        "compact": {
-          "type": "boolean",
-          "description": "Use a denser row height and reduced padding."
-        }
-      }
-    },
     "Catalogs": {
       "type": "object",
-      "description": "Catalog overrides for the in-document references. Every property is optional. The default catalog for a kind lives at https://www.pptx.gallery/<kind> (e.g. https://www.pptx.gallery/narratives, https://www.pptx.gallery/themes). For each kind, declaring a 'source' replaces the default registry and/or 'records' adds inline records that take precedence over anything fetched from a source.\n\nResolution order for any reference (e.g. meta.narrative, design.theme): inline catalogs.<kind>.records[] → catalogs.<kind>.source → default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. References that are themselves URLs or 'pkg:' references skip the catalog lookup and resolve directly.",
+      "description": "Catalog overrides for the in-document references. Every property is optional. The default catalog for a kind lives at https://www.pptx.gallery/<kind> (e.g. https://www.pptx.gallery/narratives, https://www.pptx.gallery/themes). For each kind, declaring a 'source' replaces the default registry and/or 'records' adds inline records that take precedence over anything fetched from a source.\n\nResolution order for any reference (e.g. narrative, design.theme): inline catalogs.<kind>.records[] → catalogs.<kind>.source → default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. References that are themselves URLs or 'pkg:' references skip the catalog lookup and resolve directly.",
       "properties": {
         "narratives": {
           "$ref": "#/$defs/CatalogEntry",
@@ -1938,11 +1901,11 @@
         },
         "tones": {
           "$ref": "#/$defs/CatalogEntry",
-          "description": "Catalog of presentation tones. Records validate against https://pptx.dev/schema/opf-tone/v1. Default source: https://www.pptx.gallery/tones. Referenced from meta.tone."
+          "description": "Catalog of presentation tones. Records validate against https://pptx.dev/schema/opf-tone/v1. Default source: https://www.pptx.gallery/tones. Referenced from tone."
         },
         "audiences": {
           "$ref": "#/$defs/CatalogEntry",
-          "description": "Catalog of presentation audiences. Records validate against https://pptx.dev/schema/opf-audience/v1. Default source: https://www.pptx.gallery/audiences. Referenced from meta.audience."
+          "description": "Catalog of presentation audiences. Records validate against https://pptx.dev/schema/opf-audience/v1. Default source: https://www.pptx.gallery/audiences. Referenced from audience."
         },
         "socials": {
           "$ref": "#/$defs/CatalogEntry",

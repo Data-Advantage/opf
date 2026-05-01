@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf-narrative/v1",
   "title": "OPF Narrative Template",
-  "description": "Schema for narrative template files in the pptx.dev library. Each template describes a named story arc (e.g. 'problem-solution', 'scqa') as an ordered list of beats. Templates are referenced from OPF documents via meta.narrative — either as a bare id string (e.g. 'classic-story') or as an inline object whose shape matches this schema (sans '$schema').",
+  "description": "Schema for narrative template files in the pptx.dev library. Each template describes a named story arc (e.g. 'problem-solution', 'scqa') as an ordered list of beats. Templates are referenced from OPF documents via narrative — either as a bare id string (e.g. 'classic-story') or as an inline object whose shape matches this schema (sans '$schema').",
   "type": "object",
   "required": [
     "$schema",
@@ -169,7 +169,7 @@
             "table",
             "code"
           ],
-          "description": "Default content kind for the beat's slide. Mirrors Element.type and helps engines choose a sensible layout when only the beat is specified."
+          "description": "Default content kind for the beat's slide. Mirrors ContentPayload.type and helps engines choose a sensible layout when only the beat is specified."
         },
         "layoutHint": {
           "type": "string",

@@ -1,0 +1,47 @@
+{
+  "name": "Row Regions With Chart",
+  "slides": [
+    {
+      "title": "Performance",
+      "top+middle": {
+        "type": "chart",
+        "chartType": "line",
+        "data": {
+          "labels": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "datasets": [
+            {
+              "label": "Median latency",
+              "values": [
+                420,
+                310,
+                260,
+                190
+              ]
+            }
+          ]
+        }
+      },
+      "bottom": {
+        "text": "Latency improved 55% over the last four quarters."
+      }
+    },
+    {
+      "title": "Next Focus",
+      "top": {
+        "text": "Reduce long-tail retries"
+      },
+      "middle+bottom": {
+        "items": [
+          "Profile slow tool calls",
+          "Cache stable lookups",
+          "Batch low-risk writes"
+        ]
+      }
+    }
+  ]
+}

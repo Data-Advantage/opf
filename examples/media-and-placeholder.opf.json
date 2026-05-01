@@ -1,0 +1,28 @@
+{
+  "name": "Media And Placeholder Example",
+  "assets": {
+    "product-shot": {
+      "type": "image",
+      "src": "./assets/product-shot.png"
+    }
+  },
+  "slides": [
+    {
+      "title": "Product Snapshot",
+      "left": {
+        "src": "asset:product-shot"
+      },
+      "center+right": {
+        "text": "The dashboard pulls review status, owners, and exceptions into one operating view."
+      }
+    },
+    {
+      "title": "Generate Follow-Up",
+      "left+center+right": {
+        "type": "placeholder",
+        "prompt": "Create three concise next steps for an operations audience.",
+        "expectedType": "list"
+      }
+    }
+  ]
+}

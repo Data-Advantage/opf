@@ -1,0 +1,20 @@
+{
+  "name": "Minimal OPF Deck",
+  "slides": [
+    {
+      "title": "Minimal OPF Deck"
+    },
+    {
+      "title": "What This Shows",
+      "items": [
+        "A title slide",
+        "A simple list slide",
+        "A closing slide"
+      ]
+    },
+    {
+      "title": "Next Steps",
+      "text": "Use this as a small valid OPF starting point."
+    }
+  ]
+}

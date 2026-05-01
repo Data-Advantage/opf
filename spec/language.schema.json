@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pptx.dev/schema/opf-language/v1",
   "title": "OPF Language",
-  "description": "Schema for language records in the pptx.gallery library. Each record names a presentation language and pairs it with sensible default font schemes for PowerPoint and Google Slides output. Languages are referenced from OPF documents via meta.language; the engine resolves the reference against catalogs.languages (inline) → catalogs.languages.source → the default catalog at https://www.pptx.gallery/languages. The meta.language field also accepts BCP-47 tags directly; this catalog is for engine-aware language records that carry default-font hints.",
+  "description": "Schema for language records in the pptx.gallery library. Each record names a presentation language and pairs it with sensible default font schemes for PowerPoint and Google Slides output. Languages are referenced from OPF documents via language; the engine resolves the reference against catalogs.languages (inline) → catalogs.languages.source → the default catalog at https://www.pptx.gallery/languages. The language field also accepts BCP-47 tags directly; this catalog is for engine-aware language records that carry default-font hints.",
   "type": "object",
   "required": [
     "$schema",
@@ -18,7 +18,7 @@
     "id": {
       "type": "string",
       "pattern": "^[a-z][a-z0-9-]*$",
-      "description": "Stable slug used by OPF documents to reference this language via meta.language. Lowercase kebab-case.",
+      "description": "Stable slug used by OPF documents to reference this language via language. Lowercase kebab-case.",
       "examples": [
         "english",
         "spanish",

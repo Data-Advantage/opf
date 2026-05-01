@@ -1,0 +1,21 @@
+{
+  "name": "Root Content Example",
+  "slides": [
+    {
+      "title": "Root Content Example",
+      "subtitle": "Slides without explicit layouts"
+    },
+    {
+      "title": "Priorities",
+      "items": [
+        "Tighten the onboarding path",
+        "Move reporting into the product",
+        "Reduce support handoffs"
+      ]
+    },
+    {
+      "title": "Customer Signal",
+      "text": "Teams want fewer exports and more decisions made in the workflow."
+    }
+  ]
+}

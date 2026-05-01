@@ -1,24 +1,24 @@
 # Folding layout placeholders into the OPF layout schema
 
-Plan for adding a `placeholders` field to [`spec/layout.schema.json`](../../spec/layout.schema.json), regenerating the 400 per-layout JSONs in [`spec/layouts/`](../../spec/layouts/) from the database extract at [`spec/layouts/extract/`](../../spec/layouts/extract/), and making the `meta.title` / `meta.subtitle` defaulting promise in [`presentation.schema.json:49,62`](../../spec/presentation.schema.json) achievable end-to-end.
+Plan for adding a `placeholders` field to [`spec/layout.schema.json`](../../spec/layout.schema.json), regenerating the 400 per-layout JSONs in [`spec/layouts/`](../../spec/layouts/) from the database extract at [`spec/layouts/extract/`](../../spec/layouts/extract/), and making the `title` / `subtitle` defaulting promise in [`presentation.schema.json:49,62`](../../spec/presentation.schema.json) achievable end-to-end.
 
 ## Executive summary — key decisions
 
 1. **Add `placeholders: Placeholder[]` to the layout schema.** Each entry is just `{ type }`. The array order is the source of truth for ordering multiple placeholders of the same type — no slot strings, no index fields.
 
-2. **Type vocabulary is OPF-semantic, eleven values:** `title`, `subtitle`, `tag`, `body`, `content`, `chart`, `picture`, `table`, `media`, `diagram`, `code`. `content` is the workhorse — it maps to the PowerPoint generic Placeholder (`OBJECT` in the extract), which can host any element kind. The named kinds describe specific content roles (small label/badge, chart, image, table, video/audio, smartart, source code) so pickers and AI generation can target them precisely. The current extract only carries rows for `OBJECT/BODY/CHART/PICTURE` plus chrome — `tag`, `table`, `media`, `diagram`, and `code` are forward-looking vocabulary the migration script does not synthesize today (`tag` is gated on the existing-but-unused `slideTag` schema boolean and synthesizes the moment data lands, same pattern as `title`/`subtitle`).
+2. **Type vocabulary is OPF-semantic, ten values:** `title`, `subtitle`, `tag`, `body`, `chart`, `picture`, `table`, `media`, `diagram`, `code`. `body` is the workhorse — it maps to PowerPoint's generic `OBJECT` placeholder and ordinary `BODY` regions, and can host any content item kind. The named kinds describe specific content roles (small label/badge, chart, image, table, video/audio, smartart, source code) so pickers and AI generation can target them precisely. The current extract only carries rows for `OBJECT/BODY/CHART/PICTURE` plus chrome — `tag`, `table`, `media`, `diagram`, and `code` are forward-looking vocabulary the migration script does not synthesize today (`tag` is gated on the existing-but-unused `slideTag` schema boolean and synthesizes the moment data lands, same pattern as `title`/`subtitle`).
 
-3. **Chrome stays out of `placeholders`.** `slide-number` / `footer` / `date` are not content slots — they're deck-level header/footer furniture already owned by `Design.header` / `Design.footer` ([`presentation.schema.json:558-575`](../../spec/presentation.schema.json)). Don't mix the two.
+3. **Chrome stays out of `placeholders`.** `slide-number` / `footer` / `date` are not main slide slots — they're deck-level header/footer furniture already owned by `Design.header` / `Design.footer` ([`presentation.schema.json:558-575`](../../spec/presentation.schema.json)). Don't mix the two.
 
 4. **Do not add a chrome or bleed field.** Chrome stays in `Design.header` / `Design.footer`, and canvas behavior is represented by canonical layout ids such as `image-bleed` / `blank` plus their placeholder lists, not by a separate `bleed` property.
 
-5. **Binding rules:** `Element.slot` is the placeholder type (`"title"`, `"content"`, `"chart"`, …). When multiple placeholders share a type, multiple elements with the same `slot` value bind to them in array order. Singletons (`title`, `subtitle`, `tag`) trivially work because each layout has at most one. `Element.slot` description and examples in [`presentation.schema.json:1284-1288`](../../spec/presentation.schema.json) get a small companion update to match.
+5. **Binding rules:** `title`, `subtitle`, and `tag` placeholders bind to first-class slide fields (`Slide.title`, `Slide.subtitle`, `Slide.tag`). `content[].slot` is for the remaining placeholders (`"body"`, `"chart"`, `"picture"`, …). When multiple placeholders share a type, multiple content items with the same `slot` value bind to them in array order. `ContentItem.slot` description and examples in [`presentation.schema.json`](../../spec/presentation.schema.json) get a small companion update to match.
 
 6. **Title synthesis:** 242 layouts have `slide_title=true` but no `TITLE` placeholder in the extract. The migration script inserts `{ type: "title" }` at index 0 of `placeholders` for each.
 
 7. **Subtitle synthesis:** 4 cover-style Title-content layouts (`title-left-box`, `title-center-box`, `title-left-slideimage`, `title-center-slideimage`) carry an extra `BODY` placeholder in the extract that visually serves as a subtitle. Retype it to `{ type: "subtitle" }` and set `slideSubtitle: true` on those four records. No new layouts in this pass.
 
-8. **OOXML round-trip is out of scope.** This pass is about getting the OPF semantic model right. `title` vs `ctrTitle`, how `content` maps to `<p:ph type="obj">` vs other variants, whether `picture` becomes `<p:ph type="pic">` or a fill — all renderer concerns, addressed when the .pptx render path lands.
+8. **OOXML round-trip is out of scope.** This pass is about getting the OPF semantic model right. `title` vs `ctrTitle`, how `body` maps to `<p:ph type="obj">` vs other variants, whether `picture` becomes `<p:ph type="pic">` or a fill — all renderer concerns, addressed when the .pptx render path lands.
 
 9. **Bulk regeneration is safe.** All 400 per-layout JSONs are 1:1 deterministic projections of the extract row (verified: 1 distinct key shape across all 400). A migration script can replace them en masse. The "drift" is a single file: [`spec/layouts/index.json`](../../spec/layouts/index.json) is the catalog index, not a layout record.
 
@@ -113,44 +113,43 @@ Whether step 3 is z-order, tab order, or insertion order is unknown without insp
 
 ### 2.1 Type vocabulary (eleven OPF-semantic values)
 
-| OPF type    | Extract source     | `Element.type` | Notes |
+| OPF type    | Extract source     | `ContentItem.type` | Notes |
 | ----------- | ------------------ | -------------- | ----- |
 | `title`     | *(synthesized)*    | `text`         | One per layout with `slide_title=true`. At most one per layout by convention. |
 | `subtitle`  | `BODY` (retyped)   | `text`         | Only on the 4 cover layouts in §1.6. At most one per layout by convention. |
 | `tag`       | *(synthesized when `slide_tag=true`; no records have it today)* | `text` | Small slide-level label/badge region above or near the title. The `slideTag` boolean already exists on the layout schema ([`spec/layout.schema.json:176-183`](../../spec/layout.schema.json)) but is unused by every record — same situation `slideSubtitle` was in. At most one per layout by convention. |
-| `body`      | `BODY`             | `text`         | All other `BODY` rows — captions, list-intros, supporting copy. |
-| `content`   | `OBJECT`           | (any)          | PowerPoint generic Placeholder; the workhorse, hosts text / chart / image / smartart / etc. |
+| `body`      | `BODY` / `OBJECT`  | (any)          | Generic body/content region; hosts text / chart / image / smartart / etc. |
 | `chart`     | `CHART`            | `chart`        | |
 | `picture`   | `PICTURE`          | `image`        | |
 | `table`     | *(forward-looking)* | `table`       | No extract rows today; reserved for layouts that expose a dedicated table region. |
 | `media`     | *(forward-looking)* | `video`       | No extract rows today; reserved for layouts that expose a video / audio region. |
-| `diagram`   | *(forward-looking)* | (none yet)    | No extract rows today and no matching `Element.type` yet (no SmartArt element in OPF). Vocabulary placeholder for future layouts. |
+| `diagram`   | *(forward-looking)* | (none yet)    | No extract rows today and no matching `ContentItem.type` yet (no SmartArt item in OPF). Vocabulary placeholder for future layouts. |
 | `code`      | *(forward-looking)* | `code`        | No extract rows today; PowerPoint has no native code placeholder type, so a `code` slot would be an OPF-only convention for layouts that intentionally reserve a code region. |
 
-`title` and `subtitle` map to extract rows today (synthesized and BODY-retyped, respectively); `body`, `content`, `chart`, `picture` map directly. The remaining five (`tag`, `table`, `media`, `diagram`, `code`) are vocabulary the schema declares but the migration script does not synthesize on the current extract. Authors can hand-curate them via `extract/overrides.json` (§3.1); `tag` will start synthesizing automatically once any layout record gets `slide_tag=true` (same gating pattern as `title` ↔ `slideTitle` and `subtitle` ↔ `slideSubtitle`).
+`title` and `subtitle` map to extract rows today (synthesized and BODY-retyped, respectively); `body`, `chart`, and `picture` map directly. The remaining five (`tag`, `table`, `media`, `diagram`, `code`) are vocabulary the schema declares but the migration script does not synthesize on the current extract. Authors can hand-curate them via `extract/overrides.json` (§3.1); `tag` will start synthesizing automatically once any layout record gets `slide_tag=true` (same gating pattern as `title` ↔ `slideTitle` and `subtitle` ↔ `slideSubtitle`).
 
 **Chrome (`SLIDE_NUMBER`, `DATE_AND_TIME`, `FOOTER`) is intentionally not a placeholder type.** Chrome is deck-level furniture, owned by `Design.header` / `Design.footer` ([`presentation.schema.json:558-575`](../../spec/presentation.schema.json)) and rendered by the engine independently of layout content.
 
 ### 2.2 Binding rules
 
-The `placeholders` array is the source of truth for ordering. Slots are not separately named — `Element.slot` is just the placeholder type (one of the eleven values from §2.1).
+The `placeholders` array is the source of truth for ordering. Slots are not separately named. `title`, `subtitle`, and `tag` placeholders bind to the matching slide fields; other placeholder types bind through `content[].slot`.
 
 Binding algorithm:
 
 1. Group the layout's `placeholders` by `type`, preserving array order within each group.
-2. For each `Element` on the slide, take its `slot` value as a placeholder type.
-3. Walk elements in slide order; bind each to the next unbound placeholder of that type. (Multiple elements with the same `slot` value fill consecutive same-typed placeholders.)
-4. After all explicit elements are bound, the engine fills any remaining unbound `title` / `subtitle` placeholder from `meta.title` / `meta.subtitle` (§2.6).
+2. Fill singleton text placeholders from `Slide.title`, `Slide.subtitle`, and `Slide.tag`. If `Slide.title` or `Slide.subtitle` is omitted, fall back to the presentation-level `title` / `subtitle`.
+3. For each content item on the slide, take its `slot` value as a placeholder type.
+4. Walk content items in slide order; bind each to the next unbound placeholder of that type. (Multiple items with the same `slot` value fill consecutive same-typed placeholders.)
 
 Examples:
 
-- A layout with `[{type:"title"},{type:"content"},{type:"content"},{type:"content"}]` and three `Element`s with `slot:"content"` → first content element fills `placeholders[1]`, second fills `[2]`, third fills `[3]`.
-- A `chart` element with `slot:"content"` on the same layout → fills the first available `content` placeholder; the placeholder is generic (`OBJECT` / PowerPoint Placeholder), so any element kind is accepted.
-- Singletons (`title`, `subtitle`, `tag`): trivially one-to-one because each appears at most once per layout.
+- A layout with `[{type:"title"},{type:"body"},{type:"body"},{type:"body"}]` and three content items with `slot:"body"` → first item fills `placeholders[1]`, second fills `[2]`, third fills `[3]`.
+- A chart item with `slot:"body"` on the same layout → fills the first available `body` placeholder; the placeholder is generic (`OBJECT` / PowerPoint Placeholder), so any content item kind is accepted.
+- Singletons (`title`, `subtitle`, `tag`): filled from `Slide.title`, `Slide.subtitle`, and `Slide.tag` because each appears at most once per layout.
 
-`Element.slot` in [`presentation.schema.json:1284-1288`](../../spec/presentation.schema.json) gets a companion update in Phase 1: the description switches to "Placeholder type to bind to (see opf-layout 'placeholders'); multiple elements with the same value fill placeholders of that type in array order," and the `image-right` / `footer` examples (which don't fit the new vocabulary) get replaced with `content`, `chart`, `picture`, `tag`.
+`ContentItem.slot` in [`presentation.schema.json`](../../spec/presentation.schema.json) gets a companion update in Phase 1: the description switches to say `Slide.title` / `Slide.subtitle` / `Slide.tag` own those common text placeholders, while `slides[].content` items bind the remaining placeholders. The `image-right` / `footer` examples (which don't fit the new vocabulary) get replaced with `body`, `chart`, `picture`, `table`, `media`, `diagram`, and `code`.
 
-If a future use case needs to bind to a specific position within a same-typed group ("fill only the third content slot"), the cheapest extension is an optional `Element.slotIndex: integer` (1-based). Deferred until that use case appears — the array-order rule covers everything we need today.
+If a future use case needs to bind to a specific position within a same-typed group ("fill only the third body slot"), the cheapest extension is an optional `ContentItem.slotIndex: integer` (1-based). Deferred until that use case appears — the array-order rule covers everything we need today.
 
 ### 2.3 Schema addition to `spec/layout.schema.json`
 
@@ -159,7 +158,7 @@ If a future use case needs to bind to a specific position within a same-typed gr
   "placeholders": {
     "type": "array",
     "items": { "$ref": "#/$defs/Placeholder" },
-    "description": "Ordered content slots the layout exposes, in the order they appear in the underlying slide-layout. Slide elements bind to a placeholder by setting Element.slot to the placeholder type; multiple elements with the same slot value fill placeholders of that type in array order. The engine fills any unbound 'title' / 'subtitle' placeholder from meta.title / meta.subtitle. Chrome — slide number, footer, date — is NOT included here; it is owned by Design.header / Design.footer."
+    "description": "Ordered slots the layout exposes, in the order they appear in the underlying slide-layout. The engine fills 'title', 'subtitle', and 'tag' placeholders from Slide.title, Slide.subtitle, and Slide.tag. Slide content binds through root payload fields or promoted region keys. Chrome — slide number, footer, date — is NOT included here; it is owned by Design.header / Design.footer."
   }
 }
 
@@ -167,19 +166,19 @@ If a future use case needs to bind to a specific position within a same-typed gr
   "Placeholder": {
     "type": "object",
     "required": ["type"],
-    "description": "A single content slot inside a slide layout. Slide elements bind to it by setting Element.slot to the placeholder's type; the array order in the surrounding 'placeholders' field disambiguates multiple placeholders of the same type.",
+    "description": "A single slot inside a slide layout. Title, subtitle, and tag placeholders bind to the corresponding Slide fields; other placeholders bind to slide content items by matching content[].slot to the placeholder type. The array order in the surrounding 'placeholders' field disambiguates multiple placeholders of the same type.",
     "properties": {
       "type": {
         "type": "string",
-        "enum": ["title", "subtitle", "tag", "body", "content", "chart", "picture", "table", "media", "diagram", "code"],
-        "description": "OPF placeholder kind. 'content' is the generic flexible slot (PowerPoint's standard Placeholder), capable of hosting any element type. The named kinds describe a specific content role used by pickers, AI generation, and engine defaulting: 'title' / 'subtitle' / 'tag' / 'body' for text regions ('tag' is a small label/badge above or near the title), 'chart' / 'picture' / 'table' for typed visual regions matching their Element.type, 'media' for video and audio, 'diagram' for SmartArt-style graphics, 'code' for source-code regions."
+        "enum": ["title", "subtitle", "tag", "body", "chart", "picture", "table", "media", "diagram", "code"],
+        "description": "OPF placeholder kind. 'body' is the generic flexible slot (PowerPoint's standard Placeholder), capable of hosting any content item type. The named kinds describe a specific content role used by pickers, AI generation, and engine defaulting: 'title' / 'subtitle' / 'tag' / 'body' for text regions ('tag' is a small label/badge above or near the title), 'chart' / 'picture' / 'table' for typed visual regions matching their ContentItem.type, 'media' for video and audio, 'diagram' for SmartArt-style graphics, 'code' for source-code regions."
       }
     }
   }
 }
 ```
 
-Companion update to [`presentation.schema.json:1284-1288`](../../spec/presentation.schema.json) — `Element.slot`'s description and examples align with the new binding rule (§2.2). The unused `slideSubtitle` field also gets a real meaning: `true` exactly when `placeholders` contains a `subtitle` entry — i.e. the 4 cover layouts in §1.6.
+Companion update to [`presentation.schema.json`](../../spec/presentation.schema.json) — `Slide.title`, `Slide.subtitle`, and `Slide.tag` become first-class slide fields, and `ContentItem.slot`'s description/examples align with the placeholder binding rule (§2.2). The unused `slideSubtitle` field also gets a real meaning: `true` exactly when `placeholders` contains a `subtitle` entry — i.e. the 4 cover layouts in §1.6.
 
 ### 2.4 Subtitle synthesis decision
 
@@ -188,43 +187,49 @@ Companion update to [`presentation.schema.json:1284-1288`](../../spec/presentati
 Affected layouts: `title-left-box`, `title-center-box`, `title-left-slideimage`, `title-center-slideimage`. Their visual contract becomes:
 
 ```
-slot=title    → meta.title default, or any element with slot="title"
-slot=subtitle → meta.subtitle default, or any element with slot="subtitle"
+slot=title    → Slide.title, falling back to presentation title
+slot=subtitle → Slide.subtitle, falling back to presentation subtitle
 ```
 
 The other 8 Title-content layouts stay subtitle-less. Authors who need a subtitle on, say, `title-left-slideimage-bottom`, pick one of the 4 subtitle-bearing layouts.
 
 Trade-offs:
 - **Why not new `cover-*` layouts:** zero new records to design, zero churn to existing ids. The visual change is "this `BODY` was already rendered — we're just naming it."
-- **Why not retype `BODY` on non-Title layouts (Image, Chart, Number, Text, List) too:** `BODY` on those layouts is contextually a caption / list-intro / supporting paragraph — not a subtitle. Reinterpreting all 315 `BODY` rows would over-promise `meta.subtitle` defaulting and confuse pickers.
+- **Why not retype `BODY` on non-Title layouts (Image, Chart, Number, Text, List) too:** `BODY` on those layouts is contextually a caption / list-intro / supporting paragraph — not a subtitle. Reinterpreting all 315 `BODY` rows would over-promise `subtitle` defaulting and confuse pickers.
 
 ### 2.5 Canvas layouts
 
 The 44 `Image_Only_*` extract records motivate the canonical `image-bleed` and `blank` layouts in [`layout-taxonomy.md`](layout-taxonomy.md). They do not require a field on the layout schema. Canvas behavior is expressed by the canonical layout choice and the layout's placeholder list (`image-bleed` has a `picture` placeholder; `blank` has none).
 
-### 2.6 `meta.title` / `meta.subtitle` defaulting end-to-end
+### 2.6 `Slide.title` / `Slide.subtitle` / `Slide.tag` defaulting end-to-end
 
 ```mermaid
 flowchart TD
     A["Slide.layout = 'title-left-slideimage'"] --> B[Engine resolves catalog record]
     B --> C{"placeholders contains type='title'?"}
-    C -->|yes| D{"Any Element with slot='title'?"}
-    C -->|no| E[No title region; meta.title not used on this slide]
-    D -->|yes| F[Render that element in the title placeholder]
-    D -->|no| G{"meta.title set?"}
-    G -->|yes| H["Synthesize text element with content=meta.title, render in title placeholder"]
+    C -->|yes| D{"Slide.title set?"}
+    C -->|no| E[No title region; presentation title not used on this slide]
+    D -->|yes| F[Render Slide.title in the title placeholder]
+    D -->|no| G{"Presentation title set?"}
+    G -->|yes| H[Render presentation title in the title placeholder]
     G -->|no| I[Leave title placeholder empty]
 
     B --> J{"placeholders contains type='subtitle'?"}
-    J -->|yes| K{"Any Element with slot='subtitle'?"}
-    J -->|no| L[meta.subtitle not used on this slide]
-    K -->|yes| M[Render that element in the subtitle placeholder]
-    K -->|no| N{"meta.subtitle set?"}
-    N -->|yes| O["Synthesize text element with content=meta.subtitle, render in subtitle placeholder"]
+    J -->|yes| K{"Slide.subtitle set?"}
+    J -->|no| L[Presentation subtitle not used on this slide]
+    K -->|yes| M[Render Slide.subtitle in the subtitle placeholder]
+    K -->|no| N{"Presentation subtitle set?"}
+    N -->|yes| O[Render presentation subtitle in the subtitle placeholder]
     N -->|no| P[Leave subtitle placeholder empty]
+
+    B --> Q{"placeholders contains type='tag'?"}
+    Q -->|yes| R{"Slide.tag set?"}
+    Q -->|no| S[No tag region]
+    R -->|yes| T[Render Slide.tag in the tag placeholder]
+    R -->|no| U[Leave tag placeholder empty]
 ```
 
-This makes the promise in [`presentation.schema.json:49`](../../spec/presentation.schema.json) ("on slides whose layout exposes a 'title' slot, the engine fills that slot with this value when no element explicitly populates it") mechanically checkable: the engine inspects `placeholders` directly.
+This makes the promise in [`presentation.schema.json:49`](../../spec/presentation.schema.json) ("on slides whose layout exposes a 'title' placeholder, the engine fills that placeholder with this value when the slide does not define its own title") mechanically checkable: the engine inspects `placeholders` directly.
 
 ---
 
@@ -336,7 +341,7 @@ write spec/layouts/index.json
 
 ## 4. Risks / open questions
 
-1. **`content` ordering is opaque.** When a layout has multiple `content` placeholders, an author writing `slot: "content"` on multiple elements gets them filled in array order, but until OOXML inspection of the source `.pptx` is done we can't promise *which* visual region each array slot is (heading vs body vs caption). Treat array order as a positional binding for v1 and refine in a follow-on pass once the `.pptx` source decks are inspected.
+1. **`body` ordering is opaque.** When a layout has multiple `body` placeholders, an author writing `slot: "body"` on multiple content items gets them filled in array order, but until OOXML inspection of the source `.pptx` is done we can't promise *which* visual region each array slot is (heading vs body vs caption). Treat array order as a positional binding for v1 and refine in a follow-on pass once the `.pptx` source decks are inspected.
 
 2. **`PICTURE` vs `slide_image` overlap.** A layout like `Image_1x_Crop` carries 1 `PICTURE` for the content image; `Title_Left_SlideImage` carries 1 `PICTURE` for the slide-level image. Both end up as a single `picture` placeholder in the generated record, and authors bind via `slot: "picture"` in either case. If a future use case needs to distinguish "the content image" from "the slide-level background image," the cheapest extension is a separate placeholder type (e.g. `slide-image`) — not needed today.
 
@@ -344,10 +349,10 @@ write spec/layouts/index.json
 
 4. **Layout taxonomy refactor (separate plan).** The `-box`, alignment (`-left` / `-center`), and `-slideimage` modifiers in layout names are really *design* properties — a box behind the content, the title's horizontal alignment, a full-bleed image overlay. They could be expressed as design overrides on a much smaller base set of layouts (~23 canonical layouts vs the current 400). Spec'd out in [`layout-taxonomy.md`](layout-taxonomy.md) as a follow-on plan; the placeholder list this plan introduces is design-agnostic and survives that taxonomy rework verbatim.
 
-5. **List data model (deferred).** The current schema's `contentTypeListBullet` and `contentTypeListHeading` booleans are coarse. As you flagged, getting the OPF list model right is a separate, larger conversation — possibly making list semantics first-class on `Element` (or on `TextContent`) rather than encoding them in the layout. This plan deliberately leaves that alone; it preserves the existing fields as-is.
+5. **List data model.** The presentation schema now uses `ContentItem.type = "list"` plus a flat `list` array, keeping list semantics on the content item rather than encoding them in the layout. The current layout schema's `contentTypeListBullet` and `contentTypeListHeading` booleans remain coarse design/catalog hints and should be revisited separately.
 
 6. **Source `.pptx` sanity check (when convenient).** The 400-layout source `.pptx` exists but is out of scope for this pass. When the .pptx render path is built, spot-check 5–10 layouts to confirm:
-   - the array order of `content` placeholders matches the visual ordering authors expect,
+   - the array order of `body` placeholders matches the visual ordering authors expect,
    - `PICTURE`-vs-`OBJECT` splits in image layouts behave as predicted,
    - canvas-layout chrome suppression for `image-bleed` / `blank` matches what designers want.
 
@@ -361,7 +366,7 @@ Each phase leaves the repo in a valid state.
 
 - Add `Placeholder` `$def` and the `placeholders` property to [`spec/layout.schema.json`](../../spec/layout.schema.json) as an optional field.
 - Update the `slideSubtitle` description to say "true exactly when `placeholders` contains a `subtitle` entry."
-- Update `Element.slot` in [`spec/presentation.schema.json:1284-1288`](../../spec/presentation.schema.json) so the description matches the array-order binding rule from §2.2 and the examples are drawn from the new vocabulary (drop `image-right` / `footer`; keep `title`, `subtitle`, `body`; add `content`, `tag`, `chart`, `picture`).
+- Add `Slide.title`, `Slide.subtitle`, and `Slide.tag` to [`spec/presentation.schema.json`](../../spec/presentation.schema.json), and update `ContentItem.slot` so its description/examples focus on the remaining placeholder vocabulary (`body`, `chart`, `picture`, `table`, `media`, `diagram`, `code`).
 - Run `node packages/javascript/scripts/generate.mjs` to regenerate TS types.
 - All 400 existing `spec/layouts/*.json` records still validate (the new fields are optional).
 
@@ -377,11 +382,11 @@ Each phase leaves the repo in a valid state.
 - Re-run TS-type generation.
 - Validation queries from §3.4.
 
-### Phase 4 — Engine implementation of `meta.title` / `meta.subtitle` defaulting
+### Phase 4 — Engine implementation of `title` / `subtitle` defaulting
 
 - Implement the resolution algorithm in §2.6 in whichever package owns layout resolution.
-- Add a fixture OPF document that sets only `meta.title` + `meta.subtitle` and a slide with `layout: "title-left-slideimage"` and **no elements**, and assert both strings render.
-- Counter-fixture: `layout: "title-left-slideimage-bottom"` (no subtitle slot) with `meta.subtitle` set, assert subtitle is silently dropped.
+- Add a fixture OPF document that sets only `title` + `subtitle` and a slide with `layout: "title-left-slideimage"` and **no content**, and assert both strings render.
+- Counter-fixture: `layout: "title-left-slideimage-bottom"` (no subtitle slot) with `subtitle` set, assert subtitle is silently dropped.
 
 ### Phase 5 — Future passes (out of scope here, listed for context)
 
