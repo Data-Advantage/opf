@@ -5,25 +5,32 @@
       "title": "Performance",
       "top+middle": {
         "type": "chart",
-        "chartType": "line",
-        "data": {
-          "labels": [
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4"
-          ],
-          "datasets": [
-            {
-              "label": "Median latency",
-              "values": [
-                420,
-                310,
-                260,
+        "chart": {
+          "type": "line",
+          "data": {
+            "columns": [
+              "Quarter",
+              "Median latency"
+            ],
+            "rows": [
+              [
+                "Q1",
+                420
+              ],
+              [
+                "Q2",
+                310
+              ],
+              [
+                "Q3",
+                260
+              ],
+              [
+                "Q4",
                 190
               ]
-            }
-          ]
+            ]
+          }
         }
       },
       "bottom": {

@@ -97,14 +97,12 @@ const promotedRegionKeySet = new Set<string>(promotedRegionKeys);
 const rootPayloadFields = [
   "type",
   "text",
-  "runs",
   "items",
   "bullets",
-  "src",
-  "chartType",
-  "data",
-  "headers",
-  "rows",
+  "image",
+  "video",
+  "chart",
+  "table",
   "shape",
   "code",
   "language",
@@ -145,33 +143,33 @@ interface ContentKindSpec {
 
 const contentKindSpecs: Record<ContentKind, ContentKindSpec> = {
   text: {
-    fields: ["text", "runs", "bullets"],
+    fields: ["text", "bullets"],
     required: [],
-    requireAny: ["text", "runs", "bullets"],
+    requireAny: ["text", "bullets"],
   },
   list: {
     fields: ["items"],
     required: ["items"],
   },
   image: {
-    fields: ["src"],
-    required: ["src"],
+    fields: ["image"],
+    required: ["image"],
   },
   shape: {
     fields: ["shape"],
     required: ["shape"],
   },
   chart: {
-    fields: ["chartType", "data"],
-    required: ["chartType", "data"],
+    fields: ["chart"],
+    required: ["chart"],
   },
   table: {
-    fields: ["headers", "rows"],
-    required: ["rows"],
+    fields: ["table"],
+    required: ["table"],
   },
   video: {
-    fields: ["src"],
-    required: ["src"],
+    fields: ["video"],
+    required: ["video"],
   },
   code: {
     fields: ["code", "language"],
@@ -316,9 +314,10 @@ function inferredKinds(value: Record<string, unknown>): ContentKind[] {
 
   if (presentFields(value, contentKindSpecs.text.fields).length > 0) kinds.push("text");
   if (hasOwn(value, "items")) kinds.push("list");
-  if (hasOwn(value, "src")) kinds.push("image");
-  if (presentFields(value, contentKindSpecs.chart.fields).length > 0) kinds.push("chart");
-  if (presentFields(value, contentKindSpecs.table.fields).length > 0) kinds.push("table");
+  if (hasOwn(value, "image")) kinds.push("image");
+  if (hasOwn(value, "video")) kinds.push("video");
+  if (hasOwn(value, "chart")) kinds.push("chart");
+  if (hasOwn(value, "table")) kinds.push("table");
   if (hasOwn(value, "shape")) kinds.push("shape");
   if (hasOwn(value, "code")) kinds.push("code");
   if (presentFields(value, contentKindSpecs.metric.fields).length > 0) kinds.push("metric");

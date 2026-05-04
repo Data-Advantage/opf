@@ -4,7 +4,7 @@
     {
       "title": "Product Snapshot",
       "left": {
-        "src": "asset:product-shot"
+        "image": "asset:product-shot"
       },
       "center+right": {
         "text": "The dashboard pulls review status, owners, and exceptions into one operating view."

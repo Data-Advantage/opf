@@ -9,13 +9,20 @@
       "title": "Priorities",
       "items": [
         "Tighten the onboarding path",
-        "Move reporting into the product",
-        "Reduce support handoffs"
+        ["Move reporting ", { "text": "into the product", "bold": true }],
+        {
+          "text": "Reduce support handoffs",
+          "description": "Start with triage and escalation paths."
+        }
       ]
     },
     {
       "title": "Customer Signal",
-      "text": "Teams want fewer exports and more decisions made in the workflow."
+      "text": [
+        "Teams want ",
+        { "text": "fewer exports", "bold": true },
+        " and more decisions made in the workflow."
+      ]
     }
   ]
 }

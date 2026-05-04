@@ -4,28 +4,30 @@
     {
       "title": "Quarter Snapshot",
       "top+middle": {
-        "headers": [
-          "Metric",
-          "Q3",
-          "Q4"
-        ],
-        "rows": [
-          [
-            "Revenue",
-            "$12.4M",
-            "$18.1M"
+        "table": {
+          "headers": [
+            "Metric",
+            "Q3",
+            "Q4"
           ],
-          [
-            "Gross margin",
-            "68%",
-            "72%"
-          ],
-          [
-            "Pipeline",
-            "$31M",
-            "$44M"
+          "rows": [
+            [
+              "Revenue",
+              "$12.4M",
+              "$18.1M"
+            ],
+            [
+              "Gross margin",
+              "68%",
+              "72%"
+            ],
+            [
+              "Pipeline",
+              "$31M",
+              "$44M"
+            ]
           ]
-        ]
+        }
       },
       "bottom": {
         "text": "Growth was broad-based, with margin expansion from infrastructure savings."

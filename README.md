@@ -100,6 +100,7 @@ node packages/cli/dist/index.js validate path/to/deck.opf.json
 | Path | Contents |
 |---|---|
 | [`spec/presentation.schema.json`](./spec/presentation.schema.json) | Canonical JSON Schema for top-level OPF `Presentation` documents. |
+| [`docs/content-payloads.md`](./docs/content-payloads.md) | Author-facing notes for slide and region content payloads, including chart and table object shapes. |
 | [`spec/*.schema.json`](./spec) | Companion schemas for catalog records and sub-objects. |
 | [`spec/<catalog-kind>/`](./spec) | Canonical bundled catalog records. |
 | [`packages/javascript/`](./packages/javascript) | Private pre-release source for `@dataadvantage/opf`. |

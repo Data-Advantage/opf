@@ -1560,48 +1560,40 @@
           "description": "Optional full-slide content kind. When omitted, engines infer the kind from root payload fields."
         },
         "text": {
-          "type": "string",
-          "description": "Full-slide text payload."
-        },
-        "runs": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/TextRun" },
-          "description": "Full-slide rich text expressed as formatted runs."
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/TextRun" }
+            }
+          ],
+          "description": "Full-slide text payload. Use a string for plain text or TextRun[] for inline rich text. TextRun items may be plain strings or formatted run objects."
         },
         "items": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TextListItem" },
+          "items": { "$ref": "#/$defs/ListItem" },
           "description": "Full-slide generic list payload. Presence of this field infers type 'list'."
         },
         "bullets": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TextListItem" },
+          "items": { "$ref": "#/$defs/BulletItem" },
           "description": "Full-slide text-style bullet payload. Presence of this field infers type 'text'."
         },
-        "src": {
+        "image": {
           "$ref": "#/$defs/AssetSource",
-          "description": "Full-slide image or media source. Infers image unless type is explicitly 'video'."
+          "description": "Full-slide image source. Presence of this field infers type 'image'."
         },
-        "chartType": {
-          "type": "string",
-          "description": "Full-slide chart variant. Chart payloads require both chartType and data."
+        "video": {
+          "$ref": "#/$defs/AssetSource",
+          "description": "Full-slide video source. Presence of this field infers type 'video'."
         },
-        "data": {
-          "oneOf": [
-            { "$ref": "#/$defs/ChartData" },
-            { "$ref": "#/$defs/ChartDataAsset" }
-          ],
-          "description": "Full-slide chart data."
+        "chart": {
+          "$ref": "#/$defs/ChartPayload",
+          "description": "Full-slide chart payload. Presence of this field infers type 'chart'."
         },
-        "headers": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Full-slide table header labels."
-        },
-        "rows": {
-          "type": "array",
-          "items": { "type": "array" },
-          "description": "Full-slide table row data."
+        "table": {
+          "$ref": "#/$defs/TablePayload",
+          "description": "Full-slide table payload. Presence of this field infers type 'table'."
         },
         "shape": {
           "type": "string",
@@ -1846,7 +1838,7 @@
     },
     "ContentPayload": {
       "type": "object",
-      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, runs, bullets, items, src, chartType, rows, code, shape, value, quote, or events. Children, prompt, and expectedType are structural/generation metadata, not content kinds.",
+      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, bullets, items, image, video, chart, table, code, shape, value, quote, or events. Children, prompt, and expectedType are structural/generation metadata, not content kinds.",
       "additionalProperties": false,
       "properties": {
         "type": {
@@ -1855,30 +1847,45 @@
           "description": "Optional content kind. When omitted, engines infer the kind from the fields present."
         },
         "text": {
-          "type": "string",
-          "description": "Simple text string for basic use; ignored when 'runs' is provided.",
-          "examples": ["Hello, world", "The Future of Agentic Workflows"]
-        },
-        "runs": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/TextRun" },
-          "description": "Rich text expressed as formatted runs."
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/TextRun" }
+            }
+          ],
+          "description": "Text payload. Use a string for plain text or TextRun[] for inline rich text. TextRun items may be plain strings or formatted run objects.",
+          "examples": [
+            "Hello, world",
+            [
+              "Revenue grew ",
+              { "text": "42%", "bold": true, "color": "#16A34A" },
+              " year over year."
+            ]
+          ]
         },
         "items": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TextListItem" },
-          "description": "Generic list payload. Each item is either a string or a small text object; list nesting uses item.level rather than nested content payloads.",
-          "examples": [["Sub-second agent latency", "Drop-in compatible with OpenAI tool-calling", "SOC 2 Type II"]]
+          "items": { "$ref": "#/$defs/ListItem" },
+          "description": "Generic list payload. Each item is either a plain string, a TextRun[] rich text sequence, or a ListItem object. List nesting uses item.level rather than nested content payloads.",
+          "examples": [[
+            "Sub-second agent latency",
+            ["Drop-in compatible with ", { "text": "OpenAI tool-calling", "bold": true }],
+            {
+              "text": "SOC 2 Type II",
+              "description": "Security review ready for enterprise procurement."
+            }
+          ]]
         },
         "bullets": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TextListItem" },
+          "items": { "$ref": "#/$defs/BulletItem" },
           "description": "Text-style bullet payload. Presence of this field infers type 'text'.",
           "examples": [["Sub-second agent latency", "Drop-in compatible with OpenAI tool-calling", "SOC 2 Type II"]]
         },
-        "src": {
+        "image": {
           "$ref": "#/$defs/AssetSource",
-          "description": "Source for an image or media item.",
+          "description": "Source for an image item.",
           "examples": [
             "https://cdn.acme.com/images/diagram.png",
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9V3iWggAAAAASUVORK5CYII=",
@@ -1886,32 +1893,21 @@
             "asset:img-diagram"
           ]
         },
-        "chartType": {
-          "type": "string",
-          "description": "Semantic chart variant. The engine maps this content-level chart kind to an appropriate visual treatment.",
+        "video": {
+          "$ref": "#/$defs/AssetSource",
+          "description": "Source for a video item.",
           "examples": [
-            "bar", "column", "line", "pie", "donut", "doughnut", "area", "scatter", "radar",
-            "waterfall", "funnel", "treemap", "combo"
+            "asset:demo-video",
+            "./media/demo.mp4"
           ]
         },
-        "data": {
-          "oneOf": [
-            { "$ref": "#/$defs/ChartData" },
-            { "$ref": "#/$defs/ChartDataAsset" }
-          ],
-          "description": "Chart data, either inline labels/datasets or a reference to a top-level data asset with column mapping."
+        "chart": {
+          "$ref": "#/$defs/ChartPayload",
+          "description": "Chart payload. Presence of this field infers type 'chart'."
         },
-        "headers": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Header row labels rendered above table data rows.",
-          "examples": [["Region", "Q3 Revenue", "Q4 Revenue", "YoY %"]]
-        },
-        "rows": {
-          "type": "array",
-          "items": { "type": "array" },
-          "description": "Two-dimensional table row data; each row aligns by index with the headers/columns.",
-          "examples": [[["North America", 12.4, 18.1, 46], ["EMEA", 8.2, 11.5, 40]]]
+        "table": {
+          "$ref": "#/$defs/TablePayload",
+          "description": "Table payload. Presence of this field infers type 'table'."
         },
         "shape": {
           "type": "string",
@@ -2019,7 +2015,7 @@
             "properties": { "type": { "const": "image" } }
           },
           "then": {
-            "required": ["src"]
+            "required": ["image"]
           }
         },
         {
@@ -2028,7 +2024,7 @@
             "properties": { "type": { "const": "chart" } }
           },
           "then": {
-            "required": ["chartType", "data"]
+            "required": ["chart"]
           }
         },
         {
@@ -2037,7 +2033,7 @@
             "properties": { "type": { "const": "table" } }
           },
           "then": {
-            "required": ["rows"]
+            "required": ["table"]
           }
         },
         {
@@ -2055,7 +2051,7 @@
             "properties": { "type": { "const": "video" } }
           },
           "then": {
-            "required": ["src"]
+            "required": ["video"]
           }
         },
         {
@@ -2119,22 +2115,53 @@
         }
       }
     },
-    "TextListItem": {
-      "description": "A flat item inside a list. Strings cover the common case; object form adds inline runs and nesting depth without creating nested slide content payloads.",
+    "ListItem": {
+      "description": "A flat item inside a list. Strings cover the common case, TextRun[] supports inline rich text without an object wrapper, and object form adds description and nesting depth without creating nested slide content payloads.",
       "oneOf": [
         { "type": "string" },
         {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TextRun" }
+        },
+        {
           "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
           "properties": {
             "text": {
-              "type": "string",
-              "description": "Plain text for the list item.",
-              "examples": ["Improve retention by 12 points"]
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/TextRun" }
+                }
+              ],
+              "description": "Text for the list item. Use a string for plain text or TextRun[] for inline rich text. TextRun items may be plain strings or formatted run objects.",
+              "examples": [
+                "Improve retention by 12 points",
+                [
+                  "Improve retention by ",
+                  { "text": "12 points", "bold": true }
+                ]
+              ]
             },
-            "runs": {
-              "type": "array",
-              "items": { "$ref": "#/$defs/TextRun" },
-              "description": "Rich text runs for the list item."
+            "description": {
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/TextRun" }
+                }
+              ],
+              "description": "Optional supporting detail for the list item. Use a string for plain text or TextRun[] for inline rich text.",
+              "examples": [
+                "Focused on activation and first-value time.",
+                [
+                  "Focused on ",
+                  { "text": "activation", "bold": true },
+                  " and first-value time."
+                ]
+              ]
             },
             "level": {
               "type": "integer",
@@ -2145,109 +2172,180 @@
         }
       ]
     },
+    "BulletItem": {
+      "description": "A flat bullet item. Strings cover the common case, TextRun[] supports inline rich text without an object wrapper, and object form adds nesting depth without list-item descriptions.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TextRun" }
+        },
+        {
+          "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/TextRun" }
+                }
+              ],
+              "description": "Text for the bullet. Use a string for plain text or TextRun[] for inline rich text. TextRun items may be plain strings or formatted run objects.",
+              "examples": [
+                "Improve retention by 12 points",
+                [
+                  "Improve retention by ",
+                  { "text": "12 points", "bold": true }
+                ]
+              ]
+            },
+            "level": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Zero-based nesting level for the bullet."
+            }
+          }
+        }
+      ]
+    },
     "TextRun": {
+      "description": "A contiguous run of text. Strings cover unformatted spans; object form adds character formatting.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["text"],
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Text for this run.",
+              "examples": ["Hello, ", "world"]
+            },
+            "bold": {
+              "type": "boolean",
+              "description": "Whether the run is rendered in bold."
+            },
+            "italic": {
+              "type": "boolean",
+              "description": "Whether the run is rendered in italic."
+            },
+            "underline": {
+              "type": "boolean",
+              "description": "Whether the run is underlined."
+            },
+            "strikethrough": {
+              "type": "boolean",
+              "description": "Whether the run is rendered with a strikethrough line."
+            },
+            "color": {
+              "type": "string",
+              "description": "Run text color as a hex string.",
+              "examples": ["#0F172A", "#1E40AF"]
+            },
+            "fontSize": {
+              "type": "number",
+              "description": "Run font size in points."
+            },
+            "fontFamily": {
+              "type": "string",
+              "description": "Run font family override.",
+              "examples": ["Inter", "Source Serif Pro", "JetBrains Mono"]
+            },
+            "link": {
+              "type": "string",
+              "description": "URL to link the run text to.",
+              "examples": ["https://acme.com", "https://acme.com/case-studies/beta"]
+            },
+            "superscript": {
+              "type": "boolean",
+              "description": "Whether the run is rendered as superscript."
+            },
+            "subscript": {
+              "type": "boolean",
+              "description": "Whether the run is rendered as subscript."
+            }
+          }
+        }
+      ]
+    },
+    "ChartPayload": {
       "type": "object",
-      "description": "A contiguous run of text sharing the same character formatting.",
-      "required": ["text"],
+      "description": "Chart content. The chart object keeps chart-specific fields together so slides and regions do not expose loose chart fields.",
+      "additionalProperties": false,
+      "required": ["type", "data"],
       "properties": {
-        "text": {
+        "type": {
           "type": "string",
-          "description": "Text for this run.",
-          "examples": ["Hello, ", "world"]
+          "description": "Semantic chart variant. The engine maps this chart kind to an appropriate visual treatment.",
+          "examples": [
+            "bar", "column", "line", "pie", "donut", "doughnut", "area", "scatter", "radar",
+            "waterfall", "funnel", "treemap", "combo"
+          ]
         },
-        "bold": {
-          "type": "boolean",
-          "description": "Whether the run is rendered in bold."
+        "data": {
+          "oneOf": [
+            { "$ref": "#/$defs/ChartData" },
+            { "$ref": "#/$defs/ChartDataAsset" }
+          ],
+          "description": "Chart data. Inline data uses a tabular columns/rows shape; renderers convert rows to chart series internally."
+        }
+      }
+    },
+    "TablePayload": {
+      "type": "object",
+      "description": "Table content. Headers are optional; rows are the only required field.",
+      "additionalProperties": false,
+      "required": ["rows"],
+      "properties": {
+        "headers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional header labels rendered above table rows.",
+          "examples": [["Region", "Q3 Revenue", "Q4 Revenue", "YoY %"]]
         },
-        "italic": {
-          "type": "boolean",
-          "description": "Whether the run is rendered in italic."
-        },
-        "underline": {
-          "type": "boolean",
-          "description": "Whether the run is underlined."
-        },
-        "strikethrough": {
-          "type": "boolean",
-          "description": "Whether the run is rendered with a strikethrough line."
-        },
-        "color": {
-          "type": "string",
-          "description": "Run text color as a hex string.",
-          "examples": ["#0F172A", "#1E40AF"]
-        },
-        "fontSize": {
-          "type": "number",
-          "description": "Run font size in points."
-        },
-        "fontFamily": {
-          "type": "string",
-          "description": "Run font family override.",
-          "examples": ["Inter", "Source Serif Pro", "JetBrains Mono"]
-        },
-        "link": {
-          "type": "string",
-          "description": "URL to link the run text to.",
-          "examples": ["https://acme.com", "https://acme.com/case-studies/beta"]
-        },
-        "superscript": {
-          "type": "boolean",
-          "description": "Whether the run is rendered as superscript."
-        },
-        "subscript": {
-          "type": "boolean",
-          "description": "Whether the run is rendered as subscript."
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/TableCell" }
+          },
+          "description": "Two-dimensional table row data; each row aligns by index with headers when headers are supplied.",
+          "examples": [[["North America", 12.4, 18.1, "46%"], ["EMEA", 8.2, 11.5, "40%"]]]
         }
       }
     },
     "ChartData": {
       "type": "object",
-      "description": "Data driving a chart content payload.",
-      "required": ["datasets"],
+      "description": "Inline tabular data driving a chart. The first column usually supplies category/x-axis labels; subsequent columns are plotted measures unless a chart preset or renderer maps them differently.",
+      "additionalProperties": false,
+      "required": ["columns", "rows"],
       "properties": {
-        "labels": {
+        "columns": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Category labels shared across datasets (e.g., x-axis tick labels).",
-          "examples": [["Q1", "Q2", "Q3", "Q4"], ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]]
+          "minItems": 1,
+          "description": "Ordered column labels for the chart data table.",
+          "examples": [["Quarter", "Revenue"], ["Quarter", "Revenue", "Costs"]]
         },
-        "datasets": {
+        "rows": {
           "type": "array",
-          "description": "One or more data series rendered on the chart.",
           "items": {
-            "type": "object",
-            "description": "A single data series.",
-            "required": ["label", "values"],
-            "properties": {
-              "label": {
-                "type": "string",
-                "description": "Dataset name shown in the legend.",
-                "examples": ["Revenue ($M)", "MAU", "Latency (ms)"]
-              },
-              "values": {
-                "type": "array",
-                "items": { "type": "number" },
-                "description": "Numeric values for the dataset; aligns by index with the chart's labels.",
-                "examples": [[12.4, 14.1, 16.8, 18.1]]
-              },
-              "color": {
-                "type": "string",
-                "description": "Override color for this dataset as a hex string.",
-                "examples": ["#1E40AF", "#22D3EE"]
-              },
-              "type": {
-                "type": "string",
-                "description": "Per-dataset chart type override (used by combo charts).",
-                "examples": ["line", "column", "area"]
-              }
-            }
-          }
+            "type": "array",
+            "items": { "$ref": "#/$defs/ChartDataCell" }
+          },
+          "minItems": 1,
+          "description": "Tabular chart rows. Each row aligns by index with columns.",
+          "examples": [[["Q1", 12], ["Q2", 18], ["Q3", 24], ["Q4", 31]]]
         }
       }
     },
     "ChartDataAsset": {
       "type": "object",
-      "description": "Chart data sourced from a top-level data asset such as CSV, TSV, JSON, or XLSX. The mapping describes how columns or fields become chart labels and datasets.",
+      "description": "Chart data sourced from a top-level data asset such as CSV, TSV, JSON, or XLSX. The asset is interpreted as a table; optional columns selects or orders fields from that table.",
+      "additionalProperties": false,
       "required": ["asset"],
       "properties": {
         "asset": {
@@ -2265,52 +2363,31 @@
           "description": "Optional A1-style range or engine-defined range selector for spreadsheet-like assets.",
           "examples": ["A1:D8", "Revenue!A1:D8"]
         },
-        "mapping": {
-          "$ref": "#/$defs/ChartDataMapping",
-          "description": "Column or field mapping used to populate the chart from the asset."
+        "columns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional ordered columns or fields to read from the asset. When omitted, renderers may use the asset's own header row or schema.",
+          "examples": [["Quarter", "Revenue"], ["Month", "Revenue", "Costs"]]
         }
       }
     },
-    "ChartDataMapping": {
-      "type": "object",
-      "description": "Mapping from tabular data columns or object fields to chart labels and datasets.",
-      "properties": {
-        "labels": {
-          "type": "string",
-          "description": "Column or field name containing category labels.",
-          "examples": ["Quarter", "Month", "Region"]
-        },
-        "datasets": {
-          "type": "array",
-          "description": "Dataset mappings from columns or fields.",
-          "items": {
-            "type": "object",
-            "required": ["values"],
-            "properties": {
-              "label": {
-                "type": "string",
-                "description": "Legend label for this dataset. When omitted, renderers may use the values column name.",
-                "examples": ["Revenue", "Pipeline"]
-              },
-              "values": {
-                "type": "string",
-                "description": "Column or field name containing numeric values for this dataset.",
-                "examples": ["Revenue", "ARR", "Value"]
-              },
-              "color": {
-                "type": "string",
-                "description": "Override color for this dataset as a hex string.",
-                "examples": ["#1E40AF", "#22D3EE"]
-              },
-              "type": {
-                "type": "string",
-                "description": "Per-dataset chart type override for combo charts.",
-                "examples": ["line", "column", "area"]
-              }
-            }
-          }
-        }
-      }
+    "ChartDataCell": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "null" }
+      ],
+      "description": "A cell in inline chart data."
+    },
+    "TableCell": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "null" }
+      ],
+      "description": "A cell in table content."
     },
     "Catalogs": {
       "type": "object",

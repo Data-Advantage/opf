@@ -59,7 +59,19 @@ function assertPresentationInvalid(value, messageIncludes) {
 
 assertPresentationValid({
   name: "Root Payload",
-  slides: [{ section: "Overview", title: "Summary", items: ["First", "Second", "Third"] }],
+  slides: [{
+    section: "Overview",
+    title: "Summary",
+    items: [
+      "First",
+      ["Second with ", { text: "emphasis", bold: true }],
+      {
+        text: "Third",
+        description: "Optional supporting detail.",
+        level: 1,
+      },
+    ],
+  }],
 });
 
 assertPresentationValid({
@@ -123,14 +135,48 @@ assertPresentationValid({
     title: "Performance",
     "top+middle": {
       type: "chart",
-      chartType: "line",
-      data: {
-        labels: ["Q1", "Q2"],
-        datasets: [{ label: "Latency", values: [10, 6] }],
+      chart: {
+        type: "line",
+        data: {
+          columns: ["Quarter", "Latency"],
+          rows: [
+            ["Q1", 10],
+            ["Q2", 6],
+          ],
+        },
       },
     },
     bottom: { text: "Latency improved quarter over quarter." },
   }],
+});
+
+assertPresentationValid({
+  name: "Chart And Table Objects",
+  slides: [
+    {
+      title: "Revenue Trend",
+      chart: {
+        type: "line",
+        data: {
+          columns: ["Quarter", "Revenue", "Costs"],
+          rows: [
+            ["Q1", 12, 8],
+            ["Q2", 18, 11],
+          ],
+        },
+      },
+    },
+    {
+      title: "Pipeline",
+      table: {
+        headers: ["Stage", "Count", "Value"],
+        rows: [
+          ["Qualified", 42, "$1.2M"],
+          ["Proposal", 18, "$840K"],
+        ],
+      },
+    },
+  ],
 });
 
 assertPresentationValid({
@@ -141,6 +187,46 @@ assertPresentationValid({
     "top:center+right": { text: "Processing" },
     "middle+bottom:left+center+right": { items: ["Queue", "Route", "Resolve"] },
   }],
+});
+
+assertPresentationValid({
+  name: "Rich Text",
+  slides: [{
+    title: "Summary",
+    text: [
+      "Revenue grew ",
+      { text: "42%", bold: true, color: "#16A34A" },
+      " year over year.",
+    ],
+  }],
+});
+
+assertPresentationValid({
+  name: "Bullets",
+  slides: [{
+    title: "Bullet Shape",
+    bullets: [
+      "Plain bullet",
+      ["Rich ", { text: "bullet", bold: true }],
+      { text: "Nested bullet", level: 1 },
+    ],
+  }],
+});
+
+assertPresentationValid({
+  name: "Media Source String Forms",
+  slides: [
+    { title: "Image Asset Ref", type: "image", image: "asset:product-shot" },
+    { title: "Image HTTPS URL", image: "https://www.someurl.com/my-image.png" },
+    { title: "Image Relative Path", image: "./assets/product-shot.png" },
+    { title: "Image Local Absolute Path", image: "/Users/example/assets/product-shot.png" },
+    { title: "Image Data URI", image: "data:image/png;base64,iVBORw0KGgo=" },
+    { title: "Video Asset Ref", type: "video", video: "asset:demo-video" },
+    { title: "Video HTTPS URL", video: "https://cdn.example.com/media/demo.mp4" },
+    { title: "Video Relative Path", video: "./media/demo.mp4" },
+    { title: "Video Local Absolute Path", video: "/Users/example/media/demo.mp4" },
+    { title: "Video Data URI", video: "data:video/mp4;base64,AAAA" },
+  ],
 });
 
 assertPresentationValid({
@@ -199,6 +285,84 @@ assertPresentationInvalid({
   name: "Missing List Items",
   slides: [{ type: "list" }],
 }, "requires 'items'");
+
+assertPresentationInvalid({
+  name: "Missing Image Source",
+  slides: [{ type: "image" }],
+}, "requires 'image'");
+
+assertPresentationInvalid({
+  name: "Missing Video Source",
+  slides: [{ type: "video" }],
+}, "requires 'video'");
+
+assertPresentationInvalid({
+  name: "Missing Chart Payload",
+  slides: [{ type: "chart" }],
+}, "requires 'chart'");
+
+assertPresentationInvalid({
+  name: "Missing Chart Data",
+  slides: [{ chart: { type: "line" } }],
+}, "must have required property 'data'");
+
+assertPresentationInvalid({
+  name: "Old Chart Data Shape Rejected",
+  slides: [{
+    chart: {
+      type: "line",
+      data: {
+        labels: ["Q1"],
+        datasets: [{ label: "Revenue", values: [12] }],
+      },
+    },
+  }],
+}, "must have required property 'columns'");
+
+assertPresentationInvalid({
+  name: "Missing Table Payload",
+  slides: [{ type: "table" }],
+}, "requires 'table'");
+
+assertPresentationInvalid({
+  name: "Removed Loose Chart Fields",
+  slides: [{ chartType: "line", data: { columns: ["Quarter", "Revenue"], rows: [["Q1", 12]] } }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Removed Loose Table Fields",
+  slides: [{ headers: ["Metric", "Value"], rows: [["Revenue", "$12M"]] }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Image Array Rejected",
+  slides: [{ type: "image", image: ["asset:before", "asset:after"] }],
+}, "must be string");
+
+assertPresentationInvalid({
+  name: "Video Array Rejected",
+  slides: [{ type: "video", video: ["./media/demo.webm", "./media/demo.mp4"] }],
+}, "must be string");
+
+assertPresentationInvalid({
+  name: "Missing List Item Text",
+  slides: [{ items: [{ description: "Missing text" }] }],
+}, "must have required property 'text'");
+
+assertPresentationInvalid({
+  name: "Bullet Description Rejected",
+  slides: [{ bullets: [{ text: "Bullet", description: "Not allowed" }] }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Removed Runs Field",
+  slides: [{ title: "Summary", runs: [{ text: "Rich text" }] }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Removed Src Field",
+  slides: [{ title: "Old Image", src: "asset:product-shot" }],
+}, "must NOT have additional properties");
 
 assertPresentationInvalid({
   name: "Missing Metric Value",
