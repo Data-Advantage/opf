@@ -182,7 +182,7 @@ assertPresentationValid({
     {
       title: "Pipeline",
       table: {
-        headers: ["Stage", "Count", "Value"],
+        columns: ["Stage", "Count", "Value"],
         rows: [
           ["Qualified", 42, "$1.2M"],
           ["Proposal", 18, "$840K"],
@@ -193,12 +193,50 @@ assertPresentationValid({
 });
 
 assertPresentationValid({
+  name: "Chart Data Source",
+  assets: {
+    "revenue-csv": { src: "./data/revenue.csv", format: "csv" },
+  },
+  slides: [{
+    title: "Revenue From Asset",
+    chart: {
+      type: "column",
+      data: {
+        src: "asset:revenue-csv",
+        columns: ["Quarter", "Revenue"],
+      },
+    },
+  }],
+});
+
+assertPresentationValid({
   name: "Grid",
   slides: [{
     title: "Operating Model",
     "top:left": { text: "Inputs" },
     "top:center+right": { text: "Processing" },
     "middle+bottom:left+center+right": { items: ["Queue", "Route", "Resolve"] },
+  }],
+});
+
+assertPresentationValid({
+  name: "Blocks",
+  slides: [{
+    title: "Customer Feedback",
+    blocks: [
+      {
+        table: {
+          columns: ["Theme", "Mentions"],
+          rows: [["Speed", 42]],
+        },
+      },
+      {
+        quote: {
+          text: "The new workflow cut review time in half.",
+          attribution: "Operations Lead",
+        },
+      },
+    ],
   }],
 });
 
@@ -418,8 +456,26 @@ assertPresentationInvalid({
 
 assertPresentationInvalid({
   name: "Removed Loose Table Fields",
-  slides: [{ headers: ["Metric", "Value"], rows: [["Revenue", "$12M"]] }],
+  slides: [{ columns: ["Metric", "Value"], rows: [["Revenue", "$12M"]] }],
 }, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Removed Table Headers Field",
+  slides: [{ table: { headers: ["Metric", "Value"], rows: [["Revenue", "$12M"]] } }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Removed Chart Data Asset Field",
+  slides: [{
+    chart: {
+      type: "column",
+      data: {
+        asset: "revenue-csv",
+        columns: ["Quarter", "Revenue"],
+      },
+    },
+  }],
+}, "must have required property 'src'");
 
 assertPresentationInvalid({
   name: "Image Array Rejected",
@@ -531,8 +587,25 @@ assertPresentationInvalid({
 
 assertPresentationInvalid({
   name: "Removed Group Type",
-  slides: [{ type: "group", children: [{ text: "Child" }] }],
+  slides: [{ type: "group", blocks: [{ text: "Child" }] }],
 }, "must be equal to one of the allowed values");
+
+assertPresentationInvalid({
+  name: "Removed Children Field",
+  slides: [{ title: "Old composition", children: [{ text: "Child" }] }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Nested Blocks Field",
+  slides: [{
+    title: "Nested Blocks",
+    blocks: [
+      {
+        blocks: [{ text: "Nested child" }],
+      },
+    ],
+  }],
+}, "must NOT have additional properties");
 
 assertPresentationInvalid({
   name: "Removed Shape Type",

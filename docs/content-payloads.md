@@ -1,6 +1,6 @@
 # Content Payloads
 
-Slide content lives either directly on a slide as a full-slide payload or inside a promoted region key such as `left`, `center+right`, or `top:left`.
+Slide content lives directly on a slide as a full-slide payload, in layout-agnostic `blocks`, or inside a promoted region key such as `left`, `center+right`, or `top:left`.
 
 The optional payload `type` can make intent explicit, but OPF should usually infer the content kind from the field present:
 
@@ -12,11 +12,39 @@ The optional payload `type` can make intent explicit, but OPF should usually inf
 | `image` | `image` | Asset string shorthand or `Asset` object with `src` and optional metadata. |
 | `video` | `video` | Asset string shorthand or `Asset` object with `src` and optional metadata. |
 | `chart` | `chart` | Chart object with `type` and tabular `data`. |
-| `table` | `table` | Table object with optional `headers` and required `rows`. |
+| `table` | `table` | Table object with optional `columns` and required `rows`. |
 | `code` | `code` | String shorthand or `Code` object with `source`, `language`, and `filename`. |
 | `metric` | `metric` | String/number shorthand or `Metric` object with `value`, `label`, `description`, `unit`, `delta`, and `trend`. |
 | `quote` | `quote` | String shorthand or `Quote` object with `text`, `attribution`, and `source`. |
 | `timeline` | `timeline` | Array shorthand or `Timeline` object with `name`, `description`, and `events`. |
+
+## Blocks
+
+Use slide-level `blocks` when a slide contains multiple content payloads, but exact placement should be inferred by the renderer. Blocks are not recursive; each block is a concrete content payload.
+
+```json
+{
+  "title": "Customer Feedback Summary",
+  "blocks": [
+    {
+      "table": {
+        "columns": ["Theme", "Mentions"],
+        "rows": [
+          ["Speed", 42],
+          ["Ease of use", 31]
+        ]
+      }
+    },
+    {
+      "quote": {
+        "text": "The new workflow cut review time in half.",
+        "attribution": "Operations Lead",
+        "source": "Customer interview"
+      }
+    }
+  ]
+}
+```
 
 ## Chart
 
@@ -48,7 +76,7 @@ Asset-backed data is still table-oriented:
   "chart": {
     "type": "column",
     "data": {
-      "asset": "revenue-csv",
+      "src": "asset:revenue-csv",
       "columns": ["Quarter", "Revenue"]
     }
   }
@@ -57,13 +85,13 @@ Asset-backed data is still table-oriented:
 
 ## Table
 
-Table-specific fields are grouped under `table`. Do not put loose `headers` or `rows` directly on a slide or region.
+Table-specific fields are grouped under `table`. Do not put loose `columns` or `rows` directly on a slide or region.
 
 ```json
 {
   "title": "Pipeline",
   "table": {
-    "headers": ["Stage", "Count", "Value"],
+    "columns": ["Stage", "Count", "Value"],
     "rows": [
       ["Qualified", 42, "$1.2M"],
       ["Proposal", 18, "$840K"]
@@ -154,7 +182,7 @@ The same payload objects work inside regions:
   "title": "Operating Snapshot",
   "left": {
     "table": {
-      "headers": ["Metric", "Value"],
+      "columns": ["Metric", "Value"],
       "rows": [
         ["Revenue", "$4.2M"],
         ["Gross margin", "68%"]

@@ -1635,10 +1635,10 @@
           "$ref": "#/$defs/Timeline",
           "description": "Full-slide timeline payload. An array is shorthand for { \"events\": value }; object form carries optional name and description metadata. Presence of this field infers type 'timeline'."
         },
-        "children": {
+        "blocks": {
           "type": "array",
           "items": { "$ref": "#/$defs/ContentPayload" },
-          "description": "Child content payloads rendered together as a composed payload."
+          "description": "Layout-agnostic content blocks rendered together as a composed payload when exact placement is unspecified."
         },
         "prompt": {
           "type": "string",
@@ -1815,7 +1815,7 @@
     },
     "ContentPayload": {
       "type": "object",
-      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, bullets, items, image, video, chart, table, code, metric, quote, or timeline. Children, prompt, and expectedType are structural/generation metadata, not content kinds.",
+      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, bullets, items, image, video, chart, table, code, metric, quote, or timeline. Prompt and expectedType are structural/generation metadata, not content kinds.",
       "additionalProperties": false,
       "properties": {
         "type": {
@@ -1952,11 +1952,6 @@
               ]
             }
           ]
-        },
-        "children": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/ContentPayload" },
-          "description": "Child content payloads rendered together as a composed payload."
         },
         "prompt": {
           "type": "string",
@@ -2375,7 +2370,7 @@
         "data": {
           "oneOf": [
             { "$ref": "#/$defs/ChartData" },
-            { "$ref": "#/$defs/ChartDataAsset" }
+            { "$ref": "#/$defs/ChartDataSource" }
           ],
           "description": "Chart data. Inline data uses a tabular columns/rows shape; renderers convert rows to chart series internally."
         }
@@ -2383,14 +2378,14 @@
     },
     "Table": {
       "type": "object",
-      "description": "Table content. Headers are optional; rows are the only required field.",
+      "description": "Table content. Columns are optional; rows are the only required field.",
       "additionalProperties": false,
       "required": ["rows"],
       "properties": {
-        "headers": {
+        "columns": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Optional header labels rendered above table rows.",
+          "description": "Optional column labels rendered above table rows.",
           "examples": [["Region", "Q3 Revenue", "Q4 Revenue", "YoY %"]]
         },
         "rows": {
@@ -2399,7 +2394,7 @@
             "type": "array",
             "items": { "$ref": "#/$defs/TableCell" }
           },
-          "description": "Two-dimensional table row data; each row aligns by index with headers when headers are supplied.",
+          "description": "Two-dimensional table row data; each row aligns by index with columns when columns are supplied.",
           "examples": [[["North America", 12.4, 18.1, "46%"], ["EMEA", 8.2, 11.5, "40%"]]]
         }
       }
@@ -2429,16 +2424,16 @@
         }
       }
     },
-    "ChartDataAsset": {
+    "ChartDataSource": {
       "type": "object",
-      "description": "Chart data sourced from a top-level data asset such as CSV, TSV, JSON, or XLSX. The asset is interpreted as a table; optional columns selects or orders fields from that table.",
+      "description": "Chart data sourced from an asset reference, URL, data URI, relative path, or local path such as CSV, TSV, JSON, or XLSX. The source is interpreted as a table; optional columns select or order fields from that table.",
       "additionalProperties": false,
-      "required": ["asset"],
+      "required": ["src"],
       "properties": {
-        "asset": {
+        "src": {
           "type": "string",
-          "description": "Asset id from the top-level assets registry. The referenced asset should have type 'data'.",
-          "examples": ["revenue", "pipeline-csv"]
+          "description": "Data source. Use 'asset:<id>' to reference the top-level assets registry, or provide an HTTPS URL, data URI, relative path, or local filesystem path.",
+          "examples": ["asset:revenue", "asset:pipeline-csv", "./data/revenue.csv", "https://cdn.acme.com/data/revenue.csv"]
         },
         "sheet": {
           "type": "string",
@@ -2453,7 +2448,7 @@
         "columns": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Optional ordered columns or fields to read from the asset. When omitted, renderers may use the asset's own header row or schema.",
+          "description": "Optional ordered columns or fields to read from the source. When omitted, renderers may use the source's own header row or schema.",
           "examples": [["Quarter", "Revenue"], ["Month", "Revenue", "Costs"]]
         }
       }

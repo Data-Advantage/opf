@@ -107,12 +107,12 @@ const rootPayloadFields = [
   "metric",
   "quote",
   "timeline",
-  "children",
+  "blocks",
   "prompt",
   "expectedType",
 ] as const;
 
-const contentMetaFields = ["children", "prompt", "expectedType"] as const;
+const contentMetaFields = ["prompt", "expectedType"] as const;
 
 type ContentKind =
   | "text"
@@ -313,11 +313,15 @@ function inferredKinds(value: Record<string, unknown>): ContentKind[] {
   return kinds;
 }
 
-function validateContentPayload(value: Record<string, unknown>, path: string): ValidationIssue[] {
+function validateContentPayload(
+  value: Record<string, unknown>,
+  path: string,
+  options: { allowBlocks?: boolean } = {},
+): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const explicitType = value.type;
   const payloadFields = presentFields(value, rootPayloadFields);
-  const hasChildren = hasOwn(value, "children");
+  const hasBlocks = options.allowBlocks === true && hasOwn(value, "blocks");
   const hasPrompt = hasOwn(value, "prompt");
   const hasExpectedType = hasOwn(value, "expectedType");
 
@@ -334,15 +338,15 @@ function validateContentPayload(value: Record<string, unknown>, path: string): V
         fields: payloadFields,
       }));
     }
-    if (!hasChildren && !hasPrompt && !hasExpectedType && (payloadFields.length > 0 || path !== "/")) {
-      issues.push(semanticIssue(path, "content payload must include concrete content fields, children, or prompt", {
+    if (!hasBlocks && !hasPrompt && !hasExpectedType && (payloadFields.length > 0 || path !== "/")) {
+      issues.push(semanticIssue(path, "content payload must include concrete content fields or prompt", {
         fields: payloadFields,
       }));
     }
-    if (Array.isArray(value.children)) {
-      value.children.forEach((child, index) => {
-        if (isRecord(child)) {
-          issues.push(...validateContentPayload(child, `${pathFor(path, "children")}/${index}`));
+    if (hasBlocks && Array.isArray(value.blocks)) {
+      value.blocks.forEach((block, index) => {
+        if (isRecord(block)) {
+          issues.push(...validateContentPayload(block, `${pathFor(path, "blocks")}/${index}`));
         }
       });
     }
@@ -361,7 +365,12 @@ function validateContentPayload(value: Record<string, unknown>, path: string): V
     return issues;
   }
   const spec = contentKindSpecs[resolvedKind];
-  const allowedFields = new Set<string>(["type", ...spec.fields, ...contentMetaFields]);
+  const allowedFields = new Set<string>([
+    "type",
+    ...spec.fields,
+    ...contentMetaFields,
+    ...(options.allowBlocks ? ["blocks"] : []),
+  ]);
 
   for (const required of spec.required) {
     if (!hasOwn(value, required)) {
@@ -387,10 +396,10 @@ function validateContentPayload(value: Record<string, unknown>, path: string): V
     }));
   }
 
-  if (Array.isArray(value.children)) {
-    value.children.forEach((child, index) => {
-      if (isRecord(child)) {
-        issues.push(...validateContentPayload(child, `${pathFor(path, "children")}/${index}`));
+  if (options.allowBlocks && Array.isArray(value.blocks)) {
+    value.blocks.forEach((block, index) => {
+      if (isRecord(block)) {
+        issues.push(...validateContentPayload(block, `${pathFor(path, "blocks")}/${index}`));
       }
     });
   }
@@ -446,7 +455,7 @@ function validateSlideRegions(slide: Record<string, unknown>, slidePath: string)
   }
 
   if (regionKeys.length === 0 && rootFields.length > 0) {
-    issues.push(...validateContentPayload(slide, slidePath));
+    issues.push(...validateContentPayload(slide, slidePath, { allowBlocks: true }));
   }
 
   for (const key of regionKeys) {

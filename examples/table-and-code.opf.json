@@ -5,7 +5,7 @@
       "title": "Quarter Snapshot",
       "top+middle": {
         "table": {
-          "headers": [
+          "columns": [
             "Metric",
             "Q3",
             "Q4"
