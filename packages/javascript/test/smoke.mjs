@@ -359,28 +359,6 @@ assertPresentationValid({
   ],
 });
 
-assertPresentationValid({
-  name: "Prompt Without Placeholder Type",
-  slides: [{
-    title: "Generate Follow-Up",
-    "left+center+right": {
-      prompt: "Create three concise next steps.",
-      expectedType: "list",
-    },
-  }],
-});
-
-assertPresentationValid({
-  name: "Generated Code Prompt",
-  slides: [{
-    title: "Generate Parser",
-    left: {
-      prompt: "Create a small TypeScript parser example.",
-      expectedType: "code",
-    },
-  }],
-});
-
 assertPresentationInvalid({
   name: "Overlap",
   slides: [{ left: { text: "A" }, "left+center": { text: "B" } }],
@@ -582,8 +560,18 @@ assertPresentationInvalid({
 
 assertPresentationInvalid({
   name: "Removed Placeholder Type",
-  slides: [{ type: "placeholder", prompt: "Create a list.", expectedType: "list" }],
+  slides: [{ type: "placeholder" }],
 }, "must be equal to one of the allowed values");
+
+assertPresentationInvalid({
+  name: "Removed Prompt Field",
+  slides: [{ title: "Old Prompt", left: { prompt: "Create a list." } }],
+}, "must NOT have additional properties");
+
+assertPresentationInvalid({
+  name: "Removed Expected Type Field",
+  slides: [{ title: "Old Expected Type", expectedType: "list" }],
+}, "must NOT have additional properties");
 
 assertPresentationInvalid({
   name: "Removed Group Type",

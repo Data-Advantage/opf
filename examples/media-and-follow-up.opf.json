@@ -1,5 +1,5 @@
 {
-  "name": "Media And Prompt Example",
+  "name": "Media And Follow-Up Example",
   "slides": [
     {
       "title": "Product Snapshot",
@@ -11,10 +11,13 @@
       }
     },
     {
-      "title": "Generate Follow-Up",
+      "title": "Follow-Up",
       "left+center+right": {
-        "prompt": "Create three concise next steps for an operations audience.",
-        "expectedType": "list"
+        "items": [
+          "Confirm owners for open exceptions.",
+          "Review aging thresholds with operations leads.",
+          "Schedule the next dashboard readout."
+        ]
       }
     }
   ],

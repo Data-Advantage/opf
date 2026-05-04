@@ -135,14 +135,14 @@
         },
         "description": {
           "type": "string",
-          "description": "Curator-written prose that explains what this beat should accomplish. Used as a prompt for AI-driven generation of slides assigned to this beat.",
+          "description": "Curator-written prose that explains what this beat should accomplish.",
           "examples": [
             "Quantify the pain customers feel today, with one striking stat the audience can repeat afterward."
           ]
         },
         "instructions": {
           "type": "string",
-          "description": "Short author-facing instruction for the beat — typically one phrase. Complements 'description'; AI uses this as a directive while 'description' supplies the rationale.",
+          "description": "Short author-facing instruction for the beat — typically one phrase. Complements 'description' with a concise directive.",
           "examples": [
             "Capture audience attention",
             "Introduce problem",
@@ -193,7 +193,7 @@
           "items": {
             "type": "string"
           },
-          "description": "Optional speaker prompts or thinking cues attached to the beat. Surfaced in presenter notes or AI prompts.",
+          "description": "Optional speaker or thinking cues attached to the beat. Surfaced in presenter notes.",
           "examples": [
             [
               "What pain is the audience feeling right now?",

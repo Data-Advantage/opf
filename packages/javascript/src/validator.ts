@@ -108,11 +108,7 @@ const rootPayloadFields = [
   "quote",
   "timeline",
   "blocks",
-  "prompt",
-  "expectedType",
 ] as const;
-
-const contentMetaFields = ["prompt", "expectedType"] as const;
 
 type ContentKind =
   | "text"
@@ -322,8 +318,6 @@ function validateContentPayload(
   const explicitType = value.type;
   const payloadFields = presentFields(value, rootPayloadFields);
   const hasBlocks = options.allowBlocks === true && hasOwn(value, "blocks");
-  const hasPrompt = hasOwn(value, "prompt");
-  const hasExpectedType = hasOwn(value, "expectedType");
 
   if (explicitType !== undefined && !isContentKind(explicitType)) {
     return issues;
@@ -333,13 +327,8 @@ function validateContentPayload(
   const inferred = kind ? [kind] : inferredKinds(value);
 
   if (!kind && inferred.length === 0) {
-    if (hasExpectedType && !hasPrompt) {
-      issues.push(semanticIssue(path, "content payload expectedType requires prompt when no concrete content fields are present", {
-        fields: payloadFields,
-      }));
-    }
-    if (!hasBlocks && !hasPrompt && !hasExpectedType && (payloadFields.length > 0 || path !== "/")) {
-      issues.push(semanticIssue(path, "content payload must include concrete content fields or prompt", {
+    if (!hasBlocks && (payloadFields.length > 0 || path !== "/")) {
+      issues.push(semanticIssue(path, "content payload must include concrete content fields", {
         fields: payloadFields,
       }));
     }
@@ -364,12 +353,15 @@ function validateContentPayload(
   if (!resolvedKind) {
     return issues;
   }
+  if (hasBlocks) {
+    issues.push(semanticIssue(path, "blocks cannot be mixed with root content payload fields", {
+      fields: payloadFields.filter((field) => field !== "blocks"),
+    }));
+  }
   const spec = contentKindSpecs[resolvedKind];
   const allowedFields = new Set<string>([
     "type",
     ...spec.fields,
-    ...contentMetaFields,
-    ...(options.allowBlocks ? ["blocks"] : []),
   ]);
 
   for (const required of spec.required) {

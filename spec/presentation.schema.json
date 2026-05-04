@@ -722,7 +722,7 @@
     },
     "NarrativeBeat": {
       "type": "object",
-      "description": "A single narrative beat â€” a labeled segment of the story arc with a specific dramatic purpose (e.g. 'hook', 'problem', 'evidence', 'ask'). Slides reference beats via Slide.beat. Beats may also carry slide-blueprint hints (slideType, layoutHint, thoughtCues, instructions) that pre-shape the generated slide.\n\nMirrors the Beat definition in narrative.schema.json (https://pptx.dev/schema/opf-narrative/v1) so library entries and inline OPF beats are interchangeable.",
+      "description": "A single narrative beat — a labeled segment of the story arc with a specific dramatic purpose (e.g. 'hook', 'problem', 'evidence', 'ask'). Slides reference beats via Slide.beat. Beats may also carry slide-blueprint hints (slideType, layoutHint, thoughtCues, instructions) that guide the assigned slide.\n\nMirrors the Beat definition in narrative.schema.json (https://pptx.dev/schema/opf-narrative/v1) so library entries and inline OPF beats are interchangeable.",
       "required": ["id", "name"],
       "properties": {
         "id": {
@@ -738,14 +738,14 @@
         },
         "description": {
           "type": "string",
-          "description": "Curator-written prose that explains what this beat should accomplish. Used as a prompt for AI-driven generation of slides assigned to this beat.",
+          "description": "Curator-written prose that explains what this beat should accomplish.",
           "examples": [
             "Quantify the pain customers feel today, with one striking stat the audience can repeat afterward."
           ]
         },
         "instructions": {
           "type": "string",
-          "description": "Short author-facing instruction for the beat â€” typically one phrase. Complements 'description'; AI uses this as a directive while 'description' supplies the rationale.",
+          "description": "Short author-facing instruction for the beat — typically one phrase. Complements 'description' with a concise directive.",
           "examples": ["Capture audience attention", "Introduce problem", "Detail implementation", "Inspire & conclude"]
         },
         "slideCount": {
@@ -766,7 +766,7 @@
         "thoughtCues": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Optional speaker prompts or thinking cues attached to the beat. Surfaced in presenter notes or AI prompts.",
+          "description": "Optional speaker or thinking cues attached to the beat. Surfaced in presenter notes.",
           "examples": [["What pain is the audience feeling right now?", "Why hasn't anyone solved this yet?"]]
         }
       }
@@ -1640,14 +1640,9 @@
           "items": { "$ref": "#/$defs/ContentPayload" },
           "description": "Layout-agnostic content blocks rendered together as a composed payload when exact placement is unspecified."
         },
-        "prompt": {
-          "type": "string",
-          "description": "AI instruction describing what content should be generated for the full slide."
-        },
-        "expectedType": {
-          "type": "string",
-          "enum": ["text", "list", "image", "chart", "table", "code", "metric", "quote", "timeline"],
-          "description": "Expected content type the engine or agent should produce for a generated payload."
+        "design": {
+          "$ref": "#/$defs/Design",
+          "description": "Slide-level design applied on top of the deck-wide design."
         },
         "left": {
           "$ref": "#/$defs/ContentPayload"
@@ -1798,24 +1793,20 @@
           "description": "Speaker notes shown in presenter view.",
           "examples": ["Open with the customer story; pause for questions before moving to the architecture slide."]
         },
-        "hidden": {
-          "type": "boolean",
-          "description": "Whether the slide is hidden from the presented sequence."
-        },
         "section": {
           "type": "string",
           "description": "PowerPoint-style slide section label. Consecutive slides with the same value belong to the same section in presenter view, outlines, and PowerPoint section-aware exports.",
           "examples": ["Intro", "Problem", "Solution", "Ask", "Appendix"]
         },
-        "design": {
-          "$ref": "#/$defs/Design",
-          "description": "Slide-level design applied on top of the deck-wide design."
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether the slide is hidden from the presented sequence."
         }
       }
     },
     "ContentPayload": {
       "type": "object",
-      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, bullets, items, image, video, chart, table, code, metric, quote, or timeline. Prompt and expectedType are structural/generation metadata, not content kinds.",
+      "description": "A single content payload. The optional 'type' discriminator can make intent explicit, but validators and engines infer it from fields such as text, bullets, items, image, video, chart, table, code, metric, quote, or timeline.",
       "additionalProperties": false,
       "properties": {
         "type": {
@@ -1952,19 +1943,6 @@
               ]
             }
           ]
-        },
-        "prompt": {
-          "type": "string",
-          "description": "AI instruction describing what content should be generated for this payload.",
-          "examples": [
-            "Three bullet points summarizing why our latency advantage matters to enterprise buyers.",
-            "A two-column comparison of our product vs. the leading competitor."
-          ]
-        },
-        "expectedType": {
-          "type": "string",
-          "enum": ["text", "list", "image", "chart", "table", "code", "metric", "quote", "timeline"],
-          "description": "Expected content type the engine or agent should produce."
         }
       },
       "allOf": [
