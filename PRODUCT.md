@@ -42,7 +42,7 @@ One format, every runtime:
 | Future Python OPF package | TBD | Local models, schemas, catalogs, validation |
 | Future Go OPF module | TBD | Local structs, embedded schemas/catalogs, validation |
 
-Existing `@pptx/sdk`, `pptx-dev`, `pptx.dev/go`, `@pptx/cli`, and `pptx-mcp` code in this repo is PPTX.dev-specific and pending migration to PPTX.dev ownership. Those packages consume OPF and handle hosted generation/rendering workflows; they are not the canonical OPF package direction.
+PPTX.dev-specific `@pptx/sdk`, `pptx-dev`, `pptx.dev/go`, `@pptx/cli`, and `pptx-mcp` source belongs to PPTX.dev-owned repositories. Those packages consume OPF and handle hosted generation/rendering workflows; they are not the canonical OPF package direction.
 
 ## Monetization
 

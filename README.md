@@ -110,12 +110,8 @@ node packages/cli/dist/index.js validate path/to/deck.opf.json
 | [`examples/gallery/`](./examples/gallery) | Broader OPF example decks organized by industry, function, education, government, presentation type, international, and design/media scenarios. |
 | [`packages/javascript/`](./packages/javascript) | Private pre-release source for `@openpresentation/opf`. |
 | [`packages/cli/`](./packages/cli) | Private local-only OPF CLI source; native distribution is deferred. |
-| [`spec/openapi.yaml`](./spec/openapi.yaml) | Legacy PPTX.dev OpenAPI spec, pending migration to PPTX.dev ownership. |
-| [`legacy/typescript/`](./legacy/typescript) | Legacy PPTX.dev TypeScript client, pending review/migration. |
-| [`legacy/python/`](./legacy/python) | Legacy PPTX.dev Python client, pending review/migration. |
-| [`legacy/go/`](./legacy/go) | Legacy PPTX.dev Go client, pending review/migration. |
-| [`legacy/cli/`](./legacy/cli) | Legacy PPTX.dev CLI packages, pending review/migration. |
-| [`legacy/mcp/`](./legacy/mcp) | PPTX.dev MCP server, pending review/migration to PPTX.dev ownership. |
+| [`spec/openapi.yaml`](./spec/openapi.yaml) | Legacy PPTX.dev OpenAPI spec retained temporarily for service reference. |
+| [`legacy/`](./legacy) | Tombstone for PPTX.dev clients, CLIs, SDKs, and MCP source migrated to PPTX.dev-owned repositories. |
 
 ## Package Boundary
 
