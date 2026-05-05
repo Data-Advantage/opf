@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://openpresentation.org/schema/opf/v1",
-  "title": "OPF Ã¢â‚¬â€ Open Presentation Format",
+  "title": "Presentation",
   "description": "Open-source JSON format for describing PowerPoint presentations. Agents describe narratives, content, audience, reusable assets, and design Ã¢â‚¬â€ the engine handles OOXML complexity.\n\nFields that reference catalog records (narrative, language, tone, audience, purpose, design.theme / design.theme.id, design.colorScheme / design.colorScheme.id, design.fontScheme / design.fontScheme.id, Slide.layout, Chart.type, Organization.socials / Speaker.socials) resolve through the catalog system: inline 'catalogs.<kind>.records[]' on the document Ã¢â€ â€™ 'catalogs.<kind>.source' on the document Ã¢â€ â€™ engine defaults Ã¢â€ â€™ the default catalog at https://www.pptx.gallery/<kind>. Every reference resolves to the catalog record's 'id' field. When an OPF document omits a reference entirely, the engine falls back to engine defaults (see /spec/reference/engine-defaults.json for a reference example). The defaults file is engine configuration; it is not part of the OPF document contract and has no JSON Schema.\n\nMost catalog references accept the bare 'id' as a string for the common case (e.g. narrative = 'classic-story', design.colorScheme = 'cool-horizon'). Audience, purpose, tone, design, and language object forms use 'id' as a base catalog reference plus inline overrides. Asset references use 'asset:<id>' strings that point into the top-level assets registry.",
   "type": "object",
   "required": ["slides"],
@@ -2534,4 +2534,3 @@
     }
   }
 }
-

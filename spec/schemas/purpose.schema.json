@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://openpresentation.org/schema/opf-purpose/v1",
-  "title": "OPF Purpose",
+  "title": "Purpose",
   "description": "Schema for purpose records in the pptx.gallery library. Each record names a presentation objective such as informing, aligning, persuading, driving a decision, or selling. Purposes are referenced from OPF documents via purpose; the engine resolves the reference against catalogs.purposes (inline) → catalogs.purposes.source → the default catalog at https://www.pptx.gallery/purposes. The purpose field also accepts free-form strings and inline Purpose objects.",
   "type": "object",
   "required": [

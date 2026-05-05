@@ -4,7 +4,7 @@ Catalog records are reusable presets that OPF documents reference by id. This pa
 
 OPF documents usually reference these records with string ids such as `design.theme = "minimal"`, `tone = "formal"`, or `chart.type = "line"`. Dense examples may also embed catalog sources or inline records under `catalogs`.
 
-## OPF Audience
+## Audience
 
 - File: `spec/schemas/audience.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-audience/v1`
@@ -28,7 +28,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `tags` | no | `array<string>` | Free-form labels for filtering and search. |
 | `preview` | no | `object` | Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional. |
 
-## OPF Chart Type
+## Chart Type
 
 - File: `spec/schemas/chart-type.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-chart-type/v1`
@@ -115,7 +115,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `headers` | yes | `array<string>` | Header row labels. The first cell typically labels the series column; the rest are category labels. |
 | `rows` | yes | `array<array<string \| number>>` | Two-dimensional sample data. Each row aligns by index with the headers first cell is the row label, remaining cells are values. |
 
-## OPF Color Scheme
+## Color Scheme
 
 - File: `spec/schemas/color-scheme.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-color-scheme/v1`
@@ -145,7 +145,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `tags` | no | `array<string>` | Free-form labels for filtering and search. |
 | `preview` | no | `object` | Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available. |
 
-## OPF Font Scheme
+## Font Scheme
 
 - File: `spec/schemas/font-scheme.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-font-scheme/v1`
@@ -170,7 +170,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `tags` | no | `array<string>` | Free-form labels for filtering and search. |
 | `preview` | no | `object` | Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available. |
 
-## OPF Language
+## Language
 
 - File: `spec/schemas/language.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-language/v1`
@@ -194,7 +194,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `tags` | no | `array<string>` | Free-form labels for filtering and search. |
 | `preview` | no | `object` | Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available. |
 
-## OPF Slide Layout
+## Slide Layout
 
 - File: `spec/schemas/layout.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-layout/v1`
@@ -240,7 +240,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | --- | --- | --- | --- |
 | `type` | yes | `enum:title \| subtitle \| tag \| text \| list \| chart \| picture \| table \| media \| diagram \| code` | OPF placeholder kind. 'text' and 'list' are flexible textual content regions. The named kinds describe a specific content role used by pickers, AI generation, and engine defaulting. |
 
-## OPF Narrative Template
+## Narrative Template
 
 - File: `spec/schemas/narrative.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-narrative/v1`
@@ -280,7 +280,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `layoutHint` | no | `string` | Suggested layout id for the beat's opening slide, e.g. 'section-divider', 'title-slide', 'text-left'. Resolves the same way as Slide.layout against catalogs.layouts and the default catalog at https://www.pptx.gallery/... |
 | `thoughtCues` | no | `array<string>` | Optional speaker or thinking cues attached to the beat. Surfaced in presenter notes. |
 
-## OPF Purpose
+## Purpose
 
 - File: `spec/schemas/purpose.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-purpose/v1`
@@ -302,7 +302,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `tags` | no | `array<string>` | Free-form labels for filtering and search. |
 | `preview` | no | `object` | Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional. |
 
-## OPF Social Platform
+## Social Platform
 
 - File: `spec/schemas/social-platform.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-social-platform/v1`
@@ -329,7 +329,7 @@ OPF documents usually reference these records with string ids such as `design.th
 | `tags` | no | `array<string>` | Free-form labels for filtering and search. |
 | `preview` | no | `object` | Visual previews of the record, used by picker UIs and inline rendering. All sub-fields are optional; engines fall back gracefully when previews aren't available. |
 
-## OPF Theme
+## Theme
 
 - File: `spec/schemas/theme.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-theme/v1`
@@ -372,7 +372,7 @@ _No named properties._
 | `type` | yes | `const:"theme"` | Theme-controlled background fill. |
 | `slot` | yes | `ref:ThemeBackgroundSlot` |  |
 
-## OPF Tone
+## Tone
 
 - File: `spec/schemas/tone.schema.json`
 - Schema id: `https://openpresentation.org/schema/opf-tone/v1`

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://openpresentation.org/schema/opf-tone/v1",
-  "title": "OPF Tone",
+  "title": "Tone",
   "description": "Schema for tone records in the pptx.gallery library. Each record names a presentation tone (e.g. 'formal', 'casual', 'inspirational') and carries voice cues, anti-patterns, and sample phrases that AI-driven generation uses to shape output. Tones are referenced from OPF documents via tone; the engine resolves the reference against catalogs.tones (inline) → catalogs.tones.source → the default catalog at https://www.pptx.gallery/tones.",
   "type": "object",
   "required": [

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://openpresentation.org/schema/opf-language/v1",
-  "title": "OPF Language",
+  "title": "Language",
   "description": "Schema for language records in the pptx.gallery library. Each record names a presentation language, carries a BCP-47 language tag, and pairs it with sensible default font schemes for PowerPoint and Google Slides output. Languages are referenced from OPF documents via language; the engine resolves the reference against catalogs.languages (inline) → catalogs.languages.source → the default catalog at https://www.pptx.gallery/languages. The presentation language field also accepts BCP-47 tags directly or inline Language objects for engine-aware language records that carry default-font hints.",
   "type": "object",
   "required": [
