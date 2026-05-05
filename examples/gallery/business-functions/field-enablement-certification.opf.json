@@ -1,0 +1,362 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Field Enablement Certification",
+  "description": "Field Enablement Certification is a fictional OPF example for training and enablement teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "field-enablement-certification",
+  "language": "english-gb",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 27,
+      "technicalFluency": "medium",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "company-intro"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Certify sellers on the new value narrative before launch",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "company-intro",
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "burnt-orange",
+      "primary": "#F59E0B",
+      "secondary": "#14B8A6",
+      "accent": "#0F172A",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#047857",
+        "risk": "#1D4ED8"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-ethiopic",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": {
+      "type": "gradient",
+      "gradient": {
+        "angle": 35,
+        "stops": [
+          {
+            "color": "#F59E0B",
+            "position": 0
+          },
+          {
+            "color": "#1D4ED8",
+            "position": 1
+          }
+        ]
+      },
+      "opacity": 0.94
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Training and enablement",
+      "title": "Field Enablement Certification",
+      "subtitle": "NimbleOps Training and enablement",
+      "notes": "Open by naming the decision: Certify sellers on the new value narrative before launch."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "NimbleOps should focus the next cycle on ",
+        {
+          "text": "certify sellers on the new value narrative before launch",
+          "bold": true,
+          "color": "#F59E0B"
+        },
+        " while making the operating tradeoffs clear to training and enablement stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-with-markers",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              23,
+              20
+            ],
+            [
+              "Q2",
+              27,
+              22
+            ],
+            [
+              "Q3",
+              30,
+              24
+            ],
+            [
+              "Q4",
+              34,
+              26
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Training and enablement",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Training and enablement execution path",
+        "description": "Major milestones for NimbleOps.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for certify sellers on the new value narrative before launch.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "nimbleops",
+    "name": "NimbleOps",
+    "legalName": "NimbleOps, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "nimbleops.example",
+    "email": "hello@nimbleops.example",
+    "phone": "+15551000045",
+    "tagline": "Certify sellers on the new value narrative before launch",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@nimbleops",
+      "x": "https://x.example/nimbleops"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "nimbleops",
+    "bio": "Leads training and enablement planning for NimbleOps.",
+    "socials": {
+      "mastodon": "@nimbleops-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Certify sellers on the new value narrative before launch",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 28,
+  "tags": [
+    "business-functions",
+    "training-and-enablement",
+    "align",
+    "formal",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/nimbleops-logo.svg",
+      "alt": "NimbleOps logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/nimbleops-logo-light.svg",
+      "alt": "NimbleOps light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/nimbleops-icon.svg",
+      "alt": "NimbleOps icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/nimbleops-cover-1.jpg",
+      "alt": "Training and enablement background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/nimbleops-field-photo.jpg",
+      "alt": "Training and enablement field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/nimbleops-demo.mp4",
+      "title": "Training and enablement walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/field-enablement-certification.csv",
+      "format": "csv",
+      "title": "Field Enablement Certification data"
+    },
+    "watermark": {
+      "src": "./assets/nimbleops-watermark.png",
+      "alt": "NimbleOps watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "field-enablement-certification",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

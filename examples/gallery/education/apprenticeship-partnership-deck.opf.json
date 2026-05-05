@@ -1,0 +1,351 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Apprenticeship Partnership Deck",
+  "description": "Apprenticeship Partnership Deck is a fictional OPF example for workforce education teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "apprenticeship-partnership-deck",
+  "language": "english-us",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 28,
+      "technicalFluency": "low",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "qbr"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Recruit employers into a paid apprenticeship consortium",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "qbr",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "golden-yellow",
+      "primary": "#6D28D9",
+      "secondary": "#0369A1",
+      "accent": "#334155",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#E2E8F0",
+        "risk": "#F8FAFC"
+      }
+    },
+    "fontScheme": {
+      "id": "pmingliu",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": "light1",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": false,
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Workforce education",
+      "title": "Apprenticeship Partnership Deck",
+      "subtitle": "Lakeview Tech Institute Workforce education",
+      "notes": "Open by naming the decision: Recruit employers into a paid apprenticeship consortium."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Lakeview Tech Institute should focus the next cycle on ",
+        {
+          "text": "recruit employers into a paid apprenticeship consortium",
+          "bold": true,
+          "color": "#6D28D9"
+        },
+        " while making the operating tradeoffs clear to workforce education stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "stacked-column-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              25,
+              22
+            ],
+            [
+              "Q2",
+              29,
+              24
+            ],
+            [
+              "Q3",
+              32,
+              26
+            ],
+            [
+              "Q4",
+              36,
+              28
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Workforce education",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Workforce education execution path",
+        "description": "Major milestones for Lakeview Tech Institute.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for recruit employers into a paid apprenticeship consortium.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "lakeview-tech-institute",
+    "name": "Lakeview Tech Institute",
+    "legalName": "Lakeview Tech Institute",
+    "logo": "asset:brand-logo",
+    "domain": "lakeview-tech-institute.example",
+    "email": "hello@lakeview-tech-institute.example",
+    "phone": "+15551000064",
+    "tagline": "Recruit employers into a paid apprenticeship consortium",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@lakeview-tech-institute",
+      "tiktok": "https://tiktok.example/lakeview-tech-institute"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "lakeview-tech-institute",
+    "bio": "Leads workforce education planning for Lakeview Tech Institute.",
+    "socials": {
+      "linkedin": "@lakeview-tech-institute-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Recruit employers into a paid apprenticeship consortium",
+  "duration": 22,
+  "tags": [
+    "education",
+    "workforce-education",
+    "decide",
+    "casual",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/lakeview-tech-institute-logo.svg",
+      "alt": "Lakeview Tech Institute logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/lakeview-tech-institute-logo-light.svg",
+      "alt": "Lakeview Tech Institute light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/lakeview-tech-institute-icon.svg",
+      "alt": "Lakeview Tech Institute icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/lakeview-tech-institute-cover-5.jpg",
+      "alt": "Workforce education background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/lakeview-tech-institute-field-photo.jpg",
+      "alt": "Workforce education field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/lakeview-tech-institute-demo.mp4",
+      "title": "Workforce education walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/apprenticeship-partnership-deck.csv",
+      "format": "csv",
+      "title": "Apprenticeship Partnership Deck data"
+    },
+    "watermark": {
+      "src": "./assets/lakeview-tech-institute-watermark.png",
+      "alt": "Lakeview Tech Institute watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "medium",
+      "scenario": "apprenticeship-partnership-deck",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

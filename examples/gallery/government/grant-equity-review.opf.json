@@ -1,0 +1,100 @@
+{
+  "name": "Grant Equity Review",
+  "language": "english-au",
+  "audience": [
+    "board"
+  ],
+  "purpose": "sell",
+  "tone": "casual",
+  "narrative": "survey-analysis",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": "bold-red",
+    "fontScheme": "sakkal-majalla",
+    "dimensions": "a4",
+    "background": "dark1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "left",
+    "imageFill": "fit",
+    "listBullet": "image"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Grantmaking",
+      "title": "Grant Equity Review",
+      "subtitle": "Civic Arts Commission Grantmaking",
+      "notes": "Open by naming the decision: Make award decisions more transparent and accessible."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Civic Arts Commission should focus the next cycle on ",
+        {
+          "text": "make award decisions more transparent and accessible",
+          "bold": true,
+          "color": "#0F172A"
+        },
+        " while making the operating tradeoffs clear to grantmaking stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "treemap-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              15,
+              12
+            ],
+            [
+              "Q2",
+              19,
+              14
+            ],
+            [
+              "Q3",
+              22,
+              16
+            ],
+            [
+              "Q4",
+              26,
+              18
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-6x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for grantmaking.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

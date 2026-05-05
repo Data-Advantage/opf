@@ -1,0 +1,87 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Promoted Region Grid",
+  "description": "Technical fixture for non-overlapping promoted region keys and span combinations.",
+  "slides": [
+    {
+      "title": "Column Spans",
+      "left": {
+        "text": "Left column"
+      },
+      "center+right": {
+        "items": [
+          "Center and right span",
+          "No overlap with left"
+        ]
+      }
+    },
+    {
+      "title": "Row Spans",
+      "top+middle": {
+        "chart": {
+          "type": "area",
+          "data": {
+            "columns": [
+              "Month",
+              "Volume"
+            ],
+            "rows": [
+              [
+                "Jan",
+                10
+              ],
+              [
+                "Feb",
+                18
+              ],
+              [
+                "Mar",
+                24
+              ]
+            ]
+          }
+        }
+      },
+      "bottom": {
+        "quote": "The bottom row remains available for interpretation."
+      }
+    },
+    {
+      "title": "Grid Cells",
+      "top:left": {
+        "metric": {
+          "value": 42,
+          "label": "Inputs"
+        }
+      },
+      "top:center": {
+        "metric": {
+          "value": 18,
+          "label": "Routes"
+        }
+      },
+      "top:right": {
+        "metric": {
+          "value": 9,
+          "label": "Escalations"
+        }
+      },
+      "middle+bottom:left+center+right": {
+        "timeline": [
+          {
+            "when": "Now",
+            "what": "Observe"
+          },
+          {
+            "when": "Next",
+            "what": "Route"
+          },
+          {
+            "when": "Then",
+            "what": "Resolve"
+          }
+        ]
+      }
+    }
+  ]
+}

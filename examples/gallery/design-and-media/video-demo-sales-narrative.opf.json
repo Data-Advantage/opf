@@ -1,0 +1,621 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Video Demo Sales Narrative",
+  "description": "Video Demo Sales Narrative is a fictional OPF example for sales demo teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "video-demo-sales-narrative",
+  "language": "english-us",
+  "audience": [
+    "investors",
+    {
+      "id": "all-hands",
+      "attentionBudgetMinutes": 24,
+      "technicalFluency": "low",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "performance-review"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Combine video proof and business case in a compact sales deck",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "performance-review",
+    "description": "Video Demo Sales Narrative uses a compact evidence-to-decision arc for SignalKit.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "steel-blue",
+      "primary": "#1D4ED8",
+      "secondary": "#047857",
+      "accent": "#B45309",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#6D28D9",
+        "risk": "#BE123C"
+      }
+    },
+    "fontScheme": {
+      "id": "calibri",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "left",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": false,
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "top"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Sales demo",
+      "title": "Video Demo Sales Narrative",
+      "subtitle": "SignalKit Sales demo",
+      "notes": "Open by naming the decision: Combine video proof and business case in a compact sales deck."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "SignalKit should focus the next cycle on ",
+        {
+          "text": "combine video proof and business case in a compact sales deck",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to sales demo stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-bar-2x",
+        "data": {
+          "src": "asset:metric-data",
+          "sheet": "Summary",
+          "range": "A1:C8",
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Sales demo",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Sales demo execution path",
+        "description": "Major milestones for SignalKit.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s97-regions",
+      "section": "Operating model",
+      "layout": "number-1x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "18%",
+          "label": "Primary signal",
+          "description": "Combine video proof and business case in a compact sales deck",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "SignalKit should focus the next cycle on ",
+          {
+            "text": "combine video proof and business case in a compact sales deck",
+            "bold": true,
+            "color": "#1D4ED8"
+          },
+          " while making the operating tradeoffs clear to sales demo stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Sales demo working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Sales demo",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s97-blocks",
+      "section": "Evidence",
+      "layout": "blank",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "dot-plot",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  15,
+                  12
+                ],
+                [
+                  "Q2",
+                  19,
+                  14
+                ],
+                [
+                  "Q3",
+                  22,
+                  16
+                ],
+                [
+                  "Q4",
+                  26,
+                  18
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "11 days",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s97-image",
+      "section": "Context",
+      "layout": "image-1x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Sales demo context photo for SignalKit",
+        "title": "Sales demo context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s97-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "video-demo-sales-narrative-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "combine video proof and business case in a compact sales deck",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "signalkit",
+    "name": "SignalKit",
+    "legalName": "SignalKit, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "signalkit.example",
+    "email": "hello@signalkit.example",
+    "phone": "+15551000096",
+    "tagline": "Combine video proof and business case in a compact sales deck",
+    "role": "primary",
+    "socials": {
+      "threads": "@signalkit",
+      "youtube": "https://youtube.example/signalkit"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@signalkit.example",
+      "organizationId": "signalkit",
+      "socials": {
+        "threads": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "signalkit",
+      "socials": {
+        "youtube": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": [
+    "Combine video proof and business case in a compact sales deck",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 29,
+  "tags": [
+    "design-and-media",
+    "sales-demo",
+    "plan",
+    "persuasive",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/signalkit-logo.svg",
+      "alt": "SignalKit logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/signalkit-logo-light.svg",
+      "alt": "SignalKit light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/signalkit-icon.svg",
+      "alt": "SignalKit icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/signalkit-cover-2.jpg",
+      "alt": "Sales demo background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/signalkit-field-photo.jpg",
+      "alt": "Sales demo field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/signalkit-demo.mp4",
+      "title": "Sales demo walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/video-demo-sales-narrative.csv",
+      "format": "csv",
+      "title": "Video Demo Sales Narrative data"
+    },
+    "watermark": {
+      "src": "./assets/signalkit-watermark.png",
+      "alt": "SignalKit watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "design-and-media",
+      "density": "dense",
+      "scenario": "video-demo-sales-narrative",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "video-demo-sales-narrative-arc",
+          "name": "Sales Demo Decision Arc",
+          "summary": "A custom arc for SignalKit.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "signalkit-theme",
+          "name": "SignalKit Working Theme",
+          "colorScheme": "steel-blue",
+          "fontScheme": "calibri",
+          "background": "light1",
+          "tags": [
+            "sales-demo",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "signalkit-signal",
+          "name": "SignalKit Signal Palette",
+          "accent1": "#1D4ED8",
+          "accent2": "#047857",
+          "accent3": "#B45309",
+          "accent4": "#BE123C",
+          "accent5": "#6D28D9",
+          "accent6": "#0369A1",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

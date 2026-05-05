@@ -1,0 +1,100 @@
+{
+  "name": "Employee Town Hall Run of Show",
+  "language": "english-us",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "persuade",
+  "tone": "persuasive",
+  "narrative": "business-narrative",
+  "design": {
+    "theme": "bold",
+    "colorScheme": "steel-blue",
+    "fontScheme": "noto-sans",
+    "dimensions": "letter",
+    "background": "#FFFFFF",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Corporate communications",
+      "title": "Employee Town Hall Run of Show",
+      "subtitle": "Copperline Health Corporate communications",
+      "notes": "Open by naming the decision: Align leaders on narrative, timing, and live questions."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Copperline Health should focus the next cycle on ",
+        {
+          "text": "align leaders on narrative, timing, and live questions",
+          "bold": true,
+          "color": "#6D28D9"
+        },
+        " while making the operating tradeoffs clear to corporate communications stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              18,
+              15
+            ],
+            [
+              "Q2",
+              22,
+              17
+            ],
+            [
+              "Q3",
+              25,
+              19
+            ],
+            [
+              "Q4",
+              29,
+              21
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-5x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for corporate communications.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

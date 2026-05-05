@@ -1,0 +1,358 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Scope 3 Reporting Readiness",
+  "description": "Scope 3 Reporting Readiness is a fictional OPF example for sustainability teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "scope-3-reporting-readiness",
+  "language": "english-us",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 26,
+      "technicalFluency": "low",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "classic-story"
+      ],
+      "recommendedTones": [
+        "conversational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "sell",
+    "outcome": "Prepare supplier data collection for annual climate reporting",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "conversational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "classic-story",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "boost",
+      "primary": "#E2E8F0",
+      "secondary": "#F59E0B",
+      "accent": "#14B8A6",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#1D4ED8",
+        "risk": "#0F172A"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-devangari",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "4:3",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Sustainability",
+      "title": "Scope 3 Reporting Readiness",
+      "subtitle": "Lumina Foods Sustainability",
+      "notes": "Open by naming the decision: Prepare supplier data collection for annual climate reporting."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Lumina Foods should focus the next cycle on ",
+        {
+          "text": "prepare supplier data collection for annual climate reporting",
+          "bold": true,
+          "color": "#E2E8F0"
+        },
+        " while making the operating tradeoffs clear to sustainability stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-with-high-low-and-markers",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              22,
+              19
+            ],
+            [
+              "Q2",
+              26,
+              21
+            ],
+            [
+              "Q3",
+              29,
+              23
+            ],
+            [
+              "Q4",
+              33,
+              25
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Sustainability",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Sustainability execution path",
+        "description": "Major milestones for Lumina Foods.",
+        "events": [
+          {
+            "when": "Jul",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Aug",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Sep",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Oct",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for prepare supplier data collection for annual climate reporting.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "lumina-foods",
+    "name": "Lumina Foods",
+    "legalName": "Lumina Foods, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "lumina-foods.example",
+    "email": "hello@lumina-foods.example",
+    "phone": "+15551000044",
+    "tagline": "Prepare supplier data collection for annual climate reporting",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@lumina-foods",
+      "tiktok": "https://tiktok.example/lumina-foods"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "lumina-foods",
+    "bio": "Leads sustainability planning for Lumina Foods.",
+    "socials": {
+      "linkedin": "@lumina-foods-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Prepare supplier data collection for annual climate reporting",
+  "duration": 27,
+  "tags": [
+    "business-functions",
+    "sustainability",
+    "sell",
+    "conversational",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/lumina-foods-logo.svg",
+      "alt": "Lumina Foods logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/lumina-foods-logo-light.svg",
+      "alt": "Lumina Foods light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/lumina-foods-icon.svg",
+      "alt": "Lumina Foods icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/lumina-foods-cover-5.jpg",
+      "alt": "Sustainability background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/lumina-foods-field-photo.jpg",
+      "alt": "Sustainability field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/lumina-foods-demo.mp4",
+      "title": "Sustainability walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/scope-3-reporting-readiness.csv",
+      "format": "csv",
+      "title": "Scope 3 Reporting Readiness data"
+    },
+    "watermark": {
+      "src": "./assets/lumina-foods-watermark.png",
+      "alt": "Lumina Foods watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "scope-3-reporting-readiness",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

@@ -1,0 +1,619 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Photo Essay Portfolio",
+  "description": "Photo Essay Portfolio is a fictional OPF example for portfolio teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "photo-essay-portfolio",
+  "language": "english-gb",
+  "audience": [
+    "marketing-team",
+    {
+      "id": "board",
+      "attentionBudgetMinutes": 25,
+      "technicalFluency": "medium",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "persuade"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Tell a coherent civic story through image-heavy slides",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "persuade",
+    "description": "Photo Essay Portfolio uses a compact evidence-to-decision arc for Urban Lens Collective.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "vibes",
+      "primary": "#047857",
+      "secondary": "#B45309",
+      "accent": "#BE123C",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0369A1",
+        "risk": "#6D28D9"
+      }
+    },
+    "fontScheme": {
+      "id": "century-schoolbook",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": "dark1",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "right",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Portfolio",
+      "title": "Photo Essay Portfolio",
+      "subtitle": "Urban Lens Collective Portfolio",
+      "notes": "Open by naming the decision: Tell a coherent civic story through image-heavy slides."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Urban Lens Collective should focus the next cycle on ",
+        {
+          "text": "tell a coherent civic story through image-heavy slides",
+          "bold": true,
+          "color": "#047857"
+        },
+        " while making the operating tradeoffs clear to portfolio stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-bar-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              24,
+              21
+            ],
+            [
+              "Q2",
+              28,
+              23
+            ],
+            [
+              "Q3",
+              31,
+              25
+            ],
+            [
+              "Q4",
+              35,
+              27
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Portfolio",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Portfolio execution path",
+        "description": "Major milestones for Urban Lens Collective.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s98-regions",
+      "section": "Operating model",
+      "layout": "number-2x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "$4.8M",
+          "label": "Primary signal",
+          "description": "Tell a coherent civic story through image-heavy slides",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Urban Lens Collective should focus the next cycle on ",
+          {
+            "text": "tell a coherent civic story through image-heavy slides",
+            "bold": true,
+            "color": "#047857"
+          },
+          " while making the operating tradeoffs clear to portfolio stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Portfolio working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Portfolio",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s98-blocks",
+      "section": "Evidence",
+      "layout": "list-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "dot-plot-2x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  16,
+                  13
+                ],
+                [
+                  "Q2",
+                  20,
+                  15
+                ],
+                [
+                  "Q3",
+                  23,
+                  17
+                ],
+                [
+                  "Q4",
+                  27,
+                  19
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "2.4x",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s98-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Portfolio walkthrough",
+        "description": "Short clip demonstrating the proposed portfolio workflow."
+      }
+    },
+    {
+      "id": "s98-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "photo-essay-portfolio-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "tell a coherent civic story through image-heavy slides",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "urban-lens-collective",
+    "name": "Urban Lens Collective",
+    "legalName": "Urban Lens Collective, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "urban-lens-collective.example",
+    "email": "hello@urban-lens-collective.example",
+    "phone": "+15551000097",
+    "tagline": "Tell a coherent civic story through image-heavy slides",
+    "role": "primary",
+    "socials": {
+      "tiktok": "@urban-lens-collective",
+      "bluesky": "https://bluesky.example/urban-lens-collective"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "urban-lens-collective",
+    "bio": "Leads portfolio planning for Urban Lens Collective.",
+    "socials": {
+      "tiktok": "@urban-lens-collective-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Tell a coherent civic story through image-heavy slides",
+  "duration": 30,
+  "tags": [
+    "design-and-media",
+    "portfolio",
+    "report",
+    "technical",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/urban-lens-collective-logo.svg",
+      "alt": "Urban Lens Collective logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/urban-lens-collective-logo-light.svg",
+      "alt": "Urban Lens Collective light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/urban-lens-collective-icon.svg",
+      "alt": "Urban Lens Collective icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/urban-lens-collective-cover-3.jpg",
+      "alt": "Portfolio background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/urban-lens-collective-field-photo.jpg",
+      "alt": "Portfolio field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/urban-lens-collective-demo.mp4",
+      "title": "Portfolio walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/photo-essay-portfolio.csv",
+      "format": "csv",
+      "title": "Photo Essay Portfolio data"
+    },
+    "watermark": {
+      "src": "./assets/urban-lens-collective-watermark.png",
+      "alt": "Urban Lens Collective watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "design-and-media",
+      "density": "dense",
+      "scenario": "photo-essay-portfolio",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "photo-essay-portfolio-arc",
+          "name": "Portfolio Decision Arc",
+          "summary": "A custom arc for Urban Lens Collective.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "urban-lens-collective-theme",
+          "name": "Urban Lens Collective Working Theme",
+          "colorScheme": "vibes",
+          "fontScheme": "century-schoolbook",
+          "background": "dark1",
+          "tags": [
+            "portfolio",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "urban-lens-collective-signal",
+          "name": "Urban Lens Collective Signal Palette",
+          "accent1": "#047857",
+          "accent2": "#B45309",
+          "accent3": "#BE123C",
+          "accent4": "#6D28D9",
+          "accent5": "#0369A1",
+          "accent6": "#334155",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

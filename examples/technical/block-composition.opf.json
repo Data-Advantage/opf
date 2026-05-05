@@ -1,0 +1,72 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Block Composition",
+  "description": "Technical fixture showing multiple content payloads in a renderer-positioned blocks array.",
+  "slides": [
+    {
+      "title": "Mixed Evidence Blocks",
+      "blocks": [
+        {
+          "metric": {
+            "value": "18%",
+            "label": "Cycle time reduction",
+            "trend": "up"
+          }
+        },
+        {
+          "chart": {
+            "type": "column",
+            "data": {
+              "columns": [
+                "Sprint",
+                "Escalations"
+              ],
+              "rows": [
+                [
+                  "S1",
+                  14
+                ],
+                [
+                  "S2",
+                  10
+                ],
+                [
+                  "S3",
+                  6
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Blocks let authors provide coherent content without deciding exact placement.",
+            "attribution": "Layout resolver"
+          }
+        },
+        {
+          "table": {
+            "columns": [
+              "Block",
+              "Renderer decision"
+            ],
+            "rows": [
+              [
+                "Metric",
+                "Hero number"
+              ],
+              [
+                "Chart",
+                "Main visual"
+              ],
+              [
+                "Quote",
+                "Supporting proof"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

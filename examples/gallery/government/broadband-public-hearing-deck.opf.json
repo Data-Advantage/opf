@@ -1,0 +1,627 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Broadband Public Hearing Deck",
+  "description": "Broadband Public Hearing Deck is a fictional OPF example for public engagement teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "broadband-public-hearing-deck",
+  "language": "english-au",
+  "audience": [
+    "sales-team",
+    {
+      "id": "customers",
+      "attentionBudgetMinutes": 25,
+      "technicalFluency": "mixed",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "business-narrative"
+      ],
+      "recommendedTones": [
+        "conversational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Explain broadband route choices and resident impact",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "conversational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "business-narrative",
+    "description": "Broadband Public Hearing Deck uses a compact evidence-to-decision arc for Rural Connectivity Office.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "luxury",
+      "primary": "#F8FAFC",
+      "secondary": "#E2E8F0",
+      "accent": "#F59E0B",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0F172A",
+        "risk": "#14B8A6"
+      }
+    },
+    "fontScheme": {
+      "id": "sylfaen",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "bottom",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Public engagement",
+      "title": "Broadband Public Hearing Deck",
+      "subtitle": "Rural Connectivity Office Public engagement",
+      "notes": "Open by naming the decision: Explain broadband route choices and resident impact."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Rural Connectivity Office should focus the next cycle on ",
+        {
+          "text": "explain broadband route choices and resident impact",
+          "bold": true,
+          "color": "#F8FAFC"
+        },
+        " while making the operating tradeoffs clear to public engagement stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-column",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              23,
+              20
+            ],
+            [
+              "Q2",
+              27,
+              22
+            ],
+            [
+              "Q3",
+              30,
+              24
+            ],
+            [
+              "Q4",
+              34,
+              26
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Public engagement",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Public engagement execution path",
+        "description": "Major milestones for Rural Connectivity Office.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s80-regions",
+      "section": "Operating model",
+      "layout": "number-2x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "31%",
+          "label": "Primary signal",
+          "description": "Explain broadband route choices and resident impact",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Rural Connectivity Office should focus the next cycle on ",
+          {
+            "text": "explain broadband route choices and resident impact",
+            "bold": true,
+            "color": "#F8FAFC"
+          },
+          " while making the operating tradeoffs clear to public engagement stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Public engagement working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Public engagement",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s80-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "100pct-stacked-column-3x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  15,
+                  12
+                ],
+                [
+                  "Q2",
+                  19,
+                  14
+                ],
+                [
+                  "Q3",
+                  22,
+                  16
+                ],
+                [
+                  "Q4",
+                  26,
+                  18
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$4.8M",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s80-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Public engagement walkthrough",
+        "description": "Short clip demonstrating the proposed public engagement workflow."
+      }
+    },
+    {
+      "id": "s80-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "broadband-public-hearing-deck-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "explain broadband route choices and resident impact",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "rural-connectivity-office",
+    "name": "Rural Connectivity Office",
+    "legalName": "Rural Connectivity Office",
+    "logo": "asset:brand-logo",
+    "domain": "rural-connectivity-office.example",
+    "email": "hello@rural-connectivity-office.example",
+    "phone": "+15551000079",
+    "tagline": "Explain broadband route choices and resident impact",
+    "role": "primary",
+    "socials": {
+      "youtube": "@rural-connectivity-office",
+      "github": "https://github.example/rural-connectivity-office"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "rural-connectivity-office",
+    "bio": "Leads public engagement planning for Rural Connectivity Office.",
+    "socials": {
+      "youtube": "@rural-connectivity-office-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Explain broadband route choices and resident impact",
+  "duration": 12,
+  "tags": [
+    "government",
+    "public-engagement",
+    "report",
+    "conversational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/rural-connectivity-office-logo.svg",
+      "alt": "Rural Connectivity Office logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/rural-connectivity-office-logo-light.svg",
+      "alt": "Rural Connectivity Office light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/rural-connectivity-office-icon.svg",
+      "alt": "Rural Connectivity Office icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/rural-connectivity-office-cover-5.jpg",
+      "alt": "Public engagement background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/rural-connectivity-office-field-photo.jpg",
+      "alt": "Public engagement field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/rural-connectivity-office-demo.mp4",
+      "title": "Public engagement walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/broadband-public-hearing-deck.csv",
+      "format": "csv",
+      "title": "Broadband Public Hearing Deck data"
+    },
+    "watermark": {
+      "src": "./assets/rural-connectivity-office-watermark.png",
+      "alt": "Rural Connectivity Office watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "dense",
+      "scenario": "broadband-public-hearing-deck",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "broadband-public-hearing-deck-arc",
+          "name": "Public Engagement Decision Arc",
+          "summary": "A custom arc for Rural Connectivity Office.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "rural-connectivity-office-theme",
+          "name": "Rural Connectivity Office Working Theme",
+          "colorScheme": "luxury",
+          "fontScheme": "sylfaen",
+          "background": "dark1",
+          "tags": [
+            "public-engagement",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "rural-connectivity-office-signal",
+          "name": "Rural Connectivity Office Signal Palette",
+          "accent1": "#F8FAFC",
+          "accent2": "#E2E8F0",
+          "accent3": "#F59E0B",
+          "accent4": "#14B8A6",
+          "accent5": "#0F172A",
+          "accent6": "#1D4ED8",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

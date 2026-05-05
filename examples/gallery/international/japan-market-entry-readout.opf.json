@@ -1,0 +1,104 @@
+{
+  "name": "Japan Market Entry Readout",
+  "language": "japanese",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "align",
+  "tone": "technical",
+  "narrative": "focus",
+  "design": {
+    "theme": "dark",
+    "colorScheme": "deep-purple",
+    "fontScheme": "aparajita",
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "International expansion",
+      "title": "Japan Market Entry Readout",
+      "subtitle": "Northstar Robotics Japan International expansion",
+      "notes": "Open by naming the decision: Localize sales motion and support model for Japan."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Northstar Robotics Japan should focus the next cycle on ",
+        {
+          "text": "localize sales motion and support model for japan",
+          "bold": true,
+          "color": "#334155"
+        },
+        " while making the operating tradeoffs clear to international expansion stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "australia",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              17,
+              14
+            ],
+            [
+              "Q2",
+              21,
+              16
+            ],
+            [
+              "Q3",
+              24,
+              18
+            ],
+            [
+              "Q4",
+              28,
+              20
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-1x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for international expansion.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

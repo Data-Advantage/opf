@@ -1,0 +1,366 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Defect Escape Reduction Review",
+  "description": "Defect Escape Reduction Review is a fictional OPF example for quality assurance teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "defect-escape-reduction-review",
+  "language": "english-ca",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 24,
+      "technicalFluency": "high",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "capacity-planning"
+      ],
+      "recommendedTones": [
+        "authoritative"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Reduce high-severity escapes through earlier verification",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "authoritative",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "capacity-planning",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "black-and-white",
+      "primary": "#334155",
+      "secondary": "#F8FAFC",
+      "accent": "#E2E8F0",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#14B8A6",
+        "risk": "#F59E0B"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-armenian",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": "#F8FAFC",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Quality assurance",
+      "title": "Defect Escape Reduction Review",
+      "subtitle": "Pioneer Instruments Quality assurance",
+      "notes": "Open by naming the decision: Reduce high-severity escapes through earlier verification."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Pioneer Instruments should focus the next cycle on ",
+        {
+          "text": "reduce high-severity escapes through earlier verification",
+          "bold": true,
+          "color": "#334155"
+        },
+        " while making the operating tradeoffs clear to quality assurance stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              20,
+              17
+            ],
+            [
+              "Q2",
+              24,
+              19
+            ],
+            [
+              "Q3",
+              27,
+              21
+            ],
+            [
+              "Q4",
+              31,
+              23
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Quality assurance",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Quality assurance execution path",
+        "description": "Major milestones for Pioneer Instruments.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for reduce high-severity escapes through earlier verification.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": [
+    {
+      "id": "pioneer-instruments",
+      "name": "Pioneer Instruments",
+      "logo": "asset:brand-logo",
+      "domain": "pioneer-instruments.example",
+      "email": "hello@pioneer-instruments.example",
+      "tagline": "Reduce high-severity escapes through earlier verification",
+      "role": "primary",
+      "socials": {
+        "github": "@pioneer-instruments"
+      }
+    },
+    {
+      "id": "pioneer-instruments-partner",
+      "name": "Quality Assurance Partner Office",
+      "role": "partner",
+      "domain": "partner-pioneer-instruments.example"
+    }
+  ],
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@pioneer-instruments.example",
+      "organizationId": "pioneer-instruments",
+      "socials": {
+        "github": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "pioneer-instruments",
+      "socials": {
+        "mastodon": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Reduce high-severity escapes through earlier verification",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 25,
+  "tags": [
+    "business-functions",
+    "quality-assurance",
+    "plan",
+    "authoritative",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/pioneer-instruments-logo.svg",
+      "alt": "Pioneer Instruments logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/pioneer-instruments-logo-light.svg",
+      "alt": "Pioneer Instruments light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/pioneer-instruments-icon.svg",
+      "alt": "Pioneer Instruments icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/pioneer-instruments-cover-3.jpg",
+      "alt": "Quality assurance background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/pioneer-instruments-field-photo.jpg",
+      "alt": "Quality assurance field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/pioneer-instruments-demo.mp4",
+      "title": "Quality assurance walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/defect-escape-reduction-review.csv",
+      "format": "csv",
+      "title": "Defect Escape Reduction Review data"
+    },
+    "watermark": {
+      "src": "./assets/pioneer-instruments-watermark.png",
+      "alt": "Pioneer Instruments watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "defect-escape-reduction-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Robotics Quality Escape Briefing",
+  "description": "Robotics Quality Escape Briefing is a fictional OPF example for advanced manufacturing teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "robotics-quality-escape-briefing",
+  "language": "english-au",
+  "audience": [
+    "customers",
+    {
+      "id": "marketing-team",
+      "attentionBudgetMinutes": 21,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "capacity-planning"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "inform",
+    "outcome": "Lower rework on the actuator line before the seasonal volume ramp",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "capacity-planning",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "burnt-orange",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "arabic-typesetting",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "top",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Advanced manufacturing",
+      "title": "Robotics Quality Escape Briefing",
+      "subtitle": "Axis Forge Robotics Advanced manufacturing",
+      "notes": "Open by naming the decision: Lower rework on the actuator line before the seasonal volume ramp."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Axis Forge Robotics should focus the next cycle on ",
+        {
+          "text": "lower rework on the actuator line before the seasonal volume ramp",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to advanced manufacturing stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-column",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              15,
+              12
+            ],
+            [
+              "Q2",
+              19,
+              14
+            ],
+            [
+              "Q3",
+              22,
+              16
+            ],
+            [
+              "Q4",
+              26,
+              18
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Advanced manufacturing",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Advanced manufacturing execution path",
+        "description": "Major milestones for Axis Forge Robotics.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for lower rework on the actuator line before the seasonal volume ramp.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "axis-forge-robotics",
+    "name": "Axis Forge Robotics",
+    "legalName": "Axis Forge Robotics, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "axis-forge-robotics.example",
+    "email": "hello@axis-forge-robotics.example",
+    "phone": "+15551000003",
+    "tagline": "Lower rework on the actuator line before the seasonal volume ramp",
+    "role": "primary",
+    "socials": {
+      "instagram": "@axis-forge-robotics",
+      "threads": "https://threads.example/axis-forge-robotics"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "axis-forge-robotics",
+    "bio": "Leads advanced manufacturing planning for Axis Forge Robotics.",
+    "socials": {
+      "instagram": "@axis-forge-robotics-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Lower rework on the actuator line before the seasonal volume ramp",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 11,
+  "tags": [
+    "industries",
+    "advanced-manufacturing",
+    "inform",
+    "formal",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/axis-forge-robotics-logo.svg",
+      "alt": "Axis Forge Robotics logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/axis-forge-robotics-logo-light.svg",
+      "alt": "Axis Forge Robotics light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/axis-forge-robotics-icon.svg",
+      "alt": "Axis Forge Robotics icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/axis-forge-robotics-cover-4.jpg",
+      "alt": "Advanced manufacturing background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/axis-forge-robotics-field-photo.jpg",
+      "alt": "Advanced manufacturing field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/axis-forge-robotics-demo.mp4",
+      "title": "Advanced manufacturing walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/robotics-quality-escape-briefing.csv",
+      "format": "csv",
+      "title": "Robotics Quality Escape Briefing data"
+    },
+    "watermark": {
+      "src": "./assets/axis-forge-robotics-watermark.png",
+      "alt": "Axis Forge Robotics watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "robotics-quality-escape-briefing",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

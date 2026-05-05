@@ -1,0 +1,100 @@
+{
+  "name": "Partner Ecosystem Launch Kit",
+  "language": "english-gb",
+  "audience": [
+    "board"
+  ],
+  "purpose": "pitch",
+  "tone": "technical",
+  "narrative": "business-review",
+  "design": {
+    "theme": "classic",
+    "colorScheme": "vibes",
+    "fontScheme": "noto-sans-arabic",
+    "dimensions": "a4",
+    "background": "dark1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "left",
+    "imageFill": "fit",
+    "listBullet": "image"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Partnerships",
+      "title": "Partner Ecosystem Launch Kit",
+      "subtitle": "Meridian Cloud Partnerships",
+      "notes": "Open by naming the decision: Help regional partners explain the new integration story."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Meridian Cloud should focus the next cycle on ",
+        {
+          "text": "help regional partners explain the new integration story",
+          "bold": true,
+          "color": "#0369A1"
+        },
+        " while making the operating tradeoffs clear to partnerships stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              19,
+              16
+            ],
+            [
+              "Q2",
+              23,
+              18
+            ],
+            [
+              "Q3",
+              26,
+              20
+            ],
+            [
+              "Q4",
+              30,
+              22
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-6x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for partnerships.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

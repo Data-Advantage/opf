@@ -1,0 +1,639 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Airline Disruption Recovery Review",
+  "description": "Airline Disruption Recovery Review is a fictional OPF example for air travel teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "airline-disruption-recovery-review",
+  "language": "english-ca",
+  "audience": [
+    "regulators",
+    {
+      "id": "candidates",
+      "attentionBudgetMinutes": 18,
+      "technicalFluency": "high",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "performance-review"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Shorten recovery time after weather-driven network disruption",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "performance-review",
+    "description": "Airline Disruption Recovery Review uses a compact evidence-to-decision arc for AeroVista Airlines.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "cool-horizon",
+      "primary": "#334155",
+      "secondary": "#F8FAFC",
+      "accent": "#E2E8F0",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#14B8A6",
+        "risk": "#F59E0B"
+      }
+    },
+    "fontScheme": {
+      "id": "georgia",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": "#F8FAFC",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "top",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Air travel",
+      "title": "Airline Disruption Recovery Review",
+      "subtitle": "AeroVista Airlines Air travel",
+      "notes": "Open by naming the decision: Shorten recovery time after weather-driven network disruption."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "AeroVista Airlines should focus the next cycle on ",
+        {
+          "text": "shorten recovery time after weather-driven network disruption",
+          "bold": true,
+          "color": "#334155"
+        },
+        " while making the operating tradeoffs clear to air travel stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "box-and-whisker-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              13,
+              10
+            ],
+            [
+              "Q2",
+              17,
+              12
+            ],
+            [
+              "Q3",
+              20,
+              14
+            ],
+            [
+              "Q4",
+              24,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Air travel",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Air travel execution path",
+        "description": "Major milestones for AeroVista Airlines.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s19-regions",
+      "section": "Operating model",
+      "layout": "number-1x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "11 days",
+          "label": "Primary signal",
+          "description": "Shorten recovery time after weather-driven network disruption",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "AeroVista Airlines should focus the next cycle on ",
+          {
+            "text": "shorten recovery time after weather-driven network disruption",
+            "bold": true,
+            "color": "#334155"
+          },
+          " while making the operating tradeoffs clear to air travel stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Air travel working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Air travel",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s19-blocks",
+      "section": "Evidence",
+      "layout": "number-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "clustered-column",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  22,
+                  19
+                ],
+                [
+                  "Q2",
+                  26,
+                  21
+                ],
+                [
+                  "Q3",
+                  29,
+                  23
+                ],
+                [
+                  "Q4",
+                  33,
+                  25
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "91%",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s19-image",
+      "section": "Context",
+      "layout": "image-2x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Air travel context photo for AeroVista Airlines",
+        "title": "Air travel context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s19-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "airline-disruption-recovery-review-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "shorten recovery time after weather-driven network disruption",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "aerovista-airlines",
+    "name": "AeroVista Airlines",
+    "legalName": "AeroVista Airlines, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "aerovista-airlines.example",
+    "email": "hello@aerovista-airlines.example",
+    "phone": "+15551000018",
+    "tagline": "Shorten recovery time after weather-driven network disruption",
+    "role": "primary",
+    "socials": {
+      "x": "@aerovista-airlines",
+      "facebook": "https://facebook.example/aerovista-airlines"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@aerovista-airlines.example",
+      "organizationId": "aerovista-airlines",
+      "socials": {
+        "x": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "aerovista-airlines",
+      "socials": {
+        "facebook": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Shorten recovery time after weather-driven network disruption",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 26,
+  "tags": [
+    "industries",
+    "air-travel",
+    "align",
+    "inspirational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/aerovista-airlines-logo.svg",
+      "alt": "AeroVista Airlines logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/aerovista-airlines-logo-light.svg",
+      "alt": "AeroVista Airlines light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/aerovista-airlines-icon.svg",
+      "alt": "AeroVista Airlines icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/aerovista-airlines-cover-4.jpg",
+      "alt": "Air travel background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/aerovista-airlines-field-photo.jpg",
+      "alt": "Air travel field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/aerovista-airlines-demo.mp4",
+      "title": "Air travel walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/airline-disruption-recovery-review.csv",
+      "format": "csv",
+      "title": "Airline Disruption Recovery Review data"
+    },
+    "watermark": {
+      "src": "./assets/aerovista-airlines-watermark.png",
+      "alt": "AeroVista Airlines watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "dense",
+      "scenario": "airline-disruption-recovery-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "airline-disruption-recovery-review-arc",
+          "name": "Air Travel Decision Arc",
+          "summary": "A custom arc for AeroVista Airlines.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "aerovista-airlines-theme",
+          "name": "AeroVista Airlines Working Theme",
+          "colorScheme": "cool-horizon",
+          "fontScheme": "georgia",
+          "background": "light1",
+          "tags": [
+            "air-travel",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "aerovista-airlines-signal",
+          "name": "AeroVista Airlines Signal Palette",
+          "accent1": "#334155",
+          "accent2": "#F8FAFC",
+          "accent3": "#E2E8F0",
+          "accent4": "#F59E0B",
+          "accent5": "#14B8A6",
+          "accent6": "#0F172A",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

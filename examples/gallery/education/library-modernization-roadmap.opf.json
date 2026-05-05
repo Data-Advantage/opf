@@ -1,0 +1,622 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Library Modernization Roadmap",
+  "description": "Library Modernization Roadmap is a fictional OPF example for academic library teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "library-modernization-roadmap",
+  "language": "english-gb",
+  "audience": [
+    "marketing-team",
+    {
+      "id": "board",
+      "attentionBudgetMinutes": 21,
+      "technicalFluency": "medium",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "performance-review"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "inform",
+    "outcome": "Shift the library from stacks-first to research-services-first",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "performance-review",
+    "description": "Library Modernization Roadmap uses a compact evidence-to-decision arc for Easton University Library.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "bold-red",
+      "primary": "#F59E0B",
+      "secondary": "#14B8A6",
+      "accent": "#0F172A",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#047857",
+        "risk": "#1D4ED8"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-sc",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": "dark1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "right",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Academic library",
+      "title": "Library Modernization Roadmap",
+      "subtitle": "Easton University Library Academic library",
+      "notes": "Open by naming the decision: Shift the library from stacks-first to research-services-first."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Easton University Library should focus the next cycle on ",
+        {
+          "text": "shift the library from stacks-first to research-services-first",
+          "bold": true,
+          "color": "#F59E0B"
+        },
+        " while making the operating tradeoffs clear to academic library stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "sparkline-5x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              18,
+              15
+            ],
+            [
+              "Q2",
+              22,
+              17
+            ],
+            [
+              "Q3",
+              25,
+              19
+            ],
+            [
+              "Q4",
+              29,
+              21
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Academic library",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Academic library execution path",
+        "description": "Major milestones for Easton University Library.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s58-regions",
+      "section": "Operating model",
+      "layout": "number-4x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "$4.8M",
+          "label": "Primary signal",
+          "description": "Shift the library from stacks-first to research-services-first",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Easton University Library should focus the next cycle on ",
+          {
+            "text": "shift the library from stacks-first to research-services-first",
+            "bold": true,
+            "color": "#F59E0B"
+          },
+          " while making the operating tradeoffs clear to academic library stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Academic library working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Academic library",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s58-blocks",
+      "section": "Evidence",
+      "layout": "list-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "stacked-line-3x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  27,
+                  24
+                ],
+                [
+                  "Q2",
+                  31,
+                  26
+                ],
+                [
+                  "Q3",
+                  34,
+                  28
+                ],
+                [
+                  "Q4",
+                  38,
+                  30
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "2.4x",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s58-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Academic library walkthrough",
+        "description": "Short clip demonstrating the proposed academic library workflow."
+      }
+    },
+    {
+      "id": "s58-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "library-modernization-roadmap-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "shift the library from stacks-first to research-services-first",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "easton-university-library",
+    "name": "Easton University Library",
+    "legalName": "Easton University Library",
+    "logo": "asset:brand-logo",
+    "domain": "easton-university-library.example",
+    "email": "hello@easton-university-library.example",
+    "phone": "+15551000057",
+    "tagline": "Shift the library from stacks-first to research-services-first",
+    "role": "primary",
+    "socials": {
+      "tiktok": "@easton-university-library",
+      "bluesky": "https://bluesky.example/easton-university-library"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "easton-university-library",
+    "bio": "Leads academic library planning for Easton University Library.",
+    "socials": {
+      "tiktok": "@easton-university-library-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Shift the library from stacks-first to research-services-first",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 15,
+  "tags": [
+    "education",
+    "academic-library",
+    "inform",
+    "casual",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/easton-university-library-logo.svg",
+      "alt": "Easton University Library logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/easton-university-library-logo-light.svg",
+      "alt": "Easton University Library light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/easton-university-library-icon.svg",
+      "alt": "Easton University Library icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/easton-university-library-cover-3.jpg",
+      "alt": "Academic library background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/easton-university-library-field-photo.jpg",
+      "alt": "Academic library field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/easton-university-library-demo.mp4",
+      "title": "Academic library walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/library-modernization-roadmap.csv",
+      "format": "csv",
+      "title": "Library Modernization Roadmap data"
+    },
+    "watermark": {
+      "src": "./assets/easton-university-library-watermark.png",
+      "alt": "Easton University Library watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "dense",
+      "scenario": "library-modernization-roadmap",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "library-modernization-roadmap-arc",
+          "name": "Academic Library Decision Arc",
+          "summary": "A custom arc for Easton University Library.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "easton-university-library-theme",
+          "name": "Easton University Library Working Theme",
+          "colorScheme": "bold-red",
+          "fontScheme": "noto-sans-sc",
+          "background": "light1",
+          "tags": [
+            "academic-library",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "easton-university-library-signal",
+          "name": "Easton University Library Signal Palette",
+          "accent1": "#F59E0B",
+          "accent2": "#14B8A6",
+          "accent3": "#0F172A",
+          "accent4": "#1D4ED8",
+          "accent5": "#047857",
+          "accent6": "#B45309",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

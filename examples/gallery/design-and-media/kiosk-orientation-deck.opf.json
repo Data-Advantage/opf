@@ -1,0 +1,638 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Kiosk Orientation Deck",
+  "description": "Kiosk Orientation Deck is a fictional OPF example for visitor orientation teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "kiosk-orientation-deck",
+  "language": {
+    "id": "english-us",
+    "name": "English (United States)",
+    "direction": "ltr",
+    "fontScheme": "constantia",
+    "tags": [
+      "design-and-media",
+      "visitor-orientation"
+    ]
+  },
+  "audience": [
+    "sales-team",
+    {
+      "id": "customers",
+      "attentionBudgetMinutes": 27,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "pitch-deck"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Prepare a self-running lobby deck with concise navigation cues",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "pitch-deck",
+    "description": "Kiosk Orientation Deck uses a compact evidence-to-decision arc for Northgate Museum.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "bold-red",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "constantia",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "bottom",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Visitor orientation",
+      "title": "Kiosk Orientation Deck",
+      "subtitle": "Northgate Museum Visitor orientation",
+      "notes": "Open by naming the decision: Prepare a self-running lobby deck with concise navigation cues."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Northgate Museum should focus the next cycle on ",
+        {
+          "text": "prepare a self-running lobby deck with concise navigation cues",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to visitor orientation stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-column-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              26,
+              23
+            ],
+            [
+              "Q2",
+              30,
+              25
+            ],
+            [
+              "Q3",
+              33,
+              27
+            ],
+            [
+              "Q4",
+              37,
+              29
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Visitor orientation",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Visitor orientation execution path",
+        "description": "Major milestones for Northgate Museum.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s100-regions",
+      "section": "Operating model",
+      "layout": "number-4x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "2.4x",
+          "label": "Primary signal",
+          "description": "Prepare a self-running lobby deck with concise navigation cues",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Northgate Museum should focus the next cycle on ",
+          {
+            "text": "prepare a self-running lobby deck with concise navigation cues",
+            "bold": true,
+            "color": "#BE123C"
+          },
+          " while making the operating tradeoffs clear to visitor orientation stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Visitor orientation working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Visitor orientation",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s100-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "dot-plot-4x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  18,
+                  15
+                ],
+                [
+                  "Q2",
+                  22,
+                  17
+                ],
+                [
+                  "Q3",
+                  25,
+                  19
+                ],
+                [
+                  "Q4",
+                  29,
+                  21
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "42 pts",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s100-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Visitor orientation walkthrough",
+        "description": "Short clip demonstrating the proposed visitor orientation workflow."
+      }
+    },
+    {
+      "id": "s100-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "kiosk-orientation-deck-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "prepare a self-running lobby deck with concise navigation cues",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "northgate-museum",
+    "name": "Northgate Museum",
+    "legalName": "Northgate Museum, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "northgate-museum.example",
+    "email": "hello@northgate-museum.example",
+    "phone": "+15551000099",
+    "tagline": "Prepare a self-running lobby deck with concise navigation cues",
+    "role": "primary",
+    "socials": {
+      "youtube": "@northgate-museum",
+      "github": "https://github.example/northgate-museum"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "northgate-museum",
+    "bio": "Leads visitor orientation planning for Northgate Museum.",
+    "socials": {
+      "youtube": "@northgate-museum-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Prepare a self-running lobby deck with concise navigation cues",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 32,
+  "tags": [
+    "design-and-media",
+    "visitor-orientation",
+    "align",
+    "casual",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/northgate-museum-logo.svg",
+      "alt": "Northgate Museum logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/northgate-museum-logo-light.svg",
+      "alt": "Northgate Museum light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/northgate-museum-icon.svg",
+      "alt": "Northgate Museum icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/northgate-museum-cover-5.jpg",
+      "alt": "Visitor orientation background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/northgate-museum-field-photo.jpg",
+      "alt": "Visitor orientation field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/northgate-museum-demo.mp4",
+      "title": "Visitor orientation walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/kiosk-orientation-deck.csv",
+      "format": "csv",
+      "title": "Kiosk Orientation Deck data"
+    },
+    "watermark": {
+      "src": "./assets/northgate-museum-watermark.png",
+      "alt": "Northgate Museum watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "design-and-media",
+      "density": "dense",
+      "scenario": "kiosk-orientation-deck",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "kiosk-orientation-deck-arc",
+          "name": "Visitor Orientation Decision Arc",
+          "summary": "A custom arc for Northgate Museum.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "northgate-museum-theme",
+          "name": "Northgate Museum Working Theme",
+          "colorScheme": "bold-red",
+          "fontScheme": "constantia",
+          "background": "light1",
+          "tags": [
+            "visitor-orientation",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "northgate-museum-signal",
+          "name": "Northgate Museum Signal Palette",
+          "accent1": "#BE123C",
+          "accent2": "#6D28D9",
+          "accent3": "#0369A1",
+          "accent4": "#334155",
+          "accent5": "#F8FAFC",
+          "accent6": "#E2E8F0",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

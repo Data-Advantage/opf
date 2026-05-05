@@ -1,0 +1,88 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Slide Design Overrides",
+  "description": "Technical fixture for deck-level design plus slide-level overrides.",
+  "design": {
+    "theme": "classic",
+    "colorScheme": "corporate-blue",
+    "fontScheme": "aptos",
+    "dimensions": "widescreen",
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "title": "Deck Defaults",
+      "items": [
+        "Classic theme",
+        "Corporate blue color scheme",
+        "Left-aligned content"
+      ]
+    },
+    {
+      "title": "Carded Content Override",
+      "design": {
+        "contentBox": true,
+        "contentAlignment": "center",
+        "titleAlignment": "center"
+      },
+      "items": [
+        "Content can opt into card rendering.",
+        "Alignment can change per slide."
+      ]
+    },
+    {
+      "title": "Chart Primary Override",
+      "design": {
+        "chartPrimary": "left",
+        "contentDirection": "vertical"
+      },
+      "chart": {
+        "type": "line-2x",
+        "data": {
+          "columns": [
+            "Week",
+            "Actual",
+            "Target"
+          ],
+          "rows": [
+            [
+              "W1",
+              12,
+              10
+            ],
+            [
+              "W2",
+              18,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": "Image Fill Override",
+      "design": {
+        "imageFill": "fit",
+        "slideImage": {
+          "src": "asset:context-photo",
+          "position": "right"
+        }
+      },
+      "type": "image",
+      "image": "asset:context-photo"
+    }
+  ],
+  "assets": {
+    "context-photo": {
+      "src": "./assets/context-photo.jpg",
+      "alt": "Context photo"
+    }
+  }
+}

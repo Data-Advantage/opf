@@ -1,0 +1,349 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Workplace Occupancy Reset",
+  "description": "Workplace Occupancy Reset is a fictional OPF example for facilities teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "workplace-occupancy-reset",
+  "language": "english-au",
+  "audience": [
+    "customers",
+    {
+      "id": "marketing-team",
+      "attentionBudgetMinutes": 25,
+      "technicalFluency": "mixed",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "challenge-resolution"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Right-size office services around actual hybrid usage",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "challenge-resolution",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "bold-red",
+      "primary": "#F8FAFC",
+      "secondary": "#E2E8F0",
+      "accent": "#F59E0B",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0F172A",
+        "risk": "#14B8A6"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-bengali",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "top",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Facilities",
+      "title": "Workplace Occupancy Reset",
+      "subtitle": "SilverOak Group Facilities",
+      "notes": "Open by naming the decision: Right-size office services around actual hybrid usage."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "SilverOak Group should focus the next cycle on ",
+        {
+          "text": "right-size office services around actual hybrid usage",
+          "bold": true,
+          "color": "#F8FAFC"
+        },
+        " while making the operating tradeoffs clear to facilities stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-with-high-low",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              21,
+              18
+            ],
+            [
+              "Q2",
+              25,
+              20
+            ],
+            [
+              "Q3",
+              28,
+              22
+            ],
+            [
+              "Q4",
+              32,
+              24
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Facilities",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Facilities execution path",
+        "description": "Major milestones for SilverOak Group.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for right-size office services around actual hybrid usage.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "silveroak-group",
+    "name": "SilverOak Group",
+    "legalName": "SilverOak Group, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "silveroak-group.example",
+    "email": "hello@silveroak-group.example",
+    "phone": "+15551000043",
+    "tagline": "Right-size office services around actual hybrid usage",
+    "role": "primary",
+    "socials": {
+      "instagram": "@silveroak-group",
+      "threads": "https://threads.example/silveroak-group"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "silveroak-group",
+    "bio": "Leads facilities planning for SilverOak Group.",
+    "socials": {
+      "instagram": "@silveroak-group-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Right-size office services around actual hybrid usage",
+  "duration": 26,
+  "tags": [
+    "business-functions",
+    "facilities",
+    "report",
+    "casual",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/silveroak-group-logo.svg",
+      "alt": "SilverOak Group logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/silveroak-group-logo-light.svg",
+      "alt": "SilverOak Group light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/silveroak-group-icon.svg",
+      "alt": "SilverOak Group icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/silveroak-group-cover-4.jpg",
+      "alt": "Facilities background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/silveroak-group-field-photo.jpg",
+      "alt": "Facilities field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/silveroak-group-demo.mp4",
+      "title": "Facilities walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/workplace-occupancy-reset.csv",
+      "format": "csv",
+      "title": "Workplace Occupancy Reset data"
+    },
+    "watermark": {
+      "src": "./assets/silveroak-group-watermark.png",
+      "alt": "SilverOak Group watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "workplace-occupancy-reset",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

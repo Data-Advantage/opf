@@ -1,0 +1,635 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Strategy Offsite Pre-Read",
+  "description": "Strategy Offsite Pre-Read is a fictional OPF example for corporate strategy teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "strategy-offsite-pre-read",
+  "language": "english-gb",
+  "audience": [
+    "marketing-team",
+    {
+      "id": "board",
+      "attentionBudgetMinutes": 19,
+      "technicalFluency": "medium",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "venture-pitch"
+      ],
+      "recommendedTones": [
+        "conversational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Focus leadership debate on the few choices that matter",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "conversational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "venture-pitch",
+    "description": "Strategy Offsite Pre-Read uses a compact evidence-to-decision arc for Northstar Studio.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "luxury",
+      "primary": "#047857",
+      "secondary": "#B45309",
+      "accent": "#BE123C",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0369A1",
+        "risk": "#6D28D9"
+      }
+    },
+    "fontScheme": {
+      "id": "nirmala-ui",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": {
+      "type": "gradient",
+      "gradient": {
+        "angle": 35,
+        "stops": [
+          {
+            "color": "#047857",
+            "position": 0
+          },
+          {
+            "color": "#6D28D9",
+            "position": 1
+          }
+        ]
+      },
+      "opacity": 0.94
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "right",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Corporate strategy",
+      "title": "Strategy Offsite Pre-Read",
+      "subtitle": "Northstar Studio Corporate strategy",
+      "notes": "Open by naming the decision: Focus leadership debate on the few choices that matter."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Northstar Studio should focus the next cycle on ",
+        {
+          "text": "focus leadership debate on the few choices that matter",
+          "bold": true,
+          "color": "#047857"
+        },
+        " while making the operating tradeoffs clear to corporate strategy stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "filled-radar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              15,
+              12
+            ],
+            [
+              "Q2",
+              19,
+              14
+            ],
+            [
+              "Q3",
+              22,
+              16
+            ],
+            [
+              "Q4",
+              26,
+              18
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Corporate strategy",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Corporate strategy execution path",
+        "description": "Major milestones for Northstar Studio.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s38-regions",
+      "section": "Operating model",
+      "layout": "number-2x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "42 pts",
+          "label": "Primary signal",
+          "description": "Focus leadership debate on the few choices that matter",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Northstar Studio should focus the next cycle on ",
+          {
+            "text": "focus leadership debate on the few choices that matter",
+            "bold": true,
+            "color": "#047857"
+          },
+          " while making the operating tradeoffs clear to corporate strategy stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Corporate strategy working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Corporate strategy",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s38-blocks",
+      "section": "Evidence",
+      "layout": "list-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "line-with-markers-2x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  24,
+                  21
+                ],
+                [
+                  "Q2",
+                  28,
+                  23
+                ],
+                [
+                  "Q3",
+                  31,
+                  25
+                ],
+                [
+                  "Q4",
+                  35,
+                  27
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "31%",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s38-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Corporate strategy walkthrough",
+        "description": "Short clip demonstrating the proposed corporate strategy workflow."
+      }
+    },
+    {
+      "id": "s38-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "strategy-offsite-pre-read-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "focus leadership debate on the few choices that matter",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "northstar-studio",
+    "name": "Northstar Studio",
+    "legalName": "Northstar Studio, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "northstar-studio.example",
+    "email": "hello@northstar-studio.example",
+    "phone": "+15551000037",
+    "tagline": "Focus leadership debate on the few choices that matter",
+    "role": "primary",
+    "socials": {
+      "tiktok": "@northstar-studio",
+      "bluesky": "https://bluesky.example/northstar-studio"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "northstar-studio",
+    "bio": "Leads corporate strategy planning for Northstar Studio.",
+    "socials": {
+      "tiktok": "@northstar-studio-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Focus leadership debate on the few choices that matter",
+  "duration": 20,
+  "tags": [
+    "business-functions",
+    "corporate-strategy",
+    "decide",
+    "conversational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/northstar-studio-logo.svg",
+      "alt": "Northstar Studio logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/northstar-studio-logo-light.svg",
+      "alt": "Northstar Studio light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/northstar-studio-icon.svg",
+      "alt": "Northstar Studio icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/northstar-studio-cover-3.jpg",
+      "alt": "Corporate strategy background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/northstar-studio-field-photo.jpg",
+      "alt": "Corporate strategy field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/northstar-studio-demo.mp4",
+      "title": "Corporate strategy walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/strategy-offsite-pre-read.csv",
+      "format": "csv",
+      "title": "Strategy Offsite Pre-Read data"
+    },
+    "watermark": {
+      "src": "./assets/northstar-studio-watermark.png",
+      "alt": "Northstar Studio watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "strategy-offsite-pre-read",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "strategy-offsite-pre-read-arc",
+          "name": "Corporate Strategy Decision Arc",
+          "summary": "A custom arc for Northstar Studio.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "northstar-studio-theme",
+          "name": "Northstar Studio Working Theme",
+          "colorScheme": "luxury",
+          "fontScheme": "nirmala-ui",
+          "background": "dark1",
+          "tags": [
+            "corporate-strategy",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "northstar-studio-signal",
+          "name": "Northstar Studio Signal Palette",
+          "accent1": "#047857",
+          "accent2": "#B45309",
+          "accent3": "#BE123C",
+          "accent4": "#6D28D9",
+          "accent5": "#0369A1",
+          "accent6": "#334155",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

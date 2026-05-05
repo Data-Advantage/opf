@@ -1,0 +1,366 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Retail Launch Readiness Deck",
+  "description": "Retail Launch Readiness Deck is a fictional OPF example for beauty retail teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "retail-launch-readiness-deck",
+  "language": "english-us",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 24,
+      "technicalFluency": "low",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "project-proposal"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Coordinate field teams for a national product launch",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "project-proposal",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "pastel-red",
+      "primary": "#1D4ED8",
+      "secondary": "#047857",
+      "accent": "#B45309",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#6D28D9",
+        "risk": "#BE123C"
+      }
+    },
+    "fontScheme": {
+      "id": "kartika",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": false,
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Beauty retail",
+      "title": "Retail Launch Readiness Deck",
+      "subtitle": "Bloom & Anchor Beauty Beauty retail",
+      "notes": "Open by naming the decision: Coordinate field teams for a national product launch."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Bloom & Anchor Beauty should focus the next cycle on ",
+        {
+          "text": "coordinate field teams for a national product launch",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to beauty retail stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-column-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              19,
+              16
+            ],
+            [
+              "Q2",
+              23,
+              18
+            ],
+            [
+              "Q3",
+              26,
+              20
+            ],
+            [
+              "Q4",
+              30,
+              22
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Beauty retail",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Beauty retail execution path",
+        "description": "Major milestones for Bloom & Anchor Beauty.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for coordinate field teams for a national product launch.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "bloom-and-anchor-beauty",
+    "name": "Bloom & Anchor Beauty",
+    "legalName": "Bloom & Anchor Beauty, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "bloom-and-anchor-beauty.example",
+    "email": "hello@bloom-and-anchor-beauty.example",
+    "phone": "+15551000024",
+    "tagline": "Coordinate field teams for a national product launch",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@bloom-and-anchor-beauty",
+      "tiktok": "https://tiktok.example/bloom-and-anchor-beauty"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@bloom-and-anchor-beauty.example",
+      "organizationId": "bloom-and-anchor-beauty",
+      "socials": {
+        "linkedin": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "bloom-and-anchor-beauty",
+      "socials": {
+        "tiktok": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": [
+    "Coordinate field teams for a national product launch",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 32,
+  "tags": [
+    "industries",
+    "beauty-retail",
+    "plan",
+    "formal",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/bloom-and-anchor-beauty-logo.svg",
+      "alt": "Bloom & Anchor Beauty logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/bloom-and-anchor-beauty-logo-light.svg",
+      "alt": "Bloom & Anchor Beauty light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/bloom-and-anchor-beauty-icon.svg",
+      "alt": "Bloom & Anchor Beauty icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/bloom-and-anchor-beauty-cover-5.jpg",
+      "alt": "Beauty retail background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/bloom-and-anchor-beauty-field-photo.jpg",
+      "alt": "Beauty retail field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/bloom-and-anchor-beauty-demo.mp4",
+      "title": "Beauty retail walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/retail-launch-readiness-deck.csv",
+      "format": "csv",
+      "title": "Retail Launch Readiness Deck data"
+    },
+    "watermark": {
+      "src": "./assets/bloom-and-anchor-beauty-watermark.png",
+      "alt": "Bloom & Anchor Beauty watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "retail-launch-readiness-deck",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

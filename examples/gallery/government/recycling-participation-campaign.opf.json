@@ -1,0 +1,613 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Recycling Participation Campaign",
+  "description": "Recycling Participation Campaign is a fictional OPF example for sanitation teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "recycling-participation-campaign",
+  "language": "english-us",
+  "audience": [
+    "investors",
+    {
+      "id": "all-hands",
+      "attentionBudgetMinutes": 22,
+      "technicalFluency": "low",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "venture-pitch"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "persuade",
+    "outcome": "Increase household recycling participation with clearer guidance",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "venture-pitch",
+    "description": "Recycling Participation Campaign uses a compact evidence-to-decision arc for City Sanitation Bureau.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "deep-purple",
+      "primary": "#6D28D9",
+      "secondary": "#0369A1",
+      "accent": "#334155",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#E2E8F0",
+        "risk": "#F8FAFC"
+      }
+    },
+    "fontScheme": {
+      "id": "shruti",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "left",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "top"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Sanitation",
+      "title": "Recycling Participation Campaign",
+      "subtitle": "City Sanitation Bureau Sanitation",
+      "notes": "Open by naming the decision: Increase household recycling participation with clearer guidance."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "City Sanitation Bureau should focus the next cycle on ",
+        {
+          "text": "increase household recycling participation with clearer guidance",
+          "bold": true,
+          "color": "#6D28D9"
+        },
+        " while making the operating tradeoffs clear to sanitation stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-bar",
+        "data": {
+          "src": "asset:metric-data",
+          "sheet": "Summary",
+          "range": "A1:C8",
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Sanitation",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Sanitation execution path",
+        "description": "Major milestones for City Sanitation Bureau.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s77-regions",
+      "section": "Operating model",
+      "layout": "number-5x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "91%",
+          "label": "Primary signal",
+          "description": "Increase household recycling participation with clearer guidance",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "City Sanitation Bureau should focus the next cycle on ",
+          {
+            "text": "increase household recycling participation with clearer guidance",
+            "bold": true,
+            "color": "#6D28D9"
+          },
+          " while making the operating tradeoffs clear to sanitation stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Sanitation working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Sanitation",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s77-blocks",
+      "section": "Evidence",
+      "layout": "blank",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "100pct-stacked-bar-2x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  12,
+                  9
+                ],
+                [
+                  "Q2",
+                  16,
+                  11
+                ],
+                [
+                  "Q3",
+                  19,
+                  13
+                ],
+                [
+                  "Q4",
+                  23,
+                  15
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$820K",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s77-image",
+      "section": "Context",
+      "layout": "image-3x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Sanitation context photo for City Sanitation Bureau",
+        "title": "Sanitation context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s77-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "recycling-participation-campaign-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "increase household recycling participation with clearer guidance",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "city-sanitation-bureau",
+    "name": "City Sanitation Bureau",
+    "legalName": "City Sanitation Bureau",
+    "logo": "asset:brand-logo",
+    "domain": "city-sanitation-bureau.example",
+    "email": "hello@city-sanitation-bureau.example",
+    "phone": "+15551000076",
+    "tagline": "Increase household recycling participation with clearer guidance",
+    "role": "primary",
+    "socials": {
+      "threads": "@city-sanitation-bureau",
+      "youtube": "https://youtube.example/city-sanitation-bureau"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Jon Alvarez",
+    "title": "Operating Lead",
+    "organizationId": "city-sanitation-bureau",
+    "bio": "Leads sanitation planning for City Sanitation Bureau.",
+    "socials": {
+      "threads": "@city-sanitation-bureau-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Increase household recycling participation with clearer guidance",
+  "duration": 9,
+  "tags": [
+    "government",
+    "sanitation",
+    "persuade",
+    "technical",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/city-sanitation-bureau-logo.svg",
+      "alt": "City Sanitation Bureau logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/city-sanitation-bureau-logo-light.svg",
+      "alt": "City Sanitation Bureau light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/city-sanitation-bureau-icon.svg",
+      "alt": "City Sanitation Bureau icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/city-sanitation-bureau-cover-2.jpg",
+      "alt": "Sanitation background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/city-sanitation-bureau-field-photo.jpg",
+      "alt": "Sanitation field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/city-sanitation-bureau-demo.mp4",
+      "title": "Sanitation walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/recycling-participation-campaign.csv",
+      "format": "csv",
+      "title": "Recycling Participation Campaign data"
+    },
+    "watermark": {
+      "src": "./assets/city-sanitation-bureau-watermark.png",
+      "alt": "City Sanitation Bureau watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "dense",
+      "scenario": "recycling-participation-campaign",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "recycling-participation-campaign-arc",
+          "name": "Sanitation Decision Arc",
+          "summary": "A custom arc for City Sanitation Bureau.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "city-sanitation-bureau-theme",
+          "name": "City Sanitation Bureau Working Theme",
+          "colorScheme": "deep-purple",
+          "fontScheme": "shruti",
+          "background": "dark1",
+          "tags": [
+            "sanitation",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "city-sanitation-bureau-signal",
+          "name": "City Sanitation Bureau Signal Palette",
+          "accent1": "#6D28D9",
+          "accent2": "#0369A1",
+          "accent3": "#334155",
+          "accent4": "#F8FAFC",
+          "accent5": "#E2E8F0",
+          "accent6": "#F59E0B",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Battery Line Supplier Readiness",
+  "description": "Battery Line Supplier Readiness is a fictional OPF example for automotive supply teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "battery-line-supplier-readiness",
+  "language": "english-us",
+  "audience": [
+    "investors",
+    {
+      "id": "all-hands",
+      "attentionBudgetMinutes": 34,
+      "technicalFluency": "low",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "marketing-strategy"
+      ],
+      "recommendedTones": [
+        "conversational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Qualify suppliers for the new battery enclosure line",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "conversational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "marketing-strategy",
+    "description": "Battery Line Supplier Readiness uses a compact evidence-to-decision arc for Voltcrest Components.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "boost",
+      "primary": "#6D28D9",
+      "secondary": "#0369A1",
+      "accent": "#334155",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#E2E8F0",
+        "risk": "#F8FAFC"
+      }
+    },
+    "fontScheme": {
+      "id": "garamond",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": "light1",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "left",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": false,
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "top"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Automotive supply",
+      "title": "Battery Line Supplier Readiness",
+      "subtitle": "Voltcrest Components Automotive supply",
+      "notes": "Open by naming the decision: Qualify suppliers for the new battery enclosure line."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Voltcrest Components should focus the next cycle on ",
+        {
+          "text": "qualify suppliers for the new battery enclosure line",
+          "bold": true,
+          "color": "#6D28D9"
+        },
+        " while making the operating tradeoffs clear to automotive supply stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "box-and-whisker",
+        "data": {
+          "src": "asset:metric-data",
+          "sheet": "Summary",
+          "range": "A1:C8",
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Automotive supply",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Automotive supply execution path",
+        "description": "Major milestones for Voltcrest Components.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s17-regions",
+      "section": "Operating model",
+      "layout": "number-5x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "18%",
+          "label": "Primary signal",
+          "description": "Qualify suppliers for the new battery enclosure line",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Voltcrest Components should focus the next cycle on ",
+          {
+            "text": "qualify suppliers for the new battery enclosure line",
+            "bold": true,
+            "color": "#6D28D9"
+          },
+          " while making the operating tradeoffs clear to automotive supply stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Automotive supply working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Automotive supply",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s17-blocks",
+      "section": "Evidence",
+      "layout": "blank",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "canada",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  20,
+                  17
+                ],
+                [
+                  "Q2",
+                  24,
+                  19
+                ],
+                [
+                  "Q3",
+                  27,
+                  21
+                ],
+                [
+                  "Q4",
+                  31,
+                  23
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "11 days",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s17-image",
+      "section": "Context",
+      "layout": "image-1x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Automotive supply context photo for Voltcrest Components",
+        "title": "Automotive supply context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s17-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "battery-line-supplier-readiness-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "qualify suppliers for the new battery enclosure line",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "voltcrest-components",
+    "name": "Voltcrest Components",
+    "legalName": "Voltcrest Components, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "voltcrest-components.example",
+    "email": "hello@voltcrest-components.example",
+    "phone": "+15551000016",
+    "tagline": "Qualify suppliers for the new battery enclosure line",
+    "role": "primary",
+    "socials": {
+      "threads": "@voltcrest-components",
+      "youtube": "https://youtube.example/voltcrest-components"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Jon Alvarez",
+    "title": "Operating Lead",
+    "organizationId": "voltcrest-components",
+    "bio": "Leads automotive supply planning for Voltcrest Components.",
+    "socials": {
+      "threads": "@voltcrest-components-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Qualify suppliers for the new battery enclosure line",
+  "duration": 24,
+  "tags": [
+    "industries",
+    "automotive-supply",
+    "report",
+    "conversational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/voltcrest-components-logo.svg",
+      "alt": "Voltcrest Components logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/voltcrest-components-logo-light.svg",
+      "alt": "Voltcrest Components light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/voltcrest-components-icon.svg",
+      "alt": "Voltcrest Components icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/voltcrest-components-cover-2.jpg",
+      "alt": "Automotive supply background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/voltcrest-components-field-photo.jpg",
+      "alt": "Automotive supply field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/voltcrest-components-demo.mp4",
+      "title": "Automotive supply walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/battery-line-supplier-readiness.csv",
+      "format": "csv",
+      "title": "Battery Line Supplier Readiness data"
+    },
+    "watermark": {
+      "src": "./assets/voltcrest-components-watermark.png",
+      "alt": "Voltcrest Components watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "dense",
+      "scenario": "battery-line-supplier-readiness",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "battery-line-supplier-readiness-arc",
+          "name": "Automotive Supply Decision Arc",
+          "summary": "A custom arc for Voltcrest Components.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "voltcrest-components-theme",
+          "name": "Voltcrest Components Working Theme",
+          "colorScheme": "boost",
+          "fontScheme": "garamond",
+          "background": "dark1",
+          "tags": [
+            "automotive-supply",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "voltcrest-components-signal",
+          "name": "Voltcrest Components Signal Palette",
+          "accent1": "#6D28D9",
+          "accent2": "#0369A1",
+          "accent3": "#334155",
+          "accent4": "#F8FAFC",
+          "accent5": "#E2E8F0",
+          "accent6": "#F59E0B",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

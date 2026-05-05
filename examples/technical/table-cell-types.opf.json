@@ -1,0 +1,47 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Table Cell Types",
+  "description": "Technical fixture for supported table cell scalar values.",
+  "slides": [
+    {
+      "title": "Scalar Cells",
+      "table": {
+        "columns": [
+          "String",
+          "Number",
+          "Boolean",
+          "Null"
+        ],
+        "rows": [
+          [
+            "alpha",
+            1,
+            true,
+            null
+          ],
+          [
+            "beta",
+            2.5,
+            false,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Table Without Columns",
+      "table": {
+        "rows": [
+          [
+            "First",
+            "Second"
+          ],
+          [
+            "Third",
+            "Fourth"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,632 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Supplier Risk Heatmap",
+  "description": "Supplier Risk Heatmap is a fictional OPF example for procurement teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "supplier-risk-heatmap",
+  "language": "english-us",
+  "audience": [
+    "investors",
+    {
+      "id": "all-hands",
+      "attentionBudgetMinutes": 18,
+      "technicalFluency": "low",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "underdog-victory"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Prioritize second-source work for the highest-risk suppliers",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "underdog-victory",
+    "description": "Supplier Risk Heatmap uses a compact evidence-to-decision arc for Ironwood Devices.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "golden-yellow",
+      "primary": "#1D4ED8",
+      "secondary": "#047857",
+      "accent": "#B45309",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#6D28D9",
+        "risk": "#BE123C"
+      }
+    },
+    "fontScheme": {
+      "id": "ms-mincho",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "left",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "top"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Procurement",
+      "title": "Supplier Risk Heatmap",
+      "subtitle": "Ironwood Devices Procurement",
+      "notes": "Open by naming the decision: Prioritize second-source work for the highest-risk suppliers."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Ironwood Devices should focus the next cycle on ",
+        {
+          "text": "prioritize second-source work for the highest-risk suppliers",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to procurement stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "dumbbell",
+        "data": {
+          "src": "asset:metric-data",
+          "sheet": "Summary",
+          "range": "A1:C8",
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Procurement",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Procurement execution path",
+        "description": "Major milestones for Ironwood Devices.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s37-regions",
+      "section": "Operating model",
+      "layout": "number-1x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "91%",
+          "label": "Primary signal",
+          "description": "Prioritize second-source work for the highest-risk suppliers",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Ironwood Devices should focus the next cycle on ",
+          {
+            "text": "prioritize second-source work for the highest-risk suppliers",
+            "bold": true,
+            "color": "#1D4ED8"
+          },
+          " while making the operating tradeoffs clear to procurement stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Procurement working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Procurement",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s37-blocks",
+      "section": "Evidence",
+      "layout": "blank",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "line-with-markers",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  23,
+                  20
+                ],
+                [
+                  "Q2",
+                  27,
+                  22
+                ],
+                [
+                  "Q3",
+                  30,
+                  24
+                ],
+                [
+                  "Q4",
+                  34,
+                  26
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$820K",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s37-image",
+      "section": "Context",
+      "layout": "image-3x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Procurement context photo for Ironwood Devices",
+        "title": "Procurement context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s37-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "supplier-risk-heatmap-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "prioritize second-source work for the highest-risk suppliers",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "ironwood-devices",
+    "name": "Ironwood Devices",
+    "legalName": "Ironwood Devices, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "ironwood-devices.example",
+    "email": "hello@ironwood-devices.example",
+    "phone": "+15551000036",
+    "tagline": "Prioritize second-source work for the highest-risk suppliers",
+    "role": "primary",
+    "socials": {
+      "threads": "@ironwood-devices",
+      "youtube": "https://youtube.example/ironwood-devices"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@ironwood-devices.example",
+      "organizationId": "ironwood-devices",
+      "socials": {
+        "threads": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "ironwood-devices",
+      "socials": {
+        "youtube": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": [
+    "Prioritize second-source work for the highest-risk suppliers",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 19,
+  "tags": [
+    "business-functions",
+    "procurement",
+    "align",
+    "casual",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/ironwood-devices-logo.svg",
+      "alt": "Ironwood Devices logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/ironwood-devices-logo-light.svg",
+      "alt": "Ironwood Devices light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/ironwood-devices-icon.svg",
+      "alt": "Ironwood Devices icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/ironwood-devices-cover-2.jpg",
+      "alt": "Procurement background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/ironwood-devices-field-photo.jpg",
+      "alt": "Procurement field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/ironwood-devices-demo.mp4",
+      "title": "Procurement walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/supplier-risk-heatmap.csv",
+      "format": "csv",
+      "title": "Supplier Risk Heatmap data"
+    },
+    "watermark": {
+      "src": "./assets/ironwood-devices-watermark.png",
+      "alt": "Ironwood Devices watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "supplier-risk-heatmap",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "supplier-risk-heatmap-arc",
+          "name": "Procurement Decision Arc",
+          "summary": "A custom arc for Ironwood Devices.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "ironwood-devices-theme",
+          "name": "Ironwood Devices Working Theme",
+          "colorScheme": "golden-yellow",
+          "fontScheme": "ms-mincho",
+          "background": "light1",
+          "tags": [
+            "procurement",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "ironwood-devices-signal",
+          "name": "Ironwood Devices Signal Palette",
+          "accent1": "#1D4ED8",
+          "accent2": "#047857",
+          "accent3": "#B45309",
+          "accent4": "#BE123C",
+          "accent5": "#6D28D9",
+          "accent6": "#0369A1",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

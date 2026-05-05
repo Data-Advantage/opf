@@ -1,0 +1,351 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Contract Cycle Time Brief",
+  "description": "Contract Cycle Time Brief is a fictional OPF example for legal operations teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "contract-cycle-time-brief",
+  "language": "english-us",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 32,
+      "technicalFluency": "low",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "survey-analysis"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "pitch",
+    "outcome": "Shorten commercial contract review while managing risk",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "survey-analysis",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "cool-horizon",
+      "primary": "#E2E8F0",
+      "secondary": "#F59E0B",
+      "accent": "#14B8A6",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#1D4ED8",
+        "risk": "#0F172A"
+      }
+    },
+    "fontScheme": {
+      "id": "microsoft-yahei",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "4:3",
+    "background": "light1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": false,
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Legal operations",
+      "title": "Contract Cycle Time Brief",
+      "subtitle": "Juniper Legal Legal operations",
+      "notes": "Open by naming the decision: Shorten commercial contract review while managing risk."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Juniper Legal should focus the next cycle on ",
+        {
+          "text": "shorten commercial contract review while managing risk",
+          "bold": true,
+          "color": "#E2E8F0"
+        },
+        " while making the operating tradeoffs clear to legal operations stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "dot-plot-4x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              27,
+              24
+            ],
+            [
+              "Q2",
+              31,
+              26
+            ],
+            [
+              "Q3",
+              34,
+              28
+            ],
+            [
+              "Q4",
+              38,
+              30
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Legal operations",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Legal operations execution path",
+        "description": "Major milestones for Juniper Legal.",
+        "events": [
+          {
+            "when": "Jul",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Aug",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Sep",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Oct",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for shorten commercial contract review while managing risk.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "juniper-legal",
+    "name": "Juniper Legal",
+    "legalName": "Juniper Legal, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "juniper-legal.example",
+    "email": "hello@juniper-legal.example",
+    "phone": "+15551000032",
+    "tagline": "Shorten commercial contract review while managing risk",
+    "role": "primary",
+    "socials": {
+      "github": "@juniper-legal",
+      "mastodon": "https://mastodon.example/juniper-legal"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "juniper-legal",
+    "bio": "Leads legal operations planning for Juniper Legal.",
+    "socials": {
+      "github": "@juniper-legal-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Shorten commercial contract review while managing risk",
+  "duration": 15,
+  "tags": [
+    "business-functions",
+    "legal-operations",
+    "pitch",
+    "inspirational",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/juniper-legal-logo.svg",
+      "alt": "Juniper Legal logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/juniper-legal-logo-light.svg",
+      "alt": "Juniper Legal light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/juniper-legal-icon.svg",
+      "alt": "Juniper Legal icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/juniper-legal-cover-3.jpg",
+      "alt": "Legal operations background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/juniper-legal-field-photo.jpg",
+      "alt": "Legal operations field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/juniper-legal-demo.mp4",
+      "title": "Legal operations walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/contract-cycle-time-brief.csv",
+      "format": "csv",
+      "title": "Contract Cycle Time Brief data"
+    },
+    "watermark": {
+      "src": "./assets/juniper-legal-watermark.png",
+      "alt": "Juniper Legal watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "contract-cycle-time-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

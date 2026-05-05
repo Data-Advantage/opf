@@ -1,0 +1,627 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Revenue Forecast Inspection",
+  "description": "Revenue Forecast Inspection is a fictional OPF example for revenue operations teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "revenue-forecast-inspection",
+  "language": "english-ca",
+  "audience": [
+    "investors",
+    {
+      "id": "all-hands",
+      "attentionBudgetMinutes": 28,
+      "technicalFluency": "high",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "conference-talk"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Improve forecast quality by focusing on stage hygiene",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "conference-talk",
+    "description": "Revenue Forecast Inspection uses a compact evidence-to-decision arc for FoundryGrid.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "cool-horizon",
+      "primary": "#14B8A6",
+      "secondary": "#0F172A",
+      "accent": "#1D4ED8",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#B45309",
+        "risk": "#047857"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-georgian",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "left",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "top"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Revenue operations",
+      "title": "Revenue Forecast Inspection",
+      "subtitle": "FoundryGrid Revenue operations",
+      "notes": "Open by naming the decision: Improve forecast quality by focusing on stage hygiene."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "FoundryGrid should focus the next cycle on ",
+        {
+          "text": "improve forecast quality by focusing on stage hygiene",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to revenue operations stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-with-markers-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              24,
+              21
+            ],
+            [
+              "Q2",
+              28,
+              23
+            ],
+            [
+              "Q3",
+              31,
+              25
+            ],
+            [
+              "Q4",
+              35,
+              27
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Revenue operations",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Revenue operations execution path",
+        "description": "Major milestones for FoundryGrid.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s47-regions",
+      "section": "Operating model",
+      "layout": "number-5x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "$820K",
+          "label": "Primary signal",
+          "description": "Improve forecast quality by focusing on stage hygiene",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "FoundryGrid should focus the next cycle on ",
+          {
+            "text": "improve forecast quality by focusing on stage hygiene",
+            "bold": true,
+            "color": "#14B8A6"
+          },
+          " while making the operating tradeoffs clear to revenue operations stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Revenue operations working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Revenue operations",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s47-blocks",
+      "section": "Evidence",
+      "layout": "number-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "sparkline-3x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  16,
+                  13
+                ],
+                [
+                  "Q2",
+                  20,
+                  15
+                ],
+                [
+                  "Q3",
+                  23,
+                  17
+                ],
+                [
+                  "Q4",
+                  27,
+                  19
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "18%",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s47-image",
+      "section": "Context",
+      "layout": "image-bleed",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Revenue operations context photo for FoundryGrid",
+        "title": "Revenue operations context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s47-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "revenue-forecast-inspection-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "improve forecast quality by focusing on stage hygiene",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "foundrygrid",
+    "name": "FoundryGrid",
+    "legalName": "FoundryGrid, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "foundrygrid.example",
+    "email": "hello@foundrygrid.example",
+    "phone": "+15551000046",
+    "tagline": "Improve forecast quality by focusing on stage hygiene",
+    "role": "primary",
+    "socials": {
+      "threads": "@foundrygrid",
+      "youtube": "https://youtube.example/foundrygrid"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Jon Alvarez",
+    "title": "Operating Lead",
+    "organizationId": "foundrygrid",
+    "bio": "Leads revenue operations planning for FoundryGrid.",
+    "socials": {
+      "threads": "@foundrygrid-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Improve forecast quality by focusing on stage hygiene",
+  "duration": 29,
+  "tags": [
+    "business-functions",
+    "revenue-operations",
+    "decide",
+    "inspirational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/foundrygrid-logo.svg",
+      "alt": "FoundryGrid logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/foundrygrid-logo-light.svg",
+      "alt": "FoundryGrid light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/foundrygrid-icon.svg",
+      "alt": "FoundryGrid icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/foundrygrid-cover-2.jpg",
+      "alt": "Revenue operations background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/foundrygrid-field-photo.jpg",
+      "alt": "Revenue operations field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/foundrygrid-demo.mp4",
+      "title": "Revenue operations walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/revenue-forecast-inspection.csv",
+      "format": "csv",
+      "title": "Revenue Forecast Inspection data"
+    },
+    "watermark": {
+      "src": "./assets/foundrygrid-watermark.png",
+      "alt": "FoundryGrid watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "revenue-forecast-inspection",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "revenue-forecast-inspection-arc",
+          "name": "Revenue Operations Decision Arc",
+          "summary": "A custom arc for FoundryGrid.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "foundrygrid-theme",
+          "name": "FoundryGrid Working Theme",
+          "colorScheme": "cool-horizon",
+          "fontScheme": "noto-sans-georgian",
+          "background": "dark1",
+          "tags": [
+            "revenue-operations",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "foundrygrid-signal",
+          "name": "FoundryGrid Signal Palette",
+          "accent1": "#14B8A6",
+          "accent2": "#0F172A",
+          "accent3": "#1D4ED8",
+          "accent4": "#047857",
+          "accent5": "#B45309",
+          "accent6": "#BE123C",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

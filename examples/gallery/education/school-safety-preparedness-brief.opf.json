@@ -1,0 +1,100 @@
+{
+  "name": "School Safety Preparedness Brief",
+  "language": "english-us",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "plan",
+  "tone": "inspirational",
+  "narrative": "pitch-deck",
+  "design": {
+    "theme": "bold",
+    "colorScheme": "cool-horizon",
+    "fontScheme": "noto-sans-telugu",
+    "dimensions": "widescreen",
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "School operations",
+      "title": "School Safety Preparedness Brief",
+      "subtitle": "Granite Falls District School operations",
+      "notes": "Open by naming the decision: Clarify safety protocols before the fall semester."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Granite Falls District should focus the next cycle on ",
+        {
+          "text": "clarify safety protocols before the fall semester",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to school operations stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "stacked-area-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              21,
+              18
+            ],
+            [
+              "Q2",
+              25,
+              20
+            ],
+            [
+              "Q3",
+              28,
+              22
+            ],
+            [
+              "Q4",
+              32,
+              24
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-1x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for school operations.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

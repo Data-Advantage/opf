@@ -1,0 +1,358 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Consulting Margin Recovery Plan",
+  "description": "Consulting Margin Recovery Plan is a fictional OPF example for professional services teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "consulting-margin-recovery-plan",
+  "language": "english-ca",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 32,
+      "technicalFluency": "high",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "innovation"
+      ],
+      "recommendedTones": [
+        "authoritative"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "pitch",
+    "outcome": "Improve delivery margin without degrading client outcomes",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "authoritative",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "innovation",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "black-and-white",
+      "primary": "#B45309",
+      "secondary": "#BE123C",
+      "accent": "#6D28D9",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#334155",
+        "risk": "#0369A1"
+      }
+    },
+    "fontScheme": {
+      "id": "dilleniaupc",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "4:3",
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Professional services",
+      "title": "Consulting Margin Recovery Plan",
+      "subtitle": "North Pier Advisory Professional services",
+      "notes": "Open by naming the decision: Improve delivery margin without degrading client outcomes."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "North Pier Advisory should focus the next cycle on ",
+        {
+          "text": "improve delivery margin without degrading client outcomes",
+          "bold": true,
+          "color": "#B45309"
+        },
+        " while making the operating tradeoffs clear to professional services stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "australia",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              26,
+              23
+            ],
+            [
+              "Q2",
+              30,
+              25
+            ],
+            [
+              "Q3",
+              33,
+              27
+            ],
+            [
+              "Q4",
+              37,
+              29
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Professional services",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Professional services execution path",
+        "description": "Major milestones for North Pier Advisory.",
+        "events": [
+          {
+            "when": "Jul",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Aug",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Sep",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Oct",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for improve delivery margin without degrading client outcomes.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": [
+    {
+      "id": "north-pier-advisory",
+      "name": "North Pier Advisory",
+      "logo": "asset:brand-logo",
+      "domain": "north-pier-advisory.example",
+      "email": "hello@north-pier-advisory.example",
+      "tagline": "Improve delivery margin without degrading client outcomes",
+      "role": "primary",
+      "socials": {
+        "linkedin": "@north-pier-advisory"
+      }
+    },
+    {
+      "id": "north-pier-advisory-partner",
+      "name": "Professional Services Partner Office",
+      "role": "partner",
+      "domain": "partner-north-pier-advisory.example"
+    }
+  ],
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "north-pier-advisory",
+    "bio": "Leads professional services planning for North Pier Advisory.",
+    "socials": {
+      "linkedin": "@north-pier-advisory-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Improve delivery margin without degrading client outcomes",
+  "duration": 22,
+  "tags": [
+    "industries",
+    "professional-services",
+    "pitch",
+    "authoritative",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/north-pier-advisory-logo.svg",
+      "alt": "North Pier Advisory logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/north-pier-advisory-logo-light.svg",
+      "alt": "North Pier Advisory light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/north-pier-advisory-icon.svg",
+      "alt": "North Pier Advisory icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/north-pier-advisory-cover-5.jpg",
+      "alt": "Professional services background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/north-pier-advisory-field-photo.jpg",
+      "alt": "Professional services field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/north-pier-advisory-demo.mp4",
+      "title": "Professional services walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/consulting-margin-recovery-plan.csv",
+      "format": "csv",
+      "title": "Consulting Margin Recovery Plan data"
+    },
+    "watermark": {
+      "src": "./assets/north-pier-advisory-watermark.png",
+      "alt": "North Pier Advisory watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "consulting-margin-recovery-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

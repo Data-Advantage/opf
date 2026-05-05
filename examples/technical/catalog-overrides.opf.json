@@ -1,0 +1,190 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Catalog Overrides",
+  "description": "Technical fixture for document-local catalog sources and inline records.",
+  "audience": [
+    {
+      "id": "technical-reviewers",
+      "name": "Technical Reviewers",
+      "technicalFluency": "high",
+      "decisionPower": "advisory"
+    }
+  ],
+  "purpose": {
+    "id": "technical-approval",
+    "name": "Technical Approval",
+    "outcome": "Approve the fixture contract"
+  },
+  "tone": {
+    "id": "precise-plain",
+    "name": "Precise Plain",
+    "voiceCues": [
+      "Name the object shape before the rationale.",
+      "Prefer short exact claims."
+    ]
+  },
+  "narrative": {
+    "id": "fixture-proof",
+    "name": "Fixture Proof",
+    "beats": [
+      {
+        "id": "contract",
+        "name": "Contract",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "proof",
+        "name": "Proof",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "decision",
+        "name": "Decision",
+        "slideType": "list",
+        "layoutHint": "list-2x"
+      }
+    ]
+  },
+  "design": {
+    "theme": {
+      "id": "fixture-theme",
+      "name": "Fixture Theme",
+      "colorScheme": "fixture-scheme",
+      "fontScheme": "fixture-fonts",
+      "background": "light1"
+    },
+    "colorScheme": {
+      "id": "fixture-scheme",
+      "primary": "#0F766E",
+      "secondary": "#0F172A",
+      "accent": "#F59E0B"
+    },
+    "fontScheme": {
+      "id": "fixture-fonts",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos"
+      },
+      "code": {
+        "family": "Consolas"
+      }
+    }
+  },
+  "slides": [
+    {
+      "beat": "contract",
+      "title": "Catalog Overrides",
+      "text": "Document-local catalog records can be referenced by id from the same OPF document."
+    },
+    {
+      "beat": "proof",
+      "title": "Local Chart Type",
+      "chart": {
+        "type": "line",
+        "data": {
+          "columns": [
+            "Step",
+            "Valid"
+          ],
+          "rows": [
+            [
+              "Read",
+              1
+            ],
+            [
+              "Resolve",
+              1
+            ],
+            [
+              "Render",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "beat": "decision",
+      "title": "What This Proves",
+      "items": [
+        "Catalog source search paths are document-level configuration.",
+        "Inline records are available before external catalogs.",
+        "Object-form references can override resolved catalog records."
+      ]
+    }
+  ],
+  "catalogs": {
+    "narratives": {
+      "source": "pkg:@example/opf/narratives",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "fixture-proof",
+          "name": "Fixture Proof",
+          "beats": [
+            {
+              "id": "contract",
+              "name": "Contract"
+            },
+            {
+              "id": "proof",
+              "name": "Proof"
+            },
+            {
+              "id": "decision",
+              "name": "Decision"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "fixture-theme",
+          "name": "Fixture Theme",
+          "colorScheme": "fixture-scheme",
+          "fontScheme": "fixture-fonts"
+        }
+      ]
+    },
+    "colorSchemes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "fixture-scheme",
+          "name": "Fixture Scheme",
+          "accent1": "#0F766E",
+          "accent2": "#0F172A",
+          "accent3": "#F59E0B",
+          "accent4": "#38BDF8",
+          "accent5": "#A7F3D0",
+          "accent6": "#FDBA74",
+          "dark1": "#000000",
+          "dark2": "#0F172A",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-font-scheme/v1",
+          "id": "fixture-fonts",
+          "name": "Fixture Fonts",
+          "major": "Aptos Display",
+          "minor": "Aptos"
+        }
+      ]
+    }
+  }
+}

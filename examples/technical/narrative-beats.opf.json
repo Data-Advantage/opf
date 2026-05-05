@@ -1,0 +1,63 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Narrative Beats",
+  "description": "Technical fixture for inline narrative beats and slide beat references.",
+  "narrative": {
+    "id": "technical-proof",
+    "name": "Technical Proof",
+    "description": "A compact arc that states the contract, proves it, and asks for adoption.",
+    "audienceFit": [
+      "engineering-team",
+      "executives"
+    ],
+    "durationRange": {
+      "minMinutes": 8,
+      "maxMinutes": 20
+    },
+    "beats": [
+      {
+        "id": "contract",
+        "name": "Contract",
+        "description": "Describe the schema contract in one place.",
+        "slideType": "text",
+        "layoutHint": "text-1x",
+        "thoughtCues": [
+          "What must remain stable?"
+        ]
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "description": "Show validation proof.",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "adoption",
+        "name": "Adoption",
+        "description": "Close with the integration ask.",
+        "slideType": "list",
+        "layoutHint": "list-2x"
+      }
+    ]
+  },
+  "slides": [
+    {
+      "beat": "contract",
+      "title": "The Contract",
+      "text": "Narrative beats describe authoring intent without constraining slide structure."
+    },
+    {
+      "beat": [
+        "evidence",
+        "adoption"
+      ],
+      "title": "Evidence And Adoption",
+      "items": [
+        "Slides can reference one beat or multiple beats.",
+        "Validators accept slides without beat references.",
+        "Renderers can use beats for outlines and speaker notes."
+      ]
+    }
+  ]
+}

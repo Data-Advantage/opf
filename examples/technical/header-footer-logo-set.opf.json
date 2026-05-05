@@ -1,0 +1,69 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Header Footer Logo Set",
+  "description": "Technical fixture for logo variants, repeated furniture, and watermark suppression.",
+  "organization": {
+    "id": "fixture-org",
+    "name": "Fixture Org",
+    "logo": "asset:logo-dark"
+  },
+  "design": {
+    "logo": {
+      "default": "asset:logo-dark",
+      "light": "asset:logo-light",
+      "dark": "asset:logo-dark",
+      "icon": "asset:icon",
+      "wordmark": "asset:wordmark"
+    },
+    "header": {
+      "left": {
+        "image": "asset:icon"
+      },
+      "center": {
+        "section": true
+      },
+      "right": {
+        "date": "2026-05-05"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Confidential fixture"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.05
+    }
+  },
+  "slides": [
+    {
+      "section": "Default Furniture",
+      "title": "Header And Footer",
+      "text": "The deck-level header, footer, logo set, and watermark apply by default."
+    },
+    {
+      "section": "Suppressed Furniture",
+      "title": "Slide Override",
+      "design": {
+        "header": false,
+        "footer": false,
+        "watermark": false
+      },
+      "text": "Slide-level design can suppress inherited repeated furniture."
+    }
+  ],
+  "assets": {
+    "logo-dark": "./assets/logo-dark.svg",
+    "logo-light": "./assets/logo-light.svg",
+    "icon": "./assets/icon.svg",
+    "wordmark": "./assets/wordmark.svg",
+    "watermark": "./assets/watermark.png"
+  }
+}

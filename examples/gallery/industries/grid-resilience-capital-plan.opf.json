@@ -1,0 +1,358 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Grid Resilience Capital Plan",
+  "description": "Grid Resilience Capital Plan is a fictional OPF example for energy utilities teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "grid-resilience-capital-plan",
+  "language": "english-us",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 22,
+      "technicalFluency": "low",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "challenge-resolution"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "persuade",
+    "outcome": "Approve the substation hardening program for the next budget cycle",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "challenge-resolution",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "cool-horizon",
+      "primary": "#6D28D9",
+      "secondary": "#0369A1",
+      "accent": "#334155",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#E2E8F0",
+        "risk": "#F8FAFC"
+      }
+    },
+    "fontScheme": {
+      "id": "arial",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Energy utilities",
+      "title": "Grid Resilience Capital Plan",
+      "subtitle": "HelioGrid Utilities Energy utilities",
+      "notes": "Open by naming the decision: Approve the substation hardening program for the next budget cycle."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "HelioGrid Utilities should focus the next cycle on ",
+        {
+          "text": "approve the substation hardening program for the next budget cycle",
+          "bold": true,
+          "color": "#6D28D9"
+        },
+        " while making the operating tradeoffs clear to energy utilities stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-column-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              16,
+              13
+            ],
+            [
+              "Q2",
+              20,
+              15
+            ],
+            [
+              "Q3",
+              23,
+              17
+            ],
+            [
+              "Q4",
+              27,
+              19
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Energy utilities",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Energy utilities execution path",
+        "description": "Major milestones for HelioGrid Utilities.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for approve the substation hardening program for the next budget cycle.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "heliogrid-utilities",
+    "name": "HelioGrid Utilities",
+    "legalName": "HelioGrid Utilities, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "heliogrid-utilities.example",
+    "email": "hello@heliogrid-utilities.example",
+    "phone": "+15551000004",
+    "tagline": "Approve the substation hardening program for the next budget cycle",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@heliogrid-utilities",
+      "tiktok": "https://tiktok.example/heliogrid-utilities"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "heliogrid-utilities",
+    "bio": "Leads energy utilities planning for HelioGrid Utilities.",
+    "socials": {
+      "linkedin": "@heliogrid-utilities-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Approve the substation hardening program for the next budget cycle",
+  "duration": 12,
+  "tags": [
+    "industries",
+    "energy-utilities",
+    "persuade",
+    "inspirational",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/heliogrid-utilities-logo.svg",
+      "alt": "HelioGrid Utilities logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/heliogrid-utilities-logo-light.svg",
+      "alt": "HelioGrid Utilities light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/heliogrid-utilities-icon.svg",
+      "alt": "HelioGrid Utilities icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/heliogrid-utilities-cover-5.jpg",
+      "alt": "Energy utilities background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/heliogrid-utilities-field-photo.jpg",
+      "alt": "Energy utilities field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/heliogrid-utilities-demo.mp4",
+      "title": "Energy utilities walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/grid-resilience-capital-plan.csv",
+      "format": "csv",
+      "title": "Grid Resilience Capital Plan data"
+    },
+    "watermark": {
+      "src": "./assets/heliogrid-utilities-watermark.png",
+      "alt": "HelioGrid Utilities watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "grid-resilience-capital-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

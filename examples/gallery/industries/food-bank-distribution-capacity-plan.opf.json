@@ -1,0 +1,100 @@
+{
+  "name": "Food Bank Distribution Capacity Plan",
+  "language": "english-us",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "educate",
+  "tone": "technical",
+  "narrative": "persuasive-sales",
+  "design": {
+    "theme": "bold",
+    "colorScheme": "deep-purple",
+    "fontScheme": "grandview",
+    "dimensions": "4:3",
+    "background": "dark1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Nonprofit food security",
+      "title": "Food Bank Distribution Capacity Plan",
+      "subtitle": "Common Table Network Nonprofit food security",
+      "notes": "Open by naming the decision: Expand distribution throughput before the summer demand spike."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Common Table Network should focus the next cycle on ",
+        {
+          "text": "expand distribution throughput before the summer demand spike",
+          "bold": true,
+          "color": "#E2E8F0"
+        },
+        " while making the operating tradeoffs clear to nonprofit food security stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-bar-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              15,
+              12
+            ],
+            [
+              "Q2",
+              19,
+              14
+            ],
+            [
+              "Q3",
+              22,
+              16
+            ],
+            [
+              "Q4",
+              26,
+              18
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-3x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for nonprofit food security.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Seed Pitch for Climate Risk API",
+  "language": "english-us",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "sell",
+  "tone": "formal",
+  "narrative": "business-review",
+  "design": {
+    "theme": "bold",
+    "colorScheme": "pastel-red",
+    "fontScheme": "tahoma",
+    "dimensions": "4:3",
+    "background": "dark1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Seed pitch",
+      "title": "Seed Pitch for Climate Risk API",
+      "subtitle": "Climara Seed pitch",
+      "notes": "Open by naming the decision: Raise a seed round for climate risk intelligence."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Climara should focus the next cycle on ",
+        {
+          "text": "raise a seed round for climate risk intelligence",
+          "bold": true,
+          "color": "#E2E8F0"
+        },
+        " while making the operating tradeoffs clear to seed pitch stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-column-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              24,
+              21
+            ],
+            [
+              "Q2",
+              28,
+              23
+            ],
+            [
+              "Q3",
+              31,
+              25
+            ],
+            [
+              "Q4",
+              35,
+              27
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-3x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for seed pitch.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

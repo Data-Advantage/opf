@@ -1,0 +1,72 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Metadata Array Forms",
+  "description": "Technical fixture for organization, speaker, author, and takeaway array forms.",
+  "organization": [
+    {
+      "id": "primary-org",
+      "name": "Primary Org",
+      "logo": "asset:primary-logo",
+      "domain": "primary.example",
+      "email": "hello@primary.example",
+      "role": "primary",
+      "socials": {
+        "linkedin": "https://linkedin.example/company/primary-org",
+        "github": "primary-org"
+      }
+    },
+    {
+      "id": "partner-org",
+      "name": "Partner Org",
+      "role": "partner",
+      "domain": "partner.example",
+      "socials": {
+        "youtube": "https://youtube.example/partner-org"
+      }
+    }
+  ],
+  "speaker": [
+    {
+      "id": "alice",
+      "name": "Alice Rivera",
+      "title": "Presenter",
+      "photo": "asset:alice-photo",
+      "organizationId": "primary-org",
+      "email": "alice@primary.example",
+      "socials": {
+        "x": "@alice"
+      }
+    },
+    {
+      "id": "sam",
+      "name": "Sam Taylor",
+      "title": "Co-presenter",
+      "organizationId": "partner-org",
+      "socials": {
+        "mastodon": "@sam@social.example"
+      }
+    }
+  ],
+  "author": [
+    "Alice Rivera",
+    "Sam Taylor"
+  ],
+  "takeaway": [
+    "Array metadata supports multi-org decks.",
+    "Speakers can reference their organization by id."
+  ],
+  "slides": [
+    {
+      "title": "Array Metadata",
+      "text": "This fixture keeps identity and attribution metadata separate from slide content."
+    }
+  ],
+  "assets": {
+    "primary-logo": "./assets/primary-logo.svg",
+    "alice-photo": {
+      "src": "./assets/alice.jpg",
+      "alt": "Alice Rivera headshot",
+      "mediaType": "image/jpeg"
+    }
+  }
+}

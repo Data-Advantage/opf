@@ -1,0 +1,345 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Parks Master Plan Workshop",
+  "description": "Parks Master Plan Workshop is a fictional OPF example for parks and recreation teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "parks-master-plan-workshop",
+  "language": "english-au",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 21,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "underdog-victory"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "inform",
+    "outcome": "Gather resident input on park access and maintenance",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "underdog-victory",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "corporate-blue",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "shonar-bangla",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Parks and recreation",
+      "title": "Parks Master Plan Workshop",
+      "subtitle": "Greenway Parks Department Parks and recreation",
+      "notes": "Open by naming the decision: Gather resident input on park access and maintenance."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Greenway Parks Department should focus the next cycle on ",
+        {
+          "text": "gather resident input on park access and maintenance",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to parks and recreation stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "world",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              19,
+              16
+            ],
+            [
+              "Q2",
+              23,
+              18
+            ],
+            [
+              "Q3",
+              26,
+              20
+            ],
+            [
+              "Q4",
+              30,
+              22
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Parks and recreation",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Parks and recreation execution path",
+        "description": "Major milestones for Greenway Parks Department.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for gather resident input on park access and maintenance.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "greenway-parks-department",
+    "name": "Greenway Parks Department",
+    "legalName": "Greenway Parks Department",
+    "logo": "asset:brand-logo",
+    "domain": "greenway-parks-department.example",
+    "email": "hello@greenway-parks-department.example",
+    "phone": "+15551000075",
+    "tagline": "Gather resident input on park access and maintenance",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@greenway-parks-department",
+      "x": "https://x.example/greenway-parks-department"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "greenway-parks-department",
+    "bio": "Leads parks and recreation planning for Greenway Parks Department.",
+    "socials": {
+      "mastodon": "@greenway-parks-department-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Gather resident input on park access and maintenance",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 8,
+  "tags": [
+    "government",
+    "parks-and-recreation",
+    "inform",
+    "persuasive",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/greenway-parks-department-logo.svg",
+      "alt": "Greenway Parks Department logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/greenway-parks-department-logo-light.svg",
+      "alt": "Greenway Parks Department light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/greenway-parks-department-icon.svg",
+      "alt": "Greenway Parks Department icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/greenway-parks-department-cover-1.jpg",
+      "alt": "Parks and recreation background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/greenway-parks-department-field-photo.jpg",
+      "alt": "Parks and recreation field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/greenway-parks-department-demo.mp4",
+      "title": "Parks and recreation walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/parks-master-plan-workshop.csv",
+      "format": "csv",
+      "title": "Parks Master Plan Workshop data"
+    },
+    "watermark": {
+      "src": "./assets/greenway-parks-department-watermark.png",
+      "alt": "Greenway Parks Department watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "medium",
+      "scenario": "parks-master-plan-workshop",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

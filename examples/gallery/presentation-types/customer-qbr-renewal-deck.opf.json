@@ -1,0 +1,346 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Customer QBR Renewal Deck",
+  "description": "Customer QBR Renewal Deck is a fictional OPF example for qbr teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "customer-qbr-renewal-deck",
+  "language": "english-ca",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 28,
+      "technicalFluency": "high",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "challenge-resolution"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Prove realized value and align on next-quarter expansion",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "challenge-resolution",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "steel-blue",
+      "primary": "#14B8A6",
+      "secondary": "#0F172A",
+      "accent": "#1D4ED8",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#B45309",
+        "risk": "#047857"
+      }
+    },
+    "fontScheme": {
+      "id": "times-new-roman",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": "#F8FAFC",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "QBR",
+      "title": "Customer QBR Renewal Deck",
+      "subtitle": "Apex Support Cloud QBR",
+      "notes": "Open by naming the decision: Prove realized value and align on next-quarter expansion."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Apex Support Cloud should focus the next cycle on ",
+        {
+          "text": "prove realized value and align on next-quarter expansion",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to qbr stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-progress-bar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              26,
+              23
+            ],
+            [
+              "Q2",
+              30,
+              25
+            ],
+            [
+              "Q3",
+              33,
+              27
+            ],
+            [
+              "Q4",
+              37,
+              29
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "QBR",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "QBR execution path",
+        "description": "Major milestones for Apex Support Cloud.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for prove realized value and align on next-quarter expansion.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "apex-support-cloud",
+    "name": "Apex Support Cloud",
+    "legalName": "Apex Support Cloud, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "apex-support-cloud.example",
+    "email": "hello@apex-support-cloud.example",
+    "phone": "+15551000082",
+    "tagline": "Prove realized value and align on next-quarter expansion",
+    "role": "primary",
+    "socials": {
+      "github": "@apex-support-cloud",
+      "mastodon": "https://mastodon.example/apex-support-cloud"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "apex-support-cloud",
+    "bio": "Leads qbr planning for Apex Support Cloud.",
+    "socials": {
+      "github": "@apex-support-cloud-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Prove realized value and align on next-quarter expansion",
+  "duration": 15,
+  "tags": [
+    "presentation-types",
+    "qbr",
+    "decide",
+    "persuasive",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/apex-support-cloud-logo.svg",
+      "alt": "Apex Support Cloud logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/apex-support-cloud-logo-light.svg",
+      "alt": "Apex Support Cloud light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/apex-support-cloud-icon.svg",
+      "alt": "Apex Support Cloud icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/apex-support-cloud-cover-3.jpg",
+      "alt": "QBR background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/apex-support-cloud-field-photo.jpg",
+      "alt": "QBR field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/apex-support-cloud-demo.mp4",
+      "title": "QBR walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/customer-qbr-renewal-deck.csv",
+      "format": "csv",
+      "title": "Customer QBR Renewal Deck data"
+    },
+    "watermark": {
+      "src": "./assets/apex-support-cloud-watermark.png",
+      "alt": "Apex Support Cloud watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "presentation-types",
+      "density": "medium",
+      "scenario": "customer-qbr-renewal-deck",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

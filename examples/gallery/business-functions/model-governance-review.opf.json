@@ -1,0 +1,627 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Model Governance Review",
+  "description": "Model Governance Review is a fictional OPF example for analytics teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "model-governance-review",
+  "language": "english-ca",
+  "audience": [
+    "regulators",
+    {
+      "id": "candidates",
+      "attentionBudgetMinutes": 20,
+      "technicalFluency": "high",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "weekly-progress"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "educate",
+    "outcome": "Approve controls for customer-facing predictive models",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "weekly-progress",
+    "description": "Model Governance Review uses a compact evidence-to-decision arc for ClearLake Data.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "pastel-red",
+      "primary": "#B45309",
+      "secondary": "#BE123C",
+      "accent": "#6D28D9",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#334155",
+        "risk": "#0369A1"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-naksh-arabic",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "4:3",
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "top",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Analytics",
+      "title": "Model Governance Review",
+      "subtitle": "ClearLake Data Analytics",
+      "notes": "Open by naming the decision: Approve controls for customer-facing predictive models."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "ClearLake Data should focus the next cycle on ",
+        {
+          "text": "approve controls for customer-facing predictive models",
+          "bold": true,
+          "color": "#B45309"
+        },
+        " while making the operating tradeoffs clear to analytics stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "funnel",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              16,
+              13
+            ],
+            [
+              "Q2",
+              20,
+              15
+            ],
+            [
+              "Q3",
+              23,
+              17
+            ],
+            [
+              "Q4",
+              27,
+              19
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Analytics",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Analytics execution path",
+        "description": "Major milestones for ClearLake Data.",
+        "events": [
+          {
+            "when": "Jul",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Aug",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Sep",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Oct",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s39-regions",
+      "section": "Operating model",
+      "layout": "number-3x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "$820K",
+          "label": "Primary signal",
+          "description": "Approve controls for customer-facing predictive models",
+          "trend": "down"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "ClearLake Data should focus the next cycle on ",
+          {
+            "text": "approve controls for customer-facing predictive models",
+            "bold": true,
+            "color": "#B45309"
+          },
+          " while making the operating tradeoffs clear to analytics stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Analytics working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Analytics",
+              "Program lead",
+              "At risk",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "On track",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "Watch",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s39-blocks",
+      "section": "Evidence",
+      "layout": "number-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "line-with-markers-3x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  25,
+                  22
+                ],
+                [
+                  "Q2",
+                  29,
+                  24
+                ],
+                [
+                  "Q3",
+                  32,
+                  26
+                ],
+                [
+                  "Q4",
+                  36,
+                  28
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "18%",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s39-image",
+      "section": "Context",
+      "layout": "image-bleed",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Analytics context photo for ClearLake Data",
+        "title": "Analytics context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s39-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "model-governance-review-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "approve controls for customer-facing predictive models",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "clearlake-data",
+    "name": "ClearLake Data",
+    "legalName": "ClearLake Data, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "clearlake-data.example",
+    "email": "hello@clearlake-data.example",
+    "phone": "+15551000038",
+    "tagline": "Approve controls for customer-facing predictive models",
+    "role": "primary",
+    "socials": {
+      "x": "@clearlake-data",
+      "facebook": "https://facebook.example/clearlake-data"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "clearlake-data",
+    "bio": "Leads analytics planning for ClearLake Data.",
+    "socials": {
+      "x": "@clearlake-data-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Approve controls for customer-facing predictive models",
+  "duration": 21,
+  "tags": [
+    "business-functions",
+    "analytics",
+    "educate",
+    "formal",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/clearlake-data-logo.svg",
+      "alt": "ClearLake Data logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/clearlake-data-logo-light.svg",
+      "alt": "ClearLake Data light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/clearlake-data-icon.svg",
+      "alt": "ClearLake Data icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/clearlake-data-cover-4.jpg",
+      "alt": "Analytics background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/clearlake-data-field-photo.jpg",
+      "alt": "Analytics field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/clearlake-data-demo.mp4",
+      "title": "Analytics walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/model-governance-review.csv",
+      "format": "csv",
+      "title": "Model Governance Review data"
+    },
+    "watermark": {
+      "src": "./assets/clearlake-data-watermark.png",
+      "alt": "ClearLake Data watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "model-governance-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "model-governance-review-arc",
+          "name": "Analytics Decision Arc",
+          "summary": "A custom arc for ClearLake Data.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "clearlake-data-theme",
+          "name": "ClearLake Data Working Theme",
+          "colorScheme": "pastel-red",
+          "fontScheme": "noto-naksh-arabic",
+          "background": "#F8FAFC",
+          "tags": [
+            "analytics",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "clearlake-data-signal",
+          "name": "ClearLake Data Signal Palette",
+          "accent1": "#B45309",
+          "accent2": "#BE123C",
+          "accent3": "#6D28D9",
+          "accent4": "#0369A1",
+          "accent5": "#334155",
+          "accent6": "#F8FAFC",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Advising Retention Review",
+  "description": "Advising Retention Review is a fictional OPF example for student success teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "advising-retention-review",
+  "language": "english-ca",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 18,
+      "technicalFluency": "high",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "justice"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Improve first-year retention through proactive advising",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "justice",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "steel-blue",
+      "primary": "#334155",
+      "secondary": "#F8FAFC",
+      "accent": "#E2E8F0",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#14B8A6",
+        "risk": "#F59E0B"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-malayalam",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Student success",
+      "title": "Advising Retention Review",
+      "subtitle": "North Valley State Student success",
+      "notes": "Open by naming the decision: Improve first-year retention through proactive advising."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "North Valley State should focus the next cycle on ",
+        {
+          "text": "improve first-year retention through proactive advising",
+          "bold": true,
+          "color": "#334155"
+        },
+        " while making the operating tradeoffs clear to student success stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "sparkline-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              15,
+              12
+            ],
+            [
+              "Q2",
+              19,
+              14
+            ],
+            [
+              "Q3",
+              22,
+              16
+            ],
+            [
+              "Q4",
+              26,
+              18
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Student success",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Student success execution path",
+        "description": "Major milestones for North Valley State.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for improve first-year retention through proactive advising.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "north-valley-state",
+    "name": "North Valley State",
+    "legalName": "North Valley State",
+    "logo": "asset:brand-logo",
+    "domain": "north-valley-state.example",
+    "email": "hello@north-valley-state.example",
+    "phone": "+15551000054",
+    "tagline": "Improve first-year retention through proactive advising",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@north-valley-state",
+      "tiktok": "https://tiktok.example/north-valley-state"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@north-valley-state.example",
+      "organizationId": "north-valley-state",
+      "socials": {
+        "linkedin": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "north-valley-state",
+      "socials": {
+        "tiktok": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Improve first-year retention through proactive advising",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 12,
+  "tags": [
+    "education",
+    "student-success",
+    "align",
+    "persuasive",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/north-valley-state-logo.svg",
+      "alt": "North Valley State logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/north-valley-state-logo-light.svg",
+      "alt": "North Valley State light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/north-valley-state-icon.svg",
+      "alt": "North Valley State icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/north-valley-state-cover-5.jpg",
+      "alt": "Student success background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/north-valley-state-field-photo.jpg",
+      "alt": "Student success field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/north-valley-state-demo.mp4",
+      "title": "Student success walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/advising-retention-review.csv",
+      "format": "csv",
+      "title": "Advising Retention Review data"
+    },
+    "watermark": {
+      "src": "./assets/north-valley-state-watermark.png",
+      "alt": "North Valley State watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "medium",
+      "scenario": "advising-retention-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

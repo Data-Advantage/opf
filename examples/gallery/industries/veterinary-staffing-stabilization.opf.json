@@ -1,0 +1,353 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Veterinary Staffing Stabilization",
+  "description": "Veterinary Staffing Stabilization is a fictional OPF example for veterinary care teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "veterinary-staffing-stabilization",
+  "language": "english-ca",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 22,
+      "technicalFluency": "high",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "problem-solution"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "persuade",
+    "outcome": "Balance appointment access with staff retention",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "problem-solution",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "golden-yellow",
+      "primary": "#14B8A6",
+      "secondary": "#0F172A",
+      "accent": "#1D4ED8",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#B45309",
+        "risk": "#047857"
+      }
+    },
+    "fontScheme": {
+      "id": "impact",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Veterinary care",
+      "title": "Veterinary Staffing Stabilization",
+      "subtitle": "Oaktrail Animal Health Veterinary care",
+      "notes": "Open by naming the decision: Balance appointment access with staff retention."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Oaktrail Animal Health should focus the next cycle on ",
+        {
+          "text": "balance appointment access with staff retention",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to veterinary care stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-column",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              17,
+              14
+            ],
+            [
+              "Q2",
+              21,
+              16
+            ],
+            [
+              "Q3",
+              24,
+              18
+            ],
+            [
+              "Q4",
+              28,
+              20
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Veterinary care",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Veterinary care execution path",
+        "description": "Major milestones for Oaktrail Animal Health.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for balance appointment access with staff retention.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "oaktrail-animal-health",
+    "name": "Oaktrail Animal Health",
+    "legalName": "Oaktrail Animal Health, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "oaktrail-animal-health.example",
+    "email": "hello@oaktrail-animal-health.example",
+    "phone": "+15551000022",
+    "tagline": "Balance appointment access with staff retention",
+    "role": "primary",
+    "socials": {
+      "github": "@oaktrail-animal-health",
+      "mastodon": "https://mastodon.example/oaktrail-animal-health"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "oaktrail-animal-health",
+    "bio": "Leads veterinary care planning for Oaktrail Animal Health.",
+    "socials": {
+      "github": "@oaktrail-animal-health-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Balance appointment access with staff retention",
+  "duration": 30,
+  "tags": [
+    "industries",
+    "veterinary-care",
+    "persuade",
+    "casual",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/oaktrail-animal-health-logo.svg",
+      "alt": "Oaktrail Animal Health logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/oaktrail-animal-health-logo-light.svg",
+      "alt": "Oaktrail Animal Health light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/oaktrail-animal-health-icon.svg",
+      "alt": "Oaktrail Animal Health icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/oaktrail-animal-health-cover-3.jpg",
+      "alt": "Veterinary care background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/oaktrail-animal-health-field-photo.jpg",
+      "alt": "Veterinary care field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/oaktrail-animal-health-demo.mp4",
+      "title": "Veterinary care walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/veterinary-staffing-stabilization.csv",
+      "format": "csv",
+      "title": "Veterinary Staffing Stabilization data"
+    },
+    "watermark": {
+      "src": "./assets/oaktrail-animal-health-watermark.png",
+      "alt": "Oaktrail Animal Health watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "veterinary-staffing-stabilization",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

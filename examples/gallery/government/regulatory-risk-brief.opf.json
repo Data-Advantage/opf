@@ -1,0 +1,370 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Regulatory Risk Brief",
+  "description": "Regulatory Risk Brief is a fictional OPF example for regulators teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "regulatory-risk-brief",
+  "language": "english-us",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 18,
+      "technicalFluency": "low",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "survival-story"
+      ],
+      "recommendedTones": [
+        "conversational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Align inspectors on risk-based compliance priorities",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "conversational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "survival-story",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "boost",
+      "primary": "#1D4ED8",
+      "secondary": "#047857",
+      "accent": "#B45309",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#6D28D9",
+        "risk": "#BE123C"
+      }
+    },
+    "fontScheme": {
+      "id": "seaford",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": false,
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Regulators",
+      "title": "Regulatory Risk Brief",
+      "subtitle": "Regional Clean Air Board Regulators",
+      "notes": "Open by naming the decision: Align inspectors on risk-based compliance priorities."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Regional Clean Air Board should focus the next cycle on ",
+        {
+          "text": "align inspectors on risk-based compliance priorities",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to regulators stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "united-kindom",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              16,
+              13
+            ],
+            [
+              "Q2",
+              20,
+              15
+            ],
+            [
+              "Q3",
+              23,
+              17
+            ],
+            [
+              "Q4",
+              27,
+              19
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Regulators",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Regulators execution path",
+        "description": "Major milestones for Regional Clean Air Board.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for align inspectors on risk-based compliance priorities.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "regional-clean-air-board",
+    "name": "Regional Clean Air Board",
+    "legalName": "Regional Clean Air Board",
+    "logo": "asset:brand-logo",
+    "domain": "regional-clean-air-board.example",
+    "email": "hello@regional-clean-air-board.example",
+    "phone": "+15551000072",
+    "tagline": "Align inspectors on risk-based compliance priorities",
+    "role": "primary",
+    "socials": {
+      "github": "@regional-clean-air-board",
+      "mastodon": "https://mastodon.example/regional-clean-air-board"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@regional-clean-air-board.example",
+      "organizationId": "regional-clean-air-board",
+      "socials": {
+        "github": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "regional-clean-air-board",
+      "socials": {
+        "mastodon": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": [
+    "Align inspectors on risk-based compliance priorities",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 30,
+  "tags": [
+    "government",
+    "regulators",
+    "align",
+    "conversational",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/regional-clean-air-board-logo.svg",
+      "alt": "Regional Clean Air Board logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/regional-clean-air-board-logo-light.svg",
+      "alt": "Regional Clean Air Board light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/regional-clean-air-board-icon.svg",
+      "alt": "Regional Clean Air Board icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/regional-clean-air-board-cover-3.jpg",
+      "alt": "Regulators background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/regional-clean-air-board-field-photo.jpg",
+      "alt": "Regulators field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/regional-clean-air-board-demo.mp4",
+      "title": "Regulators walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/regulatory-risk-brief.csv",
+      "format": "csv",
+      "title": "Regulatory Risk Brief data"
+    },
+    "watermark": {
+      "src": "./assets/regional-clean-air-board-watermark.png",
+      "alt": "Regional Clean Air Board watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "medium",
+      "scenario": "regulatory-risk-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Executive Workshop Facilitation",
+  "description": "Executive Workshop Facilitation is a fictional OPF example for workshop teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "executive-workshop-facilitation",
+  "language": "english-us",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 30,
+      "technicalFluency": "low",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "company-intro"
+      ],
+      "recommendedTones": [
+        "authoritative"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "inform",
+    "outcome": "Guide leaders from issue framing to committed next steps",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "authoritative",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "company-intro",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "black-and-white",
+      "primary": "#1D4ED8",
+      "secondary": "#047857",
+      "accent": "#B45309",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#6D28D9",
+        "risk": "#BE123C"
+      }
+    },
+    "fontScheme": {
+      "id": "trebuchet-ms",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Workshop",
+      "title": "Executive Workshop Facilitation",
+      "subtitle": "Mosaic Strategy Workshop",
+      "notes": "Open by naming the decision: Guide leaders from issue framing to committed next steps."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Mosaic Strategy should focus the next cycle on ",
+        {
+          "text": "guide leaders from issue framing to committed next steps",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to workshop stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-stacked-area-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              28,
+              25
+            ],
+            [
+              "Q2",
+              32,
+              27
+            ],
+            [
+              "Q3",
+              35,
+              29
+            ],
+            [
+              "Q4",
+              39,
+              31
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Workshop",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Workshop execution path",
+        "description": "Major milestones for Mosaic Strategy.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for guide leaders from issue framing to committed next steps.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": [
+    {
+      "id": "mosaic-strategy",
+      "name": "Mosaic Strategy",
+      "logo": "asset:brand-logo",
+      "domain": "mosaic-strategy.example",
+      "email": "hello@mosaic-strategy.example",
+      "tagline": "Guide leaders from issue framing to committed next steps",
+      "role": "primary",
+      "socials": {
+        "linkedin": "@mosaic-strategy"
+      }
+    },
+    {
+      "id": "mosaic-strategy-partner",
+      "name": "Workshop Partner Office",
+      "role": "partner",
+      "domain": "partner-mosaic-strategy.example"
+    }
+  ],
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@mosaic-strategy.example",
+      "organizationId": "mosaic-strategy",
+      "socials": {
+        "linkedin": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "mosaic-strategy",
+      "socials": {
+        "tiktok": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": [
+    "Guide leaders from issue framing to committed next steps",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 17,
+  "tags": [
+    "presentation-types",
+    "workshop",
+    "inform",
+    "authoritative",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/mosaic-strategy-logo.svg",
+      "alt": "Mosaic Strategy logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/mosaic-strategy-logo-light.svg",
+      "alt": "Mosaic Strategy light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/mosaic-strategy-icon.svg",
+      "alt": "Mosaic Strategy icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/mosaic-strategy-cover-5.jpg",
+      "alt": "Workshop background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/mosaic-strategy-field-photo.jpg",
+      "alt": "Workshop field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/mosaic-strategy-demo.mp4",
+      "title": "Workshop walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/executive-workshop-facilitation.csv",
+      "format": "csv",
+      "title": "Executive Workshop Facilitation data"
+    },
+    "watermark": {
+      "src": "./assets/mosaic-strategy-watermark.png",
+      "alt": "Mosaic Strategy watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "presentation-types",
+      "density": "medium",
+      "scenario": "executive-workshop-facilitation",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

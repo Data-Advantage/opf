@@ -1,0 +1,100 @@
+{
+  "name": "Claims Triage Operating Model",
+  "language": "english-au",
+  "audience": [
+    "board"
+  ],
+  "purpose": "educate",
+  "tone": "inspirational",
+  "narrative": "failure-analysis",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": "slate-gray",
+    "fontScheme": "courier-new",
+    "dimensions": "a4",
+    "background": "dark1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "left",
+    "imageFill": "fit",
+    "listBullet": "image"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Insurance",
+      "title": "Claims Triage Operating Model",
+      "subtitle": "Pinnacle Mutual Insurance",
+      "notes": "Open by naming the decision: Speed low-complexity claims while preserving adjuster judgment."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Pinnacle Mutual should focus the next cycle on ",
+        {
+          "text": "speed low-complexity claims while preserving adjuster judgment",
+          "bold": true,
+          "color": "#0F172A"
+        },
+        " while making the operating tradeoffs clear to insurance stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-stacked-column-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              23,
+              20
+            ],
+            [
+              "Q2",
+              27,
+              22
+            ],
+            [
+              "Q3",
+              30,
+              24
+            ],
+            [
+              "Q4",
+              34,
+              26
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-6x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for insurance.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

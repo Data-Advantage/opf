@@ -1,0 +1,620 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Athletics Budget Review",
+  "description": "Athletics Budget Review is a fictional OPF example for college athletics teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "athletics-budget-review",
+  "language": "english-ca",
+  "audience": [
+    "regulators",
+    {
+      "id": "candidates",
+      "attentionBudgetMinutes": 22,
+      "technicalFluency": "high",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "persuade"
+      ],
+      "recommendedTones": [
+        "conversational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "persuade",
+    "outcome": "Balance competitive goals with travel and facility constraints",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "conversational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "persuade",
+    "description": "Athletics Budget Review uses a compact evidence-to-decision arc for Summit State Athletics.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "boost",
+      "primary": "#14B8A6",
+      "secondary": "#0F172A",
+      "accent": "#1D4ED8",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#B45309",
+        "risk": "#047857"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-tamil",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": "#F8FAFC",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "top",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "College athletics",
+      "title": "Athletics Budget Review",
+      "subtitle": "Summit State Athletics College athletics",
+      "notes": "Open by naming the decision: Balance competitive goals with travel and facility constraints."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Summit State Athletics should focus the next cycle on ",
+        {
+          "text": "balance competitive goals with travel and facility constraints",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to college athletics stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "sparkline-6x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              19,
+              16
+            ],
+            [
+              "Q2",
+              23,
+              18
+            ],
+            [
+              "Q3",
+              26,
+              20
+            ],
+            [
+              "Q4",
+              30,
+              22
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "College athletics",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "College athletics execution path",
+        "description": "Major milestones for Summit State Athletics.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s59-regions",
+      "section": "Operating model",
+      "layout": "number-5x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "11 days",
+          "label": "Primary signal",
+          "description": "Balance competitive goals with travel and facility constraints",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Summit State Athletics should focus the next cycle on ",
+          {
+            "text": "balance competitive goals with travel and facility constraints",
+            "bold": true,
+            "color": "#14B8A6"
+          },
+          " while making the operating tradeoffs clear to college athletics stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "College athletics working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "College athletics",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s59-blocks",
+      "section": "Evidence",
+      "layout": "number-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "stacked-line-with-markers-2x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  28,
+                  25
+                ],
+                [
+                  "Q2",
+                  32,
+                  27
+                ],
+                [
+                  "Q3",
+                  35,
+                  29
+                ],
+                [
+                  "Q4",
+                  39,
+                  31
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "91%",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s59-image",
+      "section": "Context",
+      "layout": "image-2x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "College athletics context photo for Summit State Athletics",
+        "title": "College athletics context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s59-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "athletics-budget-review-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "balance competitive goals with travel and facility constraints",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "summit-state-athletics",
+    "name": "Summit State Athletics",
+    "legalName": "Summit State Athletics",
+    "logo": "asset:brand-logo",
+    "domain": "summit-state-athletics.example",
+    "email": "hello@summit-state-athletics.example",
+    "phone": "+15551000058",
+    "tagline": "Balance competitive goals with travel and facility constraints",
+    "role": "primary",
+    "socials": {
+      "x": "@summit-state-athletics",
+      "facebook": "https://facebook.example/summit-state-athletics"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "summit-state-athletics",
+    "bio": "Leads college athletics planning for Summit State Athletics.",
+    "socials": {
+      "x": "@summit-state-athletics-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Balance competitive goals with travel and facility constraints",
+  "duration": 16,
+  "tags": [
+    "education",
+    "college-athletics",
+    "persuade",
+    "conversational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/summit-state-athletics-logo.svg",
+      "alt": "Summit State Athletics logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/summit-state-athletics-logo-light.svg",
+      "alt": "Summit State Athletics light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/summit-state-athletics-icon.svg",
+      "alt": "Summit State Athletics icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/summit-state-athletics-cover-4.jpg",
+      "alt": "College athletics background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/summit-state-athletics-field-photo.jpg",
+      "alt": "College athletics field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/summit-state-athletics-demo.mp4",
+      "title": "College athletics walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/athletics-budget-review.csv",
+      "format": "csv",
+      "title": "Athletics Budget Review data"
+    },
+    "watermark": {
+      "src": "./assets/summit-state-athletics-watermark.png",
+      "alt": "Summit State Athletics watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "dense",
+      "scenario": "athletics-budget-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "athletics-budget-review-arc",
+          "name": "College Athletics Decision Arc",
+          "summary": "A custom arc for Summit State Athletics.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "summit-state-athletics-theme",
+          "name": "Summit State Athletics Working Theme",
+          "colorScheme": "boost",
+          "fontScheme": "noto-sans-tamil",
+          "background": "dark1",
+          "tags": [
+            "college-athletics",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "summit-state-athletics-signal",
+          "name": "Summit State Athletics Signal Palette",
+          "accent1": "#14B8A6",
+          "accent2": "#0F172A",
+          "accent3": "#1D4ED8",
+          "accent4": "#047857",
+          "accent5": "#B45309",
+          "accent6": "#BE123C",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

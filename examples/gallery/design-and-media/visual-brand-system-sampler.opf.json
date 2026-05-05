@@ -1,0 +1,347 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Visual Brand System Sampler",
+  "description": "Visual Brand System Sampler is a fictional OPF example for design system teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "visual-brand-system-sampler",
+  "language": "english-au",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 23,
+      "technicalFluency": "mixed",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "performance-improvement-plan"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "pitch",
+    "outcome": "Demonstrate OPF design controls across a reusable brand system",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "performance-improvement-plan",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "slate-gray",
+      "primary": "#0F172A",
+      "secondary": "#1D4ED8",
+      "accent": "#047857",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#BE123C",
+        "risk": "#B45309"
+      }
+    },
+    "fontScheme": {
+      "id": "bookman",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "a4",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Design system",
+      "title": "Visual Brand System Sampler",
+      "subtitle": "Framewell Studio Design system",
+      "notes": "Open by naming the decision: Demonstrate OPF design controls across a reusable brand system."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Framewell Studio should focus the next cycle on ",
+        {
+          "text": "demonstrate opf design controls across a reusable brand system",
+          "bold": true,
+          "color": "#0F172A"
+        },
+        " while making the operating tradeoffs clear to design system stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-bar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              22,
+              19
+            ],
+            [
+              "Q2",
+              26,
+              21
+            ],
+            [
+              "Q3",
+              29,
+              23
+            ],
+            [
+              "Q4",
+              33,
+              25
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Design system",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Design system execution path",
+        "description": "Major milestones for Framewell Studio.",
+        "events": [
+          {
+            "when": "Oct",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "May",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jun",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jul",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for demonstrate opf design controls across a reusable brand system.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "framewell-studio",
+    "name": "Framewell Studio",
+    "legalName": "Framewell Studio, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "framewell-studio.example",
+    "email": "hello@framewell-studio.example",
+    "phone": "+15551000095",
+    "tagline": "Demonstrate OPF design controls across a reusable brand system",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@framewell-studio",
+      "x": "https://x.example/framewell-studio"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "framewell-studio",
+    "bio": "Leads design system planning for Framewell Studio.",
+    "socials": {
+      "mastodon": "@framewell-studio-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Demonstrate OPF design controls across a reusable brand system",
+  "duration": 28,
+  "tags": [
+    "design-and-media",
+    "design-system",
+    "pitch",
+    "inspirational",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/framewell-studio-logo.svg",
+      "alt": "Framewell Studio logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/framewell-studio-logo-light.svg",
+      "alt": "Framewell Studio light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/framewell-studio-icon.svg",
+      "alt": "Framewell Studio icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/framewell-studio-cover-1.jpg",
+      "alt": "Design system background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/framewell-studio-field-photo.jpg",
+      "alt": "Design system field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/framewell-studio-demo.mp4",
+      "title": "Design system walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/visual-brand-system-sampler.csv",
+      "format": "csv",
+      "title": "Visual Brand System Sampler data"
+    },
+    "watermark": {
+      "src": "./assets/framewell-studio-watermark.png",
+      "alt": "Framewell Studio watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "design-and-media",
+      "density": "medium",
+      "scenario": "visual-brand-system-sampler",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

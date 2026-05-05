@@ -1,0 +1,630 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Data Platform Migration Plan",
+  "description": "Data Platform Migration Plan is a fictional OPF example for data engineering teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "data-platform-migration-plan",
+  "language": "english-au",
+  "audience": [
+    "sales-team",
+    {
+      "id": "customers",
+      "attentionBudgetMinutes": 21,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "board-meeting"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "inform",
+    "outcome": "Move analytics workloads with minimal reporting disruption",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "board-meeting",
+    "description": "Data Platform Migration Plan uses a compact evidence-to-decision arc for Fathom Retail.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "slate-gray",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-nastaliq-urdu",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "bottom",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Data engineering",
+      "title": "Data Platform Migration Plan",
+      "subtitle": "Fathom Retail Data engineering",
+      "notes": "Open by naming the decision: Move analytics workloads with minimal reporting disruption."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Fathom Retail should focus the next cycle on ",
+        {
+          "text": "move analytics workloads with minimal reporting disruption",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to data engineering stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "histogram",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              17,
+              14
+            ],
+            [
+              "Q2",
+              21,
+              16
+            ],
+            [
+              "Q3",
+              24,
+              18
+            ],
+            [
+              "Q4",
+              28,
+              20
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Data engineering",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Data engineering execution path",
+        "description": "Major milestones for Fathom Retail.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s40-regions",
+      "section": "Operating model",
+      "layout": "number-4x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "31%",
+          "label": "Primary signal",
+          "description": "Move analytics workloads with minimal reporting disruption",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Fathom Retail should focus the next cycle on ",
+          {
+            "text": "move analytics workloads with minimal reporting disruption",
+            "bold": true,
+            "color": "#BE123C"
+          },
+          " while making the operating tradeoffs clear to data engineering stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Data engineering working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Data engineering",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s40-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "pareto",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  26,
+                  23
+                ],
+                [
+                  "Q2",
+                  30,
+                  25
+                ],
+                [
+                  "Q3",
+                  33,
+                  27
+                ],
+                [
+                  "Q4",
+                  37,
+                  29
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$4.8M",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s40-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Data engineering walkthrough",
+        "description": "Short clip demonstrating the proposed data engineering workflow."
+      }
+    },
+    {
+      "id": "s40-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "data-platform-migration-plan-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "move analytics workloads with minimal reporting disruption",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "fathom-retail",
+    "name": "Fathom Retail",
+    "legalName": "Fathom Retail, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "fathom-retail.example",
+    "email": "hello@fathom-retail.example",
+    "phone": "+15551000039",
+    "tagline": "Move analytics workloads with minimal reporting disruption",
+    "role": "primary",
+    "socials": {
+      "youtube": "@fathom-retail",
+      "github": "https://github.example/fathom-retail"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "fathom-retail",
+    "bio": "Leads data engineering planning for Fathom Retail.",
+    "socials": {
+      "youtube": "@fathom-retail-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Move analytics workloads with minimal reporting disruption",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 22,
+  "tags": [
+    "business-functions",
+    "data-engineering",
+    "inform",
+    "inspirational",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/fathom-retail-logo.svg",
+      "alt": "Fathom Retail logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/fathom-retail-logo-light.svg",
+      "alt": "Fathom Retail light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/fathom-retail-icon.svg",
+      "alt": "Fathom Retail icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/fathom-retail-cover-5.jpg",
+      "alt": "Data engineering background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/fathom-retail-field-photo.jpg",
+      "alt": "Data engineering field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/fathom-retail-demo.mp4",
+      "title": "Data engineering walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/data-platform-migration-plan.csv",
+      "format": "csv",
+      "title": "Data Platform Migration Plan data"
+    },
+    "watermark": {
+      "src": "./assets/fathom-retail-watermark.png",
+      "alt": "Fathom Retail watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "data-platform-migration-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "data-platform-migration-plan-arc",
+          "name": "Data Engineering Decision Arc",
+          "summary": "A custom arc for Fathom Retail.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "fathom-retail-theme",
+          "name": "Fathom Retail Working Theme",
+          "colorScheme": "slate-gray",
+          "fontScheme": "noto-nastaliq-urdu",
+          "background": "light1",
+          "tags": [
+            "data-engineering",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "fathom-retail-signal",
+          "name": "Fathom Retail Signal Palette",
+          "accent1": "#BE123C",
+          "accent2": "#6D28D9",
+          "accent3": "#0369A1",
+          "accent4": "#334155",
+          "accent5": "#F8FAFC",
+          "accent6": "#E2E8F0",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

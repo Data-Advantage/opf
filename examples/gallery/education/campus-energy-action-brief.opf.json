@@ -1,0 +1,358 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Campus Energy Action Brief",
+  "description": "Campus Energy Action Brief is a fictional OPF example for higher education teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "campus-energy-action-brief",
+  "language": "english-us",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 34,
+      "technicalFluency": "low",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "golden-circle"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Reduce campus energy use without disrupting instruction",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "golden-circle",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "pastel-red",
+      "primary": "#6D28D9",
+      "secondary": "#0369A1",
+      "accent": "#334155",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#E2E8F0",
+        "risk": "#F8FAFC"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-khmer",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Higher education",
+      "title": "Campus Energy Action Brief",
+      "subtitle": "Lakeside University Higher education",
+      "notes": "Open by naming the decision: Reduce campus energy use without disrupting instruction."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Lakeside University should focus the next cycle on ",
+        {
+          "text": "reduce campus energy use without disrupting instruction",
+          "bold": true,
+          "color": "#6D28D9"
+        },
+        " while making the operating tradeoffs clear to higher education stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "scatter",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              13,
+              10
+            ],
+            [
+              "Q2",
+              17,
+              12
+            ],
+            [
+              "Q3",
+              20,
+              14
+            ],
+            [
+              "Q4",
+              24,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Higher education",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Higher education execution path",
+        "description": "Major milestones for Lakeside University.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for reduce campus energy use without disrupting instruction.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "lakeside-university",
+    "name": "Lakeside University",
+    "legalName": "Lakeside University",
+    "logo": "asset:brand-logo",
+    "domain": "lakeside-university.example",
+    "email": "hello@lakeside-university.example",
+    "phone": "+15551000052",
+    "tagline": "Reduce campus energy use without disrupting instruction",
+    "role": "primary",
+    "socials": {
+      "github": "@lakeside-university",
+      "mastodon": "https://mastodon.example/lakeside-university"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "lakeside-university",
+    "bio": "Leads higher education planning for Lakeside University.",
+    "socials": {
+      "github": "@lakeside-university-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Reduce campus energy use without disrupting instruction",
+  "duration": 10,
+  "tags": [
+    "education",
+    "higher-education",
+    "report",
+    "formal",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/lakeside-university-logo.svg",
+      "alt": "Lakeside University logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/lakeside-university-logo-light.svg",
+      "alt": "Lakeside University light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/lakeside-university-icon.svg",
+      "alt": "Lakeside University icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/lakeside-university-cover-3.jpg",
+      "alt": "Higher education background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/lakeside-university-field-photo.jpg",
+      "alt": "Higher education field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/lakeside-university-demo.mp4",
+      "title": "Higher education walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/campus-energy-action-brief.csv",
+      "format": "csv",
+      "title": "Campus Energy Action Brief data"
+    },
+    "watermark": {
+      "src": "./assets/lakeside-university-watermark.png",
+      "alt": "Lakeside University watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "medium",
+      "scenario": "campus-energy-action-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

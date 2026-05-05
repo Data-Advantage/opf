@@ -1,0 +1,349 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Identity Incident Executive Brief",
+  "description": "Identity Incident Executive Brief is a fictional OPF example for security teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "identity-incident-executive-brief",
+  "language": "english-gb",
+  "audience": [
+    "customers",
+    {
+      "id": "marketing-team",
+      "attentionBudgetMinutes": 33,
+      "technicalFluency": "medium",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "survival-story"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Explain incident response status and the residual risk plan",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "survival-story",
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "corporate-blue",
+      "primary": "#F59E0B",
+      "secondary": "#14B8A6",
+      "accent": "#0F172A",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#047857",
+        "risk": "#1D4ED8"
+      }
+    },
+    "fontScheme": {
+      "id": "mingliu",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": "dark1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "top",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Security",
+      "title": "Identity Incident Executive Brief",
+      "subtitle": "Sable Systems Security",
+      "notes": "Open by naming the decision: Explain incident response status and the residual risk plan."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Sable Systems should focus the next cycle on ",
+        {
+          "text": "explain incident response status and the residual risk plan",
+          "bold": true,
+          "color": "#F59E0B"
+        },
+        " while making the operating tradeoffs clear to security stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "dot-plot-5x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              28,
+              25
+            ],
+            [
+              "Q2",
+              32,
+              27
+            ],
+            [
+              "Q3",
+              35,
+              29
+            ],
+            [
+              "Q4",
+              39,
+              31
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Security",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Security execution path",
+        "description": "Major milestones for Sable Systems.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for explain incident response status and the residual risk plan.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "sable-systems",
+    "name": "Sable Systems",
+    "legalName": "Sable Systems, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "sable-systems.example",
+    "email": "hello@sable-systems.example",
+    "phone": "+15551000033",
+    "tagline": "Explain incident response status and the residual risk plan",
+    "role": "primary",
+    "socials": {
+      "instagram": "@sable-systems",
+      "threads": "https://threads.example/sable-systems"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "sable-systems",
+    "bio": "Leads security planning for Sable Systems.",
+    "socials": {
+      "instagram": "@sable-systems-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Explain incident response status and the residual risk plan",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 16,
+  "tags": [
+    "business-functions",
+    "security",
+    "plan",
+    "persuasive",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/sable-systems-logo.svg",
+      "alt": "Sable Systems logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/sable-systems-logo-light.svg",
+      "alt": "Sable Systems light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/sable-systems-icon.svg",
+      "alt": "Sable Systems icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/sable-systems-cover-4.jpg",
+      "alt": "Security background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/sable-systems-field-photo.jpg",
+      "alt": "Security field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/sable-systems-demo.mp4",
+      "title": "Security walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/identity-incident-executive-brief.csv",
+      "format": "csv",
+      "title": "Identity Incident Executive Brief data"
+    },
+    "watermark": {
+      "src": "./assets/sable-systems-watermark.png",
+      "alt": "Sable Systems watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "identity-incident-executive-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Water Utility Capital Plan",
+  "description": "Water Utility Capital Plan is a fictional OPF example for public utilities teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "water-utility-capital-plan",
+  "language": "english-gb",
+  "audience": [
+    "sales-team",
+    {
+      "id": "customers",
+      "attentionBudgetMinutes": 33,
+      "technicalFluency": "medium",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "strategic-advisory"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Approve staged replacement of high-risk mains",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "strategic-advisory",
+    "description": "Water Utility Capital Plan uses a compact evidence-to-decision arc for Lakehaven Water District.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "vibes",
+      "primary": "#F59E0B",
+      "secondary": "#14B8A6",
+      "accent": "#0F172A",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#047857",
+        "risk": "#1D4ED8"
+      }
+    },
+    "fontScheme": {
+      "id": "roboto",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": {
+      "type": "gradient",
+      "gradient": {
+        "angle": 35,
+        "stops": [
+          {
+            "color": "#F59E0B",
+            "position": 0
+          },
+          {
+            "color": "#1D4ED8",
+            "position": 1
+          }
+        ]
+      },
+      "opacity": 0.94
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "bottom",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Public utilities",
+      "title": "Water Utility Capital Plan",
+      "subtitle": "Lakehaven Water District Public utilities",
+      "notes": "Open by naming the decision: Approve staged replacement of high-risk mains."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Lakehaven Water District should focus the next cycle on ",
+        {
+          "text": "approve staged replacement of high-risk mains",
+          "bold": true,
+          "color": "#F59E0B"
+        },
+        " while making the operating tradeoffs clear to public utilities stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "treemap",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              13,
+              10
+            ],
+            [
+              "Q2",
+              17,
+              12
+            ],
+            [
+              "Q3",
+              20,
+              14
+            ],
+            [
+              "Q4",
+              24,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Public utilities",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Public utilities execution path",
+        "description": "Major milestones for Lakehaven Water District.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s70-regions",
+      "section": "Operating model",
+      "layout": "number-4x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "42 pts",
+          "label": "Primary signal",
+          "description": "Approve staged replacement of high-risk mains",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Lakehaven Water District should focus the next cycle on ",
+          {
+            "text": "approve staged replacement of high-risk mains",
+            "bold": true,
+            "color": "#F59E0B"
+          },
+          " while making the operating tradeoffs clear to public utilities stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Public utilities working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Public utilities",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s70-blocks",
+      "section": "Evidence",
+      "layout": "list-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "100pct-bullet-bar-3x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  22,
+                  19
+                ],
+                [
+                  "Q2",
+                  26,
+                  21
+                ],
+                [
+                  "Q3",
+                  29,
+                  23
+                ],
+                [
+                  "Q4",
+                  33,
+                  25
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "31%",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s70-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Public utilities walkthrough",
+        "description": "Short clip demonstrating the proposed public utilities workflow."
+      }
+    },
+    {
+      "id": "s70-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "water-utility-capital-plan-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "approve staged replacement of high-risk mains",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "lakehaven-water-district",
+    "name": "Lakehaven Water District",
+    "legalName": "Lakehaven Water District",
+    "logo": "asset:brand-logo",
+    "domain": "lakehaven-water-district.example",
+    "email": "hello@lakehaven-water-district.example",
+    "phone": "+15551000069",
+    "tagline": "Approve staged replacement of high-risk mains",
+    "role": "primary",
+    "socials": {
+      "youtube": "@lakehaven-water-district",
+      "github": "https://github.example/lakehaven-water-district"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "lakehaven-water-district",
+    "bio": "Leads public utilities planning for Lakehaven Water District.",
+    "socials": {
+      "youtube": "@lakehaven-water-district-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Approve staged replacement of high-risk mains",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 27,
+  "tags": [
+    "government",
+    "public-utilities",
+    "plan",
+    "technical",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/lakehaven-water-district-logo.svg",
+      "alt": "Lakehaven Water District logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/lakehaven-water-district-logo-light.svg",
+      "alt": "Lakehaven Water District light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/lakehaven-water-district-icon.svg",
+      "alt": "Lakehaven Water District icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/lakehaven-water-district-cover-5.jpg",
+      "alt": "Public utilities background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/lakehaven-water-district-field-photo.jpg",
+      "alt": "Public utilities field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/lakehaven-water-district-demo.mp4",
+      "title": "Public utilities walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/water-utility-capital-plan.csv",
+      "format": "csv",
+      "title": "Water Utility Capital Plan data"
+    },
+    "watermark": {
+      "src": "./assets/lakehaven-water-district-watermark.png",
+      "alt": "Lakehaven Water District watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "dense",
+      "scenario": "water-utility-capital-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "water-utility-capital-plan-arc",
+          "name": "Public Utilities Decision Arc",
+          "summary": "A custom arc for Lakehaven Water District.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "lakehaven-water-district-theme",
+          "name": "Lakehaven Water District Working Theme",
+          "colorScheme": "vibes",
+          "fontScheme": "roboto",
+          "background": "light1",
+          "tags": [
+            "public-utilities",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "lakehaven-water-district-signal",
+          "name": "Lakehaven Water District Signal Palette",
+          "accent1": "#F59E0B",
+          "accent2": "#14B8A6",
+          "accent3": "#0F172A",
+          "accent4": "#1D4ED8",
+          "accent5": "#047857",
+          "accent6": "#B45309",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

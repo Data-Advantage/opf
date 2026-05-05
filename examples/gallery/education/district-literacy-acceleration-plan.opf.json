@@ -1,0 +1,100 @@
+{
+  "name": "District Literacy Acceleration Plan",
+  "language": "english-ca",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "pitch",
+  "tone": "casual",
+  "narrative": "failure-analysis",
+  "design": {
+    "theme": "dark",
+    "colorScheme": "golden-yellow",
+    "fontScheme": "noto-sans-jp",
+    "dimensions": "4:3",
+    "background": "dark1",
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "K-12 education",
+      "title": "District Literacy Acceleration Plan",
+      "subtitle": "Riverbend Public Schools K-12 education",
+      "notes": "Open by naming the decision: Raise third-grade reading proficiency through targeted intervention."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Riverbend Public Schools should focus the next cycle on ",
+        {
+          "text": "raise third-grade reading proficiency through targeted intervention",
+          "bold": true,
+          "color": "#B45309"
+        },
+        " while making the operating tradeoffs clear to k-12 education stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "radar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              28,
+              25
+            ],
+            [
+              "Q2",
+              32,
+              27
+            ],
+            [
+              "Q3",
+              35,
+              29
+            ],
+            [
+              "Q4",
+              39,
+              31
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-3x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for k-12 education.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Wildfire Evacuation Preparedness",
+  "description": "Wildfire Evacuation Preparedness is a fictional OPF example for emergency management teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "wildfire-evacuation-preparedness",
+  "language": "english-us",
+  "audience": [
+    "regulators",
+    {
+      "id": "candidates",
+      "attentionBudgetMinutes": 32,
+      "technicalFluency": "low",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "status-update"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "pitch",
+    "outcome": "Coordinate evacuation roles before fire season",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "status-update",
+    "description": "Wildfire Evacuation Preparedness uses a compact evidence-to-decision arc for Pine County Emergency Management.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "steel-blue",
+      "primary": "#E2E8F0",
+      "secondary": "#F59E0B",
+      "accent": "#14B8A6",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#1D4ED8",
+        "risk": "#0F172A"
+      }
+    },
+    "fontScheme": {
+      "id": "raleway",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "4:3",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "top",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Emergency management",
+      "title": "Wildfire Evacuation Preparedness",
+      "subtitle": "Pine County Emergency Management Emergency management",
+      "notes": "Open by naming the decision: Coordinate evacuation roles before fire season."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Pine County Emergency Management should focus the next cycle on ",
+        {
+          "text": "coordinate evacuation roles before fire season",
+          "bold": true,
+          "color": "#E2E8F0"
+        },
+        " while making the operating tradeoffs clear to emergency management stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "stacked-line-with-markers-3x",
+        "data": {
+          "src": "asset:metric-data",
+          "sheet": "Summary",
+          "range": "A1:C8",
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Emergency management",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Emergency management execution path",
+        "description": "Major milestones for Pine County Emergency Management.",
+        "events": [
+          {
+            "when": "Jul",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Aug",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Sep",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Oct",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s69-regions",
+      "section": "Operating model",
+      "layout": "number-3x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "91%",
+          "label": "Primary signal",
+          "description": "Coordinate evacuation roles before fire season",
+          "trend": "down"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Pine County Emergency Management should focus the next cycle on ",
+          {
+            "text": "coordinate evacuation roles before fire season",
+            "bold": true,
+            "color": "#E2E8F0"
+          },
+          " while making the operating tradeoffs clear to emergency management stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Emergency management working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Emergency management",
+              "Program lead",
+              "At risk",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "On track",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "Watch",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s69-blocks",
+      "section": "Evidence",
+      "layout": "blank",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "100pct-bullet-bar-2x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  21,
+                  18
+                ],
+                [
+                  "Q2",
+                  25,
+                  20
+                ],
+                [
+                  "Q3",
+                  28,
+                  22
+                ],
+                [
+                  "Q4",
+                  32,
+                  24
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$820K",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s69-image",
+      "section": "Context",
+      "layout": "image-3x",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Emergency management context photo for Pine County Emergency Management",
+        "title": "Emergency management context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s69-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "wildfire-evacuation-preparedness-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "coordinate evacuation roles before fire season",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "pine-county-emergency-management",
+    "name": "Pine County Emergency Management",
+    "legalName": "Pine County Emergency Management",
+    "logo": "asset:brand-logo",
+    "domain": "pine-county-emergency-management.example",
+    "email": "hello@pine-county-emergency-management.example",
+    "phone": "+15551000068",
+    "tagline": "Coordinate evacuation roles before fire season",
+    "role": "primary",
+    "socials": {
+      "x": "@pine-county-emergency-management",
+      "facebook": "https://facebook.example/pine-county-emergency-management"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "pine-county-emergency-management",
+    "bio": "Leads emergency management planning for Pine County Emergency Management.",
+    "socials": {
+      "x": "@pine-county-emergency-management-speaker"
+    }
+  },
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": "Coordinate evacuation roles before fire season",
+  "duration": 26,
+  "tags": [
+    "government",
+    "emergency-management",
+    "pitch",
+    "persuasive",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/pine-county-emergency-management-logo.svg",
+      "alt": "Pine County Emergency Management logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/pine-county-emergency-management-logo-light.svg",
+      "alt": "Pine County Emergency Management light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/pine-county-emergency-management-icon.svg",
+      "alt": "Pine County Emergency Management icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/pine-county-emergency-management-cover-4.jpg",
+      "alt": "Emergency management background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/pine-county-emergency-management-field-photo.jpg",
+      "alt": "Emergency management field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/pine-county-emergency-management-demo.mp4",
+      "title": "Emergency management walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/wildfire-evacuation-preparedness.csv",
+      "format": "csv",
+      "title": "Wildfire Evacuation Preparedness data"
+    },
+    "watermark": {
+      "src": "./assets/pine-county-emergency-management-watermark.png",
+      "alt": "Pine County Emergency Management watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "dense",
+      "scenario": "wildfire-evacuation-preparedness",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "wildfire-evacuation-preparedness-arc",
+          "name": "Emergency Management Decision Arc",
+          "summary": "A custom arc for Pine County Emergency Management.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "pine-county-emergency-management-theme",
+          "name": "Pine County Emergency Management Working Theme",
+          "colorScheme": "steel-blue",
+          "fontScheme": "raleway",
+          "background": "#F8FAFC",
+          "tags": [
+            "emergency-management",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "pine-county-emergency-management-signal",
+          "name": "Pine County Emergency Management Signal Palette",
+          "accent1": "#E2E8F0",
+          "accent2": "#F59E0B",
+          "accent3": "#14B8A6",
+          "accent4": "#0F172A",
+          "accent5": "#1D4ED8",
+          "accent6": "#047857",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

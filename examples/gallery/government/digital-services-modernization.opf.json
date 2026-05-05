@@ -1,0 +1,100 @@
+{
+  "name": "Digital Services Modernization",
+  "language": "english-ca",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "report",
+  "tone": "authoritative",
+  "narrative": "strategic-narrative",
+  "design": {
+    "theme": "dark",
+    "colorScheme": "black-and-white",
+    "fontScheme": "rockwell",
+    "dimensions": "letter",
+    "background": "#FFFFFF",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Digital government",
+      "title": "Digital Services Modernization",
+      "subtitle": "State Service Office Digital government",
+      "notes": "Open by naming the decision: Improve permit experience through one-stop online services."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "State Service Office should focus the next cycle on ",
+        {
+          "text": "improve permit experience through one-stop online services",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to digital government stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "treemap-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              14,
+              11
+            ],
+            [
+              "Q2",
+              18,
+              13
+            ],
+            [
+              "Q3",
+              21,
+              15
+            ],
+            [
+              "Q4",
+              25,
+              17
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-5x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for digital government.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

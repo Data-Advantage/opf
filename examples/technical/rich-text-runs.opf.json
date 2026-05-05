@@ -1,0 +1,90 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Rich Text Runs",
+  "description": "Technical fixture for formatted text runs in text, list, and bullet payloads.",
+  "slides": [
+    {
+      "title": "Text Runs",
+      "text": [
+        "Runs support ",
+        {
+          "text": "bold",
+          "bold": true
+        },
+        ", ",
+        {
+          "text": "italic",
+          "italic": true
+        },
+        ", ",
+        {
+          "text": "underlined links",
+          "underline": true,
+          "link": "https://openpresentation.org"
+        },
+        ", and ",
+        {
+          "text": "custom color",
+          "color": "#DC2626",
+          "fontSize": 18,
+          "fontFamily": "Aptos"
+        },
+        "."
+      ]
+    },
+    {
+      "title": "Rich List Items",
+      "items": [
+        [
+          "Inline ",
+          {
+            "text": "rich text",
+            "bold": true
+          },
+          " works as a list item."
+        ],
+        {
+          "text": [
+            "Object-form list item with ",
+            {
+              "text": "description",
+              "italic": true
+            }
+          ],
+          "description": [
+            "Supporting detail can also include ",
+            {
+              "text": "runs",
+              "bold": true
+            },
+            "."
+          ],
+          "level": 1
+        }
+      ]
+    },
+    {
+      "title": "Rich Bullets",
+      "bullets": [
+        [
+          {
+            "text": "Important",
+            "bold": true,
+            "color": "#16A34A"
+          },
+          " bullet"
+        ],
+        {
+          "text": [
+            "Nested ",
+            {
+              "text": "bullet",
+              "underline": true
+            }
+          ],
+          "level": 1
+        }
+      ]
+    }
+  ]
+}

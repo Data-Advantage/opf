@@ -1,0 +1,622 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Tailings Monitoring Investment Brief",
+  "description": "Tailings Monitoring Investment Brief is a fictional OPF example for mining teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "tailings-monitoring-investment-brief",
+  "language": "english-au",
+  "audience": [
+    "sales-team",
+    {
+      "id": "customers",
+      "attentionBudgetMinutes": 19,
+      "technicalFluency": "mixed",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "persuade"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Fund remote monitoring for high-priority containment sites",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "persuade",
+    "description": "Tailings Monitoring Investment Brief uses a compact evidence-to-decision arc for Copper Mesa Mining.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "corporate-blue",
+      "primary": "#F8FAFC",
+      "secondary": "#E2E8F0",
+      "accent": "#F59E0B",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0F172A",
+        "risk": "#14B8A6"
+      }
+    },
+    "fontScheme": {
+      "id": "gisha",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "bottom",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Mining",
+      "title": "Tailings Monitoring Investment Brief",
+      "subtitle": "Copper Mesa Mining Mining",
+      "notes": "Open by naming the decision: Fund remote monitoring for high-priority containment sites."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Copper Mesa Mining should focus the next cycle on ",
+        {
+          "text": "fund remote monitoring for high-priority containment sites",
+          "bold": true,
+          "color": "#F8FAFC"
+        },
+        " while making the operating tradeoffs clear to mining stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bullet-bar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              14,
+              11
+            ],
+            [
+              "Q2",
+              18,
+              13
+            ],
+            [
+              "Q3",
+              21,
+              15
+            ],
+            [
+              "Q4",
+              25,
+              17
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Mining",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Mining execution path",
+        "description": "Major milestones for Copper Mesa Mining.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s20-regions",
+      "section": "Operating model",
+      "layout": "number-2x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "2.4x",
+          "label": "Primary signal",
+          "description": "Fund remote monitoring for high-priority containment sites",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Copper Mesa Mining should focus the next cycle on ",
+          {
+            "text": "fund remote monitoring for high-priority containment sites",
+            "bold": true,
+            "color": "#F8FAFC"
+          },
+          " while making the operating tradeoffs clear to mining stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Mining working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Mining",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s20-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "column",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  23,
+                  20
+                ],
+                [
+                  "Q2",
+                  27,
+                  22
+                ],
+                [
+                  "Q3",
+                  30,
+                  24
+                ],
+                [
+                  "Q4",
+                  34,
+                  26
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "42 pts",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s20-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Mining walkthrough",
+        "description": "Short clip demonstrating the proposed mining workflow."
+      }
+    },
+    {
+      "id": "s20-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "tailings-monitoring-investment-brief-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "fund remote monitoring for high-priority containment sites",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "copper-mesa-mining",
+    "name": "Copper Mesa Mining",
+    "legalName": "Copper Mesa Mining, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "copper-mesa-mining.example",
+    "email": "hello@copper-mesa-mining.example",
+    "phone": "+15551000019",
+    "tagline": "Fund remote monitoring for high-priority containment sites",
+    "role": "primary",
+    "socials": {
+      "youtube": "@copper-mesa-mining",
+      "github": "https://github.example/copper-mesa-mining"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "copper-mesa-mining",
+    "bio": "Leads mining planning for Copper Mesa Mining.",
+    "socials": {
+      "youtube": "@copper-mesa-mining-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Fund remote monitoring for high-priority containment sites",
+  "duration": 27,
+  "tags": [
+    "industries",
+    "mining",
+    "decide",
+    "persuasive",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/copper-mesa-mining-logo.svg",
+      "alt": "Copper Mesa Mining logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/copper-mesa-mining-logo-light.svg",
+      "alt": "Copper Mesa Mining light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/copper-mesa-mining-icon.svg",
+      "alt": "Copper Mesa Mining icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/copper-mesa-mining-cover-5.jpg",
+      "alt": "Mining background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/copper-mesa-mining-field-photo.jpg",
+      "alt": "Mining field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/copper-mesa-mining-demo.mp4",
+      "title": "Mining walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/tailings-monitoring-investment-brief.csv",
+      "format": "csv",
+      "title": "Tailings Monitoring Investment Brief data"
+    },
+    "watermark": {
+      "src": "./assets/copper-mesa-mining-watermark.png",
+      "alt": "Copper Mesa Mining watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "dense",
+      "scenario": "tailings-monitoring-investment-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "tailings-monitoring-investment-brief-arc",
+          "name": "Mining Decision Arc",
+          "summary": "A custom arc for Copper Mesa Mining.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "copper-mesa-mining-theme",
+          "name": "Copper Mesa Mining Working Theme",
+          "colorScheme": "corporate-blue",
+          "fontScheme": "gisha",
+          "background": "dark1",
+          "tags": [
+            "mining",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "copper-mesa-mining-signal",
+          "name": "Copper Mesa Mining Signal Palette",
+          "accent1": "#F8FAFC",
+          "accent2": "#E2E8F0",
+          "accent3": "#F59E0B",
+          "accent4": "#14B8A6",
+          "accent5": "#0F172A",
+          "accent6": "#1D4ED8",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

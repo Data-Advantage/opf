@@ -1,0 +1,347 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Research Grant Pitch",
+  "description": "Research Grant Pitch is a fictional OPF example for research teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "research-grant-pitch",
+  "language": "english-au",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 19,
+      "technicalFluency": "mixed",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "marketing-strategy"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Win support for a cross-disciplinary coastal resilience study",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "marketing-strategy",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "vibes",
+      "primary": "#F8FAFC",
+      "secondary": "#E2E8F0",
+      "accent": "#F59E0B",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0F172A",
+        "risk": "#14B8A6"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-mongolian",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Research",
+      "title": "Research Grant Pitch",
+      "subtitle": "Center for Urban Oceans Research",
+      "notes": "Open by naming the decision: Win support for a cross-disciplinary coastal resilience study."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Center for Urban Oceans should focus the next cycle on ",
+        {
+          "text": "win support for a cross-disciplinary coastal resilience study",
+          "bold": true,
+          "color": "#F8FAFC"
+        },
+        " while making the operating tradeoffs clear to research stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "sparkline-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              16,
+              13
+            ],
+            [
+              "Q2",
+              20,
+              15
+            ],
+            [
+              "Q3",
+              23,
+              17
+            ],
+            [
+              "Q4",
+              27,
+              19
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Research",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Research execution path",
+        "description": "Major milestones for Center for Urban Oceans.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for win support for a cross-disciplinary coastal resilience study.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "center-for-urban-oceans",
+    "name": "Center for Urban Oceans",
+    "legalName": "Center for Urban Oceans",
+    "logo": "asset:brand-logo",
+    "domain": "center-for-urban-oceans.example",
+    "email": "hello@center-for-urban-oceans.example",
+    "phone": "+15551000055",
+    "tagline": "Win support for a cross-disciplinary coastal resilience study",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@center-for-urban-oceans",
+      "x": "https://x.example/center-for-urban-oceans"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "center-for-urban-oceans",
+    "bio": "Leads research planning for Center for Urban Oceans.",
+    "socials": {
+      "mastodon": "@center-for-urban-oceans-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Win support for a cross-disciplinary coastal resilience study",
+  "duration": 13,
+  "tags": [
+    "education",
+    "research",
+    "decide",
+    "technical",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/center-for-urban-oceans-logo.svg",
+      "alt": "Center for Urban Oceans logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/center-for-urban-oceans-logo-light.svg",
+      "alt": "Center for Urban Oceans light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/center-for-urban-oceans-icon.svg",
+      "alt": "Center for Urban Oceans icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/center-for-urban-oceans-cover-1.jpg",
+      "alt": "Research background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/center-for-urban-oceans-field-photo.jpg",
+      "alt": "Research field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/center-for-urban-oceans-demo.mp4",
+      "title": "Research walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/research-grant-pitch.csv",
+      "format": "csv",
+      "title": "Research Grant Pitch data"
+    },
+    "watermark": {
+      "src": "./assets/center-for-urban-oceans-watermark.png",
+      "alt": "Center for Urban Oceans watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "medium",
+      "scenario": "research-grant-pitch",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Renewal Save Plan",
+  "description": "Renewal Save Plan is a fictional OPF example for customer success teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "renewal-save-plan",
+  "language": "english-au",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 35,
+      "technicalFluency": "mixed",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "trend-analysis"
+      ],
+      "recommendedTones": [
+        "authoritative"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "sell",
+    "outcome": "Recover at-risk renewals with executive sponsorship and value proof",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "authoritative",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "trend-analysis",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "forest-green",
+      "primary": "#0F172A",
+      "secondary": "#1D4ED8",
+      "accent": "#047857",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#BE123C",
+        "risk": "#B45309"
+      }
+    },
+    "fontScheme": {
+      "id": "montserrat",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "a4",
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Customer success",
+      "title": "Renewal Save Plan",
+      "subtitle": "Evergreen CRM Customer success",
+      "notes": "Open by naming the decision: Recover at-risk renewals with executive sponsorship and value proof."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Evergreen CRM should focus the next cycle on ",
+        {
+          "text": "recover at-risk renewals with executive sponsorship and value proof",
+          "bold": true,
+          "color": "#0F172A"
+        },
+        " while making the operating tradeoffs clear to customer success stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "doughnut",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              13,
+              10
+            ],
+            [
+              "Q2",
+              17,
+              12
+            ],
+            [
+              "Q3",
+              20,
+              14
+            ],
+            [
+              "Q4",
+              24,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Customer success",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Customer success execution path",
+        "description": "Major milestones for Evergreen CRM.",
+        "events": [
+          {
+            "when": "Oct",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "May",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jun",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jul",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for recover at-risk renewals with executive sponsorship and value proof.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": [
+    {
+      "id": "evergreen-crm",
+      "name": "Evergreen CRM",
+      "logo": "asset:brand-logo",
+      "domain": "evergreen-crm.example",
+      "email": "hello@evergreen-crm.example",
+      "tagline": "Recover at-risk renewals with executive sponsorship and value proof",
+      "role": "primary",
+      "socials": {
+        "mastodon": "@evergreen-crm"
+      }
+    },
+    {
+      "id": "evergreen-crm-partner",
+      "name": "Customer Success Partner Office",
+      "role": "partner",
+      "domain": "partner-evergreen-crm.example"
+    }
+  ],
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "evergreen-crm",
+    "bio": "Leads customer success planning for Evergreen CRM.",
+    "socials": {
+      "mastodon": "@evergreen-crm-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Recover at-risk renewals with executive sponsorship and value proof",
+  "duration": 18,
+  "tags": [
+    "business-functions",
+    "customer-success",
+    "sell",
+    "authoritative",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/evergreen-crm-logo.svg",
+      "alt": "Evergreen CRM logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/evergreen-crm-logo-light.svg",
+      "alt": "Evergreen CRM light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/evergreen-crm-icon.svg",
+      "alt": "Evergreen CRM icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/evergreen-crm-cover-1.jpg",
+      "alt": "Customer success background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/evergreen-crm-field-photo.jpg",
+      "alt": "Customer success field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/evergreen-crm-demo.mp4",
+      "title": "Customer success walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/renewal-save-plan.csv",
+      "format": "csv",
+      "title": "Renewal Save Plan data"
+    },
+    "watermark": {
+      "src": "./assets/evergreen-crm-watermark.png",
+      "alt": "Evergreen CRM watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "renewal-save-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

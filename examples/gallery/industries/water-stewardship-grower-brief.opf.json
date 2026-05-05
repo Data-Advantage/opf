@@ -1,0 +1,632 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Water Stewardship Grower Brief",
+  "description": "Water Stewardship Grower Brief is a fictional OPF example for agriculture teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "water-stewardship-grower-brief",
+  "language": "english-au",
+  "audience": [
+    "marketing-team",
+    {
+      "id": "board",
+      "attentionBudgetMinutes": 25,
+      "technicalFluency": "mixed",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "conference-talk"
+      ],
+      "recommendedTones": [
+        "authoritative"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Align growers on irrigation telemetry and drought response",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "authoritative",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "conference-talk",
+    "description": "Water Stewardship Grower Brief uses a compact evidence-to-decision arc for Sunfield Cooperative.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "forest-green",
+      "primary": "#F8FAFC",
+      "secondary": "#E2E8F0",
+      "accent": "#F59E0B",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0F172A",
+        "risk": "#14B8A6"
+      }
+    },
+    "fontScheme": {
+      "id": "calibri",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "right",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Agriculture",
+      "title": "Water Stewardship Grower Brief",
+      "subtitle": "Sunfield Cooperative Agriculture",
+      "notes": "Open by naming the decision: Align growers on irrigation telemetry and drought response."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Sunfield Cooperative should focus the next cycle on ",
+        {
+          "text": "align growers on irrigation telemetry and drought response",
+          "bold": true,
+          "color": "#F8FAFC"
+        },
+        " while making the operating tradeoffs clear to agriculture stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-stacked-area-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              19,
+              16
+            ],
+            [
+              "Q2",
+              23,
+              18
+            ],
+            [
+              "Q3",
+              26,
+              20
+            ],
+            [
+              "Q4",
+              30,
+              22
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Agriculture",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Agriculture execution path",
+        "description": "Major milestones for Sunfield Cooperative.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s8-regions",
+      "section": "Operating model",
+      "layout": "number-2x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "31%",
+          "label": "Primary signal",
+          "description": "Align growers on irrigation telemetry and drought response",
+          "trend": "flat"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Sunfield Cooperative should focus the next cycle on ",
+          {
+            "text": "align growers on irrigation telemetry and drought response",
+            "bold": true,
+            "color": "#F8FAFC"
+          },
+          " while making the operating tradeoffs clear to agriculture stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Agriculture working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Agriculture",
+              "Program lead",
+              "Watch",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "At risk",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "On track",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s8-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "box-and-whisker",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  28,
+                  25
+                ],
+                [
+                  "Q2",
+                  32,
+                  27
+                ],
+                [
+                  "Q3",
+                  35,
+                  29
+                ],
+                [
+                  "Q4",
+                  39,
+                  31
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$4.8M",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s8-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Agriculture walkthrough",
+        "description": "Short clip demonstrating the proposed agriculture workflow."
+      }
+    },
+    {
+      "id": "s8-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "water-stewardship-grower-brief-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-5x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "align growers on irrigation telemetry and drought response",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": [
+    {
+      "id": "sunfield-cooperative",
+      "name": "Sunfield Cooperative",
+      "logo": "asset:brand-logo",
+      "domain": "sunfield-cooperative.example",
+      "email": "hello@sunfield-cooperative.example",
+      "tagline": "Align growers on irrigation telemetry and drought response",
+      "role": "primary",
+      "socials": {
+        "tiktok": "@sunfield-cooperative"
+      }
+    },
+    {
+      "id": "sunfield-cooperative-partner",
+      "name": "Agriculture Partner Office",
+      "role": "partner",
+      "domain": "partner-sunfield-cooperative.example"
+    }
+  ],
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "sunfield-cooperative",
+    "bio": "Leads agriculture planning for Sunfield Cooperative.",
+    "socials": {
+      "tiktok": "@sunfield-cooperative-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Align growers on irrigation telemetry and drought response",
+  "duration": 15,
+  "tags": [
+    "industries",
+    "agriculture",
+    "report",
+    "authoritative",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/sunfield-cooperative-logo.svg",
+      "alt": "Sunfield Cooperative logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/sunfield-cooperative-logo-light.svg",
+      "alt": "Sunfield Cooperative light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/sunfield-cooperative-icon.svg",
+      "alt": "Sunfield Cooperative icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/sunfield-cooperative-cover-3.jpg",
+      "alt": "Agriculture background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/sunfield-cooperative-field-photo.jpg",
+      "alt": "Agriculture field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/sunfield-cooperative-demo.mp4",
+      "title": "Agriculture walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/water-stewardship-grower-brief.csv",
+      "format": "csv",
+      "title": "Water Stewardship Grower Brief data"
+    },
+    "watermark": {
+      "src": "./assets/sunfield-cooperative-watermark.png",
+      "alt": "Sunfield Cooperative watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "dense",
+      "scenario": "water-stewardship-grower-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "water-stewardship-grower-brief-arc",
+          "name": "Agriculture Decision Arc",
+          "summary": "A custom arc for Sunfield Cooperative.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "sunfield-cooperative-theme",
+          "name": "Sunfield Cooperative Working Theme",
+          "colorScheme": "forest-green",
+          "fontScheme": "calibri",
+          "background": "dark1",
+          "tags": [
+            "agriculture",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "sunfield-cooperative-signal",
+          "name": "Sunfield Cooperative Signal Palette",
+          "accent1": "#F8FAFC",
+          "accent2": "#E2E8F0",
+          "accent3": "#F59E0B",
+          "accent4": "#14B8A6",
+          "accent5": "#0F172A",
+          "accent6": "#1D4ED8",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

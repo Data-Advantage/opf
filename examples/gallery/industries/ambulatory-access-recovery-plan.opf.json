@@ -1,0 +1,104 @@
+{
+  "name": "Ambulatory Access Recovery Plan",
+  "language": "english-us",
+  "audience": [
+    "all-hands"
+  ],
+  "purpose": "align",
+  "tone": "authoritative",
+  "narrative": "board-meeting",
+  "design": {
+    "theme": "bold",
+    "colorScheme": "black-and-white",
+    "fontScheme": "angsana-new",
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "none",
+    "imageFill": "crop",
+    "listBullet": "character"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Healthcare operations",
+      "title": "Ambulatory Access Recovery Plan",
+      "subtitle": "Northstar Care Network Healthcare operations",
+      "notes": "Open by naming the decision: Reduce missed appointments while protecting clinician capacity."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Northstar Care Network should focus the next cycle on ",
+        {
+          "text": "reduce missed appointments while protecting clinician capacity",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to healthcare operations stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-bar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              12,
+              9
+            ],
+            [
+              "Q2",
+              16,
+              11
+            ],
+            [
+              "Q3",
+              19,
+              13
+            ],
+            [
+              "Q4",
+              23,
+              15
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-1x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for healthcare operations.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

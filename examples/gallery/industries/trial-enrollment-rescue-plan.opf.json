@@ -1,0 +1,373 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Trial Enrollment Rescue Plan",
+  "description": "Trial Enrollment Rescue Plan is a fictional OPF example for pharmaceuticals teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "trial-enrollment-rescue-plan",
+  "language": "english-us",
+  "audience": [
+    "candidates",
+    {
+      "id": "investors",
+      "attentionBudgetMinutes": 30,
+      "technicalFluency": "low",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "focus"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "inform",
+    "outcome": "Restore patient enrollment momentum across priority sites",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "focus",
+  "design": {
+    "theme": "bold",
+    "colorScheme": {
+      "id": "steel-blue",
+      "primary": "#1D4ED8",
+      "secondary": "#047857",
+      "accent": "#B45309",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#6D28D9",
+        "risk": "#BE123C"
+      }
+    },
+    "fontScheme": {
+      "id": "daunpenh",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF",
+      "opacity": 1
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "right",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": {
+      "default": "asset:brand-logo",
+      "light": "asset:brand-logo-light",
+      "icon": "asset:brand-icon",
+      "wordmark": "asset:brand-logo"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Pharmaceuticals",
+      "title": "Trial Enrollment Rescue Plan",
+      "subtitle": "Novara Therapeutics Pharmaceuticals",
+      "notes": "Open by naming the decision: Restore patient enrollment momentum across priority sites."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Novara Therapeutics should focus the next cycle on ",
+        {
+          "text": "restore patient enrollment momentum across priority sites",
+          "bold": true,
+          "color": "#1D4ED8"
+        },
+        " while making the operating tradeoffs clear to pharmaceuticals stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-stacked-column-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              24,
+              21
+            ],
+            [
+              "Q2",
+              28,
+              23
+            ],
+            [
+              "Q3",
+              31,
+              25
+            ],
+            [
+              "Q4",
+              35,
+              27
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Pharmaceuticals",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Pharmaceuticals execution path",
+        "description": "Major milestones for Novara Therapeutics.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for restore patient enrollment momentum across priority sites.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "novara-therapeutics",
+    "name": "Novara Therapeutics",
+    "legalName": "Novara Therapeutics, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "novara-therapeutics.example",
+    "email": "hello@novara-therapeutics.example",
+    "phone": "+15551000012",
+    "tagline": "Restore patient enrollment momentum across priority sites",
+    "role": "primary",
+    "socials": {
+      "github": "@novara-therapeutics",
+      "mastodon": "https://mastodon.example/novara-therapeutics"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@novara-therapeutics.example",
+      "organizationId": "novara-therapeutics",
+      "socials": {
+        "github": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "novara-therapeutics",
+      "socials": {
+        "mastodon": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": [
+    "OPF Example Generator",
+    "Open Presentation"
+  ],
+  "takeaway": [
+    "Restore patient enrollment momentum across priority sites",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 20,
+  "tags": [
+    "industries",
+    "pharmaceuticals",
+    "inform",
+    "persuasive",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/novara-therapeutics-logo.svg",
+      "alt": "Novara Therapeutics logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/novara-therapeutics-logo-light.svg",
+      "alt": "Novara Therapeutics light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/novara-therapeutics-icon.svg",
+      "alt": "Novara Therapeutics icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/novara-therapeutics-cover-3.jpg",
+      "alt": "Pharmaceuticals background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/novara-therapeutics-field-photo.jpg",
+      "alt": "Pharmaceuticals field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/novara-therapeutics-demo.mp4",
+      "title": "Pharmaceuticals walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/trial-enrollment-rescue-plan.csv",
+      "format": "csv",
+      "title": "Trial Enrollment Rescue Plan data"
+    },
+    "watermark": {
+      "src": "./assets/novara-therapeutics-watermark.png",
+      "alt": "Novara Therapeutics watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "trial-enrollment-rescue-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

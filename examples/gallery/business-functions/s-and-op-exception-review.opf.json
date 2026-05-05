@@ -1,0 +1,635 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "S&OP Exception Review",
+  "description": "S&OP Exception Review is a fictional OPF example for operations teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "s-and-op-exception-review",
+  "language": "english-gb",
+  "audience": [
+    "sales-team",
+    {
+      "id": "customers",
+      "attentionBudgetMinutes": 29,
+      "technicalFluency": "medium",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "status-update"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "educate",
+    "outcome": "Resolve demand and supply gaps before the monthly consensus call",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "status-update",
+    "description": "S&OP Exception Review uses a compact evidence-to-decision arc for Cobalt Supply.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "bold-red",
+      "primary": "#0369A1",
+      "secondary": "#334155",
+      "accent": "#F8FAFC",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F59E0B",
+        "risk": "#E2E8F0"
+      }
+    },
+    "fontScheme": {
+      "id": "mangal",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "a4",
+    "background": {
+      "type": "gradient",
+      "gradient": {
+        "angle": 35,
+        "stops": [
+          {
+            "color": "#0369A1",
+            "position": 0
+          },
+          {
+            "color": "#E2E8F0",
+            "position": 1
+          }
+        ]
+      },
+      "opacity": 0.94
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "bottom",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Operations",
+      "title": "S&OP Exception Review",
+      "subtitle": "Cobalt Supply Operations",
+      "notes": "Open by naming the decision: Resolve demand and supply gaps before the monthly consensus call."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Cobalt Supply should focus the next cycle on ",
+        {
+          "text": "resolve demand and supply gaps before the monthly consensus call",
+          "bold": true,
+          "color": "#0369A1"
+        },
+        " while making the operating tradeoffs clear to operations stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "dot-plot",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              24,
+              21
+            ],
+            [
+              "Q2",
+              28,
+              23
+            ],
+            [
+              "Q3",
+              31,
+              25
+            ],
+            [
+              "Q4",
+              35,
+              27
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Operations",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Operations execution path",
+        "description": "Major milestones for Cobalt Supply.",
+        "events": [
+          {
+            "when": "Oct",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "May",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jun",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jul",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s30-regions",
+      "section": "Operating model",
+      "layout": "number-6x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "42 pts",
+          "label": "Primary signal",
+          "description": "Resolve demand and supply gaps before the monthly consensus call",
+          "trend": "down"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Cobalt Supply should focus the next cycle on ",
+          {
+            "text": "resolve demand and supply gaps before the monthly consensus call",
+            "bold": true,
+            "color": "#0369A1"
+          },
+          " while making the operating tradeoffs clear to operations stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Operations working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Operations",
+              "Program lead",
+              "At risk",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "On track",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "Watch",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s30-blocks",
+      "section": "Evidence",
+      "layout": "list-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "funnel",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  16,
+                  13
+                ],
+                [
+                  "Q2",
+                  20,
+                  15
+                ],
+                [
+                  "Q3",
+                  23,
+                  17
+                ],
+                [
+                  "Q4",
+                  27,
+                  19
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "31%",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s30-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Operations walkthrough",
+        "description": "Short clip demonstrating the proposed operations workflow."
+      }
+    },
+    {
+      "id": "s30-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "s-and-op-exception-review-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "resolve demand and supply gaps before the monthly consensus call",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "cobalt-supply",
+    "name": "Cobalt Supply",
+    "legalName": "Cobalt Supply, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "cobalt-supply.example",
+    "email": "hello@cobalt-supply.example",
+    "phone": "+15551000029",
+    "tagline": "Resolve demand and supply gaps before the monthly consensus call",
+    "role": "primary",
+    "socials": {
+      "youtube": "@cobalt-supply",
+      "github": "https://github.example/cobalt-supply"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "cobalt-supply",
+    "bio": "Leads operations planning for Cobalt Supply.",
+    "socials": {
+      "youtube": "@cobalt-supply-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Resolve demand and supply gaps before the monthly consensus call",
+  "duration": 12,
+  "tags": [
+    "business-functions",
+    "operations",
+    "educate",
+    "casual",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/cobalt-supply-logo.svg",
+      "alt": "Cobalt Supply logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/cobalt-supply-logo-light.svg",
+      "alt": "Cobalt Supply light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/cobalt-supply-icon.svg",
+      "alt": "Cobalt Supply icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/cobalt-supply-cover-5.jpg",
+      "alt": "Operations background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/cobalt-supply-field-photo.jpg",
+      "alt": "Operations field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/cobalt-supply-demo.mp4",
+      "title": "Operations walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/s-and-op-exception-review.csv",
+      "format": "csv",
+      "title": "S&OP Exception Review data"
+    },
+    "watermark": {
+      "src": "./assets/cobalt-supply-watermark.png",
+      "alt": "Cobalt Supply watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "s-and-op-exception-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "s-and-op-exception-review-arc",
+          "name": "Operations Decision Arc",
+          "summary": "A custom arc for Cobalt Supply.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "cobalt-supply-theme",
+          "name": "Cobalt Supply Working Theme",
+          "colorScheme": "bold-red",
+          "fontScheme": "mangal",
+          "background": "#F8FAFC",
+          "tags": [
+            "operations",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "cobalt-supply-signal",
+          "name": "Cobalt Supply Signal Palette",
+          "accent1": "#0369A1",
+          "accent2": "#334155",
+          "accent3": "#F8FAFC",
+          "accent4": "#E2E8F0",
+          "accent5": "#F59E0B",
+          "accent6": "#14B8A6",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

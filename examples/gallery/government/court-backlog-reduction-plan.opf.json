@@ -1,0 +1,346 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Court Backlog Reduction Plan",
+  "description": "Court Backlog Reduction Plan is a fictional OPF example for justice administration teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "court-backlog-reduction-plan",
+  "language": "english-gb",
+  "audience": [
+    "customers",
+    {
+      "id": "marketing-team",
+      "attentionBudgetMinutes": 19,
+      "technicalFluency": "medium",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "transformation-arc"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "decide",
+    "outcome": "Reduce case backlog through calendar redesign",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "transformation-arc",
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "burnt-orange",
+      "primary": "#047857",
+      "secondary": "#B45309",
+      "accent": "#BE123C",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0369A1",
+        "risk": "#6D28D9"
+      }
+    },
+    "fontScheme": {
+      "id": "segoe-ui",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": "dark1",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "top",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Justice administration",
+      "title": "Court Backlog Reduction Plan",
+      "subtitle": "County Court Administration Justice administration",
+      "notes": "Open by naming the decision: Reduce case backlog through calendar redesign."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "County Court Administration should focus the next cycle on ",
+        {
+          "text": "reduce case backlog through calendar redesign",
+          "bold": true,
+          "color": "#047857"
+        },
+        " while making the operating tradeoffs clear to justice administration stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "united-states",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              17,
+              14
+            ],
+            [
+              "Q2",
+              21,
+              16
+            ],
+            [
+              "Q3",
+              24,
+              18
+            ],
+            [
+              "Q4",
+              28,
+              20
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Justice administration",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Justice administration execution path",
+        "description": "Major milestones for County Court Administration.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for reduce case backlog through calendar redesign.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "county-court-administration",
+    "name": "County Court Administration",
+    "legalName": "County Court Administration",
+    "logo": "asset:brand-logo",
+    "domain": "county-court-administration.example",
+    "email": "hello@county-court-administration.example",
+    "phone": "+15551000073",
+    "tagline": "Reduce case backlog through calendar redesign",
+    "role": "primary",
+    "socials": {
+      "instagram": "@county-court-administration",
+      "threads": "https://threads.example/county-court-administration"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "county-court-administration",
+    "bio": "Leads justice administration planning for County Court Administration.",
+    "socials": {
+      "instagram": "@county-court-administration-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Reduce case backlog through calendar redesign",
+  "duration": 31,
+  "tags": [
+    "government",
+    "justice-administration",
+    "decide",
+    "formal",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/county-court-administration-logo.svg",
+      "alt": "County Court Administration logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/county-court-administration-logo-light.svg",
+      "alt": "County Court Administration light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/county-court-administration-icon.svg",
+      "alt": "County Court Administration icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/county-court-administration-cover-4.jpg",
+      "alt": "Justice administration background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/county-court-administration-field-photo.jpg",
+      "alt": "Justice administration field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/county-court-administration-demo.mp4",
+      "title": "Justice administration walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/court-backlog-reduction-plan.csv",
+      "format": "csv",
+      "title": "Court Backlog Reduction Plan data"
+    },
+    "watermark": {
+      "src": "./assets/county-court-administration-watermark.png",
+      "alt": "County Court Administration watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "medium",
+      "scenario": "court-backlog-reduction-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

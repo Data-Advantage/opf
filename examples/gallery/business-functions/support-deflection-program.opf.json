@@ -1,0 +1,346 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Support Deflection Program",
+  "description": "Support Deflection Program is a fictional OPF example for customer support teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "support-deflection-program",
+  "language": "english-ca",
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 34,
+      "technicalFluency": "high",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "transformation-arc"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Move repetitive questions into self-service without hurting CSAT",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "transformation-arc",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "deep-purple",
+      "primary": "#14B8A6",
+      "secondary": "#0F172A",
+      "accent": "#1D4ED8",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#B45309",
+        "risk": "#047857"
+      }
+    },
+    "fontScheme": {
+      "id": "miriam",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": "#F8FAFC",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Customer support",
+      "title": "Support Deflection Program",
+      "subtitle": "Waypoint Apps Customer support",
+      "notes": "Open by naming the decision: Move repetitive questions into self-service without hurting CSAT."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Waypoint Apps should focus the next cycle on ",
+        {
+          "text": "move repetitive questions into self-service without hurting csat",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to customer support stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "dot-plot-6x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              12,
+              9
+            ],
+            [
+              "Q2",
+              16,
+              11
+            ],
+            [
+              "Q3",
+              19,
+              13
+            ],
+            [
+              "Q4",
+              23,
+              15
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Customer support",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Customer support execution path",
+        "description": "Major milestones for Waypoint Apps.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for move repetitive questions into self-service without hurting csat.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "waypoint-apps",
+    "name": "Waypoint Apps",
+    "legalName": "Waypoint Apps, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "waypoint-apps.example",
+    "email": "hello@waypoint-apps.example",
+    "phone": "+15551000034",
+    "tagline": "Move repetitive questions into self-service without hurting CSAT",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@waypoint-apps",
+      "tiktok": "https://tiktok.example/waypoint-apps"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "waypoint-apps",
+    "bio": "Leads customer support planning for Waypoint Apps.",
+    "socials": {
+      "linkedin": "@waypoint-apps-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Move repetitive questions into self-service without hurting CSAT",
+  "duration": 17,
+  "tags": [
+    "business-functions",
+    "customer-support",
+    "report",
+    "technical",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/waypoint-apps-logo.svg",
+      "alt": "Waypoint Apps logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/waypoint-apps-logo-light.svg",
+      "alt": "Waypoint Apps light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/waypoint-apps-icon.svg",
+      "alt": "Waypoint Apps icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/waypoint-apps-cover-5.jpg",
+      "alt": "Customer support background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/waypoint-apps-field-photo.jpg",
+      "alt": "Customer support field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/waypoint-apps-demo.mp4",
+      "title": "Customer support walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/support-deflection-program.csv",
+      "format": "csv",
+      "title": "Support Deflection Program data"
+    },
+    "watermark": {
+      "src": "./assets/waypoint-apps-watermark.png",
+      "alt": "Waypoint Apps watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "support-deflection-program",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

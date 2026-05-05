@@ -1,0 +1,629 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Product Roadmap Decision Review",
+  "description": "Product Roadmap Decision Review is a fictional OPF example for product teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "product-roadmap-decision-review",
+  "language": "english-au",
+  "audience": [
+    "marketing-team",
+    {
+      "id": "board",
+      "attentionBudgetMinutes": 27,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "reveal"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Decide which roadmap bets move into the second half build window",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "reveal",
+    "description": "Product Roadmap Decision Review uses a compact evidence-to-decision arc for LatticeLane.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "vibes",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "lucida-sans",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "right",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Product",
+      "title": "Product Roadmap Decision Review",
+      "subtitle": "LatticeLane Product",
+      "notes": "Open by naming the decision: Decide which roadmap bets move into the second half build window."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "LatticeLane should focus the next cycle on ",
+        {
+          "text": "decide which roadmap bets move into the second half build window",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to product stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "clustered-column",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              22,
+              19
+            ],
+            [
+              "Q2",
+              26,
+              21
+            ],
+            [
+              "Q3",
+              29,
+              23
+            ],
+            [
+              "Q4",
+              33,
+              25
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Product",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Product execution path",
+        "description": "Major milestones for LatticeLane.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s28-regions",
+      "section": "Operating model",
+      "layout": "number-4x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "2.4x",
+          "label": "Primary signal",
+          "description": "Decide which roadmap bets move into the second half build window",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "LatticeLane should focus the next cycle on ",
+          {
+            "text": "decide which roadmap bets move into the second half build window",
+            "bold": true,
+            "color": "#BE123C"
+          },
+          " while making the operating tradeoffs clear to product stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Product working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Product",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s28-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "dumbbell",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  14,
+                  11
+                ],
+                [
+                  "Q2",
+                  18,
+                  13
+                ],
+                [
+                  "Q3",
+                  21,
+                  15
+                ],
+                [
+                  "Q4",
+                  25,
+                  17
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "42 pts",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s28-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Product walkthrough",
+        "description": "Short clip demonstrating the proposed product workflow."
+      }
+    },
+    {
+      "id": "s28-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "product-roadmap-decision-review-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "decide which roadmap bets move into the second half build window",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "latticelane",
+    "name": "LatticeLane",
+    "legalName": "LatticeLane, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "latticelane.example",
+    "email": "hello@latticelane.example",
+    "phone": "+15551000027",
+    "tagline": "Decide which roadmap bets move into the second half build window",
+    "role": "primary",
+    "socials": {
+      "tiktok": "@latticelane",
+      "bluesky": "https://bluesky.example/latticelane"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "latticelane",
+    "bio": "Leads product planning for LatticeLane.",
+    "socials": {
+      "tiktok": "@latticelane-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Decide which roadmap bets move into the second half build window",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 10,
+  "tags": [
+    "business-functions",
+    "product",
+    "align",
+    "technical",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/latticelane-logo.svg",
+      "alt": "LatticeLane logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/latticelane-logo-light.svg",
+      "alt": "LatticeLane light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/latticelane-icon.svg",
+      "alt": "LatticeLane icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/latticelane-cover-3.jpg",
+      "alt": "Product background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/latticelane-field-photo.jpg",
+      "alt": "Product field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/latticelane-demo.mp4",
+      "title": "Product walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/product-roadmap-decision-review.csv",
+      "format": "csv",
+      "title": "Product Roadmap Decision Review data"
+    },
+    "watermark": {
+      "src": "./assets/latticelane-watermark.png",
+      "alt": "LatticeLane watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "product-roadmap-decision-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "product-roadmap-decision-review-arc",
+          "name": "Product Decision Arc",
+          "summary": "A custom arc for LatticeLane.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "latticelane-theme",
+          "name": "LatticeLane Working Theme",
+          "colorScheme": "vibes",
+          "fontScheme": "lucida-sans",
+          "background": "light1",
+          "tags": [
+            "product",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "latticelane-signal",
+          "name": "LatticeLane Signal Palette",
+          "accent1": "#BE123C",
+          "accent2": "#6D28D9",
+          "accent3": "#0369A1",
+          "accent4": "#334155",
+          "accent5": "#F8FAFC",
+          "accent6": "#E2E8F0",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Asset Source Forms",
+  "description": "Technical fixture for string shorthand and object-form assets across images, video, logos, and chart data.",
+  "design": {
+    "logo": {
+      "default": "asset:logo",
+      "light": "asset:logo-light",
+      "icon": "asset:icon"
+    },
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.08
+    },
+    "slideImage": {
+      "src": "asset:cover-photo",
+      "position": "background"
+    }
+  },
+  "assets": {
+    "logo": "./assets/logo.svg",
+    "logo-light": {
+      "src": "./assets/logo-light.svg",
+      "alt": "Light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "icon": {
+      "src": "./assets/icon.svg",
+      "alt": "Icon mark",
+      "mediaType": "image/svg+xml"
+    },
+    "watermark": "./assets/watermark.png",
+    "cover-photo": {
+      "src": "./assets/cover.jpg",
+      "alt": "Cover photo",
+      "mediaType": "image/jpeg"
+    },
+    "remote-image": "https://cdn.example.com/image.png",
+    "data-uri-image": "data:image/png;base64,iVBORw0KGgo=",
+    "demo-video": {
+      "src": "./media/demo.mp4",
+      "mediaType": "video/mp4",
+      "title": "Demo"
+    },
+    "pipeline-data": {
+      "src": "./data/pipeline.csv",
+      "format": "csv"
+    }
+  },
+  "slides": [
+    {
+      "title": "Asset Reference Image",
+      "type": "image",
+      "image": "asset:remote-image"
+    },
+    {
+      "title": "Data URI Image",
+      "type": "image",
+      "image": {
+        "src": "asset:data-uri-image",
+        "alt": "Small inline image"
+      }
+    },
+    {
+      "title": "Asset Reference Video",
+      "type": "video",
+      "video": "asset:demo-video"
+    },
+    {
+      "title": "Asset Backed Chart",
+      "chart": {
+        "type": "bar",
+        "data": {
+          "src": "asset:pipeline-data",
+          "columns": [
+            "Stage",
+            "Count"
+          ]
+        }
+      }
+    }
+  ]
+}

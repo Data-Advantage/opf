@@ -1,0 +1,350 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Drive Thru Throughput Playbook",
+  "description": "Drive Thru Throughput Playbook is a fictional OPF example for quick service restaurants teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "drive-thru-throughput-playbook",
+  "language": "english-au",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 33,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "justice"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Increase lunch peak capacity with staffing and menu simplification",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "justice",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "bold-red",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "fangsong",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:10",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Quick service restaurants",
+      "title": "Drive Thru Throughput Playbook",
+      "subtitle": "Tempo Burger Group Quick service restaurants",
+      "notes": "Open by naming the decision: Increase lunch peak capacity with staffing and menu simplification."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Tempo Burger Group should focus the next cycle on ",
+        {
+          "text": "increase lunch peak capacity with staffing and menu simplification",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to quick service restaurants stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "bar",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              27,
+              24
+            ],
+            [
+              "Q2",
+              31,
+              26
+            ],
+            [
+              "Q3",
+              34,
+              28
+            ],
+            [
+              "Q4",
+              38,
+              30
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Quick service restaurants",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Quick service restaurants execution path",
+        "description": "Major milestones for Tempo Burger Group.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for increase lunch peak capacity with staffing and menu simplification.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "tempo-burger-group",
+    "name": "Tempo Burger Group",
+    "legalName": "Tempo Burger Group, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "tempo-burger-group.example",
+    "email": "hello@tempo-burger-group.example",
+    "phone": "+15551000015",
+    "tagline": "Increase lunch peak capacity with staffing and menu simplification",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@tempo-burger-group",
+      "x": "https://x.example/tempo-burger-group"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "tempo-burger-group",
+    "bio": "Leads quick service restaurants planning for Tempo Burger Group.",
+    "socials": {
+      "mastodon": "@tempo-burger-group-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Increase lunch peak capacity with staffing and menu simplification",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 23,
+  "tags": [
+    "industries",
+    "quick-service-restaurants",
+    "plan",
+    "casual",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/tempo-burger-group-logo.svg",
+      "alt": "Tempo Burger Group logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/tempo-burger-group-logo-light.svg",
+      "alt": "Tempo Burger Group light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/tempo-burger-group-icon.svg",
+      "alt": "Tempo Burger Group icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/tempo-burger-group-cover-1.jpg",
+      "alt": "Quick service restaurants background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/tempo-burger-group-field-photo.jpg",
+      "alt": "Quick service restaurants field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/tempo-burger-group-demo.mp4",
+      "title": "Quick service restaurants walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/drive-thru-throughput-playbook.csv",
+      "format": "csv",
+      "title": "Drive Thru Throughput Playbook data"
+    },
+    "watermark": {
+      "src": "./assets/tempo-burger-group-watermark.png",
+      "alt": "Tempo Burger Group watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "drive-thru-throughput-playbook",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

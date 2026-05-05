@@ -1,0 +1,183 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Content Payload Matrix",
+  "description": "Focused technical fixture covering every concrete slide content payload shape.",
+  "slides": [
+    {
+      "title": "Text Payload",
+      "type": "text",
+      "text": [
+        "Plain text can include ",
+        {
+          "text": "formatted runs",
+          "bold": true,
+          "color": "#2563EB"
+        },
+        " without changing the payload kind."
+      ]
+    },
+    {
+      "title": "Bullets Payload",
+      "bullets": [
+        "Plain bullet",
+        [
+          "Rich ",
+          {
+            "text": "bullet",
+            "italic": true
+          }
+        ],
+        {
+          "text": "Nested bullet",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "title": "List Payload",
+      "type": "list",
+      "items": [
+        "String item",
+        [
+          "Rich ",
+          {
+            "text": "list item",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Described item",
+          "description": "List item object form supports supporting detail.",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "title": "Image Payload",
+      "type": "image",
+      "image": {
+        "src": "asset:diagram",
+        "alt": "Simple architecture diagram"
+      }
+    },
+    {
+      "title": "Video Payload",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Short demo clip"
+      }
+    },
+    {
+      "title": "Chart Payload",
+      "type": "chart",
+      "chart": {
+        "type": "line",
+        "data": {
+          "columns": [
+            "Month",
+            "Latency"
+          ],
+          "rows": [
+            [
+              "Jan",
+              420
+            ],
+            [
+              "Feb",
+              310
+            ],
+            [
+              "Mar",
+              220
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": "Table Payload",
+      "type": "table",
+      "table": {
+        "columns": [
+          "Field",
+          "String",
+          "Number",
+          "Boolean",
+          "Null"
+        ],
+        "rows": [
+          [
+            "Example",
+            "value",
+            42,
+            true,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Code Payload",
+      "type": "code",
+      "code": {
+        "source": "export const valid = result.errors.length === 0;",
+        "language": "ts",
+        "filename": "validator.ts"
+      }
+    },
+    {
+      "title": "Metric Payload",
+      "type": "metric",
+      "metric": {
+        "value": "99.9%",
+        "label": "Validation pass rate",
+        "description": "Example value for renderer metric cards.",
+        "delta": "+2.1 pts",
+        "trend": "up"
+      }
+    },
+    {
+      "title": "Quote Payload",
+      "type": "quote",
+      "quote": {
+        "text": "The payload model stays predictable even as slide content varies.",
+        "attribution": "OPF technical fixture",
+        "source": "Fixture note"
+      }
+    },
+    {
+      "title": "Timeline Payload",
+      "type": "timeline",
+      "timeline": {
+        "name": "Fixture Flow",
+        "events": [
+          {
+            "when": "Step 1",
+            "what": "Author"
+          },
+          {
+            "when": "Step 2",
+            "what": "Validate"
+          },
+          {
+            "when": "Step 3",
+            "what": "Render"
+          }
+        ]
+      }
+    }
+  ],
+  "assets": {
+    "diagram": {
+      "src": "./assets/diagram.svg",
+      "alt": "Architecture diagram",
+      "mediaType": "image/svg+xml"
+    },
+    "demo-video": {
+      "src": "./media/demo.mp4",
+      "mediaType": "video/mp4",
+      "title": "Demo video"
+    }
+  }
+}

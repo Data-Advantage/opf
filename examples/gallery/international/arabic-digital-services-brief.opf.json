@@ -1,0 +1,363 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Arabic Digital Services Brief",
+  "description": "Arabic Digital Services Brief is a fictional OPF example for public services teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "arabic-digital-services-brief",
+  "language": {
+    "id": "arabic",
+    "name": "Arabic",
+    "direction": "rtl",
+    "script": "Arab",
+    "fontScheme": "noto-sans-arabic",
+    "tags": [
+      "international",
+      "rtl"
+    ]
+  },
+  "audience": [
+    "engineering-team",
+    {
+      "id": "regulators",
+      "attentionBudgetMinutes": 22,
+      "technicalFluency": "high",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "marketing-strategy"
+      ],
+      "recommendedTones": [
+        "formal"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "persuade",
+    "outcome": "Present a service redesign for Arabic-first residents",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "formal",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "marketing-strategy",
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "pastel-red",
+      "primary": "#14B8A6",
+      "secondary": "#0F172A",
+      "accent": "#1D4ED8",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#B45309",
+        "risk": "#047857"
+      }
+    },
+    "fontScheme": {
+      "id": "batang",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "letter",
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "horizontal",
+    "chartPrimary": "bottom",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "right"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Public services",
+      "title": "Arabic Digital Services Brief",
+      "subtitle": "Crescent Public Services Public services",
+      "notes": "Open by naming the decision: Present a service redesign for Arabic-first residents."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "Crescent Public Services should focus the next cycle on ",
+        {
+          "text": "present a service redesign for arabic-first residents",
+          "bold": true,
+          "color": "#14B8A6"
+        },
+        " while making the operating tradeoffs clear to public services stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "box-and-whisker-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              21,
+              18
+            ],
+            [
+              "Q2",
+              25,
+              20
+            ],
+            [
+              "Q3",
+              28,
+              22
+            ],
+            [
+              "Q4",
+              32,
+              24
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Public services",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Public services execution path",
+        "description": "Major milestones for Crescent Public Services.",
+        "events": [
+          {
+            "when": "Sep",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Oct",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "May",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jun",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-1x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for present a service redesign for arabic-first residents.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "crescent-public-services",
+    "name": "Crescent Public Services",
+    "legalName": "Crescent Public Services",
+    "logo": "asset:brand-logo",
+    "domain": "crescent-public-services.example",
+    "email": "hello@crescent-public-services.example",
+    "phone": "+15551000094",
+    "tagline": "Present a service redesign for Arabic-first residents",
+    "role": "primary",
+    "socials": {
+      "linkedin": "@crescent-public-services",
+      "tiktok": "https://tiktok.example/crescent-public-services"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Evan Brooks",
+    "title": "Product Lead",
+    "organizationId": "crescent-public-services",
+    "bio": "Leads public services planning for Crescent Public Services.",
+    "socials": {
+      "linkedin": "@crescent-public-services-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Present a service redesign for Arabic-first residents",
+  "duration": 27,
+  "tags": [
+    "international",
+    "public-services",
+    "persuade",
+    "formal",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/crescent-public-services-logo.svg",
+      "alt": "Crescent Public Services logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/crescent-public-services-logo-light.svg",
+      "alt": "Crescent Public Services light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/crescent-public-services-icon.svg",
+      "alt": "Crescent Public Services icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/crescent-public-services-cover-5.jpg",
+      "alt": "Public services background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/crescent-public-services-field-photo.jpg",
+      "alt": "Public services field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/crescent-public-services-demo.mp4",
+      "title": "Public services walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/arabic-digital-services-brief.csv",
+      "format": "csv",
+      "title": "Arabic Digital Services Brief data"
+    },
+    "watermark": {
+      "src": "./assets/crescent-public-services-watermark.png",
+      "alt": "Crescent Public Services watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "international",
+      "density": "medium",
+      "scenario": "arabic-digital-services-brief",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

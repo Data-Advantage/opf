@@ -1,0 +1,355 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Streaming Churn Winback Strategy",
+  "description": "Streaming Churn Winback Strategy is a fictional OPF example for media and entertainment teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "streaming-churn-winback-strategy",
+  "language": "english-gb",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 23,
+      "technicalFluency": "medium",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "classic-story"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "pitch",
+    "outcome": "Reverse premium subscriber churn with better lifecycle moments",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "classic-story",
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "corporate-blue",
+      "primary": "#0369A1",
+      "secondary": "#334155",
+      "accent": "#F8FAFC",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F59E0B",
+        "risk": "#E2E8F0"
+      }
+    },
+    "fontScheme": {
+      "id": "batang",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "a4",
+    "background": {
+      "type": "gradient",
+      "gradient": {
+        "angle": 35,
+        "stops": [
+          {
+            "color": "#0369A1",
+            "position": 0
+          },
+          {
+            "color": "#E2E8F0",
+            "position": 1
+          }
+        ]
+      },
+      "opacity": 0.94
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Media and entertainment",
+      "title": "Streaming Churn Winback Strategy",
+      "subtitle": "Signalhouse Media Media and entertainment",
+      "notes": "Open by naming the decision: Reverse premium subscriber churn with better lifecycle moments."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Signalhouse Media should focus the next cycle on ",
+        {
+          "text": "reverse premium subscriber churn with better lifecycle moments",
+          "bold": true,
+          "color": "#0369A1"
+        },
+        " while making the operating tradeoffs clear to media and entertainment stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-column-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              17,
+              14
+            ],
+            [
+              "Q2",
+              21,
+              16
+            ],
+            [
+              "Q3",
+              24,
+              18
+            ],
+            [
+              "Q4",
+              28,
+              20
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Media and entertainment",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Media and entertainment execution path",
+        "description": "Major milestones for Signalhouse Media.",
+        "events": [
+          {
+            "when": "Oct",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "May",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jun",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jul",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for reverse premium subscriber churn with better lifecycle moments.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "signalhouse-media",
+    "name": "Signalhouse Media",
+    "legalName": "Signalhouse Media, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "signalhouse-media.example",
+    "email": "hello@signalhouse-media.example",
+    "phone": "+15551000005",
+    "tagline": "Reverse premium subscriber churn with better lifecycle moments",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@signalhouse-media",
+      "x": "https://x.example/signalhouse-media"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "signalhouse-media",
+    "bio": "Leads media and entertainment planning for Signalhouse Media.",
+    "socials": {
+      "mastodon": "@signalhouse-media-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Reverse premium subscriber churn with better lifecycle moments",
+  "duration": 13,
+  "tags": [
+    "industries",
+    "media-and-entertainment",
+    "pitch",
+    "persuasive",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/signalhouse-media-logo.svg",
+      "alt": "Signalhouse Media logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/signalhouse-media-logo-light.svg",
+      "alt": "Signalhouse Media light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/signalhouse-media-icon.svg",
+      "alt": "Signalhouse Media icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/signalhouse-media-cover-1.jpg",
+      "alt": "Media and entertainment background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/signalhouse-media-field-photo.jpg",
+      "alt": "Media and entertainment field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/signalhouse-media-demo.mp4",
+      "title": "Media and entertainment walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/streaming-churn-winback-strategy.csv",
+      "format": "csv",
+      "title": "Streaming Churn Winback Strategy data"
+    },
+    "watermark": {
+      "src": "./assets/signalhouse-media-watermark.png",
+      "alt": "Signalhouse Media watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "industries",
+      "density": "medium",
+      "scenario": "streaming-churn-winback-strategy",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

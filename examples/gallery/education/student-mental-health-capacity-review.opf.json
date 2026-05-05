@@ -1,0 +1,366 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Student Mental Health Capacity Review",
+  "description": "Student Mental Health Capacity Review is a fictional OPF example for student affairs teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "student-mental-health-capacity-review",
+  "language": "english-au",
+  "audience": [
+    "customers",
+    {
+      "id": "marketing-team",
+      "attentionBudgetMinutes": 27,
+      "technicalFluency": "mixed",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "project-proposal"
+      ],
+      "recommendedTones": [
+        "authoritative"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "align",
+    "outcome": "Expand counseling access through stepped-care delivery",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "authoritative",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "project-proposal",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "forest-green",
+      "primary": "#BE123C",
+      "secondary": "#6D28D9",
+      "accent": "#0369A1",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#F8FAFC",
+        "risk": "#334155"
+      }
+    },
+    "fontScheme": {
+      "id": "open-sans",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "top",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Student affairs",
+      "title": "Student Mental Health Capacity Review",
+      "subtitle": "Harbor City University Student affairs",
+      "notes": "Open by naming the decision: Expand counseling access through stepped-care delivery."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Harbor City University should focus the next cycle on ",
+        {
+          "text": "expand counseling access through stepped-care delivery",
+          "bold": true,
+          "color": "#BE123C"
+        },
+        " while making the operating tradeoffs clear to student affairs stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "stacked-column-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              24,
+              21
+            ],
+            [
+              "Q2",
+              28,
+              23
+            ],
+            [
+              "Q3",
+              31,
+              25
+            ],
+            [
+              "Q4",
+              35,
+              27
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Student affairs",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Student affairs execution path",
+        "description": "Major milestones for Harbor City University.",
+        "events": [
+          {
+            "when": "Aug",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Sep",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Oct",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "May",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-6x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for expand counseling access through stepped-care delivery.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": [
+    {
+      "id": "harbor-city-university",
+      "name": "Harbor City University",
+      "logo": "asset:brand-logo",
+      "domain": "harbor-city-university.example",
+      "email": "hello@harbor-city-university.example",
+      "tagline": "Expand counseling access through stepped-care delivery",
+      "role": "primary",
+      "socials": {
+        "instagram": "@harbor-city-university"
+      }
+    },
+    {
+      "id": "harbor-city-university-partner",
+      "name": "Student Affairs Partner Office",
+      "role": "partner",
+      "domain": "partner-harbor-city-university.example"
+    }
+  ],
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "harbor-city-university",
+    "bio": "Leads student affairs planning for Harbor City University.",
+    "socials": {
+      "instagram": "@harbor-city-university-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Expand counseling access through stepped-care delivery",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 21,
+  "tags": [
+    "education",
+    "student-affairs",
+    "align",
+    "authoritative",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/harbor-city-university-logo.svg",
+      "alt": "Harbor City University logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/harbor-city-university-logo-light.svg",
+      "alt": "Harbor City University light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/harbor-city-university-icon.svg",
+      "alt": "Harbor City University icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/harbor-city-university-cover-4.jpg",
+      "alt": "Student affairs background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/harbor-city-university-field-photo.jpg",
+      "alt": "Student affairs field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/harbor-city-university-demo.mp4",
+      "title": "Student affairs walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/student-mental-health-capacity-review.csv",
+      "format": "csv",
+      "title": "Student Mental Health Capacity Review data"
+    },
+    "watermark": {
+      "src": "./assets/harbor-city-university-watermark.png",
+      "alt": "Harbor City University watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "education",
+      "density": "medium",
+      "scenario": "student-mental-health-capacity-review",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

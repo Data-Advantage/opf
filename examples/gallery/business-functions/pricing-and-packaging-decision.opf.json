@@ -1,0 +1,627 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Pricing and Packaging Decision",
+  "description": "Pricing and Packaging Decision is a fictional OPF example for pricing teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "pricing-and-packaging-decision",
+  "language": "english-au",
+  "audience": [
+    "marketing-team",
+    {
+      "id": "board",
+      "attentionBudgetMinutes": 29,
+      "technicalFluency": "mixed",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "early-startup-pitch"
+      ],
+      "recommendedTones": [
+        "persuasive"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "educate",
+    "outcome": "Select the packaging move that improves conversion and expansion",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "persuasive",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "early-startup-pitch",
+    "description": "Pricing and Packaging Decision uses a compact evidence-to-decision arc for Northbeam Software.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "corporate-blue",
+      "primary": "#0F172A",
+      "secondary": "#1D4ED8",
+      "accent": "#047857",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#BE123C",
+        "risk": "#B45309"
+      }
+    },
+    "fontScheme": {
+      "id": "noto-sans-gujarati",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "a4",
+    "background": {
+      "type": "pattern",
+      "pattern": {
+        "preset": "diagStripe",
+        "foregroundColor": "#CBD5E1",
+        "backgroundColor": "#FFFFFF"
+      },
+      "opacity": 0.18
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "right",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "bottom"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Pricing",
+      "title": "Pricing and Packaging Decision",
+      "subtitle": "Northbeam Software Pricing",
+      "notes": "Open by naming the decision: Select the packaging move that improves conversion and expansion."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "Northbeam Software should focus the next cycle on ",
+        {
+          "text": "select the packaging move that improves conversion and expansion",
+          "bold": true,
+          "color": "#0F172A"
+        },
+        " while making the operating tradeoffs clear to pricing stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "line-with-markers-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              25,
+              22
+            ],
+            [
+              "Q2",
+              29,
+              24
+            ],
+            [
+              "Q3",
+              32,
+              26
+            ],
+            [
+              "Q4",
+              36,
+              28
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Pricing",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Pricing execution path",
+        "description": "Major milestones for Northbeam Software.",
+        "events": [
+          {
+            "when": "Oct",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "May",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jun",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jul",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s48-regions",
+      "section": "Operating model",
+      "layout": "number-6x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "31%",
+          "label": "Primary signal",
+          "description": "Select the packaging move that improves conversion and expansion",
+          "trend": "down"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Northbeam Software should focus the next cycle on ",
+          {
+            "text": "select the packaging move that improves conversion and expansion",
+            "bold": true,
+            "color": "#0F172A"
+          },
+          " while making the operating tradeoffs clear to pricing stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Pricing working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Pricing",
+              "Program lead",
+              "At risk",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "On track",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "Watch",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s48-blocks",
+      "section": "Evidence",
+      "layout": "text-3x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "sparkline-4x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  17,
+                  14
+                ],
+                [
+                  "Q2",
+                  21,
+                  16
+                ],
+                [
+                  "Q3",
+                  24,
+                  18
+                ],
+                [
+                  "Q4",
+                  28,
+                  20
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "$4.8M",
+            "label": "Expected improvement",
+            "unit": "days",
+            "delta": "-3 days",
+            "trend": "down"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s48-video",
+      "section": "Context",
+      "layout": "media-1x",
+      "title": "Demo Moment",
+      "type": "video",
+      "video": {
+        "src": "asset:demo-video",
+        "title": "Pricing walkthrough",
+        "description": "Short clip demonstrating the proposed pricing workflow."
+      }
+    },
+    {
+      "id": "s48-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "pricing-and-packaging-decision-rule.ts"
+      },
+      "hidden": false
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-3x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "select the packaging move that improves conversion and expansion",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "northbeam-software",
+    "name": "Northbeam Software",
+    "legalName": "Northbeam Software, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "northbeam-software.example",
+    "email": "hello@northbeam-software.example",
+    "phone": "+15551000047",
+    "tagline": "Select the packaging move that improves conversion and expansion",
+    "role": "primary",
+    "socials": {
+      "tiktok": "@northbeam-software",
+      "bluesky": "https://bluesky.example/northbeam-software"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Priya Raman",
+    "title": "Director of Strategy",
+    "organizationId": "northbeam-software",
+    "bio": "Leads pricing planning for Northbeam Software.",
+    "socials": {
+      "tiktok": "@northbeam-software-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Select the packaging move that improves conversion and expansion",
+  "duration": 30,
+  "tags": [
+    "business-functions",
+    "pricing",
+    "educate",
+    "persuasive",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/northbeam-software-logo.svg",
+      "alt": "Northbeam Software logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/northbeam-software-logo-light.svg",
+      "alt": "Northbeam Software light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/northbeam-software-icon.svg",
+      "alt": "Northbeam Software icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/northbeam-software-cover-3.jpg",
+      "alt": "Pricing background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/northbeam-software-field-photo.jpg",
+      "alt": "Pricing field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/northbeam-software-demo.mp4",
+      "title": "Pricing walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/pricing-and-packaging-decision.csv",
+      "format": "csv",
+      "title": "Pricing and Packaging Decision data"
+    },
+    "watermark": {
+      "src": "./assets/northbeam-software-watermark.png",
+      "alt": "Northbeam Software watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "dense",
+      "scenario": "pricing-and-packaging-decision",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "pricing-and-packaging-decision-arc",
+          "name": "Pricing Decision Arc",
+          "summary": "A custom arc for Northbeam Software.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "northbeam-software-theme",
+          "name": "Northbeam Software Working Theme",
+          "colorScheme": "corporate-blue",
+          "fontScheme": "noto-sans-gujarati",
+          "background": "#F8FAFC",
+          "tags": [
+            "pricing",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "northbeam-software-signal",
+          "name": "Northbeam Software Signal Palette",
+          "accent1": "#0F172A",
+          "accent2": "#1D4ED8",
+          "accent3": "#047857",
+          "accent4": "#B45309",
+          "accent5": "#BE123C",
+          "accent6": "#6D28D9",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

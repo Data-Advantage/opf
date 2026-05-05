@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Language And Writing Metadata",
+  "description": "Technical fixture for language shorthand and object metadata, including right-to-left writing direction.",
+  "slides": [
+    {
+      "title": "Language Shorthand",
+      "text": "The deck-level language can be a catalog id or BCP-47 tag."
+    }
+  ],
+  "language": {
+    "id": "arabic",
+    "name": "Arabic",
+    "bcp47": "ar-SA",
+    "code": "ara",
+    "direction": "rtl",
+    "script": "Arab",
+    "fontScheme": "noto-sans-arabic",
+    "googleFontScheme": "noto-sans-arabic",
+    "summary": "Right-to-left Arabic content with explicit font defaults.",
+    "tags": [
+      "rtl",
+      "arabic"
+    ]
+  }
+}

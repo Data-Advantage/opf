@@ -1,0 +1,642 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Tax Portal Modernization",
+  "description": "Tax Portal Modernization is a fictional OPF example for tax administration teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "tax-portal-modernization",
+  "language": "english-ca",
+  "audience": [
+    "regulators",
+    {
+      "id": "candidates",
+      "attentionBudgetMinutes": 24,
+      "technicalFluency": "high",
+      "decisionPower": "informational",
+      "recommendedNarratives": [
+        "board-meeting"
+      ],
+      "recommendedTones": [
+        "casual"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "plan",
+    "outcome": "Reduce filing friction and call center demand",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "casual",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": {
+    "id": "board-meeting",
+    "description": "Tax Portal Modernization uses a compact evidence-to-decision arc for Department of Revenue Services.",
+    "beats": [
+      {
+        "id": "context",
+        "name": "Context",
+        "slideType": "text",
+        "layoutHint": "text-1x"
+      },
+      {
+        "id": "evidence",
+        "name": "Evidence",
+        "slideType": "chart",
+        "layoutHint": "chart-1x"
+      },
+      {
+        "id": "commitment",
+        "name": "Commitment",
+        "slideType": "list",
+        "layoutHint": "list-3x"
+      }
+    ]
+  },
+  "design": {
+    "theme": "dark",
+    "colorScheme": {
+      "id": "golden-yellow",
+      "primary": "#334155",
+      "secondary": "#F8FAFC",
+      "accent": "#E2E8F0",
+      "background": "#FFFFFF",
+      "text": "#0F172A",
+      "custom": {
+        "signal": "#14B8A6",
+        "risk": "#F59E0B"
+      }
+    },
+    "fontScheme": {
+      "id": "skeena",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": {
+      "type": "image",
+      "image": {
+        "src": "asset:cover-bg",
+        "fit": "cover"
+      },
+      "opacity": 0.2
+    },
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "horizontal",
+    "chartPrimary": "top",
+    "imageFill": "crop",
+    "listBullet": "character",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Internal planning draft"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title-subtitle",
+      "tag": "Tax administration",
+      "title": "Tax Portal Modernization",
+      "subtitle": "Department of Revenue Services Tax administration",
+      "notes": "Open by naming the decision: Reduce filing friction and call center demand."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "Department of Revenue Services should focus the next cycle on ",
+        {
+          "text": "reduce filing friction and call center demand",
+          "bold": true,
+          "color": "#334155"
+        },
+        " while making the operating tradeoffs clear to tax administration stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-bar-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              22,
+              19
+            ],
+            [
+              "Q2",
+              26,
+              21
+            ],
+            [
+              "Q3",
+              29,
+              23
+            ],
+            [
+              "Q4",
+              33,
+              25
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Tax administration",
+            "Program lead",
+            "On track",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "Watch",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "At risk",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "text-2x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Tax administration execution path",
+        "description": "Major milestones for Department of Revenue Services.",
+        "events": [
+          {
+            "when": "May",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jun",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jul",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Aug",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s79-regions",
+      "section": "Operating model",
+      "layout": "number-1x",
+      "title": "Operating Model",
+      "top:left": {
+        "metric": {
+          "value": "$820K",
+          "label": "Primary signal",
+          "description": "Reduce filing friction and call center demand",
+          "trend": "up"
+        }
+      },
+      "top:center+right": {
+        "text": [
+          "Department of Revenue Services should focus the next cycle on ",
+          {
+            "text": "reduce filing friction and call center demand",
+            "bold": true,
+            "color": "#334155"
+          },
+          " while making the operating tradeoffs clear to tax administration stakeholders."
+        ]
+      },
+      "middle+bottom:left": {
+        "quote": {
+          "text": "The path is workable if we keep the metric simple and the decision owner visible.",
+          "attribution": "Tax administration working group",
+          "source": "Stakeholder interview"
+        }
+      },
+      "middle+bottom:center+right": {
+        "table": {
+          "columns": [
+            "Workstream",
+            "Owner",
+            "Status",
+            "Decision"
+          ],
+          "rows": [
+            [
+              "Tax administration",
+              "Program lead",
+              "On track",
+              "Continue"
+            ],
+            [
+              "Data and reporting",
+              "Analytics",
+              "Watch",
+              "Tighten metric definitions"
+            ],
+            [
+              "Field adoption",
+              "Operations",
+              "At risk",
+              "Add weekly office hours"
+            ]
+          ]
+        }
+      },
+      "notes": "Use this slide to slow the conversation down around ownership and operating rhythm."
+    },
+    {
+      "id": "s79-blocks",
+      "section": "Evidence",
+      "layout": "number-4x",
+      "title": "Evidence Pack",
+      "blocks": [
+        {
+          "chart": {
+            "type": "100pct-stacked-column-2x",
+            "data": {
+              "columns": [
+                "Quarter",
+                "Current",
+                "Baseline"
+              ],
+              "rows": [
+                [
+                  "Q1",
+                  14,
+                  11
+                ],
+                [
+                  "Q2",
+                  18,
+                  13
+                ],
+                [
+                  "Q3",
+                  21,
+                  15
+                ],
+                [
+                  "Q4",
+                  25,
+                  17
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "quote": {
+            "text": "Teams already know where the friction is; the deck makes the sequence of choices explicit.",
+            "attribution": "Program sponsor",
+            "source": "Planning interview"
+          }
+        },
+        {
+          "metric": {
+            "value": "18%",
+            "label": "Expected improvement",
+            "unit": "%",
+            "delta": "+6 pts",
+            "trend": "up"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s79-image",
+      "section": "Context",
+      "layout": "image-bleed",
+      "title": "Field Context",
+      "type": "image",
+      "image": {
+        "src": "asset:supporting-photo",
+        "alt": "Tax administration context photo for Department of Revenue Services",
+        "title": "Tax administration context"
+      },
+      "notes": "Use the image as context, not decoration."
+    },
+    {
+      "id": "s79-code",
+      "section": "Appendix",
+      "layout": "code-1x",
+      "title": "Decision Rule",
+      "code": {
+        "source": "const score = urgency * confidence;\nif (score >= threshold) {\n  routeToSponsor(workstream);\n} else {\n  keepInWeeklyReview(workstream);\n}",
+        "language": "ts",
+        "filename": "tax-portal-modernization-rule.ts"
+      },
+      "hidden": true
+    },
+    {
+      "id": "s10",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "Decision and Follow Through",
+      "items": [
+        [
+          "Commit to ",
+          {
+            "text": "reduce filing friction and call center demand",
+            "bold": true
+          }
+        ],
+        {
+          "text": "Name the sponsor and operating owner.",
+          "description": "Keep one person accountable for momentum."
+        },
+        {
+          "text": "Publish the progress rhythm.",
+          "description": "Use the same metric definitions every week."
+        },
+        {
+          "text": "Return with proof.",
+          "description": "Bring customer, employee, resident, or learner evidence into the next review."
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "department-of-revenue-services",
+    "name": "Department of Revenue Services",
+    "legalName": "Department of Revenue Services",
+    "logo": "asset:brand-logo",
+    "domain": "department-of-revenue-services.example",
+    "email": "hello@department-of-revenue-services.example",
+    "phone": "+15551000078",
+    "tagline": "Reduce filing friction and call center demand",
+    "role": "primary",
+    "socials": {
+      "x": "@department-of-revenue-services",
+      "facebook": "https://facebook.example/department-of-revenue-services"
+    }
+  },
+  "speaker": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "title": "Program Sponsor",
+      "photo": "asset:supporting-photo",
+      "email": "maya@department-of-revenue-services.example",
+      "organizationId": "department-of-revenue-services",
+      "socials": {
+        "x": "@maya-chen"
+      }
+    },
+    {
+      "id": "jon",
+      "name": "Jon Alvarez",
+      "title": "Operating Lead",
+      "organizationId": "department-of-revenue-services",
+      "socials": {
+        "facebook": "@jon-alvarez"
+      }
+    }
+  ],
+  "author": "OPF Example Generator",
+  "takeaway": [
+    "Reduce filing friction and call center demand",
+    "The next decision and owner should be visible on the final slide."
+  ],
+  "duration": 11,
+  "tags": [
+    "government",
+    "tax-administration",
+    "plan",
+    "casual",
+    "dense"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/department-of-revenue-services-logo.svg",
+      "alt": "Department of Revenue Services logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/department-of-revenue-services-logo-light.svg",
+      "alt": "Department of Revenue Services light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/department-of-revenue-services-icon.svg",
+      "alt": "Department of Revenue Services icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/department-of-revenue-services-cover-4.jpg",
+      "alt": "Tax administration background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/department-of-revenue-services-field-photo.jpg",
+      "alt": "Tax administration field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/department-of-revenue-services-demo.mp4",
+      "title": "Tax administration walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/tax-portal-modernization.csv",
+      "format": "csv",
+      "title": "Tax Portal Modernization data"
+    },
+    "watermark": {
+      "src": "./assets/department-of-revenue-services-watermark.png",
+      "alt": "Department of Revenue Services watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "government",
+      "density": "dense",
+      "scenario": "tax-portal-modernization",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  },
+  "catalogs": {
+    "narratives": {
+      "source": [
+        "pkg:@openpresentation/gallery/narratives",
+        "https://www.pptx.gallery/narratives"
+      ],
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
+          "id": "tax-portal-modernization-arc",
+          "name": "Tax Administration Decision Arc",
+          "summary": "A custom arc for Department of Revenue Services.",
+          "beats": [
+            {
+              "id": "context",
+              "name": "Context",
+              "slideType": "text",
+              "layoutHint": "text-1x"
+            },
+            {
+              "id": "evidence",
+              "name": "Evidence",
+              "slideType": "chart",
+              "layoutHint": "chart-1x"
+            },
+            {
+              "id": "decision",
+              "name": "Decision",
+              "slideType": "list",
+              "layoutHint": "list-3x"
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-theme/v1",
+          "id": "department-of-revenue-services-theme",
+          "name": "Department of Revenue Services Working Theme",
+          "colorScheme": "golden-yellow",
+          "fontScheme": "skeena",
+          "background": "light1",
+          "tags": [
+            "tax-administration",
+            "example"
+          ]
+        }
+      ]
+    },
+    "colorSchemes": {
+      "source": "https://www.pptx.gallery/color-schemes",
+      "records": [
+        {
+          "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
+          "id": "department-of-revenue-services-signal",
+          "name": "Department of Revenue Services Signal Palette",
+          "accent1": "#334155",
+          "accent2": "#F8FAFC",
+          "accent3": "#E2E8F0",
+          "accent4": "#F59E0B",
+          "accent5": "#14B8A6",
+          "accent6": "#0F172A",
+          "dark1": "#0F172A",
+          "dark2": "#334155",
+          "light1": "#FFFFFF",
+          "light2": "#F8FAFC",
+          "hyperlink": "#2563EB",
+          "followedHyperlink": "#7C3AED"
+        }
+      ]
+    },
+    "fontSchemes": {
+      "source": "pkg:@openpresentation/gallery/font-schemes"
+    },
+    "layouts": {
+      "source": "https://www.pptx.gallery/layouts"
+    },
+    "chartTypes": {
+      "source": "https://www.pptx.gallery/chart-types"
+    },
+    "languages": {
+      "source": "https://www.pptx.gallery/languages"
+    },
+    "audiences": {
+      "source": "https://www.pptx.gallery/audiences"
+    },
+    "purposes": {
+      "source": "https://www.pptx.gallery/purposes"
+    },
+    "tones": {
+      "source": "https://www.pptx.gallery/tones"
+    },
+    "socialPlatforms": {
+      "source": "https://www.pptx.gallery/social-platforms"
+    }
+  }
+}

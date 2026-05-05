@@ -1,0 +1,104 @@
+{
+  "name": "Monthly Board Update",
+  "language": "english-gb",
+  "audience": [
+    "board"
+  ],
+  "purpose": "align",
+  "tone": "inspirational",
+  "narrative": "capacity-planning",
+  "design": {
+    "theme": "classic",
+    "colorScheme": "slate-gray",
+    "fontScheme": "tenorite",
+    "dimensions": {
+      "preset": "16:10",
+      "widthInches": 13.333,
+      "heightInches": 8.333
+    },
+    "background": "light1",
+    "titleAlignment": "left",
+    "contentAlignment": "center",
+    "contentBox": true,
+    "contentDirection": "vertical",
+    "chartPrimary": "left",
+    "imageFill": "fit",
+    "listBullet": "image"
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Board update",
+      "title": "Monthly Board Update",
+      "subtitle": "North Pier Health Board update",
+      "notes": "Open by naming the decision: Give directors the concise operating picture and needed decisions."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-1x",
+      "title": "Why This Matters",
+      "text": [
+        "North Pier Health should focus the next cycle on ",
+        {
+          "text": "give directors the concise operating picture and needed decisions",
+          "bold": true,
+          "color": "#F59E0B"
+        },
+        " while making the operating tradeoffs clear to board update stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-1x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-bullet-column-3x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              25,
+              22
+            ],
+            [
+              "Q2",
+              29,
+              24
+            ],
+            [
+              "Q3",
+              32,
+              26
+            ],
+            [
+              "Q4",
+              36,
+              28
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Next",
+      "layout": "list-4x",
+      "title": "Next Steps",
+      "items": [
+        "Agree on the owner for board update.",
+        "Confirm the reporting cadence.",
+        "Return with the first progress readout."
+      ]
+    }
+  ]
+}

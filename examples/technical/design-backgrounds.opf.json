@@ -1,0 +1,118 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Design Background Variants",
+  "description": "Technical fixture for background shorthand and object forms.",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "cool-horizon",
+      "primary": "#2563EB",
+      "accent": "#14B8A6",
+      "background": "#F8FAFC",
+      "text": "#0F172A"
+    },
+    "fontScheme": {
+      "id": "aptos",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      }
+    },
+    "dimensions": "widescreen",
+    "background": "light1",
+    "footer": {
+      "left": {
+        "text": "Background fixture"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    }
+  },
+  "slides": [
+    {
+      "title": "Theme Slot Background",
+      "design": {
+        "background": {
+          "type": "theme",
+          "slot": "light2"
+        }
+      },
+      "text": "Theme-slot backgrounds defer color choice to the active color scheme."
+    },
+    {
+      "title": "Solid Background",
+      "design": {
+        "background": {
+          "type": "solid",
+          "color": "#ECFEFF",
+          "opacity": 1
+        }
+      },
+      "text": "Solid backgrounds use fixed hex colors."
+    },
+    {
+      "title": "Gradient Background",
+      "design": {
+        "background": {
+          "type": "gradient",
+          "gradient": {
+            "angle": 45,
+            "stops": [
+              {
+                "color": "#1D4ED8",
+                "position": 0
+              },
+              {
+                "color": "#14B8A6",
+                "position": 1
+              }
+            ]
+          },
+          "opacity": 0.9
+        }
+      },
+      "text": "Gradient backgrounds carry angle and color stops."
+    },
+    {
+      "title": "Image Background",
+      "design": {
+        "background": {
+          "type": "image",
+          "image": {
+            "src": "asset:cover-image",
+            "fit": "cover"
+          },
+          "opacity": 0.28
+        }
+      },
+      "text": "Image backgrounds use a fixed image fill."
+    },
+    {
+      "title": "Pattern Background",
+      "design": {
+        "background": {
+          "type": "pattern",
+          "pattern": {
+            "preset": "diagStripe",
+            "foregroundColor": "#CBD5E1",
+            "backgroundColor": "#FFFFFF"
+          },
+          "opacity": 0.2
+        }
+      },
+      "text": "Pattern backgrounds carry a preset plus foreground and background colors."
+    }
+  ],
+  "assets": {
+    "cover-image": {
+      "src": "./assets/cover-image.jpg",
+      "alt": "Abstract cover image",
+      "mediaType": "image/jpeg"
+    }
+  }
+}

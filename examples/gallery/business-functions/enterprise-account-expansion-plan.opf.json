@@ -1,0 +1,339 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Enterprise Account Expansion Plan",
+  "description": "Enterprise Account Expansion Plan is a fictional OPF example for sales teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "enterprise-account-expansion-plan",
+  "language": "english-gb",
+  "audience": [
+    "executives",
+    {
+      "id": "sales-team",
+      "attentionBudgetMinutes": 25,
+      "technicalFluency": "medium",
+      "decisionPower": "advisory",
+      "recommendedNarratives": [
+        "qbr"
+      ],
+      "recommendedTones": [
+        "inspirational"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "report",
+    "outcome": "Grow the strategic account through a measurable multi-threaded plan",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "inspirational",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "qbr",
+  "design": {
+    "theme": "classic",
+    "colorScheme": {
+      "id": "slate-gray",
+      "primary": "#047857",
+      "secondary": "#B45309",
+      "accent": "#BE123C",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#0369A1",
+        "risk": "#6D28D9"
+      }
+    },
+    "fontScheme": {
+      "id": "khmer-ui",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "16:9",
+    "background": "dark1",
+    "titleAlignment": "center",
+    "contentAlignment": "right",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "none",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": false,
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "background"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Sales",
+      "title": "Enterprise Account Expansion Plan",
+      "subtitle": "AtlasWorks Sales",
+      "notes": "Open by naming the decision: Grow the strategic account through a measurable multi-threaded plan."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-2x",
+      "title": "Why This Matters",
+      "text": [
+        "AtlasWorks should focus the next cycle on ",
+        {
+          "text": "grow the strategic account through a measurable multi-threaded plan",
+          "bold": true,
+          "color": "#047857"
+        },
+        " while making the operating tradeoffs clear to sales stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-2x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "canada",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              20,
+              17
+            ],
+            [
+              "Q2",
+              24,
+              19
+            ],
+            [
+              "Q3",
+              27,
+              21
+            ],
+            [
+              "Q4",
+              31,
+              23
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Sales",
+            "Program lead",
+            "Watch",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "At risk",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "On track",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Sales execution path",
+        "description": "Major milestones for AtlasWorks.",
+        "events": [
+          {
+            "when": "Jun",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "Jul",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Aug",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Sep",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-4x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for grow the strategic account through a measurable multi-threaded plan.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "atlasworks",
+    "name": "AtlasWorks",
+    "legalName": "AtlasWorks, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "atlasworks.example",
+    "email": "hello@atlasworks.example",
+    "phone": "+15551000025",
+    "tagline": "Grow the strategic account through a measurable multi-threaded plan",
+    "role": "primary",
+    "socials": {
+      "mastodon": "@atlasworks",
+      "x": "https://x.example/atlasworks"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Maya Chen",
+    "title": "Program Sponsor",
+    "organizationId": "atlasworks",
+    "bio": "Leads sales planning for AtlasWorks.",
+    "socials": {
+      "mastodon": "@atlasworks-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Grow the strategic account through a measurable multi-threaded plan",
+  "duration": 8,
+  "tags": [
+    "business-functions",
+    "sales",
+    "report",
+    "inspirational",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/atlasworks-logo.svg",
+      "alt": "AtlasWorks logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/atlasworks-logo-light.svg",
+      "alt": "AtlasWorks light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/atlasworks-icon.svg",
+      "alt": "AtlasWorks icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/atlasworks-cover-1.jpg",
+      "alt": "Sales background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/atlasworks-field-photo.jpg",
+      "alt": "Sales field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/atlasworks-demo.mp4",
+      "title": "Sales walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/enterprise-account-expansion-plan.csv",
+      "format": "csv",
+      "title": "Enterprise Account Expansion Plan data"
+    },
+    "watermark": {
+      "src": "./assets/atlasworks-watermark.png",
+      "alt": "AtlasWorks watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "business-functions",
+      "density": "medium",
+      "scenario": "enterprise-account-expansion-plan",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

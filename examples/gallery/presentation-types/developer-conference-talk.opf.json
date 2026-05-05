@@ -1,0 +1,349 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Developer Conference Talk",
+  "description": "Developer Conference Talk is a fictional OPF example for conference talk teams. It demonstrates a realistic presentation structure with catalog-backed design and content payloads.",
+  "filename": "developer-conference-talk",
+  "language": "english-au",
+  "audience": [
+    "customers",
+    {
+      "id": "marketing-team",
+      "attentionBudgetMinutes": 29,
+      "technicalFluency": "mixed",
+      "decisionPower": "decision-maker",
+      "recommendedNarratives": [
+        "classic-story"
+      ],
+      "recommendedTones": [
+        "technical"
+      ]
+    }
+  ],
+  "purpose": {
+    "id": "educate",
+    "outcome": "Teach builders how to design observable agent workflows",
+    "successCriteria": [
+      "The audience can state the decision in one sentence.",
+      "The owner and next checkpoint are explicit."
+    ]
+  },
+  "tone": {
+    "id": "technical",
+    "voiceCues": [
+      "Make the decision visible.",
+      "Use concrete operating language."
+    ],
+    "avoid": [
+      "Do not bury the ask.",
+      "Do not over-explain obvious context."
+    ]
+  },
+  "narrative": "classic-story",
+  "design": {
+    "theme": "minimal",
+    "colorScheme": {
+      "id": "vibes",
+      "primary": "#0F172A",
+      "secondary": "#1D4ED8",
+      "accent": "#047857",
+      "background": "#0B1220",
+      "text": "#F8FAFC",
+      "custom": {
+        "signal": "#BE123C",
+        "risk": "#B45309"
+      }
+    },
+    "fontScheme": {
+      "id": "traditional-arabic",
+      "heading": {
+        "family": "Aptos Display",
+        "weight": 700
+      },
+      "body": {
+        "family": "Aptos",
+        "weight": 400
+      },
+      "code": {
+        "family": "Consolas",
+        "weight": 400
+      }
+    },
+    "dimensions": "a4",
+    "background": {
+      "type": "theme",
+      "slot": "light2"
+    },
+    "titleAlignment": "right",
+    "contentAlignment": "left",
+    "contentBox": false,
+    "contentDirection": "vertical",
+    "chartPrimary": "top",
+    "imageFill": "fit",
+    "listBullet": "image",
+    "logo": "asset:brand-logo",
+    "watermark": {
+      "src": "asset:watermark",
+      "opacity": 0.06
+    },
+    "header": {
+      "left": {
+        "section": true
+      },
+      "right": {
+        "image": "asset:brand-icon"
+      }
+    },
+    "footer": {
+      "left": {
+        "organization": true
+      },
+      "center": {
+        "text": "Decision review"
+      },
+      "right": {
+        "slideNumber": true
+      }
+    },
+    "slideImage": {
+      "src": "asset:cover-bg",
+      "position": "left"
+    }
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "section": "Opening",
+      "layout": "title",
+      "tag": "Conference talk",
+      "title": "Developer Conference Talk",
+      "subtitle": "VectorTrail Conference talk",
+      "notes": "Open by naming the decision: Teach builders how to design observable agent workflows."
+    },
+    {
+      "id": "s2",
+      "section": "Context",
+      "layout": "text-3x",
+      "title": "Why This Matters",
+      "text": [
+        "VectorTrail should focus the next cycle on ",
+        {
+          "text": "teach builders how to design observable agent workflows",
+          "bold": true,
+          "color": "#0F172A"
+        },
+        " while making the operating tradeoffs clear to conference talk stakeholders."
+      ]
+    },
+    {
+      "id": "s3",
+      "section": "Evidence",
+      "layout": "chart-3x",
+      "title": "Signal Trend",
+      "type": "chart",
+      "chart": {
+        "type": "100pct-stacked-area-2x",
+        "data": {
+          "columns": [
+            "Quarter",
+            "Current",
+            "Baseline"
+          ],
+          "rows": [
+            [
+              "Q1",
+              27,
+              24
+            ],
+            [
+              "Q2",
+              31,
+              26
+            ],
+            [
+              "Q3",
+              34,
+              28
+            ],
+            [
+              "Q4",
+              38,
+              30
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "s4",
+      "section": "Options",
+      "layout": "table-1x",
+      "title": "Decision Options",
+      "table": {
+        "columns": [
+          "Workstream",
+          "Owner",
+          "Status",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Conference talk",
+            "Program lead",
+            "At risk",
+            "Continue"
+          ],
+          [
+            "Data and reporting",
+            "Analytics",
+            "On track",
+            "Tighten metric definitions"
+          ],
+          [
+            "Field adoption",
+            "Operations",
+            "Watch",
+            "Add weekly office hours"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "section": "Plan",
+      "layout": "list-3x",
+      "title": "Execution Timeline",
+      "type": "timeline",
+      "timeline": {
+        "name": "Conference talk execution path",
+        "description": "Major milestones for VectorTrail.",
+        "events": [
+          {
+            "when": "Oct",
+            "what": "Baseline",
+            "description": "Confirm current state, owners, and constraints."
+          },
+          {
+            "when": "May",
+            "what": "Pilot",
+            "description": "Run a narrow pilot with visible success criteria."
+          },
+          {
+            "when": "Jun",
+            "what": "Scale",
+            "description": "Expand the approach after risk review."
+          },
+          {
+            "when": "Jul",
+            "what": "Embed",
+            "description": "Move reporting and routines into steady-state operations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "section": "Close",
+      "layout": "list-2x",
+      "title": "The Ask",
+      "bullets": [
+        {
+          "text": "Approve the next milestone for teach builders how to design observable agent workflows.",
+          "level": 0
+        },
+        {
+          "text": "Assign an executive sponsor and one accountable owner.",
+          "level": 0
+        },
+        {
+          "text": "Review progress in the next operating meeting.",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "id": "vectortrail",
+    "name": "VectorTrail",
+    "legalName": "VectorTrail, Inc.",
+    "logo": "asset:brand-logo",
+    "domain": "vectortrail.example",
+    "email": "hello@vectortrail.example",
+    "phone": "+15551000083",
+    "tagline": "Teach builders how to design observable agent workflows",
+    "role": "primary",
+    "socials": {
+      "instagram": "@vectortrail",
+      "threads": "https://threads.example/vectortrail"
+    }
+  },
+  "speaker": {
+    "id": "speaker",
+    "name": "Samira Okafor",
+    "title": "Chief of Staff",
+    "organizationId": "vectortrail",
+    "bio": "Leads conference talk planning for VectorTrail.",
+    "socials": {
+      "instagram": "@vectortrail-speaker"
+    }
+  },
+  "author": "OPF Example Generator",
+  "takeaway": "Teach builders how to design observable agent workflows",
+  "duration": 16,
+  "tags": [
+    "presentation-types",
+    "conference-talk",
+    "educate",
+    "technical",
+    "medium"
+  ],
+  "assets": {
+    "brand-logo": {
+      "src": "./assets/vectortrail-logo.svg",
+      "alt": "VectorTrail logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-logo-light": {
+      "src": "./assets/vectortrail-logo-light.svg",
+      "alt": "VectorTrail light logo",
+      "mediaType": "image/svg+xml"
+    },
+    "brand-icon": {
+      "src": "./assets/vectortrail-icon.svg",
+      "alt": "VectorTrail icon",
+      "mediaType": "image/svg+xml"
+    },
+    "cover-bg": {
+      "src": "./assets/vectortrail-cover-4.jpg",
+      "alt": "Conference talk background image",
+      "mediaType": "image/jpeg"
+    },
+    "supporting-photo": {
+      "src": "./assets/vectortrail-field-photo.jpg",
+      "alt": "Conference talk field context",
+      "mediaType": "image/jpeg"
+    },
+    "demo-video": {
+      "src": "./media/vectortrail-demo.mp4",
+      "title": "Conference talk walkthrough",
+      "mediaType": "video/mp4"
+    },
+    "metric-data": {
+      "src": "./data/developer-conference-talk.csv",
+      "format": "csv",
+      "title": "Developer Conference Talk data"
+    },
+    "watermark": {
+      "src": "./assets/vectortrail-watermark.png",
+      "alt": "VectorTrail watermark",
+      "mediaType": "image/png"
+    }
+  },
+  "extensions": {
+    "example": {
+      "folder": "presentation-types",
+      "density": "medium",
+      "scenario": "developer-conference-talk",
+      "generatedBy": "scripts/generate-example-suite.mjs"
+    }
+  }
+}

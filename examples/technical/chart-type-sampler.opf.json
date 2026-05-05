@@ -1,0 +1,168 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf/v1",
+  "name": "Chart Type Sampler",
+  "description": "Technical fixture sampling specialized chart type ids from the catalog.",
+  "slides": [
+    {
+      "title": "Distribution And Outliers",
+      "left": {
+        "chart": {
+          "type": "box-and-whisker",
+          "data": {
+            "columns": [
+              "Team",
+              "Cycle Time"
+            ],
+            "rows": [
+              [
+                "Alpha",
+                5
+              ],
+              [
+                "Beta",
+                8
+              ],
+              [
+                "Gamma",
+                12
+              ]
+            ]
+          }
+        }
+      },
+      "center": {
+        "chart": {
+          "type": "histogram",
+          "data": {
+            "columns": [
+              "Bucket",
+              "Count"
+            ],
+            "rows": [
+              [
+                "0-5",
+                8
+              ],
+              [
+                "6-10",
+                12
+              ],
+              [
+                "11-15",
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "right": {
+        "chart": {
+          "type": "dumbbell",
+          "data": {
+            "columns": [
+              "Metric",
+              "Before",
+              "After"
+            ],
+            "rows": [
+              [
+                "Latency",
+                420,
+                210
+              ],
+              [
+                "Queue",
+                15,
+                7
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Composition And Flow",
+      "blocks": [
+        {
+          "chart": {
+            "type": "waterfall",
+            "data": {
+              "columns": [
+                "Step",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Start",
+                  100
+                ],
+                [
+                  "Expansion",
+                  24
+                ],
+                [
+                  "Churn",
+                  -8
+                ],
+                [
+                  "End",
+                  116
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "chart": {
+            "type": "funnel",
+            "data": {
+              "columns": [
+                "Stage",
+                "Accounts"
+              ],
+              "rows": [
+                [
+                  "Qualified",
+                  120
+                ],
+                [
+                  "Proposal",
+                  72
+                ],
+                [
+                  "Commit",
+                  31
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "chart": {
+            "type": "treemap",
+            "data": {
+              "columns": [
+                "Area",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Product",
+                  42
+                ],
+                [
+                  "Sales",
+                  31
+                ],
+                [
+                  "Support",
+                  18
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
