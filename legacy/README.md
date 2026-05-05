@@ -1,23 +1,17 @@
 # Legacy PPTX.dev Code
 
-This folder holds previous PPTX.dev-specific clients and tools for review or migration later.
+The copied PPTX.dev client, CLI, Go SDK, and MCP source trees were removed from
+this repository after migration to PPTX.dev-owned workspaces.
 
-These packages are not the canonical OPF format packages. They call or wrap PPTX.dev service behavior such as hosted validation, generation, parsing, rendering, API clients, CLI commands, and MCP tools.
+OPF now keeps format-owned assets only: schemas, catalogs, examples, docs,
+generated local types, and the local OPF CLI.
 
-Current contents:
-
-| Path | Previous role |
+| Previous path | New location |
 |---|---|
-| `typescript/` | Previous TypeScript PPTX.dev SDK (`@pptx/sdk`). |
-| `python/` | Previous Python PPTX.dev SDK (`pptx-dev`). |
-| `go/` | Previous Go PPTX.dev API client. |
-| `cli/` | Previous PPTX.dev CLI packages. |
-| `mcp/` | Previous PPTX.dev MCP server. |
-| `workflows/` | Previous publish/release GitHub Actions, moved here so they are preserved but inactive. |
-
-Review guidance:
-
-- Move useful OPF-only schema/type/catalog ideas into `packages/javascript` or future local-only Python/Go OPF packages.
-- Move hosted generation/rendering/parsing/API behavior to PPTX.dev-owned repositories or packages.
-- Do not publish from this folder without first deciding the new PPTX.dev package ownership model.
-- Do not move files from `workflows/` back into `.github/workflows/` without reviewing their package names, tag triggers, publish targets, and secrets.
+| `legacy/typescript/` | [`Data-Advantage/pptx-dev:sdk/typescript/`](https://github.com/Data-Advantage/pptx-dev/tree/master/sdk/typescript) |
+| `legacy/python/` | [`Data-Advantage/pptx-dev:sdk/python/`](https://github.com/Data-Advantage/pptx-dev/tree/master/sdk/python) |
+| `legacy/go/` | [`Data-Advantage/pptx-dev:go/`](https://github.com/Data-Advantage/pptx-dev/tree/master/go) |
+| `legacy/cli/node/` | [`Data-Advantage/pptx-dev:sdk/cli/`](https://github.com/Data-Advantage/pptx-dev/tree/master/sdk/cli) |
+| `legacy/cli/python/` | [`Data-Advantage/pptx-dev:sdk/cli-python/`](https://github.com/Data-Advantage/pptx-dev/tree/master/sdk/cli-python) |
+| `legacy/mcp/` | [`Data-Advantage/pptx-mcp`](https://github.com/Data-Advantage/pptx-mcp) |
+| `legacy/workflows/` | Destination workflows under [`Data-Advantage/pptx-dev:.github/workflows/`](https://github.com/Data-Advantage/pptx-dev/tree/master/.github/workflows) and [`Data-Advantage/pptx-mcp:.github/workflows/`](https://github.com/Data-Advantage/pptx-mcp/tree/main/.github/workflows). |
