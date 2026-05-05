@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "strategic-narrative",
   "name": "Strategic Narrative",
   "summary": "The change-driven founder/sales arc: a tectonic shift creates winners and losers, the audience must respond, and your product is the only credible way to land in the winners' camp. Used for top-of-funnel sales pitches, board re-positioning, and high-stakes founder talks.",

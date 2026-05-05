@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "early-startup-pitch",
   "name": "Early-Stage Startup Pitch",
   "summary": "Seed and pre-seed pitch arc tuned for vision-heavy stories where revenue and traction are still thin. Anchors the narrative in market change, founder insight, and credible early signal — not metrics yet.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "rags-to-riches",
   "name": "Rags to Riches",
   "summary": "Underdog journey from initial failure to eventual success. Pulls on resilience, grit, and perseverance — useful for founder stories, brand stories, and any deck where the audience needs to feel the cost behind the win.",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://pptx.dev/schema/opf-theme/v1",
+  "$id": "https://openpresentation.org/schema/opf-theme/v1",
   "title": "OPF Theme",
   "description": "Schema for theme records in the pptx.gallery library. Each theme is a small, named bundle that pairs a color scheme, a font scheme, a default theme-controlled background, and a slide size. Themes are referenced from OPF documents via design.theme or design.theme.id; the engine resolves the reference against catalogs.themes (inline) → catalogs.themes.source → the default catalog at https://www.pptx.gallery/themes. Inline overrides on design.colorScheme / design.fontScheme / design.background / design.dimensions take precedence over a resolved theme.",
   "type": "object",
@@ -12,8 +12,8 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://pptx.dev/schema/opf-theme/v1",
-      "description": "Identifies this record as a theme in the pptx.dev library."
+      "const": "https://openpresentation.org/schema/opf-theme/v1",
+      "description": "Identifies this record as a theme in the openpresentation.org catalog."
     },
     "id": {
       "type": "string",

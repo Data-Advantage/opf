@@ -1,7 +1,7 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-purpose-index/v1",
+  "$schema": "https://openpresentation.org/schema/opf-purpose-index/v1",
   "version": "1",
-  "description": "Catalog of presentation purposes available in the pptx.dev library. Each entry is a lightweight summary; full purpose records live in the per-id JSON files alongside this index. Purposes are referenced from OPF documents via purpose.",
+  "description": "Catalog of presentation purposes available in the openpresentation.org catalog. Each entry is a lightweight summary; full purpose records live in the per-id JSON files alongside this index. Purposes are referenced from OPF documents via purpose.",
   "records": [
     {
       "id": "inform",

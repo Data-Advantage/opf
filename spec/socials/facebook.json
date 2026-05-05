@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-social/v1",
+  "$schema": "https://openpresentation.org/schema/opf-social/v1",
   "id": "facebook",
   "name": "Facebook",
   "summary": "General-purpose social network from Meta.",

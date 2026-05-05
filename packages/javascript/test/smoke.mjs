@@ -15,11 +15,13 @@ import {
 import { tones } from "../dist/catalogs.js";
 import { validate, assertValid } from "../dist/validator.js";
 
-assert.equal(presentation.$id, "https://pptx.dev/schema/opf/v1");
-assert.equal(audience.$id, "https://pptx.dev/schema/opf-audience/v1");
+assert.equal(presentation.$id, "https://openpresentation.org/schema/opf/v1");
+assert.equal(audience.$id, "https://openpresentation.org/schema/opf-audience/v1");
 assert.ok(audiences.length > 0);
 assert.ok(tones.length > 0);
 assert.equal(catalogs.audiences.length, audiences.length);
+assert.ok(catalogs.chartTypes.length > 0);
+assert.equal(catalogEntries.find((entry) => entry.kind === "chartTypes")?.schemaName, "chartType");
 assert.ok(purposes.length > 0);
 assert.ok(languages.some((record) => record.id === "english-us" && record.bcp47 === "en-US"));
 assert.ok(languages.some((record) => record.id === "english-gb" && record.bcp47 === "en-GB"));
@@ -659,7 +661,7 @@ for (const entry of catalogEntries) {
 }
 
 const invalidLanguageResult = validateCatalogRecord("languages", {
-  $schema: "https://pptx.dev/schema/opf-language/v1",
+  $schema: "https://openpresentation.org/schema/opf-language/v1",
   id: "english-uk",
   name: "English (UK)",
   bcp47: "en-UK",

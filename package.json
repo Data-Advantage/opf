@@ -1,13 +1,13 @@
 {
-  "name": "opf-workspace",
+  "name": "openpresentation-workspace",
   "private": true,
   "description": "Workspace for OPF format packages and tooling.",
   "type": "module",
   "scripts": {
-    "build": "pnpm --filter @dataadvantage/opf build && pnpm --filter @dataadvantage/opf-cli build",
-    "typecheck": "pnpm --filter @dataadvantage/opf typecheck && pnpm --filter @dataadvantage/opf-cli typecheck",
-    "test": "pnpm --filter @dataadvantage/opf test",
-    "pack:dry-run": "pnpm --filter @dataadvantage/opf pack:dry-run"
+    "build": "pnpm --filter @openpresentation/opf build && pnpm --filter @openpresentation/cli build",
+    "typecheck": "pnpm --filter @openpresentation/opf typecheck && pnpm --filter @openpresentation/cli typecheck",
+    "test": "pnpm --filter @openpresentation/opf test",
+    "pack:dry-run": "pnpm --filter @openpresentation/opf pack:dry-run"
   },
   "engines": {
     "node": ">=20"

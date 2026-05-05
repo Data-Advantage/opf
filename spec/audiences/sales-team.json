@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-audience/v1",
+  "$schema": "https://openpresentation.org/schema/opf-audience/v1",
   "id": "sales-team",
   "name": "Sales Team",
   "summary": "Quota-carrying reps who want talk tracks, objection handling, and crisp proof.",

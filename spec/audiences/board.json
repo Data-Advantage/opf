@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-audience/v1",
+  "$schema": "https://openpresentation.org/schema/opf-audience/v1",
   "id": "board",
   "name": "Board of Directors",
   "summary": "Directors with fiduciary responsibility who balance oversight, advice, and approval.",

@@ -7,7 +7,7 @@ const repoRoot = path.resolve(__dirname, "..");
 const layoutsDir = path.join(repoRoot, "spec", "layouts");
 const extractDir = path.join(layoutsDir, "extract");
 
-const schema = "https://pptx.dev/schema/opf-layout/v1";
+const schema = "https://openpresentation.org/schema/opf-layout/v1";
 
 async function readJson(file) {
   return JSON.parse(await fs.readFile(file, "utf8"));
@@ -174,10 +174,10 @@ async function writeCatalog(records) {
   const sorted = [...records].sort((a, b) => a.id.localeCompare(b.id));
   await Promise.all(sorted.map((record) => writeJson(path.join(layoutsDir, `${record.id}.json`), record)));
   await writeJson(path.join(layoutsDir, "index.json"), {
-    $schema: "https://pptx.dev/schema/opf-layout-index/v1",
+    $schema: "https://openpresentation.org/schema/opf-layout-index/v1",
     version: "1",
     description:
-      "Catalog of slide layouts available in the pptx.dev library. Each entry is a lightweight summary; full layout records live in the per-id JSON files alongside this index.",
+      "Catalog of slide layouts available in the openpresentation.org catalog. Each entry is a lightweight summary; full layout records live in the per-id JSON files alongside this index.",
     records: sorted.map(indexRecord),
   });
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "transformation-arc",
   "name": "Transformation Arc (Before / After / Bridge)",
   "summary": "Marketing-copy arc adapted for slides: paint the painful 'before,' contrast it with a vivid 'after,' then deliver the bridge that gets the audience from one to the other. Tight, persuasive, and ideal for short pitches, landing-page-style decks, and product-marketing teasers.",

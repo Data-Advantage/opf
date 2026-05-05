@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-layout/v1",
+  "$schema": "https://openpresentation.org/schema/opf-layout/v1",
   "id": "media-1x",
   "name": "Media 1x",
   "placeholders": [

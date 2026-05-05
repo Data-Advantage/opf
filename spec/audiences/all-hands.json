@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-audience/v1",
+  "$schema": "https://openpresentation.org/schema/opf-audience/v1",
   "id": "all-hands",
   "name": "All Hands",
   "summary": "The full company — mixed roles, mixed seniority, looking for context, signal, and inclusion.",

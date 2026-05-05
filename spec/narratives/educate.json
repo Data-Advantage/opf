@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "educate",
   "name": "Educate",
   "summary": "Engaging-explainer arc inspired by Mary Roach: surprise the audience with a fact, walk them through evidence and anecdote, scrutinize the assumptions, then close on a memorable insight. For technical, scientific, or analytical talks that need to feel more like discovery than instruction.",

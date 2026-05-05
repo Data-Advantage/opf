@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-purpose/v1",
+  "$schema": "https://openpresentation.org/schema/opf-purpose/v1",
   "id": "report",
   "name": "Report",
   "summary": "Summarize performance, progress, or findings with enough context to interpret results.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-purpose/v1",
+  "$schema": "https://openpresentation.org/schema/opf-purpose/v1",
   "id": "educate",
   "name": "Educate",
   "summary": "Teach a concept, process, product, or domain so the audience can use it correctly.",

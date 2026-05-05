@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "weekly-progress",
   "name": "Weekly Progress",
   "summary": "Tight rhythm-of-business arc for weekly progress reports: objectives, achievements, progress, challenges, opportunities, recognition, plan, discussion, conclusion. Designed for fifteen-to-thirty-minute team check-ins, not deep dives.",

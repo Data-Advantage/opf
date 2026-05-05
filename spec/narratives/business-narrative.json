@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "business-narrative",
   "name": "Business Narrative",
   "summary": "Tell a business strategy or solution as a story: setting, challenge, tension, hero, plan, outcome. Useful for internal alignment decks, town halls, and any audience that responds better to story shape than to bullet lists.",

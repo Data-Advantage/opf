@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-tone/v1",
+  "$schema": "https://openpresentation.org/schema/opf-tone/v1",
   "id": "conversational",
   "name": "Conversational",
   "summary": "Direct, dialog-style voice for podcasts, fireside chats, and small-group reviews.",

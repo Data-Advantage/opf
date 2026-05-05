@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "conference-talk",
   "name": "Conference Talk",
   "summary": "Stage-talk arc for a 15–45 minute conference or industry-event session: hook the room, promise a payoff, deliver evidence, expose the underlying mechanism, show how to apply it, and end with a memorable recap. Engineered for audiences that came to learn something they can use Monday.",

@@ -10,7 +10,7 @@ importers:
 
   packages/cli:
     dependencies:
-      '@dataadvantage/opf':
+      '@openpresentation/opf':
         specifier: workspace:*
         version: link:../javascript
     devDependencies:

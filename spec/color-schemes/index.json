@@ -1,7 +1,7 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-color-scheme-index/v1",
+  "$schema": "https://openpresentation.org/schema/opf-color-scheme-index/v1",
   "version": "1",
-  "description": "Catalog of color schemes available in the pptx.dev library. Each entry is a lightweight summary; full color-scheme records live in the per-id JSON files alongside this index.",
+  "description": "Catalog of color schemes available in the openpresentation.org catalog. Each entry is a lightweight summary; full color-scheme records live in the per-id JSON files alongside this index.",
   "records": [
     {
       "id": "black-and-white",

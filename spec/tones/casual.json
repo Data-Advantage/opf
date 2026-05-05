@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-tone/v1",
+  "$schema": "https://openpresentation.org/schema/opf-tone/v1",
   "id": "casual",
   "name": "Casual",
   "summary": "Warm, plain-spoken voice for internal updates and customer storytelling.",

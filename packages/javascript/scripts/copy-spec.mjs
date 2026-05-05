@@ -14,12 +14,13 @@ const catalogDirs = [
   "tones",
   "themes",
   "layouts",
-  "charts",
+  "chart-types",
   "narratives",
   "socials",
   "languages",
   "color-schemes",
   "font-schemes",
+  "reference",
 ];
 
 await fs.rm(destination, { recursive: true, force: true });

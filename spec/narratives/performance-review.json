@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "performance-review",
   "name": "Performance Review",
   "summary": "Analytical review of individual, team, or company performance grounded in metrics. Walks through results, key drivers, wins, challenges, and the adjustments that will shape the next period.",

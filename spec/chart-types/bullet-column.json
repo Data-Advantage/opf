@@ -1,0 +1,76 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-chart-type/v1",
+  "id": "bullet-column",
+  "name": "BULLET_COLUMN",
+  "label": "Bullet Column",
+  "mappings": {
+    "openxml": {
+      "composition": "mixed",
+      "series": [
+        {
+          "element": "barChart",
+          "barDir": "col",
+          "grouping": "stacked",
+          "composition": "single"
+        },
+        {
+          "element": "scatterChart",
+          "scatterStyle": "marker",
+          "composition": "single"
+        }
+      ],
+      "notes": "Bullet columns combine threshold bands with a value marker."
+    }
+  },
+  "categories": 6,
+  "columns": [
+    "ValueCategory",
+    "This Year"
+  ],
+  "group": "Bullet",
+  "groupSort": 10,
+  "series": 1,
+  "seriesGroups": 3,
+  "slideNumber": 48,
+  "useSecondaryCategories": true,
+  "workbookRange": "Sheet1!$A$1:$G$2",
+  "complexity": "calculated",
+  "dataColumns": [
+    {
+      "name": "ValueCategory",
+      "role": "categoryLabel",
+      "type": "string",
+      "position": "row0_col0"
+    },
+    {
+      "name": "This Year",
+      "role": "series",
+      "type": "number",
+      "position": "row1_col0"
+    }
+  ],
+  "helperColumns": [
+    "Excellent",
+    "Good",
+    "Fair",
+    "Poor"
+  ],
+  "sampleData": {
+    "headers": [
+      "ValueCategory",
+      "Actual",
+      "Target"
+    ],
+    "rows": [
+      [
+        "Metric 1",
+        85,
+        99
+      ]
+    ]
+  },
+  "preview": {
+    "src": "https://xano.storyd.ai/vault/PMfrMmjB/2NinU487c_Q7qHZ0gqpVEwwbXyw/or7Sdg../048_BULLET_COLUMN.png",
+    "vectorSrc": "https://xano.storyd.ai/vault/PMfrMmjB/jOtS9dRuMBLUUkC5mU2Iw_R7NPg/GStUGA../048_BULLET_COLUMN.svg"
+  }
+}

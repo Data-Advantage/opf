@@ -1,7 +1,7 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-language-index/v1",
+  "$schema": "https://openpresentation.org/schema/opf-language-index/v1",
   "version": "1",
-  "description": "Catalog of languages available in the pptx.dev library. Each entry is a lightweight summary with the canonical BCP-47 tag; full language records live in the per-id JSON files alongside this index.",
+  "description": "Catalog of languages available in the openpresentation.org catalog. Each entry is a lightweight summary with the canonical BCP-47 tag; full language records live in the per-id JSON files alongside this index.",
   "records": [
     {
       "id": "afrikaans",

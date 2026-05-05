@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "status-update",
   "name": "Status Update",
   "summary": "Concise progress-report arc for keeping a stakeholder informed: headline, brief, progress, results, plan, feedback. Optimized for short, repeated updates rather than one-time deep dives.",

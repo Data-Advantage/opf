@@ -1,0 +1,98 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-chart-type/v1",
+  "id": "box-and-whisker",
+  "name": "BOX_AND_WHISKER",
+  "label": "Box & Whisker",
+  "mappings": {
+    "openxml": {
+      "element": "boxWhiskerChart",
+      "composition": "extension",
+      "notes": "Office extension chart; exact extension markup is renderer-specific."
+    }
+  },
+  "categories": 22,
+  "columns": [
+    "Category",
+    "Series1"
+  ],
+  "group": "Other",
+  "groupSort": 13,
+  "series": 1,
+  "seriesGroups": 1,
+  "slideNumber": 71,
+  "useSecondaryCategories": false,
+  "workbookRange": "Sheet1!$A$1:$W$2",
+  "complexity": "simple",
+  "dataColumns": [
+    {
+      "name": "Category",
+      "role": "categoryLabel",
+      "type": "string",
+      "position": "row0_col0"
+    },
+    {
+      "name": "Series1",
+      "role": "series",
+      "type": "number",
+      "position": "row1_col0"
+    }
+  ],
+  "sampleData": {
+    "headers": [
+      "Category",
+      "Cat 1",
+      "Cat 2",
+      "Cat 3",
+      "Cat 4",
+      "Cat 5",
+      "Cat 6",
+      "Cat 7",
+      "Cat 8",
+      "Cat 9",
+      "Cat 10",
+      "Cat 11",
+      "Cat 12",
+      "Cat 13",
+      "Cat 14",
+      "Cat 15",
+      "Cat 16",
+      "Cat 17",
+      "Cat 18",
+      "Cat 19",
+      "Cat 20",
+      "Cat 21",
+      "Cat 22"
+    ],
+    "rows": [
+      [
+        "Series1",
+        52363,
+        92210,
+        51436,
+        29786,
+        67640,
+        18950,
+        71462,
+        67961,
+        92756,
+        49691,
+        46002,
+        87518,
+        17362,
+        56129,
+        76497,
+        19724,
+        50685,
+        70521,
+        69233,
+        14929,
+        17456,
+        58331
+      ]
+    ]
+  },
+  "preview": {
+    "src": "https://xano.storyd.ai/vault/PMfrMmjB/PfKGJ0oLda2MDrlj2QgbLj3oIXs/zuoMyA../071_BOX_AND_WHISKER.png",
+    "vectorSrc": "https://xano.storyd.ai/vault/PMfrMmjB/Jm1WplCmZdrnOMU4cIeYjT3mfxw/nPdTaA../071_BOX_AND_WHISKER.svg"
+  }
+}

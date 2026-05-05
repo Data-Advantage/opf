@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "project-proposal",
   "name": "Project Proposal",
   "summary": "Internal proposal arc for greenlighting a project: hook, problem, idea, benefits, justification, plan, timeline, risks, outlook, ask. Designed to take a sponsor from 'never heard of this' to 'approved' inside a single meeting.",

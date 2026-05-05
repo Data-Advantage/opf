@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-tone/v1",
+  "$schema": "https://openpresentation.org/schema/opf-tone/v1",
   "id": "authoritative",
   "name": "Authoritative",
   "summary": "Expert, declarative voice for category-defining and analyst-style decks.",

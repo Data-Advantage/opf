@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-social/v1",
+  "$schema": "https://openpresentation.org/schema/opf-social/v1",
   "id": "threads",
   "name": "Threads",
   "summary": "Text-first social network from Meta, integrated with Instagram identity.",

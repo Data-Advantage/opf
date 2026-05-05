@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
   "id": "forest-green",
   "name": "Forest Green",
   "accent1": "#4A7C59",

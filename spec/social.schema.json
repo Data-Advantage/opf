@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://pptx.dev/schema/opf-social/v1",
+  "$id": "https://openpresentation.org/schema/opf-social/v1",
   "title": "OPF Social Platform",
   "description": "Schema for social-platform records in the pptx.gallery library. Each record describes a single social-media platform — its base URL, profile-URL pattern, handle prefix, brand color, and themed icons. Records are referenced from OPF documents indirectly: the property keys of any Socials object (Organization.socials, Speaker.socials) match record ids, and renderers use the catalog record to format URLs and pick icons. The engine resolves references against catalogs.socials (inline) → catalogs.socials.source → the default catalog at https://www.pptx.gallery/socials.",
   "type": "object",
@@ -12,8 +12,8 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://pptx.dev/schema/opf-social/v1",
-      "description": "Identifies this record as a social-platform entry in the pptx.dev library."
+      "const": "https://openpresentation.org/schema/opf-social/v1",
+      "description": "Identifies this record as a social-platform entry in the openpresentation.org catalog."
     },
     "id": {
       "type": "string",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
   "id": "deep-purple",
   "name": "Deep Purple",
   "accent1": "#6A1B9A",

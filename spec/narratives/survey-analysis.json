@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "survey-analysis",
   "name": "Survey Analysis",
   "summary": "Structured walk-through of survey results: topic, executive summary, methodology, findings, analysis, implications, recommendations. Built so a reader who only sees the second slide already knows the headline insight.",

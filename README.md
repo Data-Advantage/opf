@@ -22,11 +22,11 @@ OPF is plain JSON. A human can open it in an editor. A model can read and write 
 
 That's the shift that lets LLMs actually *author* decks. When the format stops fighting them, models can do the work that matters — narrative structure, persuasive framing, data analysis, chart recommendations, ruthless revision passes — instead of wrestling with `<p:sp>` tags.
 
-And they don't start from a blank canvas. [pptx.gallery](https://pptx.gallery) is the human-browsable reference for OPF catalog presets: layouts, themes, color schemes, font schemes, chart presets, narratives, audiences, purposes, tones, languages, and social platforms.
+And they don't start from a blank canvas. [pptx.gallery](https://pptx.gallery) is the human-browsable reference for OPF catalog presets: layouts, themes, color schemes, font schemes, chart types, narratives, audiences, purposes, tones, languages, and social platforms.
 
 ## JavaScript and TypeScript
 
-The canonical JavaScript/TypeScript package is being developed at [`packages/javascript`](./packages/javascript) as `@dataadvantage/opf`.
+The canonical JavaScript/TypeScript package is being developed at [`packages/javascript`](./packages/javascript) as `@openpresentation/opf`.
 
 It is currently marked `private: true` while the schema stabilizes. Its responsibility is local and format-level only:
 
@@ -55,9 +55,9 @@ import {
   purposes,
   tones,
   validatePresentation,
-} from "@dataadvantage/opf";
+} from "@openpresentation/opf";
 
-import type { Presentation } from "@dataadvantage/opf";
+import type { Presentation } from "@openpresentation/opf";
 
 const deck: Presentation = {
   name: "Quarterly Review",
@@ -72,16 +72,16 @@ console.log(audiences.length, purposes.length, tones.length);
 Use focused imports when you only need one surface:
 
 ```ts
-import { presentation } from "@dataadvantage/opf/schemas";
-import { audiences, purposes } from "@dataadvantage/opf/catalogs";
-import { validate } from "@dataadvantage/opf/validator";
-import type { Presentation } from "@dataadvantage/opf/types";
+import { presentation } from "@openpresentation/opf/schemas";
+import { audiences, purposes } from "@openpresentation/opf/catalogs";
+import { validate } from "@openpresentation/opf/validator";
+import type { Presentation } from "@openpresentation/opf/types";
 ```
 
 Use raw JSON when an engine or resolver needs package-addressable files:
 
 ```ts
-import presentationSchema from "@dataadvantage/opf/spec/presentation.schema.json" with {
+import presentationSchema from "@openpresentation/opf/spec/presentation.schema.json" with {
   type: "json",
 };
 ```
@@ -89,7 +89,7 @@ import presentationSchema from "@dataadvantage/opf/spec/presentation.schema.json
 Use the private local CLI source during development:
 
 ```sh
-pnpm --filter @dataadvantage/opf-cli build
+pnpm --filter @openpresentation/cli build
 node packages/cli/dist/index.js schemas
 node packages/cli/dist/index.js catalogs
 node packages/cli/dist/index.js validate path/to/deck.opf.json
@@ -103,7 +103,7 @@ node packages/cli/dist/index.js validate path/to/deck.opf.json
 | [`docs/content-payloads.md`](./docs/content-payloads.md) | Author-facing notes for slide and region content payloads, including chart and table object shapes. |
 | [`spec/*.schema.json`](./spec) | Companion schemas for catalog records and sub-objects. |
 | [`spec/<catalog-kind>/`](./spec) | Canonical bundled catalog records. |
-| [`packages/javascript/`](./packages/javascript) | Private pre-release source for `@dataadvantage/opf`. |
+| [`packages/javascript/`](./packages/javascript) | Private pre-release source for `@openpresentation/opf`. |
 | [`packages/cli/`](./packages/cli) | Private local-only OPF CLI source; native distribution is deferred. |
 | [`spec/openapi.yaml`](./spec/openapi.yaml) | Legacy PPTX.dev OpenAPI spec, pending migration to PPTX.dev ownership. |
 | [`legacy/typescript/`](./legacy/typescript) | Legacy PPTX.dev TypeScript client, pending review/migration. |

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "reveal",
   "name": "Reveal",
   "summary": "Insight-driven keynote arc inspired by Amy Cuddy's 2012 talk on body language: connect through personal story, ground in research, illustrate with anecdote, summarize, break stereotypes, advise, demonstrate authenticity, close with impact. For talks that aim to change how the audience sees something they thought they understood.",

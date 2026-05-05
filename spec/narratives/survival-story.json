@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "survival-story",
   "name": "Survival Story",
   "summary": "Narrative arc of overcoming adversity through determination: catastrophe, backstory, plan, danger, effort, struggle, pivot, breakthrough, legacy, takeaway. For brand stories, founder histories, and leadership talks where the lesson lives in the comeback.",

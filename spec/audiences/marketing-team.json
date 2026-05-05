@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-audience/v1",
+  "$schema": "https://openpresentation.org/schema/opf-audience/v1",
   "id": "marketing-team",
   "name": "Marketing Team",
   "summary": "Brand and demand-gen practitioners aligning on positioning, messaging, and campaigns.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-color-scheme/v1",
+  "$schema": "https://openpresentation.org/schema/opf-color-scheme/v1",
   "id": "black-and-white",
   "name": "Black & White",
   "accent1": "#9E9E9E",

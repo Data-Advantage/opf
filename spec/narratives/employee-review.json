@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "employee-review",
   "name": "Employee Review",
   "summary": "Constructive performance-review arc that recognizes work, gives candid feedback, and sets growth goals together. For one-on-one performance conversations and formal year-end reviews.",

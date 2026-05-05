@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "strategic-advisory",
   "name": "Strategic Advisory",
   "summary": "Consulting-style advisory deck applying Minto's pyramid: title, situation/complication/question, the answer in one sentence, and three argued points with a process. Use when the audience expects a recommendation and the case for it, in that order.",

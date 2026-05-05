@@ -1,4 +1,4 @@
-# @dataadvantage/opf
+# @openpresentation/opf
 
 Canonical Open Presentation Format package for JavaScript and TypeScript.
 
@@ -16,7 +16,7 @@ Build the workspace package first:
 
 ```sh
 pnpm install
-pnpm --filter @dataadvantage/opf build
+pnpm --filter @openpresentation/opf build
 ```
 
 Use the common root API for most application code:
@@ -29,9 +29,9 @@ import {
   catalogs,
   validate,
   validatePresentation,
-} from "@dataadvantage/opf";
+} from "@openpresentation/opf";
 
-import type { Presentation } from "@dataadvantage/opf";
+import type { Presentation } from "@openpresentation/opf";
 
 const deck: Presentation = {
   name: "Quarterly Review",
@@ -48,16 +48,16 @@ console.log(Object.keys(catalogs));
 Use focused imports when you only need one surface:
 
 ```ts
-import { presentation, audience } from "@dataadvantage/opf/schemas";
-import { audiences, tones } from "@dataadvantage/opf/catalogs";
-import { validate, assertValid } from "@dataadvantage/opf/validator";
-import type { Presentation, Audience, Tone } from "@dataadvantage/opf/types";
+import { presentation, audience } from "@openpresentation/opf/schemas";
+import { audiences, tones } from "@openpresentation/opf/catalogs";
+import { validate, assertValid } from "@openpresentation/opf/validator";
+import type { Presentation, Audience, Tone } from "@openpresentation/opf/types";
 ```
 
 Validate catalog records locally:
 
 ```ts
-import { audiences, validateCatalogRecord } from "@dataadvantage/opf";
+import { audiences, validateCatalogRecord } from "@openpresentation/opf";
 
 for (const record of audiences) {
   const result = validateCatalogRecord("audiences", record);
@@ -70,7 +70,7 @@ for (const record of audiences) {
 Raw canonical JSON is published under `spec/`:
 
 ```ts
-import presentationSchema from "@dataadvantage/opf/spec/presentation.schema.json" with {
+import presentationSchema from "@openpresentation/opf/spec/presentation.schema.json" with {
   type: "json",
 };
 ```
@@ -81,7 +81,7 @@ Package-addressable catalog paths can be used by OPF catalog resolvers:
 {
   "catalogs": {
     "narratives": {
-      "source": "pkg:@dataadvantage/opf/spec/narratives"
+      "source": "pkg:@openpresentation/opf/spec/narratives"
     }
   }
 }
@@ -90,9 +90,9 @@ Package-addressable catalog paths can be used by OPF catalog resolvers:
 ## Development
 
 ```sh
-pnpm --filter @dataadvantage/opf typecheck
-pnpm --filter @dataadvantage/opf test
-pnpm --filter @dataadvantage/opf pack:dry-run
+pnpm --filter @openpresentation/opf typecheck
+pnpm --filter @openpresentation/opf test
+pnpm --filter @openpresentation/opf pack:dry-run
 ```
 
 `src/generated/` and `dist/` are generated from the root `spec/` directory and are intentionally ignored by git.

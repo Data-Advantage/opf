@@ -4,7 +4,7 @@ export {
   tones,
   themes,
   layouts,
-  charts,
+  chartTypes,
   narratives,
   socials,
   languages,

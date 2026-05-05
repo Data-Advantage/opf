@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "pitch-deck",
   "name": "Startup Pitch Deck",
   "summary": "The canonical investor-pitch arc, drawn from Sequoia and Y Combinator's templates. Optimized for 10–20 minute meetings with VCs and angels. Each beat answers the question an investor will ask next.",

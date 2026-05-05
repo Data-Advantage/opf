@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-language/v1",
+  "$schema": "https://openpresentation.org/schema/opf-language/v1",
   "id": "tagalog",
   "name": "Tagalog",
   "code": "TGL",

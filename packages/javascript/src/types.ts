@@ -4,7 +4,7 @@ export type { Purpose } from "./generated/types/purpose.js";
 export type { Tone } from "./generated/types/tone.js";
 export type { Theme } from "./generated/types/theme.js";
 export type { Layout } from "./generated/types/layout.js";
-export type { Chart } from "./generated/types/chart.js";
+export type { ChartType } from "./generated/types/chart-type.js";
 export type { Narrative } from "./generated/types/narrative.js";
 export type { Social } from "./generated/types/social.js";
 export type { Language } from "./generated/types/language.js";

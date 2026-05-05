@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "board-meeting",
   "name": "Board Meeting",
   "summary": "Comprehensive board update covering CEO commentary, key metrics, financials, functional updates, and forward-looking topics. Designed to keep directors informed, aligned, and ready to advise. Use the full set for in-person quarterly meetings; trim sections for monthly checkpoints.",

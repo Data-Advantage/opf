@@ -1,4 +1,4 @@
-# @dataadvantage/opf-cli
+# @openpresentation/cli
 
 Private local-only CLI source for OPF. This is not a PPTX.dev client and does not render, parse, generate, call remote APIs, fetch catalogs, or use AI.
 
@@ -10,7 +10,7 @@ Build the CLI from the workspace:
 
 ```sh
 pnpm install
-pnpm --filter @dataadvantage/opf-cli build
+pnpm --filter @openpresentation/cli build
 ```
 
 Run the built CLI directly during development:

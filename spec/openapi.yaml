@@ -4,7 +4,7 @@ info:
   version: "1.0.0"
   description: |
     REST API for parsing, validating, converting, generating, and rendering presentations.
-    OPF (Open Presentation Format) is the JSON contract; schema URL: `https://pptx.dev/schema/opf/v1`.
+    OPF (Open Presentation Format) is the JSON contract; schema URL: `https://openpresentation.org/schema/opf/v1`.
 
     **Authentication:** Send `Authorization: Bearer <Clerk API key>` on every request, or use a signed-in browser session (Studio). `POST /v1/preview` is anonymous (IP rate-limited) for the OPF Playground.
 
@@ -56,7 +56,7 @@ paths:
               minimal:
                 summary: Minimal OPF
                 value:
-                  $schema: "https://pptx.dev/schema/opf/v1"
+                  $schema: "https://openpresentation.org/schema/opf/v1"
                   meta:
                     title: Example
                   design:
@@ -484,7 +484,7 @@ components:
       properties:
         $schema:
           type: string
-          const: "https://pptx.dev/schema/opf/v1"
+          const: "https://openpresentation.org/schema/opf/v1"
         meta:
           type: object
           additionalProperties: true

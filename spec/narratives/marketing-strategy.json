@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "marketing-strategy",
   "name": "Marketing Strategy",
   "summary": "Comprehensive go-to-market strategy arc structured around the 4Ps. Use for category launches, annual marketing plans, and any deck where the audience needs to see customer, market, competition, and tactics in one coherent picture.",

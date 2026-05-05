@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-audience/v1",
+  "$schema": "https://openpresentation.org/schema/opf-audience/v1",
   "id": "candidates",
   "name": "Candidates",
   "summary": "Potential hires evaluating company, role, and people.",

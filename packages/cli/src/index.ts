@@ -4,7 +4,7 @@ import {
   catalogEntries,
   schemaEntries,
   validatePresentation,
-} from "@dataadvantage/opf";
+} from "@openpresentation/opf";
 
 function usage(): never {
   console.error(`Usage:

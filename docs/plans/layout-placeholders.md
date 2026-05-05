@@ -32,7 +32,7 @@ Plan for adding a `placeholders` field to [`spec/layout.schema.json`](../../spec
 
 - 400 records in [`spec/layouts/extract/layout.json`](../../spec/layouts/extract/layout.json).
 - 5,664 records in [`spec/layouts/extract/placeholder.json`](../../spec/layouts/extract/placeholder.json).
-- 401 files in [`spec/layouts/`](../../spec/layouts/), all conforming to the layout schema except [`spec/layouts/index.json`](../../spec/layouts/index.json), which uses `https://pptx.dev/schema/opf-layout-index/v1`. **Drift is 1 file (the index), not 2.**
+- 401 files in [`spec/layouts/`](../../spec/layouts/), all conforming to the layout schema except [`spec/layouts/index.json`](../../spec/layouts/index.json), which uses `https://openpresentation.org/schema/opf-layout-index/v1`. **Drift is 1 file (the index), not 2.**
 - All 400 per-layout files have the **exact same key shape** (1 distinct shape across 400 files), with no `description`, `summary`, `tags`, or `preview` content. **Zero hand-curated data** — bulk regeneration is safe.
 - `rg '"slideSubtitle"' spec/layouts` → 0 hits. The schema field at [`spec/layout.schema.json:192-198`](../../spec/layout.schema.json) is unused by every record.
 
@@ -299,7 +299,7 @@ for each L in layouts:
 
   # 5. Build the final record.
   record = {
-    "$schema": "https://pptx.dev/schema/opf-layout/v1",
+    "$schema": "https://openpresentation.org/schema/opf-layout/v1",
     id,
     name: titleCaseFromName(L.name),       // Title_Left -> "Title Left"
     placeholders,

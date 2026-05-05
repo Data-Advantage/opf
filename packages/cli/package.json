@@ -1,5 +1,5 @@
 {
-  "name": "@dataadvantage/opf-cli",
+  "name": "@openpresentation/cli",
   "version": "0.0.0",
   "private": true,
   "description": "Local-only OPF CLI source for validation and catalog inspection.",
@@ -10,11 +10,11 @@
   },
   "scripts": {
     "build": "tsup",
-    "typecheck": "pnpm --filter @dataadvantage/opf build && tsc --noEmit",
+    "typecheck": "pnpm --filter @openpresentation/opf build && tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@dataadvantage/opf": "workspace:*"
+    "@openpresentation/opf": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.19.0",

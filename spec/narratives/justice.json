@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-narrative/v1",
+  "$schema": "https://openpresentation.org/schema/opf-narrative/v1",
   "id": "justice",
   "name": "Justice",
   "summary": "Advocacy arc inspired by the rhetorical structure of Martin Luther King Jr.'s 'I Have a Dream' speech: name the inequality, share the dream, build urgency, layer further visions, emphasize unity, call to action, and close on hope. For movement-building keynotes and mission-driven speeches.",

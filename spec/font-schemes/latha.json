@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "$schema": "https://openpresentation.org/schema/opf-font-scheme/v1",
   "id": "latha",
   "name": "Latha",
   "app": "PowerPoint",

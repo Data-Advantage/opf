@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://pptx.dev/schema/opf-layout/v1",
+  "$id": "https://openpresentation.org/schema/opf-layout/v1",
   "title": "OPF Slide Layout",
   "description": "Schema for slide-layout records in the pptx.gallery library. Each record describes a semantic slide layout — what regions it exposes and what content kinds those regions are intended to hold. Layouts are referenced from OPF documents via Slide.layout; the engine resolves the reference against catalogs.layouts (inline) → catalogs.layouts.source → the default catalog at https://www.pptx.gallery/layouts. Free-form custom layout names that don't resolve through any catalog fall through to engine-defined layouts.",
   "type": "object",
@@ -12,8 +12,8 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://pptx.dev/schema/opf-layout/v1",
-      "description": "Identifies this record as a slide layout in the pptx.dev library."
+      "const": "https://openpresentation.org/schema/opf-layout/v1",
+      "description": "Identifies this record as a slide layout in the openpresentation.org catalog."
     },
     "id": {
       "type": "string",

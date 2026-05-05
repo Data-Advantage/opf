@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-layout/v1",
+  "$schema": "https://openpresentation.org/schema/opf-layout/v1",
   "id": "list-4x",
   "name": "List 4x",
   "placeholders": [

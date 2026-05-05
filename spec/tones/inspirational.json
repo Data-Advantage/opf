@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-tone/v1",
+  "$schema": "https://openpresentation.org/schema/opf-tone/v1",
   "id": "inspirational",
   "name": "Inspirational",
   "summary": "Aspirational, narrative-driven voice for keynotes, founders, and rallying cries.",

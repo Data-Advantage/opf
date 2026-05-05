@@ -1,5 +1,5 @@
 {
-  "$schema": "https://pptx.dev/schema/opf-tone/v1",
+  "$schema": "https://openpresentation.org/schema/opf-tone/v1",
   "id": "formal",
   "name": "Formal",
   "summary": "Polished, restrained voice for board, investor, and regulator audiences.",

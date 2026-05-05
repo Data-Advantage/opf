@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://pptx.dev/schema/opf-font-scheme/v1",
+  "$id": "https://openpresentation.org/schema/opf-font-scheme/v1",
   "title": "OPF Font Scheme",
   "description": "Schema for font-scheme records in the pptx.gallery library. Each scheme pairs a major (heading) and minor (body) font family in the OOXML majorFont/minorFont sense, scoped to a target app (PowerPoint or Google Slides) and a language family (Latin, East Asian, or Complex Script). Font schemes are referenced from OPF documents via design.fontScheme or design.fontScheme.id; the engine resolves the reference against catalogs.fontSchemes (inline) → catalogs.fontSchemes.source → the default catalog at https://www.pptx.gallery/font-schemes. Role overrides on design.fontScheme (heading, body, accent, code) take precedence over the resolved scheme.",
   "type": "object",
@@ -14,8 +14,8 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "const": "https://pptx.dev/schema/opf-font-scheme/v1",
-      "description": "Identifies this record as a font scheme in the pptx.dev library."
+      "const": "https://openpresentation.org/schema/opf-font-scheme/v1",
+      "description": "Identifies this record as a font scheme in the openpresentation.org catalog."
     },
     "id": {
       "type": "string",
