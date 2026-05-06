@@ -144,7 +144,7 @@
       "title": "Signal Trend",
       "type": "chart",
       "chart": {
-        "type": "united-kindom",
+        "type": "united-kingdom",
         "data": {
           "columns": [
             "Quarter",
